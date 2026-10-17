@@ -1,0 +1,70 @@
+name: pilot
+on:
+  workflow_dispatch:
+    inputs:
+      ot_release:
+        description: "Open Targets Platform release, e.g. 25.09 (blank = latest)"
+        required: false
+        default: ""
+permissions:
+  contents: write
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Minikel et al. (2024) genetic-support data (CC BY 4.0), pinned commit
+        run: |
+          git clone https://github.com/ericminikel/genetic_support /tmp/genetic_support
+          git -C /tmp/genetic_support checkout b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
+      - name: Week stamp for the download cache
+        id: wk
+        run: echo "wk=$(date -u +%G-%V)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: data
+          key: data-${{ steps.wk.outputs.wk }}-${{ inputs.ot_release }}
+      - name: Open Targets clinical reports, evidence, targets, diseases, molecules
+        env:
+          OT_RELEASE: ${{ inputs.ot_release }}
+        run: python pilot/fetch_opentargets.py data/ot
+      - name: ClinicalTrials.gov, all interventional studies (API v2)
+        run: |
+          if [ ! -s data/ctgov_all.csv ]; then python pilot/fetch_ctgov.py all data/ctgov_all.csv; fi
+          wc -l data/ctgov_all.csv
+      - name: Build programme panel and H1/transition tables
+        run: python pilot/build_panel26.py data/ot /tmp/genetic_support/data results
+      - name: Robustness checks
+        run: python pilot/robust26.py results
+      - name: RQ2 stop reasons around the 2022 funding downturn
+        run: python pilot/rq2_stops.py data/ctgov_all.csv results
+      - name: Provenance
+        run: |
+          {
+            echo "run_utc: $(date -u +%FT%TZ)"
+            echo "open_targets_release: $(cat data/ot/RELEASE)"
+            echo "ctgov_rows: $(($(wc -l < data/ctgov_all.csv) - 1))"
+            echo "minikel_commit: b84cf0580b7df1af14b2c72068ed42b5aa0c52a4"
+            echo "code_commit: ${GITHUB_SHA}"
+          } > results/PROVENANCE.txt
+          cat results/PROVENANCE.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pilot-data
+          path: |
+            data/ctgov_all.csv
+            results/
+          retention-days: 30
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results
+          git commit -m "Pilot results $(date -u +%F)" || echo "nothing to commit"
+          git push

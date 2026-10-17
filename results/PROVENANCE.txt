@@ -1,0 +1,4 @@
+run_local: 2026-10-17 (author Mac, Python 3.9.6, pandas 2.2.3)
+open_targets_release: 26.09
+ctgov_rows: 463466 (ClinicalTrials.gov API v2, downloaded 2026-10-17)
+minikel_commit: b84cf0580b7df1af14b2c72068ed42b5aa0c52a4

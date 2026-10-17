@@ -1,0 +1,33 @@
+{
+  "ot_release": "26.09",
+  "evidence_rows": 876506,
+  "evidence_rows_by_mesh_method": {
+    "xref": 528372,
+    "name": 252111,
+    "ancestor1": 67657,
+    "ancestor2": 22694,
+    "ancestor4": 2208,
+    "ancestor5": 1059,
+    "ancestor6": 862,
+    "ancestor3": 852,
+    "unmapped": 691
+  },
+  "evidence_rows_with_gene": 876506,
+  "trial_reports_usable": 188047,
+  "trial_reports_all": 230989,
+  "programme_trial_links": 157769,
+  "programmes_with_trials": 35887,
+  "programmes_in_sim": 32690,
+  "programmes_with_insight": 29199,
+  "programmes_insight_source": {
+    "minikel": 22291,
+    "approx": 6908
+  },
+  "phase_entries": {
+    "1": 10553,
+    "2": 25048,
+    "3": 12316
+  },
+  "phase_entries_prior_higher": 6341,
+  "end_year": 2026
+}
