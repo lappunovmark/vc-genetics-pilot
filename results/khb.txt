@@ -1,0 +1,15 @@
+support column: gs_ante; N = 26542; support share top-20 = 0.0517
+             tier vs top-20  total (KHB reduced)  direct (full)  indirect via support  share mediated %  naive (no support)  support share in tier
+      Industry, large (>30)               0.4609         0.4568                0.0040            0.8765              0.4559                 0.0609
+       Industry, mid (6-30)               0.0859         0.0953               -0.0094          -11.0029              0.0835                 0.0485
+Industry, small (<=5 drugs)              -0.1723        -0.1586               -0.0137            7.9469             -0.1728                 0.0505
+             Academic/other              -0.6852        -0.6566               -0.0286            4.1800             -0.6857                 0.0210
+                 Government              -0.6966        -0.6692               -0.0274            3.9294             -0.6949                 0.0117
+
+support column: gs_ot_ante; N = 26542; support share top-20 = 0.0629
+             tier vs top-20  total (KHB reduced)  direct (full)  indirect via support  share mediated %  naive (no support)  support share in tier
+      Industry, large (>30)               0.4603         0.4730               -0.0127           -2.7512              0.4559                 0.0486
+       Industry, mid (6-30)               0.0848         0.0965               -0.0117          -13.7788              0.0835                 0.0561
+Industry, small (<=5 drugs)              -0.1723        -0.1541               -0.0182           10.5837             -0.1728                 0.0464
+             Academic/other              -0.6840        -0.6487               -0.0352            5.1533             -0.6857                 0.0191
+                 Government              -0.6942        -0.6621               -0.0321            4.6246             -0.6949                 0.0192
