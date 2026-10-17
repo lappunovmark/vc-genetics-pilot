@@ -310,6 +310,8 @@ def main(ot, mdir, out):
 
     prog.to_csv(f'{out}/programmes.csv.gz', index=False)
     ent.to_csv(f'{out}/phase_entries.csv.gz', index=False)
+    targets.to_csv(f'{out}/programme_targets.csv.gz', index=False)
+    dm.to_csv(f'{out}/disease_mesh.csv.gz', index=False)
     tr.drop_duplicates('clinicalReportId')[['clinicalReportId', 'lead_sponsor', 'sponsor_norm', 'lead_class', 'top20_parent',
                                             'sponsor_n_drugs', 'sponsor_tier']].to_csv(f'{out}/sponsors.csv.gz', index=False)
 

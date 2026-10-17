@@ -1,0 +1,87 @@
+coverage: {'rows': 1066667, 'with_gene': 0.9999915625026368, 'with_mesh': 0.5475232663989793, 'dated': 0.9703750092578096, 'by_source': {'gwas_credible_sets': 477893, 'eva': 465109, 'gene_burden': 36805, 'genomics_england': 34784, 'uniprot_variants': 33047, 'uniprot_literature': 6714, 'orphanet': 6293, 'gene2phenotype': 3754, 'clingen': 2268}}
+Agreement with Minikel-based labels (programmes with insight):
+gs_ot_post  False  True    All
+gs_post                       
+False       25891  1158  27049
+True         1085  1065   2150
+All         26976  2223  29199
+gs_ot_ante_first  False  True    All
+gs_ante_first                       
+False             27734   506  28240
+True                516   443    959
+All               28250   949  29199
+                                 n  gs_ot_post  gs_ot_ante
+first_sponsor_tier                                        
+Academic/other               15093      0.0565      0.0229
+Government                    2945      0.0587      0.0163
+Industry, large (>30)         1696      0.1008      0.0413
+Industry, mid (6-30)          2294      0.0933      0.0532
+Industry, small (<=5 drugs)   1867      0.0868      0.0407
+Top-20 pharma                 5296      0.1225      0.0542
+Unknown                          8      0.2500      0.1250
+==========================================================================================
+H1 with dated OT evidence: ex-ante support at first trial
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191
+                                         Coef.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]       -0.3289  0.0562 -0.6664  0.0086  0.7197  0.5135  1.0087
+C(tier)[T.Industry, mid (6-30)]        -0.2072  0.1335 -0.4778  0.0635  0.8129  0.6202  1.0655
+C(tier)[T.Industry, small (<=5 drugs)] -0.4623  0.0061 -0.7930 -0.1316  0.6298  0.4525  0.8767
+C(tier)[T.Academic/other]              -1.0423  0.0000 -1.2592 -0.8254  0.3527  0.2839  0.4381
+C(tier)[T.Government]                  -1.2069  0.0000 -1.6507 -0.7631  0.2991  0.1919  0.4662
+dated OT evidence, ex ante: share of entries supported 0.0358
+==========================================================================================
+Advance ~ support (dated OT evidence, ex ante)
+adv ~ gs + C(tier) + C(phase) + C(yb) + C(area) + C(modality)
+N=26542
+                                         Coef.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]        0.4730  0.0000  0.3254  0.6206  1.6047  1.3845  1.8600
+C(tier)[T.Industry, mid (6-30)]         0.0965  0.1985 -0.0506  0.2436  1.1013  0.9507  1.2758
+C(tier)[T.Industry, small (<=5 drugs)] -0.1541  0.0552 -0.3116  0.0034  0.8572  0.7323  1.0034
+C(tier)[T.Academic/other]              -0.6487  0.0000 -0.7545 -0.5430  0.5227  0.4703  0.5810
+C(tier)[T.Government]                  -0.6621  0.0000 -0.8183 -0.5059  0.5158  0.4412  0.6030
+gs                                      0.7815  0.0000  0.6277  0.9353  2.1847  1.8733  2.5479
+==========================================================================================
+Advance ~ support x tier (dated OT evidence, ex ante)
+adv ~ gs * C(tier) + C(phase) + C(yb) + C(area) + C(modality)
+N=26542
+                                            Coef.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]           0.4661  0.0000  0.3136  0.6186  1.5938  1.3683  1.8563
+C(tier)[T.Industry, mid (6-30)]            0.0637  0.4137 -0.0891  0.2165  1.0658  0.9148  1.2418
+C(tier)[T.Industry, small (<=5 drugs)]    -0.1743  0.0350 -0.3364 -0.0122  0.8400  0.7143  0.9878
+C(tier)[T.Academic/other]                 -0.6442  0.0000 -0.7524 -0.5360  0.5251  0.4712  0.5851
+C(tier)[T.Government]                     -0.6431  0.0000 -0.8013 -0.4849  0.5256  0.4487  0.6157
+gs                                         0.7530  0.0000  0.5011  1.0050  2.1234  1.6506  2.7318
+gs:C(tier)[T.Industry, large (>30)]        0.1308  0.6226 -0.3900  0.6515  1.1397  0.6771  1.9185
+gs:C(tier)[T.Industry, mid (6-30)]         0.5175  0.0246  0.0664  0.9687  1.6779  1.0686  2.6346
+gs:C(tier)[T.Industry, small (<=5 drugs)]  0.3622  0.1866 -0.1753  0.8997  1.4364  0.8392  2.4588
+gs:C(tier)[T.Academic/other]              -0.2388  0.2593 -0.6536  0.1761  0.7876  0.5202  1.1925
+gs:C(tier)[T.Government]                  -1.0759  0.0036 -1.8006 -0.3512  0.3410  0.1652  0.7038
+OT evidence, any year: share of entries supported 0.0856
+==========================================================================================
+Advance ~ support (OT evidence, any year)
+adv ~ gs + C(tier) + C(phase) + C(yb) + C(area) + C(modality)
+N=26542
+                                         Coef.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]        0.4737  0.0000  0.3267  0.6208  1.6060  1.3864  1.8604
+C(tier)[T.Industry, mid (6-30)]         0.1118  0.1371 -0.0356  0.2591  1.1183  0.9650  1.2958
+C(tier)[T.Industry, small (<=5 drugs)] -0.1499  0.0618 -0.3072  0.0074  0.8608  0.7355  1.0074
+C(tier)[T.Academic/other]              -0.6276  0.0000 -0.7331 -0.5222  0.5339  0.4804  0.5932
+C(tier)[T.Government]                  -0.6422  0.0000 -0.7982 -0.4862  0.5261  0.4502  0.6150
+gs                                      0.6840  0.0000  0.5681  0.8000  1.9818  1.7649  2.2255
+==========================================================================================
+Advance ~ support x tier (OT evidence, any year)
+adv ~ gs * C(tier) + C(phase) + C(yb) + C(area) + C(modality)
+N=26542
+                                            Coef.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]           0.4459  0.0000  0.2848  0.6070  1.5619  1.3295  1.8350
+C(tier)[T.Industry, mid (6-30)]            0.0950  0.2393 -0.0633  0.2533  1.0997  0.9387  1.2882
+C(tier)[T.Industry, small (<=5 drugs)]    -0.1759  0.0398 -0.3437 -0.0082  0.8387  0.7092  0.9918
+C(tier)[T.Academic/other]                 -0.6060  0.0000 -0.7172 -0.4948  0.5455  0.4881  0.6097
+C(tier)[T.Government]                     -0.6083  0.0000 -0.7722 -0.4445  0.5443  0.4620  0.6411
+gs                                         0.7190  0.0000  0.5262  0.9119  2.0524  1.6924  2.4890
+gs:C(tier)[T.Industry, large (>30)]        0.2365  0.2170 -0.1389  0.6119  1.2668  0.8703  1.8439
+gs:C(tier)[T.Industry, mid (6-30)]         0.1640  0.3710 -0.1953  0.5232  1.1782  0.8226  1.6875
+gs:C(tier)[T.Industry, small (<=5 drugs)]  0.2109  0.3015 -0.1891  0.6109  1.2348  0.8277  1.8420
+gs:C(tier)[T.Academic/other]              -0.2494  0.0744 -0.5234  0.0246  0.7793  0.5925  1.0249
+gs:C(tier)[T.Government]                  -0.4309  0.0603 -0.8805  0.0187  0.6499  0.4146  1.0189

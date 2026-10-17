@@ -11,6 +11,7 @@ outcomes (draft in Claude Docs, Section 5.1 reports the pilot).
 | Genetic-support labels (Minikel et al. 2024 definition) | `pilot/gensup.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | Programme panel, H1 selection, phase transitions, logits | `pilot/build_panel26.py` | — |
 | Robustness: adjusted H1, strict / similar-indication advancement, no-OMIM, benchmark | `pilot/robust26.py` | — |
+| Ex-ante support from Open Targets evidence dated by Falaguera et al. | `pilot/gs_ot_dated.py` | Zenodo 15922783 (OT 25.03) |
 | RQ2: stop reasons and rates around the 2022 funding downturn | `pilot/rq2_stops.py`, `pilot/stopreasons.py` | — |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
 
@@ -21,6 +22,7 @@ python pilot/fetch_ctgov.py all data/ctgov_all.csv
 git clone https://github.com/ericminikel/genetic_support /tmp/genetic_support   # then checkout b84cf05
 python pilot/build_panel26.py data/ot /tmp/genetic_support/data results
 python pilot/robust26.py results
+python pilot/gs_ot_dated.py results data/ot data/falaguera/evidence_dated /tmp/genetic_support/data
 python pilot/rq2_stops.py data/ctgov_all.csv results
 ```
 or run **Actions → pilot → Run workflow** once the repository is on GitHub.
