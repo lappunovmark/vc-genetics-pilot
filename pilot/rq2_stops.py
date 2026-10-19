@@ -39,7 +39,9 @@ def load(path):
     ct = ct[ct.intervention_types.fillna('').str.contains('DRUG|BIOLOGICAL|GENETIC')]
     ct = ct[ct.phases.fillna('').str.contains('PHASE1|PHASE2|PHASE3')].copy()
     for c in ('start_date', 'completion_date', 'primary_completion_date', 'last_update'):
-        ct[c] = pd.to_datetime(ct[c], errors='coerce')
+        # ClinicalTrials.gov mixes 'YYYY-MM' and 'YYYY-MM-DD'; without format='mixed' pandas >= 2 infers one format
+        # and silently drops the other (about 38% of start dates). 'YYYY-MM' is read as the first of the month.
+        ct[c] = pd.to_datetime(ct[c], errors='coerce', format='mixed')
     ct['start_year'] = ct.start_date.dt.year
     ct['top20'] = [sponsors.top20_parent(n, y) for n, y in zip(ct.lead_sponsor, ct.start_year)]
     ct['sponsor_norm'] = ct.lead_sponsor.map(norm_sponsor)

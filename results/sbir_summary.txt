@@ -1,0 +1,18 @@
+awardee organisations (normalised): 9327; industry sponsors on ClinicalTrials.gov: 7891
+candidate matches: 697 (exact 694, fuzzy 3); accepted 618 (strict name agreement 594, accepted after hand review 24, rejected 79)
+
+Share of industry Phase 1-3 drug trials whose sponsor had an NIH SBIR/STTR award before the trial started:
+                                 mean   sum   size
+group                                             
+Industry, large (>200 trials)  0.0000     0   5092
+Industry, mid (21-200)         0.0845  1651  19550
+Industry, small (<=20)         0.0719  1918  26689
+Top-20 pharma                  0.0208   648  31094
+
+Share of sponsors ever matched, by group:
+                                 mean  sum  size
+group                                           
+Industry, large (>200 trials)  0.0000    0    16
+Industry, mid (21-200)         0.1083   43   397
+Industry, small (<=20)         0.0785  573  7301
+Top-20 pharma                  0.0113    2   177

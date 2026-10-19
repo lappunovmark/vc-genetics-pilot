@@ -110,7 +110,7 @@ def tost(d, ctrl, out, title, margin=0.02):
 
 
 def prep(T):
-    T = T.copy()
+    T = T[T.end_year.notna()].copy()  # a few trials have no completion or stop date: period unknown
     T['outcome'] = pd.Categorical(T.outcome, categories=OUT).remove_unused_categories()
     T['modality'] = T.drugType.map(MOD).fillna('other')
     T['area'] = T.area.fillna('other')
@@ -125,22 +125,21 @@ CTRL0 = 'C(phase) + C(yb) + C(area) + C(modality)'
 CTRL = CTRL0 + ' + C(group)'
 
 
-def financial_models(F, out, unit):
+def financial_models(F, out, unit, y='gs_ante', robust=False):
     F = F[F.outcome.isin([OUT[0], OUT[1]])].copy()
     F['fin'] = F.outcome.eq(OUT[1]).astype(int)
-    F['y'] = F.gs_ante.astype(int)
+    F['y'] = F[y].astype(int)
     fit(f'y ~ fin + {CTRL}', F, out, f'[{unit}] Financial/strategic stop vs completed')
     fit(f'y ~ fin * post22 + {CTRL}', F, out, f'[{unit}] ... x ended 2022 or later', keep=('fin', 'post22', 'fin:post22'))
     for lab, sub in (('ended before 2022', F[F.post22.eq(0)]), ('ended 2022 or later', F[F.post22.eq(1)])):
-        fit(f'y ~ fin + {CTRL}', sub, out, f'[{unit}] Financial/strategic stop vs completed, trials that {lab}')
         tost(sub, CTRL, out, f'[{unit}] trials that {lab}')
     fit(f'y ~ fin * small + {CTRL0}', F, out, f'[{unit}] ... x small sponsor (<=20 trials)', keep=('fin', 'small', 'fin:small'))
     fit(f'y ~ fin + {CTRL0}', F[F.small.eq(1)], out, f'[{unit}] Small sponsors only')
     tost(F, CTRL, out, f'[{unit}] all years')
-    if unit == 'trial':
+    if robust:
         rob = 'C(phase) + C(start_year) + C(area) + C(modality) + C(group)'
-        fit(f'y ~ fin * post22 + {rob}', F, out, '[trial] robustness: start-year fixed effects', keep=('fin', 'post22', 'fin:post22'))
-        fit(f'y ~ fin * post22 + {rob} + C(drug_age)', F, out, '[trial] robustness: + years since the drug\'s first trial',
+        fit(f'y ~ fin * post22 + {rob}', F, out, f'[{unit}] robustness: start-year fixed effects', keep=('fin', 'post22', 'fin:post22'))
+        fit(f'y ~ fin * post22 + {rob} + C(drug_age)', F, out, f'[{unit}] robustness: + years since the drug\'s first trial',
             keep=('fin', 'post22', 'fin:post22'))
 
 
@@ -158,8 +157,20 @@ def analyse(T, L, out):
     for y in ('gs_ante', 'gs_post', 'gs_ante_noomim'):
         T['y'] = T[y].astype(int)
         fit(f'y ~ {ref} + {CTRL}', T, out, f'{y} ~ outcome (reference: completed) + phase, start period, area, modality, sponsor group')
-    financial_models(T, out, 'trial')
+    T['y'] = T.gs_ante.astype(int)
+    for lab, sub in (('ended before 2022', T[T.post22.eq(0)]), ('ended 2022 or later', T[T.post22.eq(1)])):
+        fit(f'y ~ {ref} + {CTRL}', sub, out, f'gs_ante ~ outcome, trials that {lab}')
+    financial_models(T, out, 'trial', robust=True)
     financial_models(prep(L), out, 'trial x indication link')
+    # Sensitivity: OMIM evidence carries no discovery year and is counted as ex ante in gs_ante; drop it entirely.
+    tab4 = T.groupby(['outcome', 'post22'], observed=True).agg(trials=('nct_id', 'size'),
+                                                              gs_ante_noomim=('gs_ante_noomim', 'mean')).unstack()
+    out.extend(['=' * 100, 'Sensitivity without OMIM: ex-ante support (no OMIM) by outcome x ended 2022 or later:',
+                tab4.round(4).to_string()])
+    T['y'] = T.gs_ante_noomim.astype(int)
+    for lab, sub in (('ended before 2022', T[T.post22.eq(0)]), ('ended 2022 or later', T[T.post22.eq(1)])):
+        fit(f'y ~ {ref} + {CTRL}', sub, out, f'gs_ante_noomim ~ outcome, trials that {lab}')
+    financial_models(T, out, 'trial, no OMIM', y='gs_ante_noomim', robust=True)
     return T
 
 

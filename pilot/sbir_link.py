@@ -6,12 +6,14 @@ Matching (precision first):
   2. fuzzy match within blocks sharing the first normalised token: rapidfuzz token_sort_ratio >= 92 and the shorter
      name at least 6 characters.
 Every match, exact or fuzzy, is written out with both original names for hand validation (normalisation strips generic
-words such as 'pharmaceuticals', so two different firms can share a core name). A sponsor counts as SBIR/STTR-funded
+words such as 'pharmaceuticals', so two different firms can share a core name). A match is used only if the two names
+agree after removing legal forms alone (inc, ltd, llc, ...) and it is not rejected in sbir_decisions.csv, or if it is
+accepted there after hand review (renamed firms, predecessors, subsidiaries). A sponsor counts as SBIR/STTR-funded
 before a trial if its earliest award fiscal year is earlier than the trial's start year.
 Writes RESULTS_DIR/sbir_sponsors.csv (one row per matched sponsor), sbir_match_review.csv (every match),
 sbir_trials.csv.gz and sbir_summary.txt.
 """
-import os, sys
+import os, re, sys
 import numpy as np, pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rq2_stops
@@ -20,6 +22,26 @@ try:
     from rapidfuzz import fuzz, process
 except ImportError:  # pragma: no cover
     fuzz = process = None
+
+
+LEGAL = re.compile(r'\b(incorporated|inc|ltd|limited|llc|corp|corporation|co|company|gmbh|ag|sa|plc|bv|nv|spa|kk|pty|'
+                   r'srl|ab|as|oy|kg|lp|the)\b')
+DECISIONS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sbir_decisions.csv')
+
+
+def strict(s):
+    s = re.sub(r'[^a-z0-9]+', ' ', str(s).lower())
+    return re.sub(r'\s+', ' ', LEGAL.sub(' ', s)).strip()
+
+
+def apply_decisions(m, path=DECISIONS):
+    d = pd.read_csv(path)
+    dec = {(strict(a), strict(b)): v for a, b, v in zip(d.lead_sponsor, d.sbir_org, d.decision)}
+    m = m.copy()
+    m['strict_eq'] = [strict(a) == strict(b) for a, b in zip(m.lead_sponsor, m.sbir_org)]
+    m['decision'] = [dec.get((strict(a), strict(b))) for a, b in zip(m.lead_sponsor, m.sbir_org)]
+    m['accepted'] = (m.strict_eq & m.decision.ne('reject')) | m.decision.eq('accept')
+    return m
 
 
 def awardees(path):
@@ -70,18 +92,21 @@ def match(sp, aw, threshold=92, min_len=6):
 def main(sbir_csv, ctg, R):
     aw = awardees(sbir_csv)
     sp, ct = sponsors_from_ctgov(ctg)
-    m = match(sp, aw)
+    m = apply_decisions(match(sp, aw))
     m.to_csv(f'{R}/sbir_sponsors.csv', index=False)
-    m[['match', 'lead_sponsor', 'norm', 'sbir_org', 'sbir_norm', 'score', 'sbir_state', 'sbir_country', 'n_trials',
+    m[['match', 'accepted', 'decision', 'lead_sponsor', 'norm', 'sbir_org', 'sbir_norm', 'score', 'sbir_state', 'n_trials',
        'first_trial_year', 'sbir_first_fy']].sort_values(['match', 'score']).to_csv(f'{R}/sbir_match_review.csv', index=False)
-    ct = ct.merge(m[['norm', 'sbir_first_fy']].rename(columns={'norm': 'sponsor_norm'}), on='sponsor_norm', how='left')
+    acc = m[m.accepted]
+    ct = ct.merge(acc[['norm', 'sbir_first_fy']].rename(columns={'norm': 'sponsor_norm'}), on='sponsor_norm', how='left')
     ct['sbir_before'] = ct.sbir_first_fy.lt(ct.start_year)
     out = [f'awardee organisations (normalised): {len(aw)}; industry sponsors on ClinicalTrials.gov: {len(sp)}',
-           f'matched sponsors: {len(m)} (exact {int(m.match.eq("exact").sum())}, fuzzy {int(m.match.eq("fuzzy").sum())})',
+           f'candidate matches: {len(m)} (exact {int(m.match.eq("exact").sum())}, fuzzy {int(m.match.eq("fuzzy").sum())}); '
+           f'accepted {len(acc)} (strict name agreement {int((m.strict_eq & m.accepted).sum())}, '
+           f'accepted after hand review {int((~m.strict_eq & m.accepted).sum())}, rejected {int((~m.accepted).sum())})',
            '', 'Share of industry Phase 1-3 drug trials whose sponsor had an NIH SBIR/STTR award before the trial started:',
            ct.groupby('group').sbir_before.agg(['mean', 'sum', 'size']).round(4).to_string(),
            '', 'Share of sponsors ever matched, by group:',
-           sp.assign(matched=sp.norm.isin(m.norm)).groupby('group').matched.agg(['mean', 'sum', 'size']).round(4).to_string()]
+           sp.assign(matched=sp.norm.isin(acc.norm)).groupby('group').matched.agg(['mean', 'sum', 'size']).round(4).to_string()]
     open(f'{R}/sbir_summary.txt', 'w').write('\n'.join(out))
     ct[['nct_id', 'sponsor_norm', 'group', 'start_year', 'sbir_first_fy', 'sbir_before']].to_csv(f'{R}/sbir_trials.csv.gz', index=False)
     print('\n'.join(out))

@@ -1,0 +1,698 @@
+match,accepted,decision,lead_sponsor,norm,sbir_org,sbir_norm,score,sbir_state,n_trials,first_trial_year,sbir_first_fy
+exact,True,,"23andMe, Inc.",23andme,"23ANDME, INC.",23andme,100.0,CA,2,2021.0,2010
+exact,True,,"7 Hills Pharma, LLC",7 hills,"7 HILLS PHARMA, LLC",7 hills,100.0,TX,2,2020.0,2016
+exact,True,accept,"Aadi Bioscience, Inc.",aadi,"AADI, LLC",aadi,100.0,CA,10,2014.0,2012
+exact,True,,"Abcuro, Inc.",abcuro,"ABCURO, INC.",abcuro,100.0,MA,4,2021.0,2019
+exact,True,,Abgenix,abgenix,"ABGENIX, INC.",abgenix,100.0,CA,3,1999.0,2001
+exact,True,,ACADIA Pharmaceuticals Inc.,acadia,"ACADIA PHARMACEUTICALS, INC.",acadia,100.0,CA,38,2004.0,2000
+exact,True,,"Access Pharmaceuticals, Inc.",access,"ACCESS PHARMACEUTICALS, INC.",access,100.0,TX,1,2000.0,2000
+exact,True,,Acetylon Pharmaceuticals Incorporated,acetylon,"ACETYLON PHARMACEUTICALS, INC.",acetylon,100.0,MA,1,2014.0,2013
+exact,True,,Achieve Life Sciences,achieve life sciences,"ACHIEVE LIFE SCIENCES, INC.",achieve life sciences,100.0,WA,31,2002.0,2021
+exact,True,,Acorda Therapeutics,acorda,"ACORDA THERAPEUTICS, INC.",acorda,100.0,NY,37,2002.0,2000
+exact,True,,Actinium Pharmaceuticals,actinium,"ACTINIUM PHARMACEUTICALS, INC.",actinium,100.0,NY,6,2012.0,2020
+exact,True,,"ActivX Biosciences, Inc.",activx,"ACTIVX BIOSCIENCES, INC.",activx,100.0,CA,2,2007.0,2002
+exact,True,,Acumen Pharmaceuticals,acumen,"ACUMEN PHARMACEUTICALS, INC.",acumen,100.0,CA,3,2021.0,2005
+exact,True,,Acura Pharmaceuticals Inc.,acura,"ACURA PHARMACEUTICALS, INC.",acura,100.0,IL,4,2007.0,2014
+exact,True,,"Adjuvance Technologies, Inc.",adjuvance technologies,"ADJUVANCE TECHNOLOGIES, INC.",adjuvance technologies,100.0,NE,1,2021.0,2014
+exact,True,,"Aduro Biotech, Inc.",aduro,ADURO BIOTECH,aduro,100.0,CA,8,2011.0,2010
+exact,True,,Advanced Cancer Therapeutics,advanced cancer,"ADVANCED CANCER THERAPEUTICS,  LLC",advanced cancer,100.0,KY,1,2014.0,2012
+exact,True,,"Advanced Life Sciences, Inc.",advanced life sciences,"ADVANCED LIFE SCIENCES, INC.",advanced life sciences,100.0,IL,3,2005.0,2003
+exact,True,,"Advaxis, Inc.",advaxis,"ADVAXIS, INC.",advaxis,100.0,NJ,10,2010.0,2004
+exact,True,,"Adynxx, Inc.",adynxx,"ADYNXX, INC.",adynxx,100.0,CA,5,2013.0,2019
+exact,True,,AegisCN LLC,aegiscn,"AEGISCN, LLC",aegiscn,100.0,NC,2,2015.0,2018
+exact,True,,Aeris Therapeutics,aeris,"AERIS THERAPEUTICS, INC.",aeris,100.0,MA,9,2005.0,2004
+exact,True,,"Aeromics, Inc.",aeromics,"AEROMICS, INC",aeromics,100.0,CT,1,2018.0,2008
+exact,True,,Aerpio Therapeutics,aerpio,"AERPIO THERAPEUTICS, INC.",aerpio,100.0,OH,6,2012.0,2015
+exact,True,,Aestus Therapeutics,aestus,"AESTUS THERAPEUTICS, INC.",aestus,100.0,NJ,1,2011.0,2007
+exact,True,,Afasci Inc,afasci,"AFASCI, INC.",afasci,100.0,CA,4,2023.0,2003
+exact,True,,AgeneBio,agenebio,"AGENEBIO, INC.",agenebio,100.0,MD,2,2018.0,2019
+exact,True,,Agennix,agennix,"AGENNIX, INC.",agennix,100.0,TX,17,2003.0,2000
+exact,True,,Agenus Inc.,agenus,"AGENUS, INC.",agenus,100.0,MA,29,2000.0,2000
+exact,True,,"Agitated Solutions, Inc.",agitated solutions,"AGITATED SOLUTIONS, LLC",agitated solutions,100.0,MN,1,2025.0,2022
+exact,True,,"AgonOx, Inc.",agonox,"AGONOX, INC.",agonox,100.0,OR,1,2023.0,2012
+exact,False,,Akaza Bioscience Ltd,akaza,AKAZA RESEARCH,akaza,100.0,MA,1,2020.0,2004
+exact,True,,"Albany Molecular Research, Inc.",albany molecular,"ALBANY MOLECULAR RESEARCH, INC.",albany molecular,100.0,NY,1,2008.0,2000
+exact,True,,Alcamena Stem Cell Therapeutics,alcamena stem cell,"ALCAMENA STEM CELL THERAPEUTICS, LLC",alcamena stem cell,100.0,MD,1,2026.0,2018
+exact,True,,Alector Inc.,alector,"ALECTOR, LLC",alector,100.0,CA,10,2018.0,2015
+exact,True,,Alessa Therapeutics Inc.,alessa,"ALESSA THERAPEUTICS, INC.",alessa,100.0,CA,2,2021.0,2021
+exact,True,,"Alexion Pharmaceuticals, Inc.",alexion,"ALEXION PHARMACEUTICALS, INC.",alexion,100.0,CT,199,2002.0,2000
+exact,True,,"Alkermes, Inc.",alkermes,"ALKERMES, INC.",alkermes,100.0,MA,75,2002.0,2001
+exact,True,,"Alkeus Pharmaceuticals, Inc.",alkeus,"ALKEUS PHARMACEUTICALS, INC.",alkeus,100.0,MA,5,2014.0,2012
+exact,True,,"Allay Therapeutics, Inc.",allay,ALLAY THERAPEUTICS INC,allay,100.0,CA,2,2022.0,2020
+exact,False,,Allyx Therapeutics,allyx,"ALLYX BIOSCIENCES, INC.",allyx,100.0,CT,4,2023.0,2020
+exact,True,,Alnylam Pharmaceuticals,alnylam,ALNYLAM PHARMACEUTICALS,alnylam,100.0,MA,69,2007.0,2006
+exact,True,,Alto Neuroscience,alto neuroscience,"ALTO NEUROSCIENCE, INC.",alto neuroscience,100.0,CA,10,2021.0,2020
+exact,True,,Altor BioScience,altor,ALTOR BIOSCIENCE. LLC,altor,100.0,FL,14,2004.0,2000
+exact,True,,Altus Pharmaceuticals,altus,"ALTUS PHARMACEUTICALS, INC.",altus,100.0,MA,2,2005.0,2000
+exact,True,,"Alume Biosciences, Inc.",alume,"ALUME BIOSCIENCES, INC.",alume,100.0,CA,4,2020.0,2019
+exact,True,,"Alzeca Biosciences, Inc.",alzeca,"ALZECA BIOSCIENCES, INC.",alzeca,100.0,TX,1,2022.0,2017
+exact,True,,American Gene Technologies International Inc.,american gene technologies,AMERICAN GENE TECHNOLOGIES INTERNATIONAL,american gene technologies,100.0,MD,1,2020.0,2012
+exact,True,,Amplo Biotechnology,amplo,"AMPLO BIOTECHNOLOGY, INC.",amplo,100.0,MD,1,2026.0,2021
+exact,True,,"Amygdala Neurosciences, Inc.",amygdala neurosciences,"AMYGDALA NEUROSCIENCES, INC.",amygdala neurosciences,100.0,CA,1,2017.0,2021
+exact,True,,AndroScience Corp,androscience,ANDROSCIENCE CORPORATION,androscience,100.0,CA,2,2007.0,2002
+exact,True,,Angiocrine Bioscience,angiocrine,"ANGIOCRINE BIOSCIENCE, INC.",angiocrine,100.0,CA,4,2018.0,2015
+exact,True,,Angion Biomedica Corp,angion biomedica,ANGION BIOMEDICA CORPORATION,angion biomedica,100.0,NY,12,2010.0,2000
+exact,True,,"Annexon, Inc.",annexon,"ANNEXON, INC.",annexon,100.0,CA,16,2016.0,2012
+exact,True,,Annovis Bio Inc.,annovis bio,"ANNOVIS BIO, INC.",annovis bio,100.0,PA,8,2010.0,2010
+exact,True,,Anosys,anosys,"ANOSYS, INC.",anosys,100.0,CA,1,2002.0,2000
+exact,True,,"Antidote Therapeutics, Inc",antidote,"ANTIDOTE THERAPEUTICS, INC.",antidote,100.0,MD,1,2025.0,2017
+exact,True,,"Anza Therapeutics, Inc.",anza,"ANZA THERAPEUTICS, INC.",anza,100.0,CA,3,2006.0,2006
+exact,False,,Apex Bioscience,apex,"APEX THERAPEUTICS, INC.",apex,100.0,IN,1,2001.0,2009
+exact,True,,Aphios,aphios,APHIOS CORPORATION,aphios,100.0,MA,2,2023.0,2000
+exact,False,,"Apogee Therapeutics, Inc.",apogee,APOGEE BIOTECHNOLOGY CORPORATION,apogee,100.0,PA,4,2024.0,2002
+exact,True,,Apollomics Inc.,apollomics,"APOLLOMICS, INC.",apollomics,100.0,CA,5,2017.0,2018
+exact,True,,Applied Molecular Evolution,applied molecular evolution,"APPLIED MOLECULAR EVOLUTION, INC.",applied molecular evolution,100.0,CA,2,2006.0,2001
+exact,True,,Aprea Therapeutics,aprea,"APREA THERAPEUTICS, INC.",aprea,100.0,PA,12,2009.0,2023
+exact,False,,"APT Pharmaceuticals, Inc.",apt,"APT THERAPEUTICS, INC.",apt,100.0,MO,2,2008.0,2004
+exact,True,,Aptinyx,aptinyx,"APTINYX, INC.",aptinyx,100.0,IL,8,2016.0,2015
+exact,True,,Aqualung Therapeutics Corp.,aqualung,"AQUALUNG THERAPEUTICS, CORP",aqualung,100.0,IL,2,2022.0,2011
+exact,True,,Aradigm Corporation,aradigm,ARADIGM CORPORATION,aradigm,100.0,CA,3,2010.0,2005
+exact,True,,"Arcato Laboratories, Inc.",arcato laboratories,"ARCATO LABORATORIES, INC.",arcato laboratories,100.0,NC,1,2025.0,2018
+exact,True,,Archemix Corp.,archemix,ARCHEMIX CORPORATION,archemix,100.0,MA,5,2006.0,2002
+exact,True,,Arena Pharmaceuticals,arena,ARENA PHARMACEUTICALS,arena,100.0,CA,17,2007.0,2000
+exact,True,,Arete Therapeutics,arete,"ARETE THERAPEUTICS, INC.",arete,100.0,CA,1,2009.0,2005
+exact,True,,Arginox Pharmaceuticals,arginox,"ARGINOX PHARMACEUTICALS, INC.",arginox,100.0,CA,1,2005.0,2003
+exact,True,,"Aridis Pharmaceuticals, Inc.",aridis,"ARIDIS PHARMACEUTICALS, LLC",aridis,100.0,CA,6,2012.0,2005
+exact,True,,"Arisan Therapeutics, Inc.",arisan,"ARISAN THERAPEUTICS, INC.",arisan,100.0,CA,3,2023.0,2011
+exact,True,,Arisaph Pharmaceuticals Inc,arisaph,"ARISAPH PHARMACEUTICALS, INC.",arisaph,100.0,MA,3,2014.0,2011
+exact,True,,"Aronora, Inc.",aronora,"ARONORA, INC.",aronora,100.0,OR,4,2017.0,2009
+exact,True,,Arrevus Inc.,arrevus,"ARREVUS, INC.",arrevus,100.0,NC,5,2009.0,2018
+exact,True,,"Artery Therapeutics, Inc.",artery,"ARTERY THERAPEUTICS, INC.",artery,100.0,CA,1,2023.0,2019
+exact,True,,Arvinas Inc.,arvinas,"ARVINAS, INC.",arvinas,100.0,CT,5,2019.0,2016
+exact,True,,Ascenta Therapeutics,ascenta,"ASCENTA THERAPEUTICS, INC.",ascenta,100.0,PA,10,2005.0,2005
+exact,True,,"AsclepiX Therapeutics, Inc.",asclepix,"ASCLEPIX THERAPEUTICS, INC.",asclepix,100.0,MD,3,2020.0,2014
+exact,True,,Ash Access Technology,ash access technology,"ASH ACCESS TECHNOLOGY, INC.",ash access technology,100.0,IN,1,2006.0,2005
+exact,False,reject,"ATGC Co., Ltd.",atgc,"ATGC, INC.",atgc,100.0,MI,2,2019.0,2017
+exact,False,reject,Atlantic Pharmaceuticals Ltd,atlantic,"ATLANTIC PHARMACEUTICALS, INC.",atlantic,100.0,GA,2,2015.0,2007
+exact,True,,Atsena Therapeutics Inc.,atsena,"ATSENA THERAPEUTICS, INC.",atsena,100.0,NC,2,2019.0,2025
+exact,True,,Attenuon,attenuon,"ATTENUON, LLC",attenuon,100.0,CA,4,2005.0,2002
+exact,True,,Auritec Pharmaceuticals,auritec,"AURITEC PHARMACEUTICALS, INC.",auritec,100.0,CA,2,2015.0,2004
+exact,True,,"Autoimmune Technologies, LLC",autoimmune technologies,"AUTOIMMUNE TECHNOLOGIES, LLC",autoimmune technologies,100.0,LA,3,2011.0,2006
+exact,True,,Avanir Pharmaceuticals,avanir,AVANIR PHARMACEUTICALS,avanir,100.0,CA,10,2001.0,2000
+exact,True,,"Avaxia Biologics, Incorporated",avaxia biologics,"AVAXIA BIOLOGICS, INC.",avaxia biologics,100.0,MA,1,2013.0,2009
+exact,True,,Avid Radiopharmaceuticals,avid radiopharmaceuticals,"AVID RADIOPHARMACEUTICALS, INC.",avid radiopharmaceuticals,100.0,PA,43,2007.0,2005
+exact,False,reject,"Avidity Biosciences, Inc.",avidity,"AVIDITY, LLC",avidity,100.0,CO,10,2021.0,2001
+exact,True,,AVM Biotechnology Inc,avm,"AVM BIOTECHNOLOGY, LLC",avm,100.0,WA,2,2020.0,2019
+exact,True,,Axogen Corporation,axogen,"AXOGEN, INC.",axogen,100.0,FL,1,2015.0,2007
+exact,True,,"AyuVis Research, Inc.",ayuvis,"AYUVIS RESEARCH, INC.",ayuvis,100.0,TX,1,2025.0,2017
+exact,True,,Azevan Pharmaceuticals,azevan,"AZEVAN PHARMACEUTICALS, INC.",azevan,100.0,PA,9,2007.0,2000
+exact,True,,Azitra Inc.,azitra,"AZITRA, INC.",azitra,100.0,CT,3,2024.0,2016
+exact,True,,Balance Therapeutics,balance,"BALANCE THERAPEUTICS, INC.",balance,100.0,CA,4,2015.0,2011
+exact,True,,"Basking Biosciences, Inc.",basking,BASKING BIOSCIENCES,basking,100.0,NC,3,2021.0,2020
+exact,False,,Beacon Therapeutics,beacon,"BEACON BIOTECHNOLOGY, LLC",beacon,100.0,CO,10,2009.0,2010
+exact,True,,"Bexion Pharmaceuticals, Inc.",bexion,"BEXION PHARMACEUTICALS, INC.",bexion,100.0,KY,6,2016.0,2007
+exact,True,,"BioAtla, Inc.",bioatla,"BIOATLA, LLC",bioatla,100.0,CA,6,2018.0,2016
+exact,True,,"BioAxone BioSciences, Inc.",bioaxone,"BIOAXONE BIOSCIENCES, INC.",bioaxone,100.0,MA,2,2015.0,2014
+exact,True,,"BioCardia, Inc.",biocardia,"BIOCARDIA, INC.",biocardia,100.0,CA,2,2016.0,2009
+exact,False,reject,Biocon Limited,biocon,"BIOCON, INC.",biocon,100.0,MD,13,2010.0,2000
+exact,True,,BioCryst Pharmaceuticals,biocryst,"BIOCRYST PHARMACEUTICALS, INC.",biocryst,100.0,AL,53,2001.0,2003
+exact,True,,Biodel,biodel,"BIODEL, INC.",biodel,100.0,CT,16,2006.0,2012
+exact,True,,BioDelivery Sciences International,biodelivery sciences,"BIODELIVERY SCIENCES INTERNATIONAL, INC.",biodelivery sciences,100.0,NJ,20,2006.0,2001
+exact,True,accept,"BioMarck Pharmaceuticals, Ltd.",biomarck,"BIOMARCK PHARMACEUTICALS, LTD",biomarck,100.0,NC,3,2008.0,2003
+exact,True,,BioMarin Pharmaceutical,biomarin,"BIOMARIN PHARMACEUTICAL, INC.",biomarin,100.0,CA,77,2000.0,2001
+exact,True,,Biomedica Management Corporation,biomedica management,BIOMEDICA MANAGEMENT CORPORATION,biomedica management,100.0,NY,1,2014.0,2002
+exact,True,,Biomedical Development Corporation,biomedical,BIOMEDICAL DEVELOPMENT CORPORATION,biomedical,100.0,TX,6,2006.0,2000
+exact,True,,Biomedisyn Corporation,biomedisyn,BIOMEDISYN CORPORATION,biomedisyn,100.0,CT,1,2010.0,2008
+exact,True,accept,BioMimetic Therapeutics,biomimetic,"BIOMIMETIC PHARMACEUTICALS, INC.",biomimetic,100.0,TN,1,2012.0,2001
+exact,True,,"BioMimetix JV, LLC",biomimetix jv,"BIOMIMETIX JV, LLC",biomimetix jv,100.0,CO,9,2017.0,2015
+exact,True,,Bionovo,bionovo,"BIONOVO, INC.",bionovo,100.0,CA,8,2006.0,2010
+exact,True,,BioRestorative Therapies,biorestorative therapies,"BIORESTORATIVE THERAPIES, INC.",biorestorative therapies,100.0,NY,1,2022.0,2021
+exact,True,,BioSante Pharmaceuticals,biosante,"BIOSANTE PHARMACEUTICALS, INC",biosante,100.0,IL,5,2003.0,2003
+exact,False,reject,"Biostar Pharma, Inc.",biostar,"BIOSTAR, INC.",biostar,100.0,MD,2,2023.0,2002
+exact,True,,BioStratum,biostratum,"BIOSTRATUM, INC.",biostratum,100.0,NC,2,2001.0,2002
+exact,True,,Biosyn,biosyn,"BIOSYN, INC.",biosyn,100.0,PA,5,2004.0,2002
+exact,False,reject,"Biota Pharmaceuticals, Inc.",biota,BIOTA INC.,biota,100.0,CO,4,2014.0,2025
+exact,True,,"US Biotest, Inc.",biotest,"US BIOTEST, INC.",biotest,100.0,CA,24,1999.0,2004
+exact,False,reject,"Biotheryx, Inc.",biotheryx,"BIOTHERYX, INC.",biotheryx,100.0,NY,2,2022.0,2013
+exact,True,,Bloom Science,bloom science,"BLOOM SCIENCE, INC.",bloom science,100.0,CA,1,2023.0,2024
+exact,True,,BlueWillow Biologics,bluewillow biologics,"BLUEWILLOW BIOLOGICS, INC.",bluewillow biologics,100.0,MI,2,2020.0,2010
+exact,True,,Bond Biosciences,bond,"BOND BIOSCIENCES, INC.",bond,100.0,NY,2,2022.0,2021
+exact,False,,Boston Pharmaceuticals,boston,BOSTON BIOTECHNOLOGY CORPORATION,boston,100.0,MA,13,2011.0,2000
+exact,True,,Boston Immune Technologies and Therapeutics,boston immune technologies and,"BOSTON IMMUNE TECHNOLOGIES AND THERAPEUTICS, INC.",boston immune technologies and,100.0,MA,1,2025.0,2021
+exact,True,,Boulder Care,boulder care,"BOULDER CARE, INC.",boulder care,100.0,OR,1,2025.0,2019
+exact,True,,BriaCell Therapeutics Corporation,briacell,BRIACELL THERAPEUTICS CORP,briacell,100.0,PA,4,2017.0,2023
+exact,True,,BridGene Biosciences Inc.,bridgene,"BRIDGENE BIOSCIENCES, INC.",bridgene,100.0,CA,1,2024.0,2018
+exact,True,,C2N Diagnostics,c2n diagnostics,"C2N DIAGNOSTICS, LLC",c2n diagnostics,100.0,MO,1,2015.0,2009
+exact,True,,Calando Pharmaceuticals,calando,"CALANDO PHARMACEUTICALS, INC.",calando,100.0,CA,1,2008.0,2006
+exact,True,,Callisto Pharmaceuticals,callisto,"CALLISTO PHARMACEUTICALS, INC.",callisto,100.0,NY,6,2004.0,2000
+exact,True,,"Camino Pharma, LLC",camino,"CAMINO PHARMA, LLC",camino,100.0,CA,1,2021.0,2020
+exact,True,,Cancer Targeted Technology,cancer targeted technology,"CANCER TARGETED TECHNOLOGY, LLC",cancer targeted technology,100.0,WA,3,2016.0,2010
+exact,True,,Capricor Inc.,capricor,"CAPRICOR, INC.",capricor,100.0,CA,10,2012.0,2009
+exact,True,,Capstone Therapeutics,capstone,CAPSTONE THERAPEUTICS CORPORATION,capstone,100.0,AZ,4,2004.0,2005
+exact,True,,Carcinex Inc,carcinex,"CARCINEX, INC.",carcinex,100.0,CO,1,2026.0,2000
+exact,False,,Cardium Therapeutics,cardium,"CARDIUM PHARMACEUTICALS, INC.",cardium,100.0,MA,4,2001.0,2005
+exact,True,,"Caribou Biosciences, Inc.",caribou,"CARIBOU BIOSCIENCES, INC.",caribou,100.0,CA,4,2021.0,2013
+exact,True,,"Carmot Therapeutics, Inc.",carmot,"CARMOT THERAPEUTICS, INC.",carmot,100.0,CA,7,2021.0,2010
+exact,False,,Cartesian Therapeutics,cartesian,"CARTESIAN RESEARCH, INC.",cartesian,100.0,OR,12,2018.0,2000
+exact,True,,"CarthroniX, Inc.",carthronix,"CARTHRONIX, INC.",carthronix,100.0,CA,1,2026.0,2022
+exact,True,,"Cassava Sciences, Inc.",cassava sciences,"CASSAVA SCIENCES, INC",cassava sciences,100.0,CA,9,2019.0,2004
+exact,True,,Catabasis Pharmaceuticals,catabasis,"CATABASIS PHARMACEUTICALS, INC.",catabasis,100.0,MA,13,2011.0,2010
+exact,False,,"Catalyst Pharmaceuticals, Inc.",catalyst,CATALYST BIOSCIENCES,catalyst,100.0,CA,17,2008.0,2004
+exact,True,,"CBT4CBT, LLC",cbt4cbt,"CBT4CBT, LLC",cbt4cbt,100.0,CT,1,2019.0,2000
+exact,True,,CEL-SCI Corporation,cel sci,CEL-SCI CORPORATION,cel sci,100.0,VA,2,2010.0,2000
+exact,True,,Celldex Therapeutics,celldex,"CELLDEX THERAPEUTICS, INC.",celldex,100.0,MA,43,2004.0,2000
+exact,True,,"Cellectar Biosciences, Inc.",cellectar,"CELLECTAR BIOSCIENCES, INC.",cellectar,100.0,MA,14,2006.0,2007
+exact,True,,Cellerant Therapeutics,cellerant,"CELLERANT THERAPEUTICS, INC.",cellerant,100.0,CA,3,2009.0,2003
+exact,True,,Cellf Bio LLC,cellf bio,CELLF-BIO INC,cellf bio,100.0,VA,1,2022.0,2015
+exact,True,,"CellSight Technologies, Inc.",cellsight technologies,"CELLSIGHT TECHNOLOGIES, INC.",cellsight technologies,100.0,CA,11,2015.0,2017
+exact,True,,Cenna Biosciences Inc.,cenna,"CENNA BIOSCIENCES, INC.",cenna,100.0,CA,1,2026.0,2012
+exact,True,,Centaur Pharmaceuticals,centaur,"CENTAUR PHARMACEUTICALS, INC.",centaur,100.0,CA,2,,2000
+exact,True,,"CerRx, Inc.",cerrx,"CERRX, INC.",cerrx,100.0,TX,1,2016.0,2014
+exact,True,,Cerus Corporation,cerus,CERUS CORPORATION,cerus,100.0,CA,6,2012.0,2003
+exact,True,,"Cessation Therapeutics, Inc.",cessation,"CESSATION THERAPEUTICS, LLC",cessation,100.0,CA,1,2023.0,2019
+exact,True,,"Chrono Therapeutics, Inc.",chrono,"CHRONO THERAPEUTICS, INC.",chrono,100.0,CA,1,2017.0,2012
+exact,True,,CicloMed LLC,ciclomed,"CICLOMED, LLC",ciclomed,100.0,MO,4,2018.0,2020
+exact,False,reject,Circadian Technologies Ltd.,circadian technologies,"CIRCADIAN TECHNOLOGIES, INC.",circadian technologies,100.0,MA,1,2011.0,2001
+exact,True,accept,"Clarametyx Biosciences, Inc.",clarametyx,"CLARAMETYX BIOSCIENCE, INC.",clarametyx,100.0,OH,2,2022.0,2022
+exact,False,,Clarity Pharmaceuticals Ltd,clarity,"CLARITY BIOSCIENCES, INC.",clarity,100.0,CA,11,2015.0,2000
+exact,True,,"Clear Scientific, Inc.",clear scientific,"CLEAR SCIENTIFIC, LLC",clear scientific,100.0,MA,3,2024.0,2020
+exact,True,,Cleveland BioLabs,cleveland biolabs,"CLEVELAND BIOLABS, INC.",cleveland biolabs,100.0,NY,2,2006.0,2004
+exact,True,,"Cloudbreak Therapeutics, LLC",cloudbreak,"CLOUDBREAK THERAPEUTICS, LLC",cloudbreak,100.0,CA,6,2017.0,2018
+exact,True,,"Codagenix, Inc",codagenix,"CODAGENIX, INC.",codagenix,100.0,NY,8,2017.0,2012
+exact,True,,Cognition Therapeutics,cognition,"COGNITION THERAPEUTICS, INC.",cognition,100.0,PA,13,2006.0,2010
+exact,True,,Colby Pharmaceutical Company,colby,COLBY PHARMACEUTICAL COMPANY,colby,100.0,CA,2,2008.0,2008
+exact,True,,CollaGenex Pharmaceuticals,collagenex,"COLLAGENEX PHARMACEUTICALS, INC.",collagenex,100.0,PA,2,2002.0,2000
+exact,True,,"Collegium Pharmaceutical, Inc.",collegium,"COLLEGIUM PHARMACEUTICAL, INC.",collegium,100.0,MA,1,2012.0,2014
+exact,True,,Concerto Biosciences,concerto,CONCERTO BIOSCIENCES,concerto,100.0,MA,1,2024.0,2022
+exact,True,,Context Therapeutics Inc.,context,"CONTEXT THERAPEUTICS, LLC",context,100.0,PA,5,2022.0,2016
+exact,True,,Control Delivery Systems,control delivery systems,"CONTROL DELIVERY SYSTEMS, INC.",control delivery systems,100.0,MA,1,2001.0,2000
+exact,True,,Corautus Genetics,corautus genetics,"CORAUTUS GENETICS, INC.",corautus genetics,100.0,GA,1,2004.0,2000
+exact,True,,Corixa Corporation,corixa,CORIXA CORPORATION,corixa,100.0,MT,6,1999.0,2000
+exact,True,accept,CorMedix Therapeutics,cormedix,"CORMEDIX, INC.",cormedix,100.0,NJ,4,2010.0,2017
+exact,False,,Cornerstone Pharmaceuticals,cornerstone,"CORNERSTONE RESEARCH GROUP, INC.",cornerstone,100.0,OH,10,2008.0,2019
+exact,True,,"Crestone, Inc",crestone,"CRESTONE, INC.",crestone,100.0,CO,2,2021.0,2010
+exact,True,,Crimson Biopharm Inc.,crimson biopharm,CRIMSON BIOPHARM INC,crimson biopharm,100.0,MA,1,2027.0,2023
+exact,True,,Crinetics Pharmaceuticals Inc.,crinetics,"CRINETICS PHARMACEUTICALS, INC.",crinetics,100.0,CA,19,2017.0,2010
+exact,False,reject,CTI BioPharma,cti,"CTI, INC.",cti,100.0,TN,38,1998.0,2002
+exact,False,,Cue Biopharma,cue,"CUE BIOTECH, INC",cue,100.0,WI,2,2019.0,2000
+exact,True,,Cumberland Pharmaceuticals,cumberland,"CUMBERLAND PHARMACEUTICALS, INC.",cumberland,100.0,TN,40,2000.0,2004
+exact,True,,CuraGen Corporation,curagen,CURAGEN CORPORATION,curagen,100.0,CT,4,2005.0,2005
+exact,True,,CyanVac LLC,cyanvac,"CYANVAC, LLC",cyanvac,100.0,GA,4,2021.0,2022
+exact,True,accept,Cybrexa Therapeutics,cybrexa,"CYBREXA, INC.",cybrexa,100.0,CT,2,2021.0,2019
+exact,True,,"Cyteir Therapeutics, Inc.",cyteir,"CYTEIR THERAPEUTICS, INC.",cyteir,100.0,MA,1,2019.0,2014
+exact,True,,"CytoAgents, Inc.",cytoagents,"CYTOAGENTS, INC.",cytoagents,100.0,PA,1,2023.0,2020
+exact,True,,Cytokinetics,cytokinetics,"CYTOKINETICS, INC.",cytokinetics,100.0,CA,41,2005.0,2001
+exact,True,,CytomX Therapeutics,cytomx,"CYTOMX THERAPEUTICS, INC.",cytomx,100.0,CA,9,2017.0,2008
+exact,True,,Cytonics Corporation,cytonics,CYTONICS CORPORATION,cytonics,100.0,FL,1,2024.0,2010
+exact,True,,Cytosite Biopharma Inc.,cytosite,"CYTOSITE BIOPHARMA, INC.",cytosite,100.0,MA,3,2020.0,2018
+exact,True,,CytRx,cytrx,CYTRX CORPORATION,cytrx,100.0,CA,8,2005.0,2000
+exact,False,,Defined Research,defined,"DEFINED BIOSCIENCE, INC.",defined,100.0,CA,1,2022.0,2021
+exact,True,,"DEKK-TEC, Inc.",dekk tec,"DEKK-TEC, INC.",dekk tec,100.0,LA,6,2010.0,2000
+exact,False,reject,"Design Therapeutics, Inc.",design,"DESIGN THERAPEUTICS, INC.",design,100.0,TX,5,2022.0,2004
+exact,False,reject,"DexCom, Inc.",dexcom,"DEXCOM, INC.",dexcom,100.0,WI,1,2023.0,2001
+exact,True,,"DiaVacs, Inc.",diavacs,"DIAVACS, INC.",diavacs,100.0,CA,2,2013.0,2016
+exact,True,,"Digestive Care, Inc.",digestive care,"DIGESTIVE CARE, INC.",digestive care,100.0,NJ,1,2007.0,2001
+exact,True,,Direct Therapeutics,direct,"DIRECT THERAPEUTICS, INC.",direct,100.0,CA,2,2000.0,2001
+exact,True,,"DNAtrix, Inc.",dnatrix,"DNATRIX, INC.",dnatrix,100.0,CA,4,2009.0,2014
+exact,True,,Dow Pharmaceutical Sciences,dow sciences,DOW PHARMACEUTICAL SCIENCES,dow sciences,100.0,CA,9,2006.0,2004
+exact,True,,Dynavax Technologies Corporation,dynavax technologies,DYNAVAX TECHNOLOGIES CORPORATION,dynavax technologies,100.0,CA,23,2006.0,2000
+exact,True,,Eagle Vision Pharmaceutical Corp.,eagle vision,EAGLE VISION PHARMACEUTICAL CORPORATION,eagle vision,100.0,PA,1,2008.0,2000
+exact,True,,"Eclipse Life Sciences, Inc.",eclipse life sciences,"ECLIPSE LIFE SCIENCES, INC.",eclipse life sciences,100.0,NC,1,2024.0,2023
+exact,True,,"Editas Medicine, Inc.",editas medicine,"EDITAS MEDICINE, INC.",editas medicine,100.0,MA,3,2019.0,2015
+exact,False,reject,Eiger BioPharmaceuticals,eiger,"EIGER GROUP INTERNATIONAL, INC.",eiger,100.0,CA,10,2009.0,2010
+exact,False,reject,"EIT Pharma, Inc.",eit,"EIT USA, INC.",eit,100.0,AZ,4,2014.0,2025
+exact,True,accept,"Elixirgen Therapeutics, Inc.",elixirgen,"ELIXIRGEN, LLC",elixirgen,100.0,MD,2,2021.0,2016
+exact,True,,"Elorac, Inc.",elorac,"ELORAC, INC.",elorac,100.0,IL,2,2015.0,2022
+exact,True,,"Elysium Therapeutics, Inc.",elysium,"ELYSIUM THERAPEUTICS, INC.",elysium,100.0,CO,1,2022.0,2014
+exact,True,,Enalare Therapeutics Inc.,enalare,ENALARE THERAPEUTICS INC.,enalare,100.0,NJ,2,2025.0,2022
+exact,True,,"Encore Vision, Inc.",encore vision,"ENCORE VISION, INC.",encore vision,100.0,TX,1,2015.0,2012
+exact,True,,Encysive Pharmaceuticals,encysive,ENCYSIVE PHARMACEUTICALS,encysive,100.0,TX,1,2003.0,2005
+exact,True,,Endocyte,endocyte,"ENDOCYTE, INC.",endocyte,100.0,IN,27,2000.0,2000
+exact,True,,Ensysce Biosciences,ensysce,"ENSYSCE BIOSCIENCES, INC.",ensysce,100.0,CA,9,2016.0,2012
+exact,True,,"Epigenetix, Inc.",epigenetix,"EPIGENETIX, INC.",epigenetix,100.0,FL,1,2022.0,2016
+exact,True,,Epiphany Biosciences,epiphany,"EPIPHANY BIOSCIENCES, INC.",epiphany,100.0,CA,1,2007.0,2008
+exact,False,reject,Eva Pharma,eva,EVA CORPORATION,eva,100.0,MD,1,2022.0,2004
+exact,True,,Evon Medics LLC,evon medics,"EVON MEDICS, LLC",evon medics,100.0,MD,2,2021.0,2018
+exact,True,,Excision BioTherapeutics,excision biotherapeutics,"EXCISION BIOTHERAPEUTICS, INC.",excision biotherapeutics,100.0,CA,2,2022.0,2019
+exact,True,,"Exicure, Inc.",exicure,"EXICURE, INC.",exicure,100.0,IL,2,2017.0,2014
+exact,True,,"Expression Therapeutics, LLC",expression,EXPRESSION THERAPEUTICS,expression,100.0,GA,1,2024.0,2006
+exact,True,,Exsar Corporation,exsar,EXSAR CORPORATION,exsar,100.0,NJ,2,2008.0,2001
+exact,True,,Extend Biosciences Inc.,extend,"EXTEND BIOSCIENCES, INC.",extend,100.0,MA,2,2022.0,2013
+exact,False,,Factor Therapeutics Ltd.,factor,"FACTOR BIOSCIENCE, INC.",factor,100.0,MA,1,2016.0,2012
+exact,True,,"FerroKin BioSciences, Inc.",ferrokin,"FERROKIN BIOSCIENCES, INC.",ferrokin,100.0,CA,1,2009.0,2010
+exact,True,,FeRx,ferx,"FERX, INC.",ferx,100.0,CO,3,2001.0,2000
+exact,True,,"Five Eleven Pharma, Inc.",five eleven,"FIVE ELEVEN PHARMA, INC.",five eleven,100.0,PA,5,2016.0,2017
+exact,True,,FluGen Inc,flugen,"FLUGEN, INC.",flugen,100.0,WI,4,2016.0,2012
+exact,True,,Functional Genetics Inc.,functional genetics,"FUNCTIONAL GENETICS, INC.",functional genetics,100.0,MD,1,2011.0,2006
+exact,True,,"Galera Therapeutics, Inc.",galera,"GALERA THERAPEUTICS, LLC",galera,100.0,PA,17,2013.0,2017
+exact,False,,Gateway Pharmaceutical LLC,gateway,"GATEWAY BIOTECHNOLOGY, INC.",gateway,100.0,MO,1,2025.0,2014
+exact,True,,Gem Pharmaceuticals,gem,"GEM PHARMACEUTICALS, LLC",gem,100.0,AL,4,1999.0,2000
+exact,True,,Genaera Corporation,genaera,GENAERA CORPORATION,genaera,100.0,PA,7,2004.0,2000
+exact,False,,General Therapeutics,general,"GENERAL BIOTECHNOLOGY, LLC",general,100.0,IN,1,2023.0,2000
+exact,True,,General Biophysics LLC,general biophysics,"GENERAL BIOPHYSICS, LLC",general biophysics,100.0,MA,1,2025.0,2021
+exact,True,,Geno LLC,geno,"GENO, LLC",geno,100.0,FL,3,2010.0,2011
+exact,False,reject,Genome & Company,genome,GENOME THERAPEUTICS CORP,genome,100.0,MA,4,2020.0,2000
+exact,True,,"GentiBio, Inc",gentibio,"GENTIBIO, INC.",gentibio,100.0,MA,1,2025.0,2025
+exact,True,,"Genus Oncology, LLC",genus oncology,"GENUS ONCOLOGY, LLC",genus oncology,100.0,IL,1,2011.0,2008
+exact,True,,GenVec,genvec,"GENVEC, INC.",genvec,100.0,MD,9,2005.0,2003
+exact,True,,"GeoVax, Inc.",geovax,"GEOVAX, INC.",geovax,100.0,GA,4,2010.0,2002
+exact,True,,"GigaGen, Inc.",gigagen,"GIGAGEN, INC.",gigagen,100.0,CA,3,2021.0,2011
+exact,True,,Gilead Sciences,gilead sciences,"GILEAD SCIENCES, INC.",gilead sciences,100.0,CA,602,2000.0,2000
+exact,True,,Glaukos Corporation,glaukos,GLAUKOS CORPORATION,glaukos,100.0,CA,23,2007.0,2002
+exact,True,,GlobeImmune,globeimmune,"GLOBEIMMUNE, INC.",globeimmune,100.0,CO,4,2005.0,2000
+exact,True,,"Gradalis, Inc.",gradalis,"GRADALIS, INC.",gradalis,100.0,TX,14,2009.0,2006
+exact,True,,Great Lakes Pharmaceuticals Inc.,great lakes,"GREAT LAKES PHARMACEUTICALS, INC.",great lakes,100.0,OH,1,2012.0,2008
+exact,True,,Greer Laboratories,greer laboratories,"GREER LABORATORIES, INC.",greer laboratories,100.0,NC,2,2008.0,2004
+exact,True,,"Hawaii Biotech, Inc.",hawaii,"HAWAII BIOTECH, INC.",hawaii,100.0,HI,2,2008.0,2000
+exact,True,,HDT Bio,hdt bio,HDT BIO CORPORATION,hdt bio,100.0,WA,2,2022.0,2018
+exact,True,,Hearthstone Alzheimer Care,hearthstone alzheimer care,"HEARTHSTONE ALZHEIMER CARE, LTD",hearthstone alzheimer care,100.0,MA,1,2004.0,2000
+exact,False,,Helix BioPharma Corporation,helix,HELIX RESEARCH COMPANY,helix,100.0,OR,4,2012.0,2000
+exact,True,,HemoShear Therapeutics,hemoshear,"HEMOSHEAR THERAPEUTICS, LLC",hemoshear,100.0,VA,1,2021.0,2010
+exact,True,,"Hillhurst Biopharmaceuticals, Inc.",hillhurst,"HILLHURST BIOPHARMACEUTICALS, INC.",hillhurst,100.0,CA,3,2022.0,2015
+exact,True,,HillMed Inc.,hillmed,HILLMED INC,hillmed,100.0,TX,1,2025.0,2021
+exact,True,,Hinge Bio,hinge bio,"HINGE BIO, INC.",hinge bio,100.0,CA,2,2026.0,2017
+exact,True,,Hope Pharmaceuticals,hope,HOPE PHARMACEUTICALS,hope,100.0,AZ,9,2010.0,2009
+exact,True,,"HTIC, Inc",htic,"HTIC, INC.",htic,100.0,VA,1,2026.0,2025
+exact,True,,"Humacyte, Inc.",humacyte,"HUMACYTE, INC.",humacyte,100.0,NC,9,2013.0,2010
+exact,True,,Humanetics Corporation,humanetics,HUMANETICS CORPORATION,humanetics,100.0,MN,7,2007.0,2009
+exact,False,,IASO Pharma Inc.,iaso,"IASO THERAPEUTICS, INC.",iaso,100.0,MI,1,2010.0,2020
+exact,True,,Icagen,icagen,"ICAGEN, INC.",icagen,100.0,NM,5,2002.0,2006
+exact,True,,Ichor Medical Systems Incorporated,ichor medical systems,"ICHOR MEDICAL SYSTEMS, INC.",ichor medical systems,100.0,CA,3,2000.0,2000
+exact,True,,"IDBiologics, Inc.",idbiologics,"IDBIOLOGICS, LLC",idbiologics,100.0,TN,1,2025.0,2019
+exact,False,reject,IDEA AG,idea,"IDEA INTERNATIONAL, INC.",idea,100.0,NV,10,2004.0,2006
+exact,True,,"ImaginAb, Inc.",imaginab,"IMAGINAB, INC.",imaginab,100.0,CA,5,2013.0,2011
+exact,True,,ImaRx Therapeutics,imarx,"IMARX THERAPEUTICS, INC.",imarx,100.0,AZ,2,2005.0,2000
+exact,True,accept,"Immtech Pharmaceuticals, Inc",immtech,"IMMTECH INTERNATIONAL, INC.",immtech,100.0,IL,5,2001.0,2000
+exact,True,,Immune-Onc Therapeutics,immune onc,"IMMUNE-ONC THERAPEUTICS, INC.",immune onc,100.0,CA,4,2020.0,2020
+exact,True,,Immunicom Inc,immunicom,"IMMUNICOM, INC.",immunicom,100.0,CA,1,2019.0,2022
+exact,True,,"ImmunoChem Therapeutics, LLC",immunochem,"IMMUNOCHEM THERAPEUTICS, LLC",immunochem,100.0,MA,1,2022.0,2018
+exact,True,,"Immunogenics, LLC",immunogenics,"IMMUNOGENICS, LLC",immunogenics,100.0,CA,1,2019.0,2019
+exact,True,,"Immunome, Inc.",immunome,"IMMUNOME, INC.",immunome,100.0,PA,10,2021.0,2008
+exact,True,,"Immunomic Therapeutics, Inc.",immunomic,"IMMUNOMIC THERAPEUTICS, INC.",immunomic,100.0,PA,7,2012.0,2014
+exact,True,,"Immunomolecular Therapeutics, Inc.",immunomolecular,"IMMUNOMOLECULAR THERAPEUTICS, LLC",immunomolecular,100.0,MA,1,2020.0,2018
+exact,True,,"Immunophotonics, Inc.",immunophotonics,"IMMUNOPHOTONICS, INC.",immunophotonics,100.0,MO,2,2022.0,2021
+exact,True,,Imugen,imugen,"IMUGEN, INC.",imugen,100.0,MA,1,2011.0,2000
+exact,True,,"Indapta Therapeutics, INC.",indapta,"INDAPTA THERAPEUTICS, INC.",indapta,100.0,WA,2,2023.0,2019
+exact,True,,Inhibikase Therapeutics,inhibikase,INHIBIKASE THERAPEUTICS,inhibikase,100.0,GA,4,2022.0,2009
+exact,True,accept,"Inhibrx Biosciences, Inc",inhibrx,"INHIBRX, INC.",inhibrx,100.0,CA,6,2018.0,2017
+exact,True,,Inimmune Corporation,inimmune,INIMMUNE CORPORATION,inimmune,100.0,MT,3,2023.0,2018
+exact,True,,"Inmune Bio, Inc.",inmune bio,"INMUNE BIO, INC.",inmune bio,100.0,FL,7,2019.0,2020
+exact,False,,Innate Pharma,innate,INNATE BIOTECH,innate,100.0,IL,17,2007.0,2007
+exact,True,,Inotek Pharmaceuticals Corporation,inotek,INOTEK PHARMACEUTICALS CORPORATION,inotek,100.0,MA,7,2004.0,2000
+exact,True,,Insmed Incorporated,insmed,"INSMED, INC.",insmed,100.0,VA,48,2004.0,2000
+exact,True,accept,InterMune,intermune,"INTERMUNE PHARMACEUTICALS, INC.",intermune,100.0,CA,14,2000.0,2001
+exact,True,,Interventional AnalgesiX Inc.,interventional analgesix,"INTERVENTIONAL ANALGESIX, INC.",interventional analgesix,100.0,NC,1,2026.0,2019
+exact,True,,"InterveXion Therapeutics, LLC",intervexion,"INTERVEXION THERAPEUTICS, LLC",intervexion,100.0,AR,5,2012.0,2004
+exact,True,,"Intezyne Technologies, Inc.",intezyne technologies,"INTEZYNE TECHNOLOGIES, LLC",intezyne technologies,100.0,FL,1,2017.0,2013
+exact,True,,"Intra-Cellular Therapies, Inc.",intra cellular therapies,"INTRA-CELLULAR THERAPIES, INC.",intra cellular therapies,100.0,NY,41,2011.0,2003
+exact,True,,"Intralytix, Inc.",intralytix,"INTRALYTIX, INC.",intralytix,100.0,MD,3,2019.0,2000
+exact,True,,Introgen Therapeutics,introgen,"INTROGEN THERAPEUTICS, INC.",introgen,100.0,TX,5,2002.0,2000
+exact,True,,Intuitive Surgical,intuitive surgical,"INTUITIVE SURGICAL, INC.",intuitive surgical,100.0,CA,7,2016.0,2004
+exact,True,,"InVasc Therapeutics, Inc.",invasc,"INVASC THERAPEUTICS, INC.",invasc,100.0,GA,1,2011.0,2010
+exact,True,,"Invenux, LLC",invenux,"INVENUX, INC.",invenux,100.0,CO,1,2015.0,2002
+exact,True,,Inviragen Inc.,inviragen,"INVIRAGEN, INC.",inviragen,100.0,CO,2,2010.0,2006
+exact,True,,"Ionis Pharmaceuticals, Inc.",ionis,"IONIS PHARMACEUTICALS, INC.",ionis,100.0,CA,107,2000.0,2000
+exact,True,,"iRenix Medical, Inc.",irenix medical,"IRENIX MEDICAL, INC.",irenix medical,100.0,CA,3,2021.0,2017
+exact,True,,"ISTO Technologies, Inc.",isto technologies,ISTO TECHNOLOGIES,isto technologies,100.0,MO,2,2011.0,2002
+exact,True,,Iterion Therapeutics,iterion,ITERION THERAPEUTICS INC. ,iterion,100.0,TX,2,2018.0,2018
+exact,True,,"iVeena Delivery Systems, Inc.",iveena delivery systems,"IVEENA DELIVERY SYSTEMS, INC.",iveena delivery systems,100.0,UT,3,2019.0,2015
+exact,True,,IVIEW Therapeutics Inc.,iview,"IVIEW THERAPEUTICS, INC.",iview,100.0,PA,7,2023.0,2016
+exact,True,,Jacobus Pharmaceutical,jacobus,"JACOBUS PHARMACEUTICAL COMPANY, INC.",jacobus,100.0,NJ,4,1996.0,2002
+exact,False,,Javelin Pharmaceuticals,javelin,JAVELIN BIOTECH,javelin,100.0,MA,14,2001.0,2021
+exact,True,,Juvena Therapeutics,juvena,JUVENA THERAPEUTICS INC,juvena,100.0,CA,2,2025.0,2021
+exact,True,,"Kadmon Corporation, LLC",kadmon,"KADMON CORPORATION, LLC",kadmon,100.0,NY,18,2004.0,2012
+exact,True,,"Kala Pharmaceuticals, Inc.",kala,"KALA PHARMACEUTICALS, INC.",kala,100.0,MA,8,2014.0,2011
+exact,True,,"Kalypsys, Inc.",kalypsys,"KALYPSYS, INC.",kalypsys,100.0,CA,1,2007.0,2004
+exact,True,,"Kalyra Pharmaceuticals, Inc.",kalyra,"KALYRA PHARMACEUTICALS, INC.",kalyra,100.0,CA,1,2019.0,2015
+exact,True,,Karyopharm Therapeutics Inc,karyopharm,"KARYOPHARM THERAPEUTICS, INC.",karyopharm,100.0,MA,36,2012.0,2016
+exact,True,,"Keystone Nano, Inc",keystone nano,"KEYSTONE NANO, INC.",keystone nano,100.0,PA,2,2017.0,2009
+exact,False,,Kibow Pharma,kibow,"KIBOW BIOTECH, INC.",kibow,100.0,PA,2,2021.0,2000
+exact,True,,Kineta Inc.,kineta,"KINETA, INC.",kineta,100.0,WA,4,2013.0,2008
+exact,True,,Kinex Pharmaceuticals Inc.,kinex,"KINEX PHARMACEUTICALS, LLC",kinex,100.0,NY,2,2013.0,2006
+exact,True,,"Kintara Therapeutics, Inc.",kintara,"KINTARA THERAPEUTICS, INC.",kintara,100.0,CA,3,2011.0,2023
+exact,True,accept,Kiromic BioPharma Inc.,kiromic,"KIROMIC, INC.",kiromic,100.0,TX,5,2017.0,2014
+exact,True,,Knopp Biosciences,knopp,"KNOPP BIOSCIENCES, LLC",knopp,100.0,PA,13,2008.0,2016
+exact,True,,Koning Corporation,koning,KONING CORPORATION,koning,100.0,NY,1,2018.0,2003
+exact,True,,Koronis Pharmaceuticals.,koronis,"KORONIS PHARMACEUTICALS, INC.",koronis,100.0,WA,2,2005.0,2002
+exact,True,,"Kure Cells, INC",kure cells,KURE CELLS INC,kure cells,100.0,OH,2,2026.0,2024
+exact,True,,LadeRx LLC,laderx,LADERX LLC,laderx,100.0,NC,1,2024.0,2024
+exact,True,,Lamassu Bio Inc,lamassu bio,LAMASSU BIO INC,lamassu bio,100.0,NC,1,2025.0,2023
+exact,True,,Lexeo Therapeutics,lexeo,"LEXEO THERAPEUTICS, LLC",lexeo,100.0,NY,5,2019.0,2018
+exact,True,accept,"Li-Cor, Inc.",li cor,"LI-COR BIOSCIENCES, INC.",li cor,100.0,NE,2,2017.0,2000
+exact,True,,LifeTime Pharmaceuticals,lifetime,"LIFETIME PHARMACEUTICALS, INC.",lifetime,100.0,MD,3,2000.0,2004
+exact,True,,"Lifordi Immunotherapeutics, Inc.",lifordi immunotherapeutics,"LIFORDI IMMUNOTHERAPEUTICS, INC.",lifordi immunotherapeutics,100.0,MA,1,2025.0,2023
+exact,True,accept,Lightpoint Medical Limited,lightpoint medical,"LIGHTPOINT MEDICAL, INC.",lightpoint medical,100.0,MA,1,2018.0,2019
+exact,False,,"Linnaeus Therapeutics, Inc.",linnaeus,"LINNAEUS BIOSCIENCE, INC.",linnaeus,100.0,CA,2,2019.0,2014
+exact,True,,"Lipella Pharmaceuticals, Inc.",lipella,"LIPELLA PHARMACEUTICALS, INC.",lipella,100.0,PA,3,2015.0,2006
+exact,True,,"Lisata Therapeutics, Inc.",lisata,LISATA THERAPEUTICS INC,lisata,100.0,NJ,16,2000.0,2009
+exact,True,,Livionex Inc.,livionex,"LIVIONEX, INC.",livionex,100.0,CA,1,2006.0,2012
+exact,False,,Locus Biosciences,locus,"LOCUS PHARMACEUTICALS, INC.",locus,100.0,PA,2,2019.0,2004
+exact,True,,Lohocla Research Corporation,lohocla,LOHOCLA RESEARCH CORPORATION,lohocla,100.0,CO,2,2024.0,2000
+exact,True,,"Loki Therapeutics, Inc.",loki,"LOKI THERAPEUTICS, INC",loki,100.0,CA,1,2026.0,2024
+exact,True,,Longeveron Inc.,longeveron,"LONGEVERON, LLC",longeveron,100.0,FL,10,2014.0,2017
+exact,False,reject,Lotus Pharmaceutical,lotus,"LOTUS GROUP, INC.",lotus,100.0,OH,2,2004.0,2005
+exact,True,accept,"Lpath, Inc.",lpath,"LPATH THERAPEUTICS, INC.",lpath,100.0,CA,6,2008.0,2004
+exact,False,,"Lumen Bioscience, Inc.",lumen,LUMEN THERAPEUTICS,lumen,100.0,CA,8,2005.0,2010
+exact,True,,"Lumicell, Inc.",lumicell,"LUMICELL, INC.",lumicell,100.0,MA,3,2015.0,2011
+exact,True,,Luminary Therapeutics,luminary,"LUMINARY THERAPEUTICS, INC.",luminary,100.0,MN,6,2023.0,2020
+exact,True,accept,Lyndra Inc.,lyndra,"LYNDRA THERAPEUTICS, INC.",lyndra,100.0,MA,7,2017.0,2016
+exact,True,,Lyra Therapeutics,lyra,"LYRA THERAPEUTICS, INC.",lyra,100.0,MA,5,2017.0,2016
+exact,True,,"MabVax Therapeutics, Inc.",mabvax,"MABVAX THERAPEUTICS, INC.",mabvax,100.0,CA,1,2010.0,2007
+exact,True,,MacroGenics,macrogenics,"MACROGENICS, INC.",macrogenics,100.0,MD,39,2004.0,2002
+exact,True,,"Maggie's Pearl, LLC",maggie s pearl,"MAGGIE'S PEARL, LLC",maggie s pearl,100.0,MI,1,2022.0,2022
+exact,True,,Maia Biotechnology,maia,"MAIA BIOTECHNOLOGY, INC.",maia,100.0,IL,2,2022.0,2025
+exact,True,,March Biosciences Inc,march,MARCH BIOSCIENCES INC,march,100.0,TX,1,2025.0,2024
+exact,True,,"Marker Therapeutics, Inc.",marker,"MARKER THERAPEUTICS, INC.",marker,100.0,TX,6,2016.0,2023
+exact,False,,Marval Pharma Ltd.,marval,"MARVAL BIOSCIENCES, INC.",marval,100.0,TX,1,2014.0,2005
+exact,True,,"Mast Therapeutics, Inc.",mast,"MAST THERAPEUTICS, INC.",mast,100.0,CA,14,1997.0,2000
+exact,True,,"MaxCyte, Inc.",maxcyte,"MAXCYTE, INC.",maxcyte,100.0,MD,1,2018.0,2003
+exact,True,,Maxim Pharmaceuticals,maxim,"MAXIM PHARMACEUTICALS, INC.",maxim,100.0,CA,2,1998.0,2000
+exact,True,accept,Maxygen Holdings Ltd.,maxygen,"MAXYGEN, INC.",maxygen,100.0,CA,1,2007.0,2005
+exact,True,,"MDI Therapeutics, Inc.",mdi,"MDI THERAPEUTICS, INC.",mdi,100.0,NJ,2,2024.0,2018
+exact,True,,MediBeacon,medibeacon,"MEDIBEACON, INC.",medibeacon,100.0,MO,7,2013.0,2016
+exact,False,,Medigen Biotechnology Corporation,medigen,"MEDIGEN BIOSCIENCES, LLC",medigen,100.0,WI,4,2012.0,2006
+exact,True,,"Medikine, Inc.",medikine,"MEDIKINE, INC.",medikine,100.0,CA,2,2022.0,2012
+exact,False,,"MEI Pharma, Inc.",mei,"MEI RESEARCH, LTD",mei,100.0,MN,13,2004.0,2009
+exact,True,,"Meissa Vaccines, Inc.",meissa vaccines,"MEISSA VACCINES, INC.",meissa vaccines,100.0,CA,5,2020.0,2017
+exact,True,,"MEKanistic Therapeutics, Inc.",mekanistic,"MEKANISTIC THERAPEUTICS, LLC",mekanistic,100.0,MI,1,2026.0,2017
+exact,True,,"MenoGeniX, Inc.",menogenix,"MENOGENIX, INC.",menogenix,100.0,CO,1,2018.0,2018
+exact,True,,"Mercator MedSystems, Inc.",mercator medsystems,"MERCATOR MEDSYSTEMS, INC.",mercator medsystems,100.0,CA,5,2016.0,2007
+exact,True,,"Meridian Bioscience, Inc.",meridian,"MERIDIAN BIOSCIENCE, INC.",meridian,100.0,OH,3,2009.0,2004
+exact,True,,Merrimack Pharmaceuticals,merrimack,"MERRIMACK PHARMACEUTICALS, INC.",merrimack,100.0,MA,25,2005.0,2004
+exact,False,reject,Metabolic Solutions Development Company,metabolic solutions,"METABOLIC SOLUTIONS, INC.",metabolic solutions,100.0,NH,4,2008.0,2000
+exact,True,,Metabolic Technologies Inc.,metabolic technologies,"METABOLIC TECHNOLOGIES, INC.",metabolic technologies,100.0,IA,2,2008.0,2000
+exact,True,,MetaPhore Pharmaceuticals,metaphore,"METAPHORE PHARMACEUTICALS, INC.",metaphore,100.0,MO,2,2001.0,2000
+exact,True,,Microbion Corporation,microbion,MICROBION CORPORATION,microbion,100.0,MT,3,2016.0,2003
+exact,False,reject,"MicrobiotiX Co., Ltd",microbiotix,"MICROBIOTIX, INC",microbiotix,100.0,MA,2,2011.0,2001
+exact,True,,"Microvascular Therapeutics, LLC",microvascular,"MICROVASCULAR THERAPEUTICS, LLC",microvascular,100.0,AZ,1,2019.0,2017
+exact,True,,"MimiVax, LLC",mimivax,"MIMIVAX, LLC",mimivax,100.0,NY,1,2021.0,2022
+exact,True,,Minerva Biotechnologies Corporation,minerva biotechnologies,MINERVA BIOTECHNOLOGIES CORPORATION,minerva biotechnologies,100.0,MA,1,2020.0,2000
+exact,True,,MiNK Therapeutics,mink,MINK THERAPEUTICS INC,mink,100.0,NY,4,2020.0,2025
+exact,True,,"Mirna Therapeutics, Inc.",mirna,"MIRNA THERAPEUTICS, INC.",mirna,100.0,TX,2,2013.0,2008
+exact,False,,Moberg Pharma AB,moberg,"MOBERG RESEARCH, INC.",moberg,100.0,PA,13,2007.0,2000
+exact,True,,"Modulation Therapeutics, Inc.",modulation,"MODULATION THERAPEUTICS, INC.",modulation,100.0,WV,1,2022.0,2012
+exact,True,,"Moerae Matrix, Inc.",moerae matrix,"MOERAE MATRIX, INC.",moerae matrix,100.0,NJ,1,2015.0,2008
+exact,True,,"Molecular Insight Pharmaceuticals, Inc.",molecular insight,"MOLECULAR INSIGHT PHARMACEUTICALS, INC.",molecular insight,100.0,MA,14,2006.0,2002
+exact,True,,"Molecular Targeting Technologies, Inc.",molecular targeting technologies,"MOLECULAR TARGETING TECHNOLOGIES, INC.",molecular targeting technologies,100.0,PA,2,2008.0,2000
+exact,True,,"Momenta Pharmaceuticals, Inc.",momenta,"MOMENTA PHARMACEUTICALS, INC.",momenta,100.0,MA,10,2007.0,2003
+exact,True,,MTI Biotech Inc,mti,"MTI BIOTECH, INC.",mti,100.0,IA,1,2026.0,2017
+exact,True,,"MultiVir, Inc.",multivir,"MULTIVIR, INC.",multivir,100.0,TX,2,2018.0,2018
+exact,True,,Mustang Bio,mustang bio,"MUSTANG BIO, INC.",mustang bio,100.0,MA,2,2020.0,2021
+exact,True,,Myosin Therapeutics Inc.,myosin,MYOSIN THERAPEUTICS INC.,myosin,100.0,FL,2,2026.0,2021
+exact,True,,"Najit Technologies, Inc.",najit technologies,"NAJIT TECHNOLOGIES, INC.",najit technologies,100.0,OR,2,2022.0,2005
+exact,True,,NanoPharmaceuticals LLC,nanopharmaceuticals,"NANOPHARMACEUTICALS, LLC",nanopharmaceuticals,100.0,NY,1,2022.0,2024
+exact,True,,Navidea Biopharmaceuticals,navidea,"NAVIDEA BIOPHARMACEUTICALS, INC.",navidea,100.0,OH,19,2008.0,2012
+exact,True,,"Navigen, Inc.",navigen,"NAVIGEN, INC.",navigen,100.0,UT,1,2020.0,2008
+exact,True,,Nektar Therapeutics,nektar,NEKTAR THERAPEUTICS,nektar,100.0,AL,39,2008.0,2002
+exact,True,,"Neonc Technologies, Inc.",neonc technologies,"NEONC TECHNOLOGIES, INC.",neonc technologies,100.0,CA,4,2017.0,2016
+exact,True,,"Nereus Pharmaceuticals, Inc.",nereus,"NEREUS PHARMACEUTICALS, INC.",nereus,100.0,CA,2,2006.0,2001
+exact,True,,Neumedicines Inc.,neumedicines,"NEUMEDICINES, LLC",neumedicines,100.0,CA,5,2012.0,2004
+exact,True,,Neuralstem Inc.,neuralstem,"NEURALSTEM, INC.",neuralstem,100.0,MD,4,2011.0,2005
+exact,True,,Neurocrine Biosciences,neurocrine,"NEUROCRINE BIOSCIENCES, INC.",neurocrine,100.0,CA,79,2001.0,2000
+exact,True,,NeuroGenetic Pharmaceuticals Inc,neurogenetic,"NEUROGENETIC PHARMACEUTICALS, INC.",neurogenetic,100.0,CA,2,2015.0,2011
+exact,True,,NeuroGT,neurogt,"NEUROGT, INC.",neurogt,100.0,NC,1,2027.0,2020
+exact,True,,Neurokine Therapeutics,neurokine,"NEUROKINE THERAPEUTICS, LLC",neurokine,100.0,NY,1,2022.0,2018
+exact,True,,Neurop Inc.,neurop,"NEUROP, INC.",neurop,100.0,GA,2,2018.0,2004
+exact,True,,NeuroSystec Corporation,neurosystec,NEUROSYSTEC CORPORATION,neurosystec,100.0,CA,1,2009.0,2007
+exact,True,,NeuroWave Systems Inc.,neurowave systems,"NEUROWAVE SYSTEMS, INC.",neurowave systems,100.0,OH,1,2018.0,2006
+exact,True,,NeuTherapeutics,neutherapeutics,"NEUTHERAPEUTICS, LLC",neutherapeutics,100.0,AZ,1,2023.0,2022
+exact,True,,Neutrolis,neutrolis,"NEUTROLIS, INC.",neutrolis,100.0,MA,2,2021.0,2020
+exact,True,,NewLink Genetics Corporation,newlink genetics,NEWLINK GENETICS CORPORATION,newlink genetics,100.0,IA,33,2003.0,2006
+exact,True,,"NexEos Diagnostics, Inc.",nexeos diagnostics,"NEXEOS DIAGNOSTICS, INC.",nexeos diagnostics,100.0,PA,1,2023.0,2020
+exact,True,,NexImmune Inc.,neximmune,"NEXIMMUNE, INC.",neximmune,100.0,MD,3,2020.0,2013
+exact,True,,"Nextrast, Inc.",nextrast,"NEXTRAST, INC.",nextrast,100.0,CA,2,2020.0,2014
+exact,True,,NKT Therapeutics,nkt,"NKT THERAPEUTICS, INC.",nkt,100.0,MA,1,2013.0,2014
+exact,True,,NMT Medical,nmt medical,"NMT MEDICAL, INC.",nmt medical,100.0,MA,1,2003.0,2005
+exact,True,,"Nob Hill Therapeutics, Inc.",nob hill,"NOB HILL THERAPEUTICS, INC.",nob hill,100.0,NM,1,2027.0,2020
+exact,True,,Nobilis Therapeutics Inc.,nobilis,"NOBILIS THERAPEUTICS, INC.",nobilis,100.0,OR,2,2019.0,2021
+exact,False,reject,"Nora Therapeutics, Inc.",nora,"NORA, LLC",nora,100.0,MD,3,2013.0,2005
+exact,True,,Northwest Biotherapeutics,northwest biotherapeutics,"NORTHWEST BIOTHERAPEUTICS, INC.",northwest biotherapeutics,100.0,MD,4,2006.0,2004
+exact,False,,Nova Therapeutics LLC,nova,NOVA RESEARCH COMPANY,nova,100.0,MD,1,2023.0,2004
+exact,True,,"NovaDigm Therapeutics, Inc.",novadigm,"NOVADIGM THERAPEUTICS, INC.",novadigm,100.0,CA,4,2011.0,2006
+exact,True,,"Novan, Inc.",novan,"NOVAN, INC.",novan,100.0,NC,21,2011.0,2008
+exact,True,,NovaRx Corporation,novarx,NOVARX CORPORATION,novarx,100.0,CA,2,2003.0,2002
+exact,True,,Novavax,novavax,"NOVAVAX, INC.",novavax,100.0,MD,45,2007.0,2009
+exact,True,,NovelMed Therapeutics,novelmed,"NOVELMED THERAPEUTICS, INC.",novelmed,100.0,OH,9,2020.0,2003
+exact,True,,"Novira Therapeutics, Inc.",novira,"NOVIRA THERAPEUTICS, INC.",novira,100.0,PA,2,2014.0,2011
+exact,True,,Novus Vision LLC,novus vision,NOVUS VISION LLC,novus vision,100.0,MD,1,2025.0,2023
+exact,True,,"Nuravax, Inc.",nuravax,"NURAVAX, INC.",nuravax,100.0,CA,2,2024.0,2025
+exact,True,accept,"Nurix Therapeutics, Inc.",nurix,"NURIX, INC.",nurix,100.0,CA,10,2021.0,2013
+exact,True,,"Nutrabiotix, LLC",nutrabiotix,"NUTRABIOTIX, LLC",nutrabiotix,100.0,IN,1,2014.0,2010
+exact,True,accept,NuvOx LLC,nuvox,"NUVOX PHARMA, LLC",nuvox,100.0,AZ,5,2014.0,2007
+exact,True,,"Oakwood Laboratories, LLC",oakwood laboratories,"OAKWOOD LABORATORIES, LLC",oakwood laboratories,100.0,OH,2,2003.0,2001
+exact,True,,"Oasis Pharmaceuticals, LLC",oasis,OASIS PHARMACEUTICALS,oasis,100.0,MA,1,2023.0,2013
+exact,True,,Octagen Corporation,octagen,OCTAGEN CORPORATION,octagen,100.0,PA,1,2005.0,2000
+exact,True,,"Octant, Inc.",octant,"OCTANT, INC.",octant,100.0,CA,1,2026.0,2020
+exact,True,,"Oligomerix, Inc",oligomerix,"OLIGOMERIX, INC",oligomerix,100.0,NY,1,2023.0,2007
+exact,True,,Omeros Corporation,omeros,OMEROS CORPORATION,omeros,100.0,WA,24,2004.0,2004
+exact,True,,"On Target Laboratories, LLC",on target laboratories,"ON TARGET LABORATORIES, LLC",on target laboratories,100.0,IL,4,2014.0,2015
+exact,True,,"OncoC4, Inc.",oncoc4,"ONCOC4, INC.",oncoc4,100.0,MD,10,2020.0,2021
+exact,True,,"OncoNano Medicine, Inc.",onconano medicine,"ONCONANO MEDICINE, INC.",onconano medicine,100.0,TX,4,2019.0,2017
+exact,True,,"Oncorus, Inc.",oncorus,"ONCORUS, INC.",oncorus,100.0,MA,1,2020.0,2019
+exact,True,,OncoSec Medical Incorporated,oncosec medical,"ONCOSEC MEDICAL, INC.",oncosec medical,100.0,CA,7,2012.0,2014
+exact,True,,"OncoSynergy, Inc.",oncosynergy,"ONCOSYNERGY, INC.",oncosynergy,100.0,CT,1,2021.0,2019
+exact,True,,Oncotech,oncotech,"ONCOTECH, INC.",oncotech,100.0,CA,1,1997.0,2001
+exact,True,,"Oncovir, Inc.",oncovir,"ONCOVIR, INC.",oncovir,100.0,DC,4,2015.0,2013
+exact,True,,"Oncternal Therapeutics, Inc",oncternal,"ONCTERNAL THERAPEUTICS, INC.",oncternal,100.0,TN,5,2016.0,2003
+exact,True,,ONL Therapeutics,onl,"ONL THERAPEUTICS, INC.",onl,100.0,MI,5,2019.0,2012
+exact,True,,"Optimum Therapeutics, LLC",optimum,"OPTIMUM THERAPEUTICS, LLC",optimum,100.0,OH,1,2010.0,2003
+exact,True,,"OPTOSURGICAL, LLC",optosurgical,"OPTOSURGICAL, LLC",optosurgical,100.0,DE,1,2023.0,2020
+exact,True,,"Opus Genetics, Inc",opus genetics,OPUS GENETICS INC.,opus genetics,100.0,NC,17,2007.0,2024
+exact,True,,"Oragenics, Inc.",oragenics,"ORAGENICS, INC.",oragenics,100.0,FL,2,2017.0,2004
+exact,True,,Organogenesis,organogenesis,"ORGANOGENESIS, INC.",organogenesis,100.0,MA,3,2013.0,2000
+exact,True,,Oriel Therapeutics,oriel,"ORIEL THERAPEUTICS, INC.",oriel,100.0,NC,1,2014.0,2003
+exact,True,,"OrsoBio, Inc",orsobio,"ORSOBIO, INC.",orsobio,100.0,CA,5,2022.0,2022
+exact,True,,"Oryn Therapeutics, LLC",oryn,"ORYN THERAPEUTICS, LLC",oryn,100.0,CA,2,2021.0,2015
+exact,True,,"Osel, Inc.",osel,"OSEL, INC.",osel,100.0,CA,4,2007.0,2001
+exact,True,,OSI Pharmaceuticals,osi,"OSI PHARMACEUTICALS, INC.",osi,100.0,NY,16,2001.0,2000
+exact,True,,"Ossium Health, Inc.",ossium health,"OSSIUM HEALTH, INC.",ossium health,100.0,CA,3,2022.0,2017
+exact,True,,"P2D, Inc.",p2d,"P2D, INC.",p2d,100.0,OH,1,2009.0,2005
+exact,True,,"Palatin Technologies, Inc",palatin technologies,"PALATIN TECHNOLOGIES, INC.",palatin technologies,100.0,NJ,11,2006.0,2000
+exact,False,,Paradigm Therapeutics,paradigm,"PARADIGM PHARMACEUTICALS, LLC",paradigm,100.0,MN,4,2021.0,2002
+exact,True,,Paratek Pharmaceuticals Inc,paratek,PARATEK PHARMACEUTICALS,paratek,100.0,MA,12,2007.0,2002
+exact,True,,Parion Sciences,parion sciences,"PARION SCIENCES, INC.",parion sciences,100.0,NC,9,2006.0,2005
+exact,True,,PDS Biotechnology Corp.,pds,PDS BIOTECHNOLOGY CORPORATION,pds,100.0,IN,2,2014.0,2008
+exact,True,,Peel Therapeutics Inc,peel,"PEEL THERAPEUTICS, INC.",peel,100.0,UT,1,2022.0,2018
+exact,True,,"Pelican Therapeutics, Inc.",pelican,"PELICAN THERAPEUTICS, INC.",pelican,100.0,TX,1,2020.0,2020
+exact,False,reject,PepGen Inc,pepgen,PEPGEN CORPORATION,pepgen,100.0,CA,5,2023.0,2002
+exact,False,,Phanes Therapeutics,phanes,"PHANES BIOTECH, INC.",phanes,100.0,PA,3,2022.0,2022
+exact,True,,PharmaIN,pharmain,PHARMAIN CORPORATION,pharmain,100.0,WA,1,2022.0,2004
+exact,True,,"PharmaJet, Inc.",pharmajet,"PHARMAJET, INC.",pharmajet,100.0,CO,3,2023.0,2022
+exact,True,,Pharmasset,pharmasset,"PHARMASSET, INC.",pharmasset,100.0,GA,6,2002.0,2000
+exact,True,,Pharmatech,pharmatech,"PHARMATECH, INC.",pharmatech,100.0,CO,2,2008.0,2010
+exact,True,,"Pharmazz, Inc.",pharmazz,"PHARMAZZ, INC.",pharmazz,100.0,IL,12,2014.0,2017
+exact,True,,PhaseBio Pharmaceuticals Inc.,phasebio,"PHASEBIO PHARMACEUTICALS, INC.",phasebio,100.0,NC,13,2010.0,2004
+exact,True,,"PhenoSolve, LLC",phenosolve,"PHENOSOLVE, LLC",phenosolve,100.0,MA,3,2018.0,2017
+exact,False,reject,"Phoenix Biotechnology, Inc",phoenix,"PHOENIX BIOTECH, INC.",phoenix,100.0,AZ,1,2015.0,2002
+exact,True,,"Phrixus Pharmaceuticals, Inc.",phrixus,"PHRIXUS PHARMACEUTICALS, INC.",phrixus,100.0,MI,1,2018.0,2007
+exact,True,,PhytoCeutica,phytoceutica,"PHYTOCEUTICA, INC.",phytoceutica,100.0,CT,2,2002.0,2002
+exact,True,,"Pinnacle Pharmaceuticals, Inc.",pinnacle,PINNACLE PHARMACEUTICALS,pinnacle,100.0,VA,1,2011.0,2000
+exact,True,,Plexxikon,plexxikon,"PLEXXIKON, INC.",plexxikon,100.0,CA,7,2006.0,2003
+exact,True,,"PluroGen Therapeutics, Inc",plurogen,"PLUROGEN THERAPEUTICS, INC.",plurogen,100.0,VA,2,2013.0,2009
+exact,True,,Point Biomedical,point biomedical,POINT BIOMEDICAL CORPORATION,point biomedical,100.0,CA,6,2002.0,2000
+exact,True,,"Polarean, Inc.",polarean,"POLAREAN, INC.",polarean,100.0,NC,3,2018.0,2014
+exact,True,,"PolyMedix, Inc.",polymedix,"POLYMEDIX, INC,",polymedix,100.0,PA,2,2010.0,2004
+exact,True,,Portola Pharmaceuticals,portola,"PORTOLA PHARMACEUTICALS, INC.",portola,100.0,CA,22,2006.0,2005
+exact,True,,"Potentia Pharmaceuticals, Inc.",potentia,"POTENTIA PHARMACEUTICALS, INC",potentia,100.0,KY,1,2007.0,2004
+exact,True,,"Praxis Bioresearch, LLC",praxis bioresearch,"PRAXIS BIORESEARCH, LLC",praxis bioresearch,100.0,CA,1,2021.0,2018
+exact,False,,"Precision BioSciences, Inc.",precision,"PRECISION RESEARCH, INC.",precision,100.0,IL,5,2020.0,2001
+exact,False,reject,Prelude Therapeutics Incorporated,prelude,PRELUDE CORPORATION,prelude,100.0,CA,12,2019.0,2012
+exact,True,,Presage Biosciences,presage,"PRESAGE BIOSCIENCES, INC.",presage,100.0,WA,9,2012.0,2010
+exact,True,,Primus Pharmaceuticals,primus,"PRIMUS PHARMACEUTICALS, INC.",primus,100.0,AZ,5,2013.0,2004
+exact,True,,Privo Technologies,privo technologies,"PRIVO TECHNOLOGIES, LLC",privo technologies,100.0,MA,2,2018.0,2014
+exact,True,,"ProCertus BioPharm, Inc",procertus biopharm,"PROCERTUS BIOPHARM, INC.",procertus biopharm,100.0,WI,3,2011.0,2001
+exact,True,,"ProDa BioTech, LLC",proda,"PRODA BIOTECH, LLC",proda,100.0,GA,3,2021.0,2017
+exact,True,,Pharmaceutical Productions Inc.,productions,"PHARMACEUTICAL PRODUCTIONS, INC.",productions,100.0,FL,1,2013.0,2012
+exact,True,,"Progenics Pharmaceuticals, Inc.",progenics,"PROGENICS PHARMACEUTICALS, INC.",progenics,100.0,NY,8,2003.0,2000
+exact,True,,Prolong Pharmaceuticals,prolong,"PROLONG PHARMACEUTICALS, INC.",prolong,100.0,NJ,14,2013.0,2008
+exact,True,,ProLynx LLC,prolynx,"PROLYNX, LLC",prolynx,100.0,CA,1,2016.0,2010
+exact,True,,"Promentis Pharmaceuticals, Inc.",promentis,"PROMENTIS PHARMACEUTICALS, INC.",promentis,100.0,WI,4,2017.0,2008
+exact,True,,Prometheus Laboratories,prometheus laboratories,"PROMETHEUS LABORATORIES, INC.",prometheus laboratories,100.0,CA,3,2008.0,2000
+exact,True,,"Protagonist Therapeutics, Inc.",protagonist,"PROTAGONIST THERAPEUTICS, INC.",protagonist,100.0,CA,13,2016.0,2015
+exact,False,reject,Protara Therapeutics,protara,"PROTARA THERAPEUTICS, INC.",protara,100.0,MO,6,2022.0,2004
+exact,True,,"ProTechSure Scientific, Inc.",protechsure scientific,"PROTECHSURE SCIENTIFIC, INC.",protechsure scientific,100.0,CO,1,2015.0,2007
+exact,True,accept,Protego Biopharma Pty Ltd,protego,"PROTEGO BIOPHARMA, INC.",protego,100.0,CA,1,2025.0,2018
+exact,True,,Protein Sciences Corporation,protein sciences,PROTEIN SCIENCES CORPORATION,protein sciences,100.0,CT,11,2004.0,2014
+exact,True,,"Protez Pharmaceuticals, Inc.",protez,"PROTEZ PHARMACEUTICALS, INC.",protez,100.0,PA,1,2008.0,2000
+exact,True,,PTC Therapeutics,ptc,"PTC THERAPEUTICS, INC.",ptc,100.0,NJ,62,2005.0,2000
+exact,True,,"Pulmotect, Inc.",pulmotect,"PULMOTECT, INC",pulmotect,100.0,TX,7,2014.0,2011
+exact,True,,Pure Green Pharmaceuticals Inc.,pure green,"PURE GREEN PHARMACEUTICALS, INC.",pure green,100.0,MI,7,2019.0,2023
+exact,True,,"Quadriga Biosciences, Inc.",quadriga,"QUADRIGA BIOSCIENCES, INC.",quadriga,100.0,CA,1,2020.0,2013
+exact,True,accept,Quark Pharmaceuticals,quark,"QUARK BIOTECH, INC.",quark,100.0,CA,13,2007.0,2003
+exact,True,,"Quintessence Biosciences, Inc.",quintessence,"QUINTESSENCE BIOSCIENCES, INC.",quintessence,100.0,WI,1,2009.0,2006
+exact,True,,"Quivive Pharma, Inc.",quivive,"QUIVIVE PHARMA, INC",quivive,100.0,CA,1,2025.0,2022
+exact,True,,QurAlis Corporation,quralis,QURALIS CORPORATION,quralis,100.0,MA,7,2022.0,2019
+exact,True,,Qurgen Inc.,qurgen,"QURGEN, INC.",qurgen,100.0,MI,2,2023.0,2014
+exact,True,,"Radiomedix, Inc.",radiomedix,"RADIOMEDIX, INC.",radiomedix,100.0,TX,2,2018.0,2014
+exact,True,,"ReAlta Life Sciences, Inc.",realta life sciences,"REALTA LIFE SCIENCES, INC.",realta life sciences,100.0,VA,6,2021.0,2019
+exact,True,,Rebel Medicine Inc,rebel medicine,REBEL MEDICINE INC,rebel medicine,100.0,UT,1,2026.0,2021
+exact,True,,Recursion Pharmaceuticals Inc.,recursion,"RECURSION PHARMACEUTICALS, LLC",recursion,100.0,UT,7,2022.0,2015
+exact,False,,Redwood Pharma AB,redwood,"REDWOOD BIOSCIENCE, INC.",redwood,100.0,CA,1,2019.0,2011
+exact,True,,"Regado Biosciences, Inc.",regado,"REGADO BIOSCIENCES, INC.",regado,100.0,NC,4,2007.0,2004
+exact,True,,"REMD Biotherapeutics, Inc.",remd biotherapeutics,"REMD BIOTHERAPEUTICS, INC.",remd biotherapeutics,100.0,CA,4,2015.0,2016
+exact,True,,"ReNetX Bio, Inc.",renetx bio,"RENETX BIO, INC.",renetx bio,100.0,CT,1,2019.0,2013
+exact,True,,Renova Therapeutics,renova,"RENOVA THERAPEUTICS, INC.",renova,100.0,CA,1,2019.0,2014
+exact,True,,"Renovion, Inc.",renovion,"RENOVION, INC.",renovion,100.0,NC,2,2022.0,2020
+exact,True,,Replidyne,replidyne,"REPLIDYNE, INC.",replidyne,100.0,CO,2,2005.0,2001
+exact,True,,Repligen Corporation,repligen,REPLIGEN CORPORATION,repligen,100.0,MA,6,2002.0,2002
+exact,True,,Reprogenetics,reprogenetics,"REPROGENETICS, INC.",reprogenetics,100.0,NJ,3,2011.0,2003
+exact,True,,ReProtect Inc,reprotect,"REPROTECT, INC.",reprotect,100.0,MD,1,2004.0,2010
+exact,True,,"Respira Therapeutics, Inc.",respira,"RESPIRA THERAPEUTICS, INC.",respira,100.0,NM,1,2018.0,2019
+exact,True,accept,RespireRx,respirerx,RESPIRERX PHARMACEUTICALS INC.,respirerx,100.0,NJ,4,2002.0,2025
+exact,True,accept,Reveal Pharmaceuticals Inc.,reveal,REVEAL PHARMA,reveal,100.0,MA,2,2022.0,2017
+exact,True,,"ReveraGen BioPharma, Inc.",reveragen,"REVERAGEN BIOPHARMA, INC.",reveragen,100.0,VA,7,2015.0,2010
+exact,True,,"ReXceptor, Inc.",rexceptor,"REXCEPTOR, INC.",rexceptor,100.0,OH,1,2014.0,2014
+exact,True,,Rgene Corporation,rgene,"RGENE, INC.",rgene,100.0,CA,2,2026.0,2014
+exact,True,,Rgenta Therapeutics Inc,rgenta,"RGENTA THERAPEUTICS, INC.",rgenta,100.0,MA,1,2024.0,2020
+exact,True,,"Riboscience, LLC.",riboscience,"RIBOSCIENCE, LLC",riboscience,100.0,CA,3,2022.0,2017
+exact,False,reject,Ripple Therapeutics Pty Ltd,ripple,"RIPPLE, LLC",ripple,100.0,UT,1,2020.0,2005
+exact,True,,Rise Therapeutics LLC,rise,"RISE THERAPEUTICS, LLC",rise,100.0,MD,9,2021.0,2018
+exact,True,,Rogers Sciences Inc.,rogers sciences,"ROGERS SCIENCES, INC.",rogers sciences,100.0,MA,1,2016.0,2010
+exact,True,,"RXi Pharmaceuticals, Corp.",rxi,RXI PHARMACEUTICALS CORPORATION,rxi,100.0,MA,7,2012.0,2010
+exact,True,,RxKinetix,rxkinetix,"RXKINETIX, INC.",rxkinetix,100.0,CO,1,2003.0,2002
+exact,True,,"SAb Biotherapeutics, Inc.",sab biotherapeutics,"SAB BIOTHERAPEUTICS, INC.",sab biotherapeutics,100.0,SD,6,2020.0,2016
+exact,False,reject,Salus Ltd.,salus,SALUS THERAPEUTICS,salus,100.0,UT,1,2008.0,2000
+exact,True,,"Samaritan Pharmaceuticals, Inc",samaritan,"SAMARITAN PHARMACEUTICALS, INC.",samaritan,100.0,NV,3,1997.0,2004
+exact,True,,Sanaria Inc.,sanaria,"SANARIA, INC.",sanaria,100.0,MD,29,2009.0,2003
+exact,True,accept,Sangamo Therapeutics,sangamo,"SANGAMO BIOSCIENCES, INC.",sangamo,100.0,CA,23,2004.0,2000
+exact,True,,Sangart,sangart,"SANGART, INC.",sangart,100.0,CA,10,2003.0,2000
+exact,True,,Sano Chemicals Inc,sano chemicals,"SANO CHEMICALS, INC",sano chemicals,100.0,TX,1,2026.0,2016
+exact,True,,Sapience Therapeutics,sapience,"SAPIENCE THERAPEUTICS, INC.",sapience,100.0,NY,3,2020.0,2020
+exact,True,,"Sarfez Pharmaceuticals, Inc.",sarfez,"SARFEZ PHARMACEUTICALS, INC.",sarfez,100.0,VA,8,2017.0,2013
+exact,True,,Savara Inc.,savara,"SAVARA, INC.",savara,100.0,TX,10,2011.0,2011
+exact,True,,"Scarless Laboratories, Inc.",scarless laboratories,"SCARLESS LABORATORIES, INC.",scarless laboratories,100.0,CA,2,2019.0,2004
+exact,True,,SciClone Pharmaceuticals,sciclone,"SCICLONE PHARMACEUTICALS, INC.",sciclone,100.0,CA,11,2002.0,2003
+exact,True,,"Scios, Inc.",scios,"SCIOS, INC.",scios,100.0,CA,17,1996.0,2000
+exact,True,,"Scioto Biosciences, Inc.",scioto,"SCIOTO BIOSCIENCES, INC.",scioto,100.0,IN,1,2021.0,2019
+exact,True,,"SciTech Development, Inc.",scitech,"SCITECH DEVELOPMENT, LLC",scitech,100.0,MI,2,2023.0,2001
+exact,True,,"Scynexis, Inc.",scynexis,"SCYNEXIS, INC.",scynexis,100.0,NJ,18,2007.0,2014
+exact,True,,Second Genome,second genome,"SECOND GENOME, INC.",second genome,100.0,CA,1,2019.0,2017
+exact,True,,"Selecta Biosciences, Inc.",selecta,"SELECTA BIOSCIENCES, INC.",selecta,100.0,MA,7,2011.0,2015
+exact,True,,Semafore Pharmaceuticals,semafore,"SEMAFORE PHARMACEUTICALS, INC.",semafore,100.0,IN,1,2007.0,2001
+exact,True,,Senti Biosciences,senti,"SENTI BIOSCIENCES, INC.",senti,100.0,CA,1,2024.0,2018
+exact,True,,"Sentien Biotechnologies, Inc.",sentien biotechnologies,"SENTIEN BIOTECHNOLOGIES, INC.",sentien biotechnologies,100.0,MA,2,2017.0,2010
+exact,True,,"Sequella, Inc.",sequella,"SEQUELLA, INC.",sequella,100.0,MD,5,2006.0,2000
+exact,True,,Serina Therapeutics,serina,"SERINA THERAPEUTICS, INC.",serina,100.0,CA,2,2016.0,2018
+exact,True,,"Shasqi, Inc.",shasqi,"SHASQI, INC.",shasqi,100.0,CA,1,2020.0,2021
+exact,False,,Shield Therapeutics,shield,"SHIELD PHARMA, INC.",shield,100.0,CA,7,2011.0,2019
+exact,True,,SHY Therapeutics,shy,"SHY THERAPEUTICS, LLC",shy,100.0,NY,1,2026.0,2025
+exact,True,,SIGA Technologies,siga technologies,"SIGA TECHNOLOGIES, INC.",siga technologies,100.0,OR,6,2007.0,2000
+exact,True,,"SignalRX Pharmaceuticals, Inc.",signalrx,"SIGNALRX PHARMACEUTICALS, INC.",signalrx,100.0,GA,1,2017.0,2015
+exact,True,,Silver Creek Pharmaceuticals,silver creek,"SILVER CREEK PHARMACEUTICALS, INC.",silver creek,100.0,CA,1,2022.0,2015
+exact,True,,"Siolta Therapeutics, Inc.",siolta,"SIOLTA THERAPEUTICS, INC.",siolta,100.0,CA,2,2018.0,2022
+exact,True,,Sirnaomics,sirnaomics,"SIRNAOMICS, INC.",sirnaomics,100.0,MD,13,2017.0,2008
+exact,True,,"SiteOne Therapeutics, Inc.",siteone,"SITEONE THERAPEUTICS, INC.",siteone,100.0,CA,1,2021.0,2013
+exact,True,accept,SOFIE,sofie,"SOFIE BIOSCIENCES, INC.",sofie,100.0,VA,4,2022.0,2012
+exact,True,,"Soleno Therapeutics, Inc.",soleno,"SOLENO THERAPEUTICS, INC.",soleno,100.0,CA,5,2018.0,2015
+exact,True,,Soligenix,soligenix,"SOLIGENIX, INC.",soligenix,100.0,NJ,11,2009.0,2003
+exact,False,reject,Solve Therapeutics,solve,"SOLVE, INC.",solve,100.0,NY,3,2025.0,2016
+exact,True,,Soovu Labs Inc.,soovu labs,SOOVU LABS INC,soovu labs,100.0,WA,1,2024.0,2024
+exact,True,,"Sorrento Therapeutics, Inc.",sorrento,"SORRENTO THERAPEUTICS, INC.",sorrento,100.0,CA,43,2017.0,2010
+exact,True,,Soterix Medical,soterix medical,"SOTERIX MEDICAL,INC.",soterix medical,100.0,NJ,1,2025.0,2011
+exact,True,,"Sound Pharmaceuticals, Incorporated",sound,"SOUND PHARMACEUTICALS, INC.",sound,100.0,WA,14,2006.0,2003
+exact,True,,"South Rampart Pharma, Inc.",south rampart,"SOUTH RAMPART PHARMA, LLC",south rampart,100.0,LA,1,2021.0,2020
+exact,True,,"Sparian Biosciences, Inc",sparian,"SPARIAN BIOSCIENCES, INC.",sparian,100.0,NY,2,2023.0,2021
+exact,True,,Spero Therapeutics,spero,"SPERO THERAPEUTICS, INC.",spero,100.0,MA,22,2016.0,2017
+exact,True,,Spinogenix,spinogenix,"SPINOGENIX, INC.",spinogenix,100.0,CA,8,2023.0,2018
+exact,True,,"Spyryx Biosciences, Inc.",spyryx,"SPYRYX BIOSCIENCES, INC.",spyryx,100.0,NC,2,2017.0,2017
+exact,True,,SQZ Biotechnologies,sqz biotechnologies,"SQZ BIOTECHNOLOGIES COMPANY, INC.",sqz biotechnologies,100.0,MA,3,2020.0,2015
+exact,True,,"StemCells, Inc.",stemcells,"STEMCELLS, INC.",stemcells,100.0,CA,7,2006.0,2000
+exact,True,,"Stemline Therapeutics, Inc.",stemline,"STEMLINE THERAPEUTICS, INC.",stemline,100.0,NY,21,2014.0,2006
+exact,True,,Stingray Therapeutics,stingray,"STINGRAY THERAPEUTICS, INC.",stingray,100.0,TX,2,2023.0,2022
+exact,True,,Strand Therapeutics Inc.,strand,STRAND THERAPEUTICS INC,strand,100.0,MA,2,2024.0,2021
+exact,True,,Subtle Medical,subtle medical,"SUBTLE MEDICAL, INC.",subtle medical,100.0,CA,1,2023.0,2019
+exact,True,,Sunesis Pharmaceuticals,sunesis,"SUNESIS PHARMACEUTICALS, INC.",sunesis,100.0,CA,13,2004.0,2000
+exact,True,,"SurModics, Inc.",surmodics,"SURMODICS, INC.",surmodics,100.0,MN,1,2005.0,2000
+exact,True,,"SynerGene Therapeutics, Inc.",synergene,"SYNERGENE THERAPEUTICS, INC.",synergene,100.0,DC,6,2008.0,2002
+exact,True,accept,"Synspira, Inc.",synspira,"SYNSPIRA THERAPEUTICS, INC.",synspira,100.0,MA,1,2017.0,2022
+exact,True,,Synthonics Inc,synthonics,"SYNTHONICS, INC.",synthonics,100.0,VA,1,2024.0,2009
+exact,True,,Syntis Bio,syntis bio,SYNTIS BIO INC,syntis bio,100.0,MA,1,2026.0,2024
+exact,True,,"Syntrix Biosystems, Inc.",syntrix biosystems,"SYNTRIX BIOSYSTEMS, INC.",syntrix biosystems,100.0,WA,10,2009.0,2001
+exact,True,,"T3D Therapeutics, Inc.",t3d,"T3D THERAPEUTICS, INC.",t3d,100.0,NC,3,2015.0,2015
+exact,True,,"Taiga Biotechnologies, Inc.",taiga biotechnologies,"TAIGA BIOTECHNOLOGIES, INC.",taiga biotechnologies,100.0,CO,4,2019.0,2008
+exact,False,,"Tango Therapeutics, Inc.",tango,"TANGO BIOSCIENCES, INC.",tango,100.0,IL,6,2022.0,2018
+exact,True,,Tanox,tanox,"TANOX, INC.",tanox,100.0,TX,2,2004.0,2000
+exact,True,,"Targazyme, Inc.",targazyme,"TARGAZYME, INC.",targazyme,100.0,CA,1,2013.0,2008
+exact,True,,Telik,telik,"TELIK, INC.",telik,100.0,CA,21,2001.0,2000
+exact,False,reject,"Telios Pharma, Inc.",telios,"TELIOS PHARMACEUTICALS, INC.",telios,100.0,CA,11,2016.0,2000
+exact,True,,Tetherex Pharmaceuticals Corporation,tetherex,TETHEREX PHARMACEUTICALS CORPORATION,tetherex,100.0,OK,2,2019.0,2014
+exact,True,,Tetra Discovery Partners,tetra discovery partners,"TETRA DISCOVERY PARTNERS, INC.",tetra discovery partners,100.0,MI,9,2015.0,2011
+exact,True,,"TFF Pharmaceuticals, Inc.",tff,"TFF PHARMACEUTICALS, INC.",tff,100.0,TX,4,2019.0,2023
+exact,True,,Theracos,theracos,"THERACOS, INC.",theracos,100.0,CA,21,2007.0,2005
+exact,True,accept,Theravance Biopharma,theravance,"THERAVANCE, INC.",theravance,100.0,CA,45,2005.0,2012
+exact,True,,"Theron Pharmaceuticals, Inc.",theron,"THERON PHARMACEUTICALS, INC.",theron,100.0,CA,2,2014.0,2010
+exact,True,,"Thesan Pharmaceuticals, Inc.",thesan,THESAN PHARMACEUTICALS INC,thesan,100.0,CA,1,2016.0,2012
+exact,True,,Thetis Pharmaceuticals LLC,thetis,"THETIS PHARMACEUTICALS, LLC",thetis,100.0,CT,2,2014.0,2017
+exact,True,,"Thrombolex, Inc.",thrombolex,"THROMBOLEX, INC.",thrombolex,100.0,PA,2,2019.0,2020
+exact,True,,Tigris Pharmaceuticals,tigris,"TIGRIS PHARMACEUTICALS, INC.",tigris,100.0,FL,4,2006.0,2005
+exact,False,,Tioga Pharmaceuticals,tioga,"TIOGA RESEARCH, INC.",tioga,100.0,CA,6,2006.0,2017
+exact,True,,Tissue Repair Company,tissue repair,TISSUE REPAIR COMPANY,tissue repair,100.0,CA,2,2002.0,2004
+exact,True,,Titan Pharmaceuticals,titan,"TITAN PHARMACEUTICALS, INC.",titan,100.0,CA,13,2001.0,2000
+exact,True,,Tocagen Inc.,tocagen,"TOCAGEN, INC.",tocagen,100.0,CA,8,2010.0,2012
+exact,True,,"Tolerion, Inc.",tolerion,"TOLERION, INC.",tolerion,100.0,CA,3,2019.0,2002
+exact,False,reject,"Toltec Pharmaceuticals, LLC",toltec,"TOLTEC INTERNATIONAL, INC.",toltec,100.0,CO,1,2016.0,2002
+exact,False,,Topaz Pharmaceuticals Inc,topaz,"TOPAZ BIOSCIENCES, INC.",topaz,100.0,CA,5,2009.0,2023
+exact,True,,"Tosk, Inc.",tosk,"TOSK, INC.",tosk,100.0,CA,3,2019.0,2003
+exact,True,,TransCode Therapeutics,transcode,"TRANSCODE THERAPEUTICS, INC.",transcode,100.0,MA,2,2023.0,2021
+exact,True,,"TransDerm, Inc.",transderm,"TRANSDERM, INC.",transderm,100.0,CA,1,2014.0,2008
+exact,True,,"Translational Sciences, Inc.",translational sciences,"TRANSLATIONAL SCIENCES, INC.",translational sciences,100.0,AZ,3,2015.0,2010
+exact,True,,TransMolecular,transmolecular,"TRANSMOLECULAR, INC.",transmolecular,100.0,MA,6,2002.0,2000
+exact,True,,"Tranzyme, Inc.",tranzyme,"TRANZYME, INC.",tranzyme,100.0,NC,8,2006.0,2003
+exact,False,reject,"Treadwell Therapeutics, Inc",treadwell,TREADWELL CORPORATION,treadwell,100.0,NC,3,2020.0,2018
+exact,False,reject,"Trefoil Therapeutics, Inc.",trefoil,TREFOIL CORPORATION,trefoil,100.0,ME,4,2020.0,2001
+exact,True,,Trellis Bioscience LLC,trellis,"TRELLIS BIOSCIENCE, INC.",trellis,100.0,CA,5,2021.0,2004
+exact,True,,Trethera,trethera,TRETHERA CORPORATION,trethera,100.0,CA,1,2021.0,2022
+exact,False,,Triangle Pharmaceuticals,triangle,"TRIANGLE BIOTECHNOLOGY, INC.",triangle,100.0,NC,7,1999.0,2018
+exact,True,,"Trigemina, Inc",trigemina,"TRIGEMINA, INC.",trigemina,100.0,CA,1,2013.0,2008
+exact,True,,Tularik,tularik,"TULARIK, INC.",tularik,100.0,CA,7,2000.0,2003
+exact,True,,"Tunitas Therapeutics, Inc.",tunitas,"TUNITAS THERAPEUTICS, INC.",tunitas,100.0,CA,1,2015.0,2010
+exact,True,,"Tvardi Therapeutics, Incorporated",tvardi,"TVARDI THERAPEUTICS, INC.",tvardi,100.0,TX,4,2017.0,2017
+exact,True,,UbiVac,ubivac,"UBIVAC, LLC",ubivac,100.0,OR,2,2013.0,2006
+exact,True,,Unigene Laboratories Inc.,unigene laboratories,"UNIGENE LABORATORIES, INC.",unigene laboratories,100.0,NJ,1,2011.0,2001
+exact,True,,United Biomedical,united biomedical,"UNITED BIOMEDICAL, INC.",united biomedical,100.0,NY,5,2009.0,2002
+exact,True,,Vaccinex Inc.,vaccinex,"VACCINEX, INC.",vaccinex,100.0,NY,7,2011.0,2000
+exact,True,,Valentis,valentis,"VALENTIS, INC.",valentis,100.0,CA,2,2003.0,2000
+exact,True,,"Vascular Pharmaceuticals, Inc.",vascular,VASCULAR PHARMACEUTICALS,vascular,100.0,NC,1,2014.0,2006
+exact,True,,"Vasgene Therapeutics, Inc",vasgene,"VASGENE THERAPEUTICS, INC",vasgene,100.0,CA,3,2020.0,2012
+exact,True,,Vast Therapeutics,vast,"VAST THERAPEUTICS, INC.",vast,100.0,NC,1,2026.0,2025
+exact,True,,Vaxart,vaxart,"VAXART, INC.",vaxart,100.0,CA,23,2011.0,2007
+exact,True,,"Vaxcyte, Inc.",vaxcyte,"VAXCYTE, INC.",vaxcyte,100.0,CA,9,2022.0,2016
+exact,True,,VaxGen,vaxgen,"VAXGEN, INC.",vaxgen,100.0,CA,6,1999.0,2000
+exact,True,,Vaxiion Therapeutics,vaxiion,"VAXIION THERAPEUTICS, INC.",vaxiion,100.0,CA,2,2019.0,2008
+exact,True,,VaxInnate Corporation,vaxinnate,VAXINNATE CORPORATION,vaxinnate,100.0,NJ,12,2007.0,2004
+exact,True,,Veana Therapeutics,veana,"VEANA THERAPEUTICS, LLC",veana,100.0,OR,1,2020.0,2018
+exact,True,,Velico Medical,velico medical,"VELICO MEDICAL, INC.",velico medical,100.0,MA,1,2005.0,2007
+exact,True,,"Venatorx Pharmaceuticals, Inc.",venatorx,"VENATORX PHARMACEUTICALS, INC.",venatorx,100.0,PA,8,2016.0,2011
+exact,True,,Ventria Bioscience,ventria,VENTRIA BIOSCIENCE,ventria,100.0,CO,1,2011.0,2005
+exact,True,,"Ventrix, Inc.",ventrix,"VENTRIX, INC.",ventrix,100.0,CA,1,2015.0,2011
+exact,True,,Veralox Therapeutics,veralox,"VERALOX THERAPEUTICS, INC",veralox,100.0,MD,3,2021.0,2018
+exact,True,,"Vergent Bioscience, Inc.",vergent,"VERGENT BIOSCIENCE, INC.",vergent,100.0,MN,3,2022.0,2022
+exact,True,,"Vestan, Inc.",vestan,"VESTAN, INC.",vestan,100.0,UT,1,2014.0,2006
+exact,True,,Vical,vical,"VICAL, INC.",vical,100.0,CA,13,1998.0,2000
+exact,True,,"Vidasym, Inc.",vidasym,"VIDASYM, INC.",vidasym,100.0,SD,1,2017.0,2011
+exact,True,,Vion Pharmaceuticals,vion,"VION PHARMACEUTICALS, INC.",vion,100.0,CT,20,1998.0,2000
+exact,True,,Virobay Inc.,virobay,"VIROBAY, INC.",virobay,100.0,CA,4,2007.0,2014
+exact,False,reject,Virogen Biotechnology Inc.,virogen,"VIROGEN USA, INC.",virogen,100.0,OH,5,2008.0,2001
+exact,True,,"Virogenics, Inc.",virogenics,"VIROGENICS, INC.",virogenics,100.0,CA,1,2022.0,2003
+exact,True,,VIRxSYS Corporation,virxsys,VIRXSYS CORPORATION,virxsys,100.0,MD,2,2005.0,2002
+exact,True,,"VistaGen Therapeutics, Inc.",vistagen,"VISTAGEN THERAPEUTICS, INC.",vistagen,100.0,CA,11,2011.0,2000
+exact,True,,"Visterra, Inc.",visterra,"VISTERRA, INC.",visterra,100.0,MA,4,2014.0,2016
+exact,False,reject,"Vitae Pharmaceuticals, Inc.",vitae,"VITAE, LLC",vitae,100.0,WI,3,2010.0,2000
+exact,True,,Vivacelle Bio,vivacelle bio,"VIVACELLE BIO, INC.",vivacelle bio,100.0,IN,2,2020.0,2021
+exact,False,,VLP Therapeutics,vlp,"VLP BIOTECH, INC.",vlp,100.0,CA,3,2019.0,2007
+exact,True,,"VM Discovery, Inc.",vm discovery,"VM DISCOVERY, INC.",vm discovery,100.0,CA,1,2026.0,2004
+exact,True,,"Vyluma, Inc.",vyluma,VYLUMA INC.,vyluma,100.0,NJ,1,2017.0,2024
+exact,True,,"Vyriad, Inc.",vyriad,"VYRIAD, INC.",vyriad,100.0,MN,6,2017.0,2017
+exact,True,,Windtree Therapeutics,windtree,"WINDTREE THERAPEUTICS, INC.",windtree,100.0,PA,12,2000.0,2016
+exact,True,,"WinSanTor, Inc",winsantor,"WINSANTOR, INC.",winsantor,100.0,CA,4,2019.0,2014
+exact,True,,"Xalud Therapeutics, Inc.",xalud,"XALUD THERAPEUTICS, INC.",xalud,100.0,CA,8,2018.0,2011
+exact,True,,Xcyte Therapies,xcyte therapies,"XCYTE THERAPIES, INC.",xcyte therapies,100.0,WA,2,2003.0,2003
+exact,True,,XEME Biopharma Inc.,xeme,"XEME BIOPHARMA, INC",xeme,100.0,IL,2,2013.0,2008
+exact,True,,Xemed LLC,xemed,"XEMED, LLC",xemed,100.0,NH,3,2011.0,2004
+exact,True,,"Xencor, Inc.",xencor,"XENCOR, INC.",xencor,100.0,CA,29,2007.0,2002
+exact,True,,"XenoPort, Inc.",xenoport,"XENOPORT, INC.",xenoport,100.0,CA,23,2006.0,2002
+exact,True,,Xeris Pharmaceuticals,xeris,"XERIS PHARMACEUTICALS, INC.",xeris,100.0,IL,15,2013.0,2009
+exact,True,,"Xfibra, Inc.",xfibra,"XFIBRA, INC.",xfibra,100.0,CA,1,2026.0,2013
+exact,False,reject,Xgene Pharmaceutical Group,xgene,XGENE CORPORATION,xgene,100.0,CA,5,2017.0,2004
+exact,False,reject,Xigen SA,xigen,"XIGEN, LLC",xigen,100.0,MD,4,2011.0,2007
+exact,True,,"XyloCor Therapeutics, Inc.",xylocor,XYLOCOR THERAPEUTICS INC,xylocor,100.0,PA,2,2020.0,2023
+exact,False,,Yali Pharmaceuticals,yali,YALI BIOSCIENCES INC,yali,100.0,CA,1,2013.0,2023
+exact,True,,Yaso Therapeutics Corporation,yaso,YASO THERAPEUTICS INC,yaso,100.0,AZ,1,2026.0,2006
+exact,True,,Yaupon Therapeutics,yaupon,"YAUPON THERAPEUTICS, INC.",yaupon,100.0,PA,3,2006.0,2003
+exact,True,,"YourChoice Therapeutics, Inc.",yourchoice,"YOURCHOICE THERAPEUTICS, INC.",yourchoice,100.0,CA,2,2023.0,2019
+exact,True,,ZabBio Inc.,zabbio,"ZABBIO, INC.",zabbio,100.0,CA,1,2025.0,2020
+exact,True,accept,ZARS Pharma Inc.,zars,"ZARS, INC.",zars,100.0,UT,22,2004.0,2001
+exact,True,,"ZetrOZ, Inc.",zetroz,"ZETROZ, INC.",zetroz,100.0,CT,7,2021.0,2013
+fuzzy,False,,Clinical Solutions,clinical solutions,"CLINICAL MR SOLUTIONS, LLC",clinical mr solutions,92.3076923076923,WI,1,,2010
+fuzzy,False,,CELL Technologies Inc.,cell technologies,"CELL X TECHNOLOGIES, INC.",cell x technologies,94.44444444444444,OH,1,2024.0,2019
+fuzzy,False,,Oxford BioMedica,oxford biomedica,"OXFORD BIOMEDICAL RESEARCH, INC.",oxford biomedical,96.96969696969697,MI,7,2004.0,2001

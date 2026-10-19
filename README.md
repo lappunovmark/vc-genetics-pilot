@@ -12,7 +12,9 @@ outcomes (draft in Claude Docs, Section 5.1 reports the pilot).
 | Programme panel, H1 selection, phase transitions, logits | `pilot/build_panel26.py` | — |
 | Robustness: adjusted H1, strict / similar-indication advancement, no-OMIM, benchmark | `pilot/robust26.py` | — |
 | Ex-ante support from Open Targets evidence dated by Falaguera et al. | `pilot/gs_ot_dated.py` | Zenodo 15922783 (OT 25.03) |
-| RQ2: stop reasons and rates around the 2022 funding downturn | `pilot/rq2_stops.py`, `pilot/stopreasons.py` | — |
+| RQ2: stop reasons and rates around the 2022 funding downturn | `pilot/rq2_stops.py`, `pilot/rq2_rr.py`, `pilot/stopreasons.py` | — |
+| H4, second part: genetic support of trials stopped for money vs completed | `pilot/h4_biology.py` | — |
+| NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
 
 Run locally:
@@ -24,6 +26,11 @@ python pilot/build_panel26.py data/ot /tmp/genetic_support/data results
 python pilot/robust26.py results
 python pilot/gs_ot_dated.py results data/ot data/falaguera/evidence_dated /tmp/genetic_support/data
 python pilot/rq2_stops.py data/ctgov_all.csv results
+python pilot/rq2_rr.py results
+python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data
+python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
+python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results
+python pilot/sbir_models.py results
 ```
 or run **Actions → pilot → Run workflow** once the repository is on GitHub.
 
@@ -42,8 +49,17 @@ or run **Actions → pilot → Run workflow** once the repository is on GitHub.
   industry sponsors and top-20 pharma (interaction OR 1.26, 0.75–2.12).
 * Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
   for novel drugs (0.79, 0.49–1.29).
-* Financial or strategic trial stops per 1,000 active trial-years rose 2.3–2.65-fold from 2016–21 to 2022–25 in every
-  industry group; stops citing lack of funding rose 2.75-fold (1.59–4.78), almost only among small sponsors.
+* Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
+  industry group; stops citing lack of funding rose 2.45-fold (1.57–3.83), almost only among small sponsors.
+* Trials stopped for financial or strategic reasons carried no more, and probably less, ex-ante genetic support than
+  completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
+  Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
+* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
+
+## Corrections
+* 19 Oct 2026: ClinicalTrials.gov mixes `YYYY-MM` and `YYYY-MM-DD` dates; pandas 2 without `format='mixed'` dropped 38%
+  of start dates and 41% of completion dates in `rq2_stops.py`. Fixed; RQ2 and H4 re-run (numbers above are corrected).
+  The Open Targets panel (H1–H3) was not affected: its dates are typed.
 
 ## Known pilot simplifications
 * Sponsor tiers (top-20; other industry by portfolio size) stand in for VC backing until EDGAR / PitchBook data are linked.
