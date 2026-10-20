@@ -1,0 +1,23 @@
+name: checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt pytest
+      - name: Byte-compile all scripts
+        run: python -m compileall -q pilot factcheck tests
+      - name: Unit tests and README-vs-results consistency checks
+        run: pytest -q
+      - name: Rebuild the results-at-a-glance figure from results/
+        run: python pilot/figure_glance.py results /tmp/results_glance.png

@@ -1,9 +1,18 @@
 # Do investors pick better biology?
 ### Human genetic support × sponsor type × clinical success
 
+[![checks](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml/badge.svg)](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml)
+![Python 3.13](https://img.shields.io/badge/python-3.13-3776AB)
+[![License: MIT](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
+![Data: Open Targets 26.09](https://img.shields.io/badge/data-Open%20Targets%2026.09%20%C2%B7%20ClinicalTrials.gov%20%C2%B7%20NIH%20RePORTER-1E3A5F)
+![Status: pilot](https://img.shields.io/badge/status-pilot%2C%20not%20peer--reviewed-orange)
+
 Independent research project by **Mark Lapunov** (MSc Bioscience Innovation and Enterprise, University College London).
 Pilot code and results for a working paper on ex-ante human genetic support, sponsor type and clinical development
 outcomes, which is also the basis of my MSc dissertation.
+
+[Results at a glance](#results-at-a-glance) · [Pipeline](#pipeline) · [Validation](#validation-done) ·
+[Pilot results](#pilot-results-open-targets-2609-clinicaltrialsgov-snapshot-17-oct-2026) · [Citation](#citation)
 
 **Questions**
 1. Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug targets with
@@ -57,7 +66,22 @@ python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
 python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results
 python pilot/sbir_models.py results
 ```
-or run **Actions → pilot → Run workflow** once the repository is on GitHub.
+or run **Actions → pilot → Run workflow**, which downloads the sources and rebuilds the core tables on GitHub.
+
+## Repository layout
+```
+pilot/       pipeline: data download, programme panel, models, stop-reason classifier, README figure
+results/     model output and derived tables (small, versioned; provenance in results/PROVENANCE.txt)
+figures/     README figure, rebuilt from results/ by pilot/figure_glance.py
+tests/       unit tests and README-vs-results consistency checks
+factcheck/   scripts that re-check the working paper's numbers and citations against their sources
+.github/     CI checks on every push; manual end-to-end pipeline workflow
+```
+
+## Checks
+`pytest -q` runs unit tests of the stop-reason classifier, including its negation handling, and verifies that every
+headline number in this README matches the model output in `results/`. GitHub Actions runs the same checks, a
+byte-compile of all scripts and a rebuild of the figure on every push.
 
 ## Validation done
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -66,8 +90,8 @@ or run **Actions → pilot → Run workflow** once the repository is on GitHub.
 * Replication note: their headline Phase I→launch RS (2.6) is a crude ratio of launch shares; the product of
   phase-wise RS (1.076 × 1.571 × 1.275), as their Methods define it, gives 2.16.
 * Stop-reason classifier v3: 83.0% agreement with hand labels on 200 held-out texts (Cohen's κ 0.79); financial or
-  strategic class precision 0.91, recall 0.86. Hand labels: `results/rq2_hand_labels.csv` (first pass by an AI
-  assistant; to be double-coded by the author).
+  strategic class precision 0.91, recall 0.86. Hand labels: `results/rq2_hand_labels.csv` (LLM-assisted first pass,
+  to be double-coded by the author).
 
 ## Pilot results (Open Targets 26.09, ClinicalTrials.gov snapshot 17 Oct 2026)
 * 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
@@ -94,6 +118,23 @@ or run **Actions → pilot → Run workflow** once the repository is on GitHub.
   not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
 * Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
   Falaguera et al. (2026) evidence timestamps will replace this.
+
+## Citation
+Use **Cite this repository** on GitHub (from `CITATION.cff`) or:
+```bibtex
+@software{lapunov_2026_vcgenetics,
+  author  = {Lapunov, Mark},
+  title   = {Do investors pick better biology? Human genetic support, sponsor type and clinical success (pilot)},
+  year    = {2026},
+  version = {0.1.0-pilot},
+  url     = {https://github.com/lappunovmark/vc-genetics-pilot}
+}
+```
+
+## Author
+**Mark Lapunov**, MSc Bioscience Innovation and Enterprise, University College London. Previously a research intern at
+Skoltech, the Russian Academy of Sciences and Westlake University.
+[LinkedIn](https://www.linkedin.com/in/mark-lapunov-085909240) · [GitHub](https://github.com/lappunovmark)
 
 ## Licence
 Code: MIT (see `LICENSE`). Derived tables in `results/` keep the licences of their sources: Open Targets Platform
