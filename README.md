@@ -15,6 +15,18 @@ outcomes, which is also the basis of my MSc dissertation.
 **Status.** Pilot results, not peer-reviewed. Sponsor tiers stand in for venture backing until venture rounds from
 SEC EDGAR Form D filings are linked (next step).
 
+## Results at a glance
+![Pilot results: genetic support, sponsor type and trial stops](figures/results_glance.png)
+
+* **Genetic support predicts progress for every sponsor.** Programmes on targets with human genetic support at phase
+  entry have about 2.5 times the odds of advancing a phase, with no significant difference between small sponsors and
+  top-20 pharma.
+* **Small sponsors use the signal less.** They start fewer programmes with genetic support (adjusted OR 0.64).
+* **Funding-driven stops rose after 2022.** Trial stops citing lack of funding rose 2.45-fold among small sponsors;
+  trials stopped for financial or strategic reasons carried no more genetic support than completed ones.
+
+Figure: `python pilot/figure_glance.py results figures/results_glance.png` (reads the numbers from `results/`).
+
 ## Pipeline
 | Step | Script | Source (licence) |
 |---|---|---|
@@ -28,6 +40,7 @@ SEC EDGAR Form D filings are linked (next step).
 | H4, second part: genetic support of trials stopped for money vs completed | `pilot/h4_biology.py` | — |
 | NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
+| Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
 Run locally:
 ```
@@ -63,7 +76,7 @@ or run **Actions → pilot → Run workflow** once the repository is on GitHub.
 * Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
   for novel drugs (0.79, 0.49–1.29).
 * Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
-  industry group; stops citing lack of funding rose 2.45-fold (1.57–3.83), almost only among small sponsors.
+  industry group; stops citing lack of funding rose 2.45-fold (1.57–3.82), almost only among small sponsors.
 * Trials stopped for financial or strategic reasons carried no more, and probably less, ex-ante genetic support than
   completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
   Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
