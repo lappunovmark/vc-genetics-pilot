@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this code or these pilot results, please cite them as below."
+title: "Do investors pick better biology? Human genetic support, sponsor type and clinical success (pilot)"
+type: software
+authors:
+  - family-names: Lapunov
+    given-names: Mark
+    affiliation: "University College London"
+version: "0.1.0-pilot"
+date-released: 2026-10-21
+license: MIT
+repository-code: "https://github.com/lappunovmark/vc-genetics-pilot"
+keywords:
+  - human genetics
+  - drug development
+  - clinical trials
+  - venture capital
+  - biotech
+  - Open Targets
+  - ClinicalTrials.gov
+references:
+  - type: article
+    authors:
+      - family-names: Minikel
+        given-names: Eric Vallabh
+      - family-names: Painter
+        given-names: Jeffery L.
+      - family-names: Dong
+        given-names: Coco Chengliang
+      - family-names: Nelson
+        given-names: Matthew R.
+    title: "Refining the impact of genetic evidence on clinical success"
+    journal: Nature
+    volume: 629
+    start: 624
+    end: 629
+    year: 2024
+    doi: 10.1038/s41586-024-07316-0
