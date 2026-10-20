@@ -47,8 +47,9 @@ python pilot/sbir_models.py results
 or run **Actions → pilot → Run workflow** once the repository is on GitHub.
 
 ## Validation done
-* `gensup.py` reproduces Minikel et al.'s 1,255 genetically supported target–indication pairs exactly.
-* Genetic insight for indications outside their set: approximation agrees with their label for 96.6% of 1,014 indications.
+* `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
+  (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).
+* Genetic insight for indications outside their set: approximation agrees with their label for 96.6% of their 1,013 indications with a MeSH ID.
 * Replication note: their headline Phase I→launch RS (2.6) is a crude ratio of launch shares; the product of
   phase-wise RS (1.076 × 1.571 × 1.275), as their Methods define it, gives 2.16.
 * Stop-reason classifier v3: 83.0% agreement with hand labels on 200 held-out texts (Cohen's κ 0.79); financial or
