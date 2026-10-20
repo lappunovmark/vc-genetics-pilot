@@ -1,7 +1,19 @@
-# Genetic support × sponsor financing × clinical success — MSc BIE dissertation (UCL)
+# Do investors pick better biology?
+### Human genetic support × sponsor type × clinical success
 
-Pilot code for the working paper on ex-ante human genetic support, sponsor type and clinical development
-outcomes (draft in Claude Docs, Section 5.1 reports the pilot).
+Independent research project by **Mark Lapunov** (MSc Bioscience Innovation and Enterprise, University College London).
+Pilot code and results for a working paper on ex-ante human genetic support, sponsor type and clinical development
+outcomes, which is also the basis of my MSc dissertation.
+
+**Questions**
+1. Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug targets with
+   stronger human genetic support?
+2. Does that explain differences in how often their programmes advance from one clinical phase to the next?
+3. How did the 2022 biotech funding downturn change why clinical trials stop, and did money-driven stops hit
+   genetically better-supported programmes?
+
+**Status.** Pilot results, not peer-reviewed. Sponsor tiers stand in for venture backing until venture rounds from
+SEC EDGAR Form D filings are linked (next step).
 
 ## Pipeline
 | Step | Script | Source (licence) |
@@ -68,3 +80,9 @@ or run **Actions → pilot → Run workflow** once the repository is on GitHub.
   not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
 * Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
   Falaguera et al. (2026) evidence timestamps will replace this.
+
+## Licence
+Code: MIT (see `LICENSE`). Derived tables in `results/` keep the licences of their sources: Open Targets Platform
+(CC0), ClinicalTrials.gov (public domain), NIH RePORTER (public), and Minikel et al. (2024) `genetic_support` data
+(CC BY 4.0; Minikel EV, Painter JL, Dong CC, Nelson MR. *Refining the impact of genetic evidence on clinical success.*
+Nature 629, 624–629 (2024), doi:10.1038/s41586-024-07316-0).
