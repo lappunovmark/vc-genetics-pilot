@@ -11,7 +11,7 @@ permissions:
 jobs:
   formd:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -19,11 +19,23 @@ jobs:
           python-version: "3.13"
           cache: pip
       - run: pip install pandas requests
+      - name: Connectivity probe
+        env:
+          SEC_USER_AGENT: "vc-genetics-pilot research lappunovmark@users.noreply.github.com"
+        run: |
+          mkdir -p formd_out
+          {
+            echo "listing: $(curl -sS -m 30 -o /dev/null -w '%{http_code} %{size_download}' -A "$SEC_USER_AGENT" https://www.sec.gov/data-research/sec-markets-data/form-d-data-sets)"
+            echo "2024q1: $(curl -sS -m 60 -o /dev/null -w '%{http_code} %{size_download}' -A "$SEC_USER_AGENT" https://www.sec.gov/files/structureddata/data/form-d-data-sets/2024q1_d.zip)"
+          } > formd_out/probe.txt 2>&1 || true
+          cat formd_out/probe.txt
       - name: SEC Form D data sets, biotech / pharma / other health care offerings
+        timeout-minutes: 75
         env:
           SEC_USER_AGENT: "vc-genetics-pilot research lappunovmark@users.noreply.github.com"
         run: python pilot/fetch_formd.py formd_out 2009
       - name: Publish the extract on the formd-data branch
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

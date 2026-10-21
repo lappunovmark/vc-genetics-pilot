@@ -112,29 +112,43 @@ def main(out, first_year=2009):
     os.makedirs(out, exist_ok=True)
     s = session()
     frames, log = [], []
-    for y, q, url in archive_urls(s, first_year):
-        for attempt in range(4):
+    logf = open(os.path.join(out, "formd_fetch_log.txt"), "w", encoding="utf-8")
+
+    def note(line):
+        log.append(line)
+        logf.write(line + "\n")
+        logf.flush()
+        print(line[:160], flush=True)
+
+    urls = archive_urls(s, first_year)
+    note(f"archives to fetch: {len(urls)}")
+    failures = 0
+    for y, q, url in urls:
+        r = None
+        for attempt in range(2):
             try:
-                r = s.get(url, timeout=300)
-                if r.status_code == 404:
-                    break
-                r.raise_for_status()
+                r = s.get(url, timeout=90)
+                if r.status_code in (403, 429, 503) and attempt == 0:
+                    time.sleep(5)
+                    continue
                 break
             except requests.RequestException as e:
-                print(f"{y}q{q} attempt {attempt + 1}: {e}", flush=True)
-                time.sleep(10 * (attempt + 1))
-        else:
-            log.append(f"{y}q{q}\tFAILED\t{url}")
-            continue
-        if r.status_code == 404:
-            log.append(f"{y}q{q}\t404\t{url}")
+                note(f"{y}q{q}\terror\t{type(e).__name__}: {e}"[:300])
+                r = None
+                time.sleep(5)
+        if r is None or r.status_code != 200:
+            failures += 1
+            note(f"{y}q{q}\tHTTP {getattr(r, 'status_code', 'none')}\t{url}")
+            if failures >= 6 and not frames:
+                note("stopping: six failures before any archive was read")
+                break
             continue
         zf = zipfile.ZipFile(io.BytesIO(r.content))
         off, iss, sub = (read_table(zf, k) for k in ("OFFERING", "ISSUERS", "FORMDSUBMISSION"))
         if off is None or iss is None or sub is None:
-            log.append(f"{y}q{q}\tMISSING TABLES\t{zf.namelist()}")
+            note(f"{y}q{q}\tMISSING TABLES\t{zf.namelist()}")
             continue
-        o = off[off.get("INDUSTRYGROUPTYPE", pd.Series(dtype=str)).str.strip().str.lower().isin(INDUSTRY)]
+        o = off[off.get("INDUSTRYGROUPTYPE", pd.Series("", index=off.index)).str.strip().str.lower().isin(INDUSTRY)]
         o = o[o.get("ISPOOLEDINVESTMENTFUNDTYPE", pd.Series("false", index=o.index)).str.lower().ne("true")]
         o = o[[c for c in OFFER_COLS if c in o.columns]]
         i = iss
@@ -145,13 +159,14 @@ def main(out, first_year=2009):
         m = o.merge(sb, on="ACCESSIONNUMBER", how="left").merge(i, on="ACCESSIONNUMBER", how="left")
         m.insert(0, "quarter", f"{y}q{q}")
         frames.append(m)
-        log.append(f"{y}q{q}\t{len(m)}\toffering:{len(off)}\tcols:{','.join(off.columns)}")
-        print(log[-1][:160], flush=True)
+        note(f"{y}q{q}\t{len(m)}\toffering:{len(off)}\tcols:{','.join(off.columns)}")
+        if len(frames) % 10 == 0:
+            pd.concat(frames, ignore_index=True).to_csv(os.path.join(out, "formd_biopharma.csv.gz"), index=False)
         time.sleep(0.5)
     df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
     df.to_csv(os.path.join(out, "formd_biopharma.csv.gz"), index=False)
-    with open(os.path.join(out, "formd_fetch_log.txt"), "w", encoding="utf-8") as fh:
-        fh.write("\n".join(log) + f"\nTOTAL\t{len(df)}\n")
+    note(f"TOTAL\t{len(df)}")
+    logf.close()
     print("rows kept:", len(df))
 
 
