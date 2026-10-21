@@ -1,0 +1,19 @@
+[project]
+name = "vc-genetics-pilot"
+version = "0.1.0"
+description = "Human genetic support, sponsor type and clinical success: pilot on open data"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Mark Lapunov" }]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501", "E731", "E741"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
