@@ -1,0 +1,35 @@
+name: formd
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - pilot/fetch_formd.py
+      - .github/workflows/formd.yml
+permissions:
+  contents: write
+jobs:
+  formd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install pandas requests
+      - name: SEC Form D data sets, biotech / pharma / other health care offerings
+        env:
+          SEC_USER_AGENT: "vc-genetics-pilot research lappunovmark@users.noreply.github.com"
+        run: python pilot/fetch_formd.py formd_out 2009
+      - name: Publish the extract on the formd-data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan formd-data
+          git rm -rq --cached .
+          mkdir -p data_formd && mv formd_out/* data_formd/
+          git add -f data_formd
+          git commit -qm "Form D extract $(date -u +%F) from ${GITHUB_SHA::7}"
+          git push -f origin formd-data
