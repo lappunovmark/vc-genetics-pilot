@@ -12,7 +12,8 @@ Pilot code and results for a working paper on ex-ante human genetic support, spo
 outcomes, which is also the basis of my MSc dissertation.
 
 [Results at a glance](#results-at-a-glance) · [Pipeline](#pipeline) · [Validation](#validation-done) ·
-[Pilot results](#pilot-results-open-targets-2609-clinicaltrialsgov-snapshot-17-oct-2026) · [Citation](#citation)
+[Pilot results](#pilot-results-open-targets-2609-clinicaltrialsgov-snapshot-17-oct-2026) · [Roadmap](#roadmap) ·
+[Methods](docs/methods.md) · [Data dictionary](docs/data_dictionary.md) · [Citation](#citation)
 
 **Questions**
 1. Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug targets with
@@ -51,7 +52,7 @@ Figure: `python pilot/figure_glance.py results figures/results_glance.png` (read
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
-Run locally:
+Run locally with `make all` (downloads, rebuilds `results/`, redraws the figure and runs the checks), or step by step:
 ```
 python pilot/fetch_opentargets.py data/ot
 python pilot/fetch_ctgov.py all data/ctgov_all.csv
@@ -71,6 +72,7 @@ or run **Actions → pilot → Run workflow**, which downloads the sources and r
 ## Repository layout
 ```
 pilot/       pipeline: data download, programme panel, models, stop-reason classifier, README figure
+docs/        methods (definitions, models) and data dictionary for results/
 results/     model output and derived tables (small, versioned; provenance in results/PROVENANCE.txt)
 figures/     README figure, rebuilt from results/ by pilot/figure_glance.py
 tests/       unit tests and README-vs-results consistency checks
@@ -79,9 +81,10 @@ factcheck/   scripts that re-check the working paper's numbers and citations aga
 ```
 
 ## Checks
-`pytest -q` runs unit tests of the stop-reason classifier, including its negation handling, and verifies that every
-headline number in this README matches the model output in `results/`. GitHub Actions runs the same checks, a
-byte-compile of all scripts and a rebuild of the figure on every push.
+`make check` runs ruff and the tests. `pytest -q` runs unit tests of the stop-reason classifier, including its
+negation handling, and verifies that every headline number in this README matches the model output in `results/`.
+GitHub Actions runs the same checks, lint and formatting checks, a byte-compile of all scripts and a rebuild of the
+figure on every push.
 
 ## Validation done
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -105,6 +108,13 @@ byte-compile of all scripts and a rebuild of the figure on every push.
   completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
   Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
+
+## Roadmap
+- [ ] Link SEC Form D private placements to industry sponsors, to replace the size proxy for venture backing ([#1](https://github.com/lappunovmark/vc-genetics-pilot/issues/1))
+- [ ] Blind double-coding of the 200 held-out stop-reason texts by the author ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2))
+- [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#3](https://github.com/lappunovmark/vc-genetics-pilot/issues/3))
+- [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4))
+- [ ] Working paper draft ([#5](https://github.com/lappunovmark/vc-genetics-pilot/issues/5))
 
 ## Corrections
 * 19 Oct 2026: ClinicalTrials.gov mixes `YYYY-MM` and `YYYY-MM-DD` dates; pandas 2 without `format='mixed'` dropped 38%
