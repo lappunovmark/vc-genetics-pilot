@@ -1,11 +1,10 @@
 name: formd
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - pilot/fetch_formd.py
-      - .github/workflows/formd.yml
+    inputs:
+      user_agent:
+        description: "SEC contact for the User-Agent header: name and email (SEC fair-access rules)"
+        required: true
 permissions:
   contents: write
 jobs:
@@ -21,7 +20,7 @@ jobs:
       - run: pip install pandas requests
       - name: Connectivity probe
         env:
-          SEC_USER_AGENT: "vc-genetics-pilot research lappunovmark@users.noreply.github.com"
+          SEC_USER_AGENT: ${{ inputs.user_agent }}
         run: |
           mkdir -p formd_out
           {
@@ -32,7 +31,7 @@ jobs:
       - name: SEC Form D data sets, biotech / pharma / other health care offerings
         timeout-minutes: 75
         env:
-          SEC_USER_AGENT: "vc-genetics-pilot research lappunovmark@users.noreply.github.com"
+          SEC_USER_AGENT: ${{ inputs.user_agent }}
         run: python pilot/fetch_formd.py formd_out 2009
       - name: Publish the extract on the formd-data branch
         if: always()
