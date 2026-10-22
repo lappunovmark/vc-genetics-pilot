@@ -21,9 +21,11 @@ outcomes, which is also the basis of my MSc dissertation.
 2. Does that explain differences in how often their programmes advance from one clinical phase to the next?
 3. How did the 2022 biotech funding downturn change why clinical trials stop, and did money-driven stops hit
    genetically better-supported programmes?
+4. Do sponsors that raised private money (SEC Form D private placements) pick better-supported targets, and do their
+   programmes advance more often?
 
-**Status.** Pilot results, not peer-reviewed. Sponsor tiers stand in for venture backing until venture rounds from
-SEC EDGAR Form D filings are linked (next step).
+**Status.** Pilot results, not peer-reviewed. Private financing is measured by SEC Form D private placements (first
+pass, linked in October 2026); sponsor tiers remain the main grouping.
 
 ## Results at a glance
 ![Pilot results: genetic support, sponsor type and trial stops](figures/results_glance.png)
@@ -34,6 +36,9 @@ SEC EDGAR Form D filings are linked (next step).
 * **Small sponsors use the signal less.** They start fewer programmes with genetic support (adjusted OR 0.64).
 * **Funding-driven stops rose after 2022.** Trial stops citing lack of funding rose 2.45-fold among small sponsors;
   trials stopped for financial or strategic reasons carried no more genetic support than completed ones.
+* **Private money does not buy better biology.** Sponsors with an SEC Form D private placement before their first
+  trial started genetically supported programmes no more often than other non-top-20 industry sponsors (adjusted
+  OR 0.66, 0.41–1.05), and their programmes advanced no more often (OR 0.88, 0.71–1.09).
 
 Figure: `python pilot/figure_glance.py results figures/results_glance.png` (reads the numbers from `results/`).
 
@@ -50,6 +55,7 @@ Figure: `python pilot/figure_glance.py results figures/results_glance.png` (read
 | H4, second part: genetic support of trials stopped for money vs completed | `pilot/h4_biology.py` | — |
 | NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
+| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`), models | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
 Run locally with `make all` (downloads, rebuilds `results/`, redraws the figure and runs the checks), or step by step:
@@ -66,6 +72,9 @@ python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_suppo
 python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
 python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results
 python pilot/sbir_models.py results
+SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_formd.py data/formd
+python pilot/formd_link.py data/formd/formd_biopharma.csv.gz results
+python pilot/formd_models.py results
 ```
 or run **Actions → pilot → Run workflow**, which downloads the sources and rebuilds the core tables on GitHub.
 
@@ -108,9 +117,16 @@ figure on every push.
   completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
   Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
+* SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 784 of
+  2,964 non-top-20 industry sponsor names matched to an issuer (66 of them after hand review, 27 candidate matches
+  rejected). Among programmes first trialled in 2010 or later, sponsors with a prior Form D started genetically
+  supported programmes no more often (3.4% vs 5.9%; adjusted OR 0.66, 0.41–1.05) and advanced no more often
+  (adjusted OR 0.88, 0.71–1.09); genetic support predicted advancement in both groups (interaction OR 1.58,
+  0.75–3.30).
 
 ## Roadmap
-- [ ] Link SEC Form D private placements to industry sponsors, to replace the size proxy for venture backing ([#1](https://github.com/lappunovmark/vc-genetics-pilot/issues/1))
+- [x] Link SEC Form D private placements to industry sponsors (first pass; next: US-only comparison and venture
+  investors among related persons, [#1](https://github.com/lappunovmark/vc-genetics-pilot/issues/1))
 - [ ] Blind double-coding of the 200 held-out stop-reason texts by the author ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2))
 - [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#3](https://github.com/lappunovmark/vc-genetics-pilot/issues/3))
 - [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4))
@@ -122,7 +138,9 @@ figure on every push.
   The Open Targets panel (H1–H3) was not affected: its dates are typed.
 
 ## Known pilot simplifications
-* Sponsor tiers (top-20; other industry by portfolio size) stand in for VC backing until EDGAR / PitchBook data are linked.
+* Form D marks private placements, not venture capital as such: some venture rounds are never filed, some filers are
+  not venture-backed, and only issuers raising money in the US file. "No prior Form D" therefore mixes non-US
+  sponsors with US sponsors that raised no private money; a US-only comparison is the next step.
 * Most approval records carry no date, so an approval that preceded a phase entry can count as advancement.
 * Registry programmes include investigator-initiated trials of marketed drugs; levels of relative success are therefore
   not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).

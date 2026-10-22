@@ -56,6 +56,14 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `sbir_match_review.csv` | Every sponsor ↔ SBIR/STTR awardee match with both names, score and decision |
 | `sbir_summary.txt`, `sbir_models.txt` | Linkage coverage and models of prior SBIR/STTR funding |
 
+## SEC Form D (`formd_link.py`, `formd_models.py`)
+
+| File | Content |
+|---|---|
+| `formd_match_review.csv` | Every sponsor ↔ Form D issuer candidate match, with match type, decision, issuer CIK, first filing year, number of filings and largest amount sold |
+| `formd_sponsors.csv` | Accepted matches: one row per normalised sponsor name |
+| `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag |
+
 ## Other
 
 `coverage.json` (row counts at each pipeline step), `disease_mesh.csv.gz` (disease → MeSH map), `robust_*.csv`

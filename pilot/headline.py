@@ -66,4 +66,8 @@ def headline(res="results"):
             "Prior NIH SBIR/STTR funding\n→ genetic support of programmes",
             from_txt(res, "sbir_models.txt", "H1: ex-ante support at first trial ~ prior SBIR/STTR", "sbir "),
         ),
+        (
+            "Prior SEC Form D private placement\n→ genetic support of programmes",
+            from_txt(res, "formd_models.txt", "H1: ex-ante support at first trial ~ prior Form D", "formd "),
+        ),
     ]

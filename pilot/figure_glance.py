@@ -20,7 +20,7 @@ rows = headline(RES)
 
 INK, INK2, MUTED, GRID, SERIES, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1", "#2a78d6", "#ffffff"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10})
-fig, ax = plt.subplots(figsize=(9.2, 4.6), dpi=200)
+fig, ax = plt.subplots(figsize=(9.2, 1.6 + 0.5 * len(rows)), dpi=200)
 fig.patch.set_facecolor(SURFACE)
 ax.set_facecolor(SURFACE)
 n = len(rows)
@@ -60,14 +60,14 @@ fig.suptitle(
 )
 fig.text(
     0.02,
-    0.905,
+    0.915,
     "35,887 drug × indication programmes · Open Targets 26.09 · ClinicalTrials.gov snapshot 17 Oct 2026 · "
-    "not peer-reviewed",
+    "SEC Form D 2009–2026 · not peer-reviewed",
     ha="left",
     color=INK2,
     fontsize=8.5,
 )
-fig.subplots_adjust(left=0.34, right=0.80, top=0.84, bottom=0.14)
+fig.subplots_adjust(left=0.34, right=0.80, top=0.86, bottom=0.13)
 fig.savefig(OUT, facecolor=SURFACE)
 for label, v in rows:
     print(label.replace("\n", " "), v)

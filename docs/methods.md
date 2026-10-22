@@ -37,7 +37,8 @@ evidence dated by Falaguera et al. (Zenodo 15922783), where undated evidence nev
 | Programme panel (`build_panel26.py`, `sponsors.py`) | Top-20 pharma; industry small (≤ 5 drugs), mid (6–30), large (> 30); academic/other; government | Top-20 = largest companies by 2023 pharmaceutical revenue, matched by regular expression; an acquired company counts as the parent only for trials that started in or after the acquisition year. Other industry sponsors are sized by the number of distinct parent drugs their normalised name leads across all Open Targets trial records. |
 | Trial stops (`rq2_stops.py`) | Top-20 pharma; industry small (≤ 20 trials), mid (21–200), large (> 200) | Size = number of interventional drug trials the normalised lead-sponsor name has ever led on ClinicalTrials.gov. |
 
-Sponsor size stands in for venture backing until SEC Form D rounds are linked (see the roadmap in the README).
+Sponsor size is the main grouping. SEC Form D private placements add a direct, dated signal of private financing
+(see below).
 
 ## Models
 
@@ -68,6 +69,21 @@ Industry lead sponsors are matched to NIH RePORTER SBIR/STTR awardees: exact mat
 fuzzy match (RapidFuzz `token_sort_ratio` ≥ 92) within blocks that share the first token. Every match is written
 out for review; matches that differ by more than a legal form need an explicit decision in `pilot/sbir_decisions.csv`.
 A sponsor counts as SBIR/STTR-funded before a trial if its first award year precedes the trial's start year.
+
+## SEC Form D private placements (`fetch_formd.py`, `formd_link.py`, `formd_models.py`)
+
+Form D is the notice a company files with the SEC after selling securities in a private placement. The quarterly
+Form D data sets (2009 Q1 onwards) are filtered to offerings whose industry group is Biotechnology, Pharmaceuticals
+or Other Health Care and that are not pooled investment funds, then joined to the filing date and the primary issuer.
+Issuer names include current and previous names (on the filing and in EDGAR), all mapped to the issuer's CIK.
+Sponsors are matched to issuers with the same rules as the SBIR/STTR linkage; decisions on names that differ by more
+than a legal form are in `pilot/formd_decisions.csv`, each with a reason.
+
+`formd` = the lead sponsor filed a Form D in a calendar year before the trial's start year. Because the data start
+in 2009, the Form D models use programmes and phase entries from 2010 onwards. In the selection models, therapeutic
+areas with fewer than three supported programmes are pooled into "other" to avoid separation.
+
+The extract used for the published results is on the `formd-data` branch (`data_formd/`), with the fetch log.
 
 ## Known limitations
 
