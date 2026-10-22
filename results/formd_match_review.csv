@@ -1,0 +1,812 @@
+match,accepted,decision,strict_eq,lead_sponsor,issuer_name,norm,issuer_norm,score,CIK,tier,n_trials,formd_first_year,formd_filings,formd_max_sold,formd_industry,formd_state
+exact,False,reject,False,Antares Pharma Inc.,"Antares Therapeutics, Inc.",antares,antares,100.0,0002059043,"Industry, small (<=5 drugs)",6,2025,2,40000000,Biotechnology,MA
+exact,False,reject,False,BioGene Pharmaceutical Ltd.,BioGene Therapeutics Inc.,biogene,biogene,100.0,0002140719,"Industry, small (<=5 drugs)",1,2026,5,4550000,Biotechnology,TX
+exact,False,reject,False,"Biostar Pharma, Inc.","Biostar Pharmaceuticals, Inc.",biostar,biostar,100.0,0001418133,"Industry, small (<=5 drugs)",1,2009,2,3605000,Pharmaceuticals,F4
+exact,False,reject,False,Boston Pharmaceuticals,"Boston Therapeutics, Inc.",boston,boston,100.0,0001473579,"Industry, small (<=5 drugs)",1,2013,4,8434778,Pharmaceuticals,NH
+exact,False,reject,False,"Catalyst Pharmaceuticals, Inc.",CATALYST BIOSCIENCES INC,catalyst,catalyst,100.0,0001270381,"Industry, small (<=5 drugs)",10,2012,6,13407658,Biotechnology,CA
+exact,False,reject,False,"Centaurus Biopharma Co., Ltd.",CENTAURUS PHARMACEUTICALS INC,centaurus,centaurus,100.0,0001427733,"Industry, small (<=5 drugs)",1,2009,3,30075000,Pharmaceuticals,MA
+exact,False,reject,False,"CNS Pharmaceuticals, Inc.",CNS THERAPEUTICS INC,cns,cns,100.0,0001439036,"Industry, small (<=5 drugs)",1,2009,3,7000000,Pharmaceuticals,MN
+exact,False,reject,False,Cure Therapeutics,CURE PHARMACEUTICAL Corp,cure,cure,100.0,0001554289,"Industry, small (<=5 drugs)",1,2016,6,6033963,Pharmaceuticals,CA
+exact,False,reject,False,"DOV Pharmaceutical, Inc.","Dov Pharmaceuticals, Inc.",dov,dov,100.0,0001066833,"Industry, small (<=5 drugs)",4,2017,1,300000,Biotechnology,MA
+exact,False,reject,False,"Eleos, Inc.","Eleos Pharmaceuticals, Inc.",eleos,eleos,100.0,0001885028,"Industry, small (<=5 drugs)",3,2021,1,500000,Pharmaceuticals,GA
+exact,False,reject,False,Fulgent Pharma LLC.,Fulgent Therapeutics LLC,fulgent,fulgent,100.0,0001657251,"Industry, small (<=5 drugs)",1,2015,2,27164700,Biotechnology,CA
+exact,False,reject,False,Helix BioPharma Corporation,"Helix Therapeutics, LLC",helix,helix,100.0,0001458721,"Industry, small (<=5 drugs)",2,2009,2,2500000,Biotechnology,CT
+exact,False,reject,False,Ikaria Bioscience Pty Ltd,IKARIA HOLDINGS INC,ikaria,ikaria,100.0,0001396990,"Industry, small (<=5 drugs)",1,2009,1,54947203,Pharmaceuticals,NJ
+exact,False,reject,False,Lotus Pharmaceutical,"Lotus Development, LLC",lotus,lotus,100.0,0001674322,"Industry, small (<=5 drugs)",1,2016,1,225000,Other Health Care,FL
+exact,False,reject,False,"Nereus Pharmaceuticals, Inc.",Nereus BioPharma LLC,nereus,nereus,100.0,0001577078,"Industry, small (<=5 drugs)",2,2013,1,1000001,Pharmaceuticals,FL
+exact,False,reject,False,"Novita Pharmaceuticals, Inc.","Novita Therapeutics, LLC",novita,novita,100.0,0001467894,"Industry, small (<=5 drugs)",1,2009,5,3155000,Biotechnology,KS
+exact,False,reject,False,Nuvo Research Inc.,Nuvo Group Ltd.,nuvo,nuvo,100.0,0001861520,"Industry, small (<=5 drugs)",1,2021,1,25000000,Other Health Care,L3
+exact,False,reject,False,Ozmosis Research Inc.,"Ozmosis, Inc.",ozmosis,ozmosis,100.0,0001474524,"Industry, small (<=5 drugs)",1,2009,1,200000,Other Health Care,VA
+exact,False,reject,False,"Precision BioSciences, Inc.",Precision Therapeutics Inc.,precision,precision,100.0,0001446159,"Industry, small (<=5 drugs)",1,2009,20,17635343,Other Health Care,MN
+exact,False,reject,False,Prelude Therapeutics,Prelude Corp,prelude,prelude,100.0,0001669317,"Industry, small (<=5 drugs)",2,2016,6,10000013,Biotechnology,CA
+exact,False,reject,False,Prevail Therapeutics,"Prevail Holdings, Inc",prevail,prevail,100.0,0001727268,"Industry, small (<=5 drugs)",1,2018,1,500000,Other Health Care,LA
+exact,False,reject,False,Primus Pharmaceuticals,Primus Therapeutics Inc.,primus,primus,100.0,0001501467,"Industry, mid (6-30)",4,2011,2,500000,Pharmaceuticals,NJ
+exact,False,reject,False,"Respira Therapeutics, Inc.",RESPIRA INC,respira,respira,100.0,0001405656,"Industry, small (<=5 drugs)",2,2009,2,11818000,Other Health Care,CA
+exact,False,reject,False,Stem Cell Therapeutics Corp.,International Stem Cell CORP,stem cell,stem cell,100.0,0001355790,"Industry, small (<=5 drugs)",2,2012,2,5000000,Biotechnology,CA
+exact,False,reject,False,UroGen Pharma Ltd.,UROGEN CORP,urogen,urogen,100.0,0001003929,"Industry, mid (6-30)",2,2010,2,3201397,Pharmaceuticals,CA
+exact,False,reject,False,Voyager Pharmaceutical Corporation,"Voyager Therapeutics, Inc.",voyager,voyager,100.0,0001640266,"Industry, small (<=5 drugs)",3,2015,3,60000003,Biotechnology,MA
+exact,False,reject,False,Ziarco Pharma Ltd,"Ziarco, Inc.",ziarco,ziarco,100.0,0001561258,"Industry, small (<=5 drugs)",2,2012,1,7601832,Other Health Care,CA
+exact,True,,True,4D Molecular Therapeutics,4D Molecular Therapeutics Inc,4d molecular,4d molecular,100.0,0001650648,"Industry, small (<=5 drugs)",1,2015,3,89999874,Biotechnology,CA
+exact,True,,True,"7 Hills Pharma, LLC",7 Hills Pharma Inc.,7 hills,7 hills,100.0,0002030700,"Industry, small (<=5 drugs)",1,2024,1,1000000,Pharmaceuticals,TX
+exact,True,,True,"9 Meters Biopharma, Inc.","9 METERS BIOPHARMA, INC.",9 meters,9 meters,100.0,0001551986,"Industry, small (<=5 drugs)",4,2018,8,92751768,Pharmaceuticals,NC
+exact,True,,True,"Aadi Bioscience, Inc.","Aadi Bioscience, Inc.",aadi,aadi,100.0,0001422142,"Industry, mid (6-30)",8,2017,5,154999876,Biotechnology,OH
+exact,True,,True,AbbVie,AbbVie Inc.,abbvie,abbvie,100.0,0001551152,"Industry, large (>30)",28,2016,1,3800000000,Pharmaceuticals,IL
+exact,True,,True,Abide Therapeutics,"Abide Therapeutics, Inc.",abide,abide,100.0,0001535138,"Industry, small (<=5 drugs)",3,2011,1,2199999,Pharmaceuticals,NJ
+exact,True,,True,ACADIA Pharmaceuticals Inc.,ACADIA PHARMACEUTICALS INC,acadia,acadia,100.0,0001070494,"Industry, small (<=5 drugs)",24,2011,2,86385000,Pharmaceuticals,CA
+exact,True,,True,"Access Pharmaceuticals, Inc.",ACCESS PHARMACEUTICALS INC,access,access,100.0,0000318306,"Industry, small (<=5 drugs)",1,2011,4,13664509,Pharmaceuticals,TX
+exact,True,,True,"ACEA Therapeutics, Inc.","ACEA Therapeutics, Inc.",acea,acea,100.0,0001734186,"Industry, small (<=5 drugs)",1,2018,2,18000000,Pharmaceuticals,CA
+exact,True,,True,Acer Therapeutics Inc.,Acer Therapeutics Inc.,acer,acer,100.0,0001069308,"Industry, small (<=5 drugs)",1,2009,7,4085000,Biotechnology,TX
+exact,True,,True,Acerus Pharmaceuticals Corporation,Acerus Pharmaceuticals Corp,acerus,acerus,100.0,0001527246,"Industry, small (<=5 drugs)",8,2011,3,6847846,Pharmaceuticals,A6
+exact,True,,True,Achieve Life Sciences,"ACHIEVE LIFE SCIENCES, INC.",achieve life sciences,achieve life sciences,100.0,0000949858,"Industry, mid (6-30)",18,2010,3,18900000,Biotechnology,WA
+exact,True,,True,"Aciex Therapeutics, Inc.","Aciex Therapeutics, Inc.",aciex,aciex,100.0,0001415518,"Industry, small (<=5 drugs)",1,2011,2,8000000,Biotechnology,MA
+exact,True,,True,"Aclaris Therapeutics, Inc.","Aclaris Therapeutics, Inc.",aclaris,aclaris,100.0,0001557746,"Industry, mid (6-30)",3,2012,8,79999999,Pharmaceuticals,PA
+exact,True,,True,Acrivon Therapeutics,"Acrivon Therapeutics, Inc.",acrivon,acrivon,100.0,0001781174,"Industry, small (<=5 drugs)",1,2021,2,99999974,Biotechnology,MA
+exact,True,,True,"ACT Biotech, Inc",ACT BIOTECH INC,act,act,100.0,0001434913,"Industry, small (<=5 drugs)",1,2009,3,1000000,Biotechnology,CA
+exact,True,,True,Actinium Pharmaceuticals,"Actinium Pharmaceuticals, Inc.",actinium,actinium,100.0,0001388320,"Industry, mid (6-30)",4,2013,6,6636720,Pharmaceuticals,NY
+exact,True,,True,Actuate Therapeutics Inc.,"ACTUATE THERAPEUTICS, INC.",actuate,actuate,100.0,0001652935,"Industry, mid (6-30)",3,2015,13,21886833,Pharmaceuticals,TX
+exact,True,,True,Adamis Pharmaceuticals Corporation,Adamis Pharmaceuticals Corp,adamis,adamis,100.0,0000887247,"Industry, small (<=5 drugs)",2,2010,9,6502158,Pharmaceuticals,CA
+exact,True,,True,"Adherex Technologies, Inc.",ADHEREX TECHNOLOGIES INC,adherex technologies,adherex technologies,100.0,0001211583,"Industry, mid (6-30)",2,2013,3,7600000,Biotechnology,NC
+exact,True,,True,Adial Pharmaceuticals,"ADIAL PHARMACEUTICALS, INC.",adial,adial,100.0,0001513525,"Industry, small (<=5 drugs)",1,2011,19,10000000,Pharmaceuticals,VA
+exact,True,,True,"Aduro Biotech, Inc.",ADURO BIOTECH,aduro,aduro,100.0,0001435049,"Industry, small (<=5 drugs)",4,2009,9,51388002,Biotechnology,CA
+exact,True,,True,"Advaxis, Inc.","Advaxis, Inc.",advaxis,advaxis,100.0,0001100397,"Industry, small (<=5 drugs)",4,2009,14,11093521,Biotechnology,NJ
+exact,True,,True,"Advenchen Laboratories, LLC","Advenchen Laboratories, LLC",advenchen laboratories,advenchen laboratories,100.0,0001492159,"Industry, small (<=5 drugs)",3,2010,1,4475000,Pharmaceuticals,CA
+exact,True,,True,"Adverum Biotechnologies, Inc.","Adverum Biotechnologies, Inc.",adverum biotechnologies,adverum biotechnologies,100.0,0001501756,"Industry, small (<=5 drugs)",2,2013,4,127800000,Biotechnology,CA
+exact,True,,True,"Aegerion Pharmaceuticals, Inc.","Aegerion Pharmaceuticals, Inc.",aegerion,aegerion,100.0,0001338042,"Industry, mid (6-30)",8,2009,3,18314760,Pharmaceuticals,NJ
+exact,True,,True,Aeglea Biotherapeutics,"Aeglea BioTherapeutics, Inc.",aeglea biotherapeutics,aeglea biotherapeutics,100.0,0001636282,"Industry, small (<=5 drugs)",1,2015,3,210000248,Biotechnology,TX
+exact,True,,True,"AEON Biopharma, Inc.","AEON Biopharma, Inc.",aeon,aeon,100.0,0001622667,"Industry, small (<=5 drugs)",2,2015,7,80060118,Pharmaceuticals,CA
+exact,True,,True,Aerie Pharmaceuticals,AERIE PHARMACEUTICALS INC,aerie,aerie,100.0,0001337553,"Industry, mid (6-30)",16,2010,5,125000000,Biotechnology,NC
+exact,True,,True,AeroRx Therapeutics Inc.,"AeroRx Therapeutics, Inc.",aerorx,aerorx,100.0,0002090778,"Industry, small (<=5 drugs)",1,2025,1,10376003,Other Health Care,CA
+exact,True,,True,Aerovate Therapeutics,"Aerovate Therapeutics, Inc.",aerovate,aerovate,100.0,0001798749,"Industry, small (<=5 drugs)",2,2020,1,75818727,Pharmaceuticals,MA
+exact,True,,True,Aerpio Therapeutics,"Aerpio Therapeutics, Inc.",aerpio,aerpio,100.0,0001538472,"Industry, small (<=5 drugs)",4,2012,7,27000000,Biotechnology,OH
+exact,True,,True,AEterna Zentaris,Aeterna Zentaris Inc.,aeterna zentaris,aeterna zentaris,100.0,0001113423,"Industry, mid (6-30)",17,2019,2,4987500,Pharmaceuticals,SC
+exact,True,,True,Affymax,AFFYMAX INC,affymax,affymax,100.0,0001158223,"Industry, small (<=5 drugs)",12,2009,1,41999999,Biotechnology,CA
+exact,True,,True,AgelessRx,"AgelessRx, Inc.",agelessrx,agelessrx,100.0,0002109810,"Industry, mid (6-30)",2,2026,1,5473242,Biotechnology,MI
+exact,True,accept,False,Agennix,"Agennix Holdings, LLC",agennix,agennix,100.0,0001467896,"Industry, mid (6-30)",5,2009,1,0,Biotechnology,TX
+exact,True,,True,Agenus Inc.,AGENUS INC,agenus,agenus,100.0,0001098972,"Industry, mid (6-30)",13,2009,11,60000000,Biotechnology,MA
+exact,True,,True,Agile Therapeutics,AGILE THERAPEUTICS INC,agile,agile,100.0,0001261249,"Industry, small (<=5 drugs)",2,2009,9,33060670,Pharmaceuticals,NJ
+exact,True,,True,"Agios Pharmaceuticals, Inc.",AGIOS PHARMACEUTICALS INC,agios,agios,100.0,0001439222,"Industry, mid (6-30)",14,2010,2,78000001,Pharmaceuticals,MA
+exact,True,,True,"Aileron Therapeutics, Inc.",AILERON THERAPEUTICS INC,aileron,aileron,100.0,0001420565,"Industry, small (<=5 drugs)",2,2009,5,30112894,Biotechnology,MA
+exact,True,,True,AIM ImmunoTech Inc.,AIM ImmunoTech Inc.,aim immunotech,aim immunotech,100.0,0000946644,"Industry, small (<=5 drugs)",4,2016,5,3301250,Pharmaceuticals,PA
+exact,True,,True,AKARI Therapeutics,Akari Therapeutics Plc,akari,akari,100.0,0001541157,"Industry, small (<=5 drugs)",8,2012,14,75000000,Biotechnology,X0
+exact,True,,True,Akcea Therapeutics,"AKCEA THERAPEUTICS, INC.",akcea,akcea,100.0,0001662524,"Industry, mid (6-30)",6,2016,1,543168000,Pharmaceuticals,MA
+exact,True,,True,Akebia Therapeutics,"Akebia Therapeutics, Inc.",akebia,akebia,100.0,0001517022,"Industry, mid (6-30)",23,2011,2,13945340,Biotechnology,OH
+exact,True,,True,"Akorn, Inc.",AKORN INC,akorn,akorn,100.0,0000003116,"Industry, small (<=5 drugs)",1,2009,2,0,Pharmaceuticals,IL
+exact,True,,True,"Alacrity Biosciences, Inc.",ALACRITY BIOSCIENCES INC,alacrity,alacrity,100.0,0001385988,"Industry, small (<=5 drugs)",1,2011,1,250000,Biotechnology,CA
+exact,True,,True,Alchemia Oncology,Alchemia Oncology Pty Ltd,alchemia oncology,alchemia oncology,100.0,0001535439,"Industry, small (<=5 drugs)",1,2011,3,708825,Biotechnology,C3
+exact,True,,True,"Alder Biopharmaceuticals, Inc.",ALDER BIOPHARMACEUTICALS INC,alder,alder,100.0,0001423824,"Industry, small (<=5 drugs)",1,2018,1,99999952,Biotechnology,WA
+exact,True,,True,"Aldeyra Therapeutics, Inc.","Aldeyra Therapeutics, Inc.",aldeyra,aldeyra,100.0,0001341235,"Industry, small (<=5 drugs)",2,2013,4,10000000,Biotechnology,MA
+exact,True,,True,Alessa Therapeutics Inc.,"Alessa Therapeutics, Inc.",alessa,alessa,100.0,0001771653,"Industry, small (<=5 drugs)",3,2019,3,25376457,Other Health Care,CA
+exact,True,,True,Alfacell,ALFACELL CORP,alfacell,alfacell,100.0,0000708717,"Industry, small (<=5 drugs)",1,2009,9,3250000,Biotechnology,NJ
+exact,True,,True,Alimera Sciences,ALIMERA SCIENCES INC,alimera sciences,alimera sciences,100.0,0001267602,"Industry, small (<=5 drugs)",6,2009,7,81000000,Pharmaceuticals,GA
+exact,True,,True,Alios Biopharma Inc.,ALIOS BIOPHARMA INC,alios,alios,100.0,0001380990,"Industry, mid (6-30)",1,2009,3,41000001,Pharmaceuticals,CA
+exact,True,,True,"Alkahest, Inc.","Alkahest, Inc.",alkahest,alkahest,100.0,0001615386,"Industry, small (<=5 drugs)",2,2014,1,3500000,Biotechnology,CA
+exact,True,,True,Allakos Inc.,Allakos Inc.,allakos,allakos,100.0,0001564824,"Industry, small (<=5 drugs)",12,2012,4,100141456,Pharmaceuticals,CA
+exact,True,,True,Allarity Therapeutics,"Allarity Therapeutics, Inc.",allarity,allarity,100.0,0001860657,"Industry, mid (6-30)",4,2021,6,20000000,Biotechnology,MA
+exact,True,,True,"Allegro Ophthalmics, LLC","Allegro Ophthalmics, LLC",allegro ophthalmics,allegro ophthalmics,100.0,0001631466,"Industry, small (<=5 drugs)",1,2015,9,20328214,Pharmaceuticals,CA
+exact,True,,True,Allogene Therapeutics,"Allogene Therapeutics, Inc.",allogene,allogene,100.0,0001737287,"Industry, mid (6-30)",5,2018,1,411770409,Biotechnology,CA
+exact,True,,True,Allon Therapeutics,Allon Therapeutics Inc,allon,allon,100.0,0001306079,"Industry, small (<=5 drugs)",2,2012,1,1626182,Biotechnology,A1
+exact,True,,True,Allotera Therapeutics,"Allotera Therapeutics, Inc.",allotera,allotera,100.0,0001874298,"Industry, small (<=5 drugs)",1,2021,4,123313778,Other Health Care,MO
+exact,True,,True,"Alpine Immune Sciences, Inc.","Alpine Immune Sciences, Inc.",alpine immune sciences,alpine immune sciences,100.0,0001632083,"Industry, small (<=5 drugs)",2,2015,4,17000004,Biotechnology,WA
+exact,True,,True,"Altheus Therapeutics, Inc.",Altheus Therapeutics Inc,altheus,altheus,100.0,0001414163,"Industry, small (<=5 drugs)",1,2009,9,8085705,Biotechnology,OK
+exact,True,,True,Alto Neuroscience,"Alto Neuroscience, Inc.",alto neuroscience,alto neuroscience,100.0,0001999480,"Industry, small (<=5 drugs)",2,2023,5,59261815,Biotechnology,CA
+exact,True,,True,Altor BioScience,Altor Bioscience Corp,altor,altor,100.0,0001320603,"Industry, mid (6-30)",4,2009,11,30328264,Biotechnology,FL
+exact,True,,True,Alumis Inc,ALUMIS INC.,alumis,alumis,100.0,0001847367,"Industry, small (<=5 drugs)",1,2021,4,129499957,Biotechnology,CA
+exact,True,,True,"Alzamend Neuro, Inc.","Alzamend Neuro, Inc.",alzamend neuro,alzamend neuro,100.0,0001677077,"Industry, small (<=5 drugs)",1,2016,3,231519,Biotechnology,UT
+exact,True,,True,Alzheon Inc.,"ALZHEON, INC.",alzheon,alzheon,100.0,0001582636,"Industry, small (<=5 drugs)",3,2013,15,126259938,Biotechnology,MA
+exact,True,,True,"Ambrx, Inc.",AMBRX INC,ambrx,ambrx,100.0,0001264647,"Industry, small (<=5 drugs)",2,2009,1,10000000,Biotechnology,CA
+exact,True,,True,Amicus Therapeutics,AMICUS THERAPEUTICS INC,amicus,amicus,100.0,0001178879,"Industry, mid (6-30)",25,2010,7,199916500,Biotechnology,NJ
+exact,True,,True,"Aminex Therapeutics, Inc.","Aminex Therapeutics, Inc.",aminex,aminex,100.0,0001613386,"Industry, small (<=5 drugs)",2,2014,6,15084670,Biotechnology,WA
+exact,True,,True,"Amphivena Therapeutics, Inc.","Amphivena Therapeutics, Inc.",amphivena,amphivena,100.0,0001582186,"Industry, small (<=5 drugs)",1,2013,5,38694170,Biotechnology,CA
+exact,True,,True,Ampio Pharmaceuticals. Inc.,"Ampio Pharmaceuticals, Inc.",ampio,ampio,100.0,0001411906,"Industry, small (<=5 drugs)",1,2011,1,585000,Pharmaceuticals,CO
+exact,True,,True,AmpliMed Corporation,AMPLIMED CORP,amplimed,amplimed,100.0,0000866105,"Industry, small (<=5 drugs)",4,2009,6,7142093,Biotechnology,AZ
+exact,True,,True,"AnaptysBio, Inc.",ANAPTYSBIO INC,anaptysbio,anaptysbio,100.0,0001370053,"Industry, small (<=5 drugs)",3,2010,5,40767277,Pharmaceuticals,CA
+exact,True,,True,"Anelixis Therapeutics, LLC","Anelixis Therapeutics, Inc.",anelixis,anelixis,100.0,0001704400,"Industry, small (<=5 drugs)",2,2017,3,4289395,Biotechnology,MA
+exact,True,,True,"Anesiva, Inc.","ANESIVA, INC.",anesiva,anesiva,100.0,0001131517,"Industry, small (<=5 drugs)",3,2009,3,3000000,Biotechnology,CA
+exact,True,,True,Angion Biomedica Corp,Angion Biomedica Corp.,angion biomedica,angion biomedica,100.0,0001601485,"Industry, small (<=5 drugs)",2,2015,8,15379000,Biotechnology,NY
+exact,True,,True,"Ankyra Therapeutics, Inc","Ankyra Therapeutics, Inc.",ankyra,ankyra,100.0,0001811511,"Industry, small (<=5 drugs)",2,2020,2,44999979,Biotechnology,MA
+exact,True,,True,Anterios Inc.,ANTERIOS INC,anterios,anterios,100.0,0001390085,"Industry, small (<=5 drugs)",2,2009,6,5165495,Biotechnology,NY
+exact,True,,True,Anthera Pharmaceuticals,Anthera Pharmaceuticals Inc,anthera,anthera,100.0,0001316175,"Industry, mid (6-30)",12,2017,2,15000000,Biotechnology,CA
+exact,True,,True,"Apellis Pharmaceuticals, Inc.","Apellis Pharmaceuticals, Inc.",apellis,apellis,100.0,0001492422,"Industry, small (<=5 drugs)",22,2010,11,47135951,Pharmaceuticals,KY
+exact,True,,True,Apnimed,"Apnimed, Inc.",apnimed,apnimed,100.0,0001745648,"Industry, mid (6-30)",13,2018,15,79749950,Pharmaceuticals,MA
+exact,True,,True,Apollomics Inc.,Apollomics Inc.,apollomics,apollomics,100.0,0001944885,"Industry, small (<=5 drugs)",2,2026,1,10000000,Biotechnology,CA
+exact,True,,True,"Aponia Laboratories, Inc.",Aponia Laboratories Inc,aponia laboratories,aponia laboratories,100.0,0001497705,"Industry, small (<=5 drugs)",1,2010,10,3271712,Pharmaceuticals,CT
+exact,True,,True,"Applied Therapeutics, Inc.",Applied Therapeutics Inc.,applied,applied,100.0,0001697532,"Industry, small (<=5 drugs)",1,2017,6,99997998,Biotechnology,NY
+exact,True,,True,Aprea Therapeutics,"Aprea Therapeutics, Inc.",aprea,aprea,100.0,0001781983,"Industry, mid (6-30)",8,2025,1,3055822,Biotechnology,PA
+exact,True,,True,Aptevo Therapeutics,Aptevo Therapeutics Inc.,aptevo,aptevo,100.0,0001671584,"Industry, mid (6-30)",6,2025,2,3472683,Pharmaceuticals,WA
+exact,True,,True,Aquestive Therapeutics,"Aquestive Therapeutics, Inc.",aquestive,aquestive,100.0,0001398733,"Industry, small (<=5 drugs)",6,2018,1,9063956,Pharmaceuticals,NJ
+exact,True,,True,"Aragon Pharmaceuticals, Inc.","Aragon Pharmaceuticals, Inc.",aragon,aragon,100.0,0001463270,"Industry, mid (6-30)",8,2009,5,49999988,Pharmaceuticals,CA
+exact,True,,True,"Araim Pharmaceuticals, Inc.","Araim Pharmaceuticals, Inc.",araim,araim,100.0,0001625178,"Industry, small (<=5 drugs)",1,2014,3,4102429,Pharmaceuticals,NY
+exact,True,,True,"Aravive, Inc.","Aravive, Inc.",aravive,aravive,100.0,0001513818,"Industry, mid (6-30)",5,2011,8,54999991,Biotechnology,CA
+exact,True,,True,"Arbor Pharmaceuticals, Inc.",ARBOR PHARMACEUTICALS INC,arbor,arbor,100.0,0001375746,"Industry, mid (6-30)",4,2010,2,17415000,Pharmaceuticals,NC
+exact,True,,True,Arbutus Biopharma Corporation,Arbutus Biopharma Corp,arbutus,arbutus,100.0,0001447028,"Industry, mid (6-30)",2,2009,2,15000000,Pharmaceuticals,A1
+exact,True,,True,"ARCA Biopharma, Inc.","ARCA biopharma, Inc.",arca,arca,100.0,0000907654,"Industry, small (<=5 drugs)",2,2009,8,51650404,Pharmaceuticals,CO
+exact,True,,True,Arcion Therapeutics Inc,"ARCION THERAPEUTICS, INC.",arcion,arcion,100.0,0001421000,"Industry, small (<=5 drugs)",1,2010,4,5000000,Biotechnology,MD
+exact,True,,True,"Arcutis Biotherapeutics, Inc.","Arcutis Biotherapeutics, Inc.",arcutis biotherapeutics,arcutis biotherapeutics,100.0,0001787306,"Industry, small (<=5 drugs)",20,2019,1,94499967,Biotechnology,CA
+exact,True,,True,Ardelyx,"ARDELYX, INC.",ardelyx,ardelyx,100.0,0001437402,"Industry, small (<=5 drugs)",8,2010,4,110000008,Pharmaceuticals,CA
+exact,True,,True,Arena Pharmaceuticals,ARENA PHARMACEUTICALS INC,arena,arena,100.0,0001080709,"Industry, small (<=5 drugs)",14,2009,2,151760000,Biotechnology,CA
+exact,True,,True,Argos Therapeutics,ARGOS THERAPEUTICS INC,argos,argos,100.0,0001105533,"Industry, small (<=5 drugs)",3,2010,5,22007404,Biotechnology,NC
+exact,True,,True,Arno Therapeutics,"Arno Therapeutics, Inc",arno,arno,100.0,0001195116,"Industry, small (<=5 drugs)",4,2010,5,30840078,Pharmaceuticals,NJ
+exact,True,,True,Array BioPharma,ARRAY BIOPHARMA INC,array,array,100.0,0001100412,"Industry, mid (6-30)",5,2009,2,0,Biotechnology,CO
+exact,True,,True,"ArriVent BioPharma, Inc.","ArriVent Biopharma, Inc.",arrivent,arrivent,100.0,0001868279,"Industry, small (<=5 drugs)",3,2021,3,150000000,Biotechnology,PA
+exact,True,accept,False,Arrowhead Pharmaceuticals,ARROWHEAD RESEARCH CORP,arrowhead,arrowhead,100.0,0000879407,"Industry, mid (6-30)",2,2013,2,64000000,Biotechnology,CA
+exact,True,,True,"ARS Pharmaceuticals, Inc.","ARS Pharmaceuticals, Inc.",ars,ars,100.0,0001755120,"Industry, small (<=5 drugs)",2,2018,2,54999987,Pharmaceuticals,CA
+exact,True,,True,Arthritis Innovation Corporation,Arthritis Innovation Corp,arthritis innovation,arthritis innovation,100.0,0001697507,"Industry, small (<=5 drugs)",1,2017,1,324350,Other Health Care,A6
+exact,True,,True,Arthrosi Therapeutics,"Arthrosi Therapeutics, Inc.",arthrosi,arthrosi,100.0,0001741062,"Industry, small (<=5 drugs)",2,2018,8,60869972,Pharmaceuticals,CA
+exact,True,,True,"Artiva Biotherapeutics, Inc.","Artiva Biotherapeutics, Inc.",artiva biotherapeutics,artiva biotherapeutics,100.0,0001817241,"Industry, mid (6-30)",3,2020,2,120000001,Biotechnology,CA
+exact,True,accept,False,Arvinas Inc.,"ARVINAS HOLDING COMPANY, LLC",arvinas,arvinas,100.0,0001655759,"Industry, small (<=5 drugs)",2,2015,3,55000000,Biotechnology,CT
+exact,True,,True,ARYx Therapeutics,"ARYx Therapeutics, Inc.",aryx,aryx,100.0,0001410064,"Industry, small (<=5 drugs)",1,2009,2,2012500,Pharmaceuticals,CA
+exact,True,,True,Ascendis Pharma A/S,Ascendis Pharma A/S,ascendis a s,ascendis a s,100.0,0001612042,"Industry, mid (6-30)",2,2014,1,59999974,Pharmaceuticals,G7
+exact,True,,True,Ascenta Therapeutics,"Ascenta Therapeutics, Inc.",ascenta,ascenta,100.0,0001483471,"Industry, mid (6-30)",6,2010,1,1800180,Pharmaceuticals,PA
+exact,True,,True,"Ashvattha Therapeutics, Inc.","Ashvattha Therapeutics, LLC",ashvattha,ashvattha,100.0,0001668528,"Industry, small (<=5 drugs)",1,2016,7,60181969,Biotechnology,CA
+exact,True,,True,Atacama Therapeutics,"Atacama Therapeutics, Inc.",atacama,atacama,100.0,0002022176,"Industry, small (<=5 drugs)",1,2024,2,830000,Other Health Care,MA
+exact,True,,True,"Athenex, Inc.","Athenex, Inc.",athenex,athenex,100.0,0001300699,"Industry, mid (6-30)",12,2012,10,100000000,Biotechnology,NY
+exact,True,,True,AtheroNova Inc.,AtheroNova Inc.,atheronova,atheronova,100.0,0001377053,"Industry, small (<=5 drugs)",1,2010,8,10741000,Pharmaceuticals,CA
+exact,True,,True,Atlantic Pharmaceuticals Ltd,Atlantic Pharmaceuticals Inc.,atlantic,atlantic,100.0,0001001316,"Industry, small (<=5 drugs)",1,2010,4,25000000,Pharmaceuticals,NY
+exact,True,,True,"Atreca, Inc.","Atreca, Inc.",atreca,atreca,100.0,0001532346,"Industry, small (<=5 drugs)",1,2011,11,124999979,Biotechnology,CA
+exact,True,,True,"Attenua, Inc.","Attenua, Inc.",attenua,attenua,100.0,0001736945,"Industry, small (<=5 drugs)",1,2018,1,15203154,Pharmaceuticals,CA
+exact,True,,True,"Aulos Bioscience, Inc.","Aulos Bioscience, Inc.",aulos,aulos,100.0,0001832335,"Industry, small (<=5 drugs)",1,2020,2,15000000,Biotechnology,MA
+exact,True,,True,Aurinia Pharmaceuticals Inc.,Aurinia Pharmaceuticals Inc.,aurinia,aurinia,100.0,0001600620,"Industry, small (<=5 drugs)",11,2014,1,52000000,Biotechnology,A1
+exact,True,accept,False,"Auris Medical, Inc.",Auris Medical Holding AG,auris medical,auris medical,100.0,0001601936,"Industry, small (<=5 drugs)",7,2018,1,5499999,Pharmaceuticals,V8
+exact,True,,True,"Auspex Pharmaceuticals, Inc.","Auspex Pharmaceuticals, Inc.",auspex,auspex,100.0,0001454189,"Industry, small (<=5 drugs)",5,2009,9,27992742,Pharmaceuticals,CA
+exact,True,,True,"Avalo Therapeutics, Inc.","Avalo Therapeutics, Inc.",avalo,avalo,100.0,0001534120,"Industry, small (<=5 drugs)",6,2012,6,130601986,Biotechnology,MD
+exact,True,,True,Avalyn Pharma Inc.,Avalyn Pharma Inc.,avalyn,avalyn,100.0,0001540171,"Industry, small (<=5 drugs)",1,2012,7,189182622,Pharmaceuticals,CA
+exact,True,,True,"Avenzo Therapeutics, Inc.","Avenzo Therapeutics, Inc.",avenzo,avenzo,100.0,0001947742,"Industry, mid (6-30)",2,2022,4,385850004,Biotechnology,CA
+exact,True,,True,"AVEO Pharmaceuticals, Inc.",AVEO PHARMACEUTICALS INC,aveo,aveo,100.0,0001325879,"Industry, mid (6-30)",22,2010,2,60750000,Pharmaceuticals,MA
+exact,True,,True,AviGenics,AVIGENICS INC,avigenics,avigenics,100.0,0001017163,"Industry, small (<=5 drugs)",1,2009,4,44999973,Biotechnology,MA
+exact,True,,True,AVM Biotechnology Inc,"AVM BIOTECHNOLOGY, LLC",avm,avm,100.0,0001463741,"Industry, small (<=5 drugs)",1,2009,19,5515000,Biotechnology,WA
+exact,True,,True,"Axsome Therapeutics, Inc.","Axsome Therapeutics, Inc.",axsome,axsome,100.0,0001579428,"Industry, mid (6-30)",17,2013,6,3679000,Pharmaceuticals,NY
+exact,True,,True,Azevan Pharmaceuticals,AZEVAN PHARMACEUTICALS INC,azevan,azevan,100.0,0001334514,"Industry, small (<=5 drugs)",4,2013,1,2205000,Pharmaceuticals,PA
+exact,True,,True,"AZTherapies, Inc.","AZTherapies, INC",aztherapies,aztherapies,100.0,0001629864,"Industry, small (<=5 drugs)",2,2015,10,19040284,Biotechnology,MA
+exact,True,,True,Bayhill Therapeutics,"Bayhill Therapeutics, Inc.",bayhill,bayhill,100.0,0001290157,"Industry, small (<=5 drugs)",1,2009,1,9999999,Pharmaceuticals,CA
+exact,True,accept,False,Bellerophon,Bellerophon Therapeutics LLC,bellerophon,bellerophon,100.0,0001600132,"Industry, small (<=5 drugs)",3,2014,4,23437050,Pharmaceuticals,NJ
+exact,True,,True,"Betaliq, Inc.",Betaliq Inc,betaliq,betaliq,100.0,0001772435,"Industry, small (<=5 drugs)",1,2019,3,6001965,Biotechnology,FL
+exact,True,,True,Beyond Air Inc.,"Beyond Air, Inc.",beyond air,beyond air,100.0,0001641631,"Industry, small (<=5 drugs)",6,2017,7,36978258,Biotechnology,L3
+exact,True,accept,False,BeyondSpring Pharmaceuticals Inc.,BeyondSpring Inc.,beyondspring,beyondspring,100.0,0001677940,"Industry, small (<=5 drugs)",3,2017,1,7221001,Biotechnology,NY
+exact,True,accept,False,BIND Therapeutics,BIND Biosciences Inc,bind,bind,100.0,0001385228,"Industry, small (<=5 drugs)",5,2010,4,25547174,Biotechnology,MA
+exact,True,,True,"Bio-Path Holdings, Inc.",BIO-PATH HOLDINGS INC,bio path,bio path,100.0,0001133818,"Industry, mid (6-30)",4,2009,20,3998370,Biotechnology,UT
+exact,True,,True,"BioAge Labs, Inc.","BioAge Labs, Inc.",bioage labs,bioage labs,100.0,0001709941,"Industry, small (<=5 drugs)",2,2024,1,194390799,Biotechnology,CA
+exact,True,,True,"BioAtla, Inc.","BioAtla,LLC",bioatla,bioatla,100.0,0001614452,"Industry, mid (6-30)",3,2014,3,39000001,Biotechnology,CA
+exact,True,,True,Biodel,Biodel Inc,biodel,biodel,100.0,0001322505,"Industry, small (<=5 drugs)",12,2012,1,18500002,Pharmaceuticals,CT
+exact,True,,True,Biodexa Pharmaceuticals,Biodexa Pharmaceuticals Plc,biodexa,biodexa,100.0,0001643918,"Industry, small (<=5 drugs)",1,2019,6,6793406,Pharmaceuticals,X0
+exact,True,,True,BioEclipse Therapeutics,"BioEclipse Therapeutics, Inc.",bioeclipse,bioeclipse,100.0,0001780708,"Industry, small (<=5 drugs)",1,2019,2,10126014,Biotechnology,CA
+exact,True,accept,False,"Biohaven Pharmaceuticals, Inc.",Biohaven Pharmaceutical Holding Co Ltd.,biohaven,biohaven,100.0,0001689813,"Industry, mid (6-30)",2,2016,1,40000127,Pharmaceuticals,CT
+exact,True,,True,"Biolex Therapeutics, Inc.","Biolex Therapeutics, Inc.",biolex,biolex,100.0,0001407698,"Industry, small (<=5 drugs)",3,2010,4,10000000,Biotechnology,NC
+exact,True,,True,"BioLineRx, Ltd.",BioLineRx Ltd.,biolinerx,biolinerx,100.0,0001498403,"Industry, mid (6-30)",8,2020,3,9000003,Pharmaceuticals,L3
+exact,True,,True,"BioMarck Pharmaceuticals, Ltd.",BioMarck Pharmaceuticals Ltd,biomarck,biomarck,100.0,0001318185,"Industry, small (<=5 drugs)",3,2009,4,7500000,Pharmaceuticals,NC
+exact,True,,True,BioMimetic Therapeutics,"BIOMIMETIC THERAPEUTICS, INC.",biomimetic,biomimetic,100.0,0001138400,"Industry, small (<=5 drugs)",1,2009,2,8000004,Biotechnology,TN
+exact,True,,True,Bionovo,BIONOVO INC,bionovo,bionovo,100.0,0001203957,"Industry, small (<=5 drugs)",2,2010,1,600000,Pharmaceuticals,CA
+exact,True,accept,False,"BioNTech Research & Development, Inc.",BioNTech AG,biontech,biontech,100.0,0001776985,"Industry, mid (6-30)",5,2020,2,250000000,Biotechnology,2M
+exact,True,,True,BioNTech SE,BioNTech SE,biontech se,biontech se,100.0,0001776985,"Industry, large (>30)",13,2020,2,250000000,Biotechnology,2M
+exact,True,,True,"BioNumerik Pharmaceuticals, Inc.","BioNumerik Pharmaceuticals, Inc.",bionumerik,bionumerik,100.0,0000895131,"Industry, mid (6-30)",4,2010,2,10190500,Pharmaceuticals,TX
+exact,True,,True,Biophytis,Biophytis SA,biophytis,biophytis,100.0,0001768946,"Industry, small (<=5 drugs)",1,2026,2,2598526,Biotechnology,I0
+exact,True,,True,"Biosplice Therapeutics, Inc.","BioSplice Therapeutics, Inc.",biosplice,biosplice,100.0,0001848940,"Industry, mid (6-30)",11,2021,2,0,Pharmaceuticals,CA
+exact,True,,True,"Biotheryx, Inc.",BIOTHERYX INC,biotheryx,biotheryx,100.0,0001458857,"Industry, small (<=5 drugs)",1,2014,4,92107638,Biotechnology,NY
+exact,True,,True,Biotie Therapies Inc.,Biotie Therapies Corp.,biotie therapies,biotie therapies,100.0,0001579695,"Industry, mid (6-30)",5,2013,2,143750000,Biotechnology,H9
+exact,True,,True,Biovest International,BIOVEST INTERNATIONAL INC,biovest,biovest,100.0,0000704384,"Industry, small (<=5 drugs)",1,2010,1,7000000,Biotechnology,FL
+exact,True,accept,False,BioVex Limited,"BioVex Group, Inc.",biovex,biovex,100.0,0001365651,"Industry, small (<=5 drugs)",1,2009,2,19100000,Biotechnology,MA
+exact,True,,True,BioVie Inc.,BIOVIE INC.,biovie,biovie,100.0,0001580149,"Industry, small (<=5 drugs)",1,2013,6,6000000,Biotechnology,FL
+exact,True,,True,"Black Diamond Therapeutics, Inc.","Black Diamond Therapeutics, Inc.",black diamond,black diamond,100.0,0001701541,"Industry, small (<=5 drugs)",1,2017,6,84999941,Biotechnology,NY
+exact,True,,True,BlossomHill Therapeutics,"BlossomHill Therapeutics, Inc.",blossomhill,blossomhill,100.0,0001839970,"Industry, small (<=5 drugs)",1,2021,4,88649917,Pharmaceuticals,CA
+exact,True,,True,Blueprint Medicines Corporation,Blueprint Medicines Corp,blueprint medicines,blueprint medicines,100.0,0001597264,"Industry, mid (6-30)",12,2014,2,50000000,Biotechnology,MA
+exact,True,,True,"Bolt Biotherapeutics, Inc.","Bolt Biotherapeutics, Inc.",bolt biotherapeutics,bolt biotherapeutics,100.0,0001641281,"Industry, small (<=5 drugs)",1,2016,5,93499984,Biotechnology,CA
+exact,True,,True,"Bonti, Inc.","Bonti, Inc.",bonti,bonti,100.0,0001650638,"Industry, small (<=5 drugs)",2,2015,5,15463786,Biotechnology,CA
+exact,True,,True,Botanix Pharmaceuticals,Botanix Pharmaceuticals Ltd.,botanix,botanix,100.0,0001785009,"Industry, small (<=5 drugs)",7,2019,1,20036949,Pharmaceuticals,C3
+exact,True,,True,"Boundless Bio, Inc.","Boundless Bio, Inc.",boundless bio,boundless bio,100.0,0001782303,"Industry, small (<=5 drugs)",1,2020,3,105585007,Biotechnology,CA
+exact,True,,True,Braeburn Pharmaceuticals,"Braeburn Pharmaceuticals, Inc.",braeburn,braeburn,100.0,0001688765,"Industry, small (<=5 drugs)",6,2018,1,110003471,Biotechnology,NJ
+exact,True,,True,BriaCell Therapeutics Corporation,BriaCell Therapeutics Corp.,briacell,briacell,100.0,0001610820,"Industry, mid (6-30)",4,2014,3,27195924,Biotechnology,A1
+exact,True,,True,"Brooklyn ImmunoTherapeutics, LLC","Brooklyn ImmunoTherapeutics, Inc.",brooklyn immunotherapeutics,brooklyn immunotherapeutics,100.0,0000748592,"Industry, mid (6-30)",1,2022,8,12000000,Biotechnology,NY
+exact,True,,True,C2N Diagnostics,"C2N Diagnostics, LLC",c2n diagnostics,c2n diagnostics,100.0,0002021597,"Industry, small (<=5 drugs)",1,2024,3,24999618,Biotechnology,MO
+exact,True,,True,CAGE Bio Inc.,"Cage Bio, Inc.",cage bio,cage bio,100.0,0001782671,"Industry, small (<=5 drugs)",3,2019,3,9354561,Pharmaceuticals,CA
+exact,True,,True,"Calithera Biosciences, Inc","Calithera Biosciences, Inc.",calithera,calithera,100.0,0001496671,"Industry, mid (6-30)",22,2010,6,27150000,Biotechnology,CA
+exact,True,,True,"Calosyn Pharma, Inc.","CALOSYN PHARMA, INC.",calosyn,calosyn,100.0,0001429819,"Industry, small (<=5 drugs)",1,2009,4,1863392,Biotechnology,MA
+exact,True,,True,Can-Fite BioPharma,Can-Fite BioPharma Ltd.,can fite,can fite,100.0,0001536196,"Industry, small (<=5 drugs)",21,2014,15,10000000,Pharmaceuticals,L3
+exact,True,,True,"Cancer Prevention Pharmaceuticals, Inc.","Cancer Prevention Pharmaceuticals, LLC",cancer prevention,cancer prevention,100.0,0001471002,"Industry, small (<=5 drugs)",1,2009,9,5000000,Biotechnology,AZ
+exact,True,,True,Cantex Pharmaceuticals,"CANTEX PHARMACEUTICALS, INC.",cantex,cantex,100.0,0001374961,"Industry, small (<=5 drugs)",4,2010,4,4394613,Pharmaceuticals,FL
+exact,True,,True,"Cara Therapeutics, Inc.",Cara Therapeutics Inc,cara,cara,100.0,0001346830,"Industry, small (<=5 drugs)",16,2010,2,4784568,Biotechnology,CT
+exact,True,,True,"Carbylan Therapeutics, Inc.","Carbylan Therapeutics, Inc.",carbylan,carbylan,100.0,0001348911,"Industry, small (<=5 drugs)",1,2013,3,5999999,Other Health Care,CA
+exact,True,,True,Cardiff Oncology,"Cardiff Oncology, Inc.",cardiff oncology,cardiff oncology,100.0,0001213037,"Industry, mid (6-30)",6,2012,11,13500000,Biotechnology,CA
+exact,True,,True,Cardiol Therapeutics Inc.,Cardiol Therapeutics Inc.,cardiol,cardiol,100.0,0001702123,"Industry, small (<=5 drugs)",4,2017,4,3662260,Other Health Care,A6
+exact,True,,True,"Cardurion Pharmaceuticals, Inc.","Cardurion Pharmaceuticals, LLC",cardurion,cardurion,100.0,0001702453,"Industry, small (<=5 drugs)",5,2017,6,260410720,Biotechnology,MA
+exact,True,,True,"Carmot Therapeutics, Inc.",Carmot Therapeutics Inc.,carmot,carmot,100.0,0001490109,"Industry, small (<=5 drugs)",1,2010,6,160671809,Biotechnology,CA
+exact,True,,True,"CASI pharmaceuticals, Inc.","CASI Pharmaceuticals, Inc.",casi,casi,100.0,0001962738,"Industry, mid (6-30)",13,2024,5,15000000,Pharmaceuticals,F4
+exact,True,,True,Catabasis Pharmaceuticals,CATABASIS PHARMACEUTICALS INC,catabasis,catabasis,100.0,0001454789,"Industry, mid (6-30)",5,2009,10,175738599,Pharmaceuticals,MA
+exact,True,,True,"Cavion, Inc.","Cavion, Inc.",cavion,cavion,100.0,0001348076,"Industry, small (<=5 drugs)",1,2013,3,22312867,Biotechnology,VA
+exact,True,accept,False,CBA Research,CBA PHARMA INC,cba,cba,100.0,0001143410,"Industry, small (<=5 drugs)",2,2009,5,5300486,Biotechnology,KY
+exact,True,,True,CEL-SCI Corporation,CEL SCI CORP,cel sci,cel sci,100.0,0000725363,"Industry, small (<=5 drugs)",1,2017,3,1000000,Pharmaceuticals,VA
+exact,True,,True,Celcuity Inc,Celcuity LLC,celcuity,celcuity,100.0,0001603454,"Industry, small (<=5 drugs)",4,2014,30,130000000,Biotechnology,MN
+exact,True,,True,CeleCor Therapeutics,"CeleCor Therapeutics, Inc.",celecor,celecor,100.0,0001705381,"Industry, small (<=5 drugs)",3,2017,6,45500000,Biotechnology,CA
+exact,True,,True,Cell Genesys,CELL GENESYS INC,cell genesys,cell genesys,100.0,0000865231,"Industry, mid (6-30)",4,2009,1,310000,Biotechnology,CA
+exact,True,,True,Celldex Therapeutics,"Celldex Therapeutics, Inc.",celldex,celldex,100.0,000744218,"Industry, mid (6-30)",16,2014,1,2000000,Biotechnology,NJ
+exact,True,,True,"Cellectar Biosciences, Inc.","Cellectar Biosciences, Inc.",cellectar,cellectar,100.0,0001279704,"Industry, mid (6-30)",3,2009,9,32250000,Pharmaceuticals,MA
+exact,True,,True,Cellerant Therapeutics,Cellerant Therapeutics Inc,cellerant,cellerant,100.0,0001293600,"Industry, small (<=5 drugs)",1,2010,9,6550000,Biotechnology,CA
+exact,True,,True,Celularity Incorporated,Celularity Inc,celularity,celularity,100.0,0001752828,"Industry, mid (6-30)",3,2022,5,30000007,Biotechnology,NJ
+exact,True,accept,False,Centrexion Therapeutics,Centrexion Corp,centrexion,centrexion,100.0,0001592052,"Industry, small (<=5 drugs)",7,2013,17,69566532,Biotechnology,MD
+exact,True,,True,Cerebral Therapeutics LLC,"Cerebral Therapeutics, Inc.",cerebral,cerebral,100.0,0001744709,"Industry, small (<=5 drugs)",3,2018,4,19999998,Pharmaceuticals,CO
+exact,True,,True,"Cerevast Therapeutics, Inc.","CEREVAST THERAPEUTICS, INC.",cerevast,cerevast,100.0,0001472602,"Industry, small (<=5 drugs)",1,2009,10,11375000,Other Health Care,WA
+exact,True,,True,Cerimon Pharmaceuticals,"Cerimon Pharmaceuticals, Inc.",cerimon,cerimon,100.0,0001329473,"Industry, small (<=5 drugs)",6,2009,5,1500003,Pharmaceuticals,CA
+exact,True,,True,"Cerium Pharmaceuticals, Inc.","Cerium Pharmaceuticals, Inc.",cerium,cerium,100.0,0001677995,"Industry, small (<=5 drugs)",1,2016,4,8900000,Biotechnology,MD
+exact,True,,True,"Charleston Laboratories, Inc",CHARLESTON LABORATORIES INC,charleston laboratories,charleston laboratories,100.0,0001453665,"Industry, small (<=5 drugs)",1,2012,1,7415026,Pharmaceuticals,SC
+exact,True,accept,False,Chase Therapeutics Corporation,Chase Pharmaceuticals Corp,chase,chase,100.0,0001509008,"Industry, small (<=5 drugs)",2,2011,7,11974004,Pharmaceuticals,DC
+exact,True,,True,"Checkpoint Therapeutics, Inc.","Checkpoint Therapeutics, Inc.",checkpoint,checkpoint,100.0,0001651407,"Industry, small (<=5 drugs)",2,2016,5,57817000,Biotechnology,NY
+exact,True,,True,"Chiasma, Inc.",CHIASMA INC,chiasma,chiasma,100.0,0001339469,"Industry, small (<=5 drugs)",3,2009,10,69722786,Biotechnology,MA
+exact,True,,True,"Chromaderm, Inc.","Chromaderm, Inc.",chromaderm,chromaderm,100.0,0001655284,"Industry, small (<=5 drugs)",9,2015,1,3598276,Other Health Care,MA
+exact,True,,True,"Chrono Therapeutics, Inc.",CHRONO THERAPEUTICS INC.,chrono,chrono,100.0,0001601983,"Industry, small (<=5 drugs)",1,2014,3,37606945,Other Health Care,MA
+exact,True,,True,Cingulate Therapeutics,Cingulate Therapeutics,cingulate,cingulate,100.0,0001593151,"Industry, small (<=5 drugs)",4,2013,7,26200000,Pharmaceuticals,NJ
+exact,True,,True,"Citius Pharmaceuticals, Inc.","Citius Pharmaceuticals, Inc.",citius,citius,100.0,0001506251,"Industry, small (<=5 drugs)",1,2016,7,20000012,Pharmaceuticals,NJ
+exact,True,accept,False,"Clarus Therapeutics, Inc.","Clarus Therapeutics Holdings, Inc.",clarus,clarus,100.0,0001817944,"Industry, small (<=5 drugs)",9,2021,1,15000002,Pharmaceuticals,IL
+exact,True,,True,"Clear Creek Bio, Inc.","Clear Creek Bio, Inc.",clear creek bio,clear creek bio,100.0,0001739831,"Industry, small (<=5 drugs)",4,2018,2,6119999,Biotechnology,MA
+exact,True,,True,"Clearside Biomedical, Inc.","Clearside Biomedical, Inc.",clearside biomedical,clearside biomedical,100.0,0001539029,"Industry, small (<=5 drugs)",8,2012,7,16211809,Pharmaceuticals,GA
+exact,True,,True,Clementia Pharmaceuticals Inc.,Clementia Pharmaceuticals Inc.,clementia,clementia,100.0,0001647320,"Industry, small (<=5 drugs)",2,2015,1,59999141,Pharmaceuticals,A8
+exact,True,,True,"Clovis Oncology, Inc.","Clovis Oncology, Inc.",clovis oncology,clovis oncology,100.0,0001466301,"Industry, mid (6-30)",10,2009,5,191962756,Pharmaceuticals,CO
+exact,True,,True,"Collegium Pharmaceutical, Inc.",COLLEGIUM PHARMACEUTICAL INC,collegium,collegium,100.0,0001267565,"Industry, small (<=5 drugs)",1,2010,5,50000000,Pharmaceuticals,RI
+exact,True,,True,CoMentis,CoMentis Inc,comentis,comentis,100.0,0001412391,"Industry, small (<=5 drugs)",7,2016,1,4500000,Pharmaceuticals,CA
+exact,True,,True,Compass Therapeutics,Compass Therapeutics LLC,compass,compass,100.0,0001610824,"Industry, small (<=5 drugs)",1,2014,6,110191606,Biotechnology,NH
+exact,True,,True,Compugen Ltd,COMPUGEN LTD,compugen,compugen,100.0,0001119774,"Industry, small (<=5 drugs)",2,2021,1,20000000,Biotechnology,L3
+exact,True,,True,Conatus Pharmaceuticals Inc.,Conatus Pharmaceuticals Inc,conatus,conatus,100.0,0001383701,"Industry, small (<=5 drugs)",13,2010,5,25275507,Biotechnology,CA
+exact,True,,True,Concentric Analgesics,"Concentric Analgesics, Inc.",concentric analgesics,concentric analgesics,100.0,0001682398,"Industry, small (<=5 drugs)",1,2016,9,77100822,Biotechnology,CA
+exact,True,accept,False,"Concentrx Pharmaceuticals, Inc.","ConcentRx, Inc.",concentrx,concentrx,100.0,0001780708,"Industry, small (<=5 drugs)",1,2019,2,10126014,Biotechnology,CA
+exact,True,,True,Concept Medical Inc.,"Concept Medical, Inc.",concept medical,concept medical,100.0,0002108675,"Industry, small (<=5 drugs)",1,2026,3,60037410,Other Health Care,FL
+exact,True,,True,Constellation Pharmaceuticals,CONSTELLATION PHARMACEUTICALS INC,constellation,constellation,100.0,0001434418,"Industry, mid (6-30)",4,2010,7,99000000,Biotechnology,MA
+exact,True,,True,Context Therapeutics Inc.,Context Therapeutics Inc.,context,context,100.0,0001842952,"Industry, small (<=5 drugs)",2,2024,1,99992767,Pharmaceuticals,PA
+exact,True,,True,"Continuity Biosciences, LLC","Continuity Biosciences, LLC",continuity,continuity,100.0,0002029079,"Industry, small (<=5 drugs)",1,2024,3,8424490,Biotechnology,FL
+exact,True,,True,Corcept Therapeutics,CORCEPT THERAPEUTICS INC,corcept,corcept,100.0,0001088856,"Industry, mid (6-30)",20,2009,3,18012959,Pharmaceuticals,CA
+exact,True,,True,Cornerstone Pharmaceuticals,CORNERSTONE PHARMACEUTICALS INC,cornerstone,cornerstone,100.0,0001166509,"Industry, mid (6-30)",8,2010,4,6175750,Pharmaceuticals,NJ
+exact,True,,True,Cortendo AB,Cortendo AB,cortendo,cortendo,100.0,0001634432,"Industry, small (<=5 drugs)",3,2015,4,126000000,Pharmaceuticals,PA
+exact,True,,True,"Corvus Pharmaceuticals, Inc.","Corvus Pharmaceuticals, Inc.",corvus,corvus,100.0,0001626971,"Industry, mid (6-30)",2,2014,2,74999901,Other Health Care,CA
+exact,True,accept,False,"COUR Pharmaceutical Development Company, Inc.",Cour Pharmaceuticals Development Co Inc,cour,cour,100.0,0001568153,"Industry, small (<=5 drugs)",1,2013,4,500000,Biotechnology,IL
+exact,True,,True,Coya Therapeutics,"Coya Therapeutics, Inc.",coya,coya,100.0,0001835022,"Industry, small (<=5 drugs)",1,2021,4,26484515,Biotechnology,TX
+exact,True,,True,Crinetics Pharmaceuticals Inc.,"Crinetics Pharmaceuticals, Inc.",crinetics,crinetics,100.0,0001658247,"Industry, mid (6-30)",7,2015,3,350000028,Pharmaceuticals,CA
+exact,True,,True,Critical Therapeutics,CRITICAL THERAPEUTICS INC,critical,critical,100.0,0001145404,"Industry, small (<=5 drugs)",4,2012,1,30000000,Pharmaceuticals,NC
+exact,True,,True,Crossject,Crossject SA,crossject,crossject,100.0,0002136893,"Industry, small (<=5 drugs)",1,2026,1,0,Pharmaceuticals,I0
+exact,True,,True,Cue Biopharma,"Cue Biopharma, Inc.",cue,cue,100.0,0001645460,"Industry, small (<=5 drugs)",1,2015,7,49999927,Biotechnology,CA
+exact,True,,True,"CuraSen Therapeutics, Inc.","CuraSen Therapeutics, Inc.",curasen,curasen,100.0,0001765883,"Industry, small (<=5 drugs)",1,2019,5,27249994,Biotechnology,CA
+exact,True,,True,CureLab Oncology,Curelab Oncology Inc,curelab oncology,curelab oncology,100.0,0001959567,"Industry, small (<=5 drugs)",1,2022,1,3000000,Biotechnology,MA
+exact,True,,True,"Curis, Inc.",CURIS INC,curis,curis,100.0,0001108205,"Industry, mid (6-30)",7,2012,1,964000,Biotechnology,MA
+exact,True,,True,"Cyclacel Pharmaceuticals, Inc.","Cyclacel Pharmaceuticals, Inc.",cyclacel,cyclacel,100.0,0001130166,"Industry, mid (6-30)",7,2010,8,15200226,Biotechnology,NJ
+exact,True,,True,Cyclerion Therapeutics,"Cyclerion Therapeutics, Inc.",cyclerion,cyclerion,100.0,0001755237,"Industry, small (<=5 drugs)",4,2019,4,175000000,Pharmaceuticals,MA
+exact,True,,True,Cylene Pharmaceuticals,"CYLENE PHARMACEUTICALS, INC.",cylene,cylene,100.0,0001142536,"Industry, small (<=5 drugs)",2,2010,3,15635924,Biotechnology,CA
+exact,True,,True,"Cytocom, Inc.","Cytocom, Inc.",cytocom,cytocom,100.0,0001318641,"Industry, small (<=5 drugs)",1,2009,7,25000000,Biotechnology,NY
+exact,True,,True,"CytoDyn, Inc.",CYTODYN INC,cytodyn,cytodyn,100.0,0001175680,"Industry, mid (6-30)",11,2009,32,33268465,Biotechnology,NM
+exact,True,,True,CytomX Therapeutics,"CytomX Therapeutics, Inc.",cytomx,cytomx,100.0,0001501989,"Industry, mid (6-30)",3,2012,4,69999999,Biotechnology,CA
+exact,True,,True,CytRx,CYTRX CORP,cytrx,cytrx,100.0,0000799698,"Industry, small (<=5 drugs)",6,2016,3,8240000,Pharmaceuticals,CA
+exact,True,accept,False,DalCor Pharmaceuticals,"DalCor Pharmaceuticals US, LLC",dalcor,dalcor,100.0,0001673368,"Industry, small (<=5 drugs)",1,2016,5,55000000,Pharmaceuticals,CA
+exact,True,accept,False,Dance Biopharm Inc.,"Dance Biopharm Holdings, Inc.",dance biopharm,dance biopharm,100.0,0001650840,"Industry, small (<=5 drugs)",3,2015,13,22250560,Biotechnology,CA
+exact,True,accept,False,"Day One Biopharmaceuticals, Inc.",Day One Biopharmaceuticals Holding Co LLC,day one,day one,100.0,0001845337,"Industry, small (<=5 drugs)",3,2021,1,129999786,Pharmaceuticals,CA
+exact,True,,True,"Deciphera Pharmaceuticals, LLC","Deciphera Pharmaceuticals, LLC",deciphera,deciphera,100.0,0001654151,"Industry, mid (6-30)",6,2015,3,90604034,Pharmaceuticals,MA
+exact,True,,True,Delcath Systems Inc.,"DELCATH SYSTEMS, INC.",delcath systems,delcath systems,100.0,0000872912,"Industry, mid (6-30)",4,2018,7,24999999,Biotechnology,NY
+exact,True,,True,"Delpor, Inc.","Delpor, Inc.",delpor,delpor,100.0,0001494224,"Industry, small (<=5 drugs)",1,2013,1,470000,Pharmaceuticals,CA
+exact,True,,True,"Dermira, Inc.","Dermira, Inc.",dermira,dermira,100.0,0001557883,"Industry, small (<=5 drugs)",5,2012,6,50999991,Other Health Care,CA
+exact,True,,True,Diasome Pharmaceuticals,Diasome Pharmaceuticals LLC,diasome,diasome,100.0,0001411617,"Industry, small (<=5 drugs)",6,2009,7,16724591,Biotechnology,PA
+exact,True,,True,"DisperSol Technologies, LLC","DisperSol Technologies, LLC",dispersol technologies,dispersol technologies,100.0,0001541408,"Industry, small (<=5 drugs)",1,2012,8,16028748,Pharmaceuticals,TX
+exact,True,,True,"DNAtrix, Inc.",DNATRIX INC,dnatrix,dnatrix,100.0,0001446505,"Industry, small (<=5 drugs)",2,2012,4,15529295,Biotechnology,TX
+exact,True,,True,"Dracen Pharmaceuticals, Inc.","Dracen Pharmaceuticals, Inc.",dracen,dracen,100.0,0001728955,"Industry, small (<=5 drugs)",1,2018,3,8584398,Biotechnology,MD
+exact,True,,True,Dynavax Technologies Corporation,DYNAVAX TECHNOLOGIES CORP,dynavax technologies,dynavax technologies,100.0,0001029142,"Industry, mid (6-30)",4,2010,2,20067480,Biotechnology,CA
+exact,True,,True,"Eagle Pharmaceuticals, Inc.","EAGLE PHARMACEUTICALS, INC.",eagle,eagle,100.0,0000827871,"Industry, small (<=5 drugs)",2,2011,2,12348194,Pharmaceuticals,NJ
+exact,True,,True,Edge Therapeutics Inc,"Edge Therapeutics, Inc.",edge,edge,100.0,0001472091,"Industry, small (<=5 drugs)",3,2009,7,55999978,Pharmaceuticals,NJ
+exact,True,,True,"Edgemont Pharmaceuticals, LLC","Edgemont Pharmaceuticals, LLC",edgemont,edgemont,100.0,0001488709,"Industry, small (<=5 drugs)",1,2010,3,4845795,Pharmaceuticals,NJ
+exact,True,,True,Edison Pharmaceuticals Inc,Edison Pharmaceuticals Inc,edison,edison,100.0,0001346136,"Industry, small (<=5 drugs)",3,2009,6,50000135,Biotechnology,CA
+exact,True,,True,Effector Therapeutics,"EFFECTOR THERAPEUTICS, INC.",effector,effector,100.0,0001577561,"Industry, mid (6-30)",6,2013,7,56000005,Biotechnology,CA
+exact,True,,True,Egalet Ltd,Egalet Corp,egalet,egalet,100.0,0001586105,"Industry, mid (6-30)",8,2019,1,42156458,Pharmaceuticals,PA
+exact,True,,True,Eiger BioPharmaceuticals,"Eiger BioPharmaceuticals, Inc.",eiger,eiger,100.0,0001305253,"Industry, mid (6-30)",2,2009,12,21800002,Biotechnology,CA
+exact,True,,True,Eikon Therapeutics,"Eikon Therapeutics, Inc.",eikon,eikon,100.0,0001861123,"Industry, mid (6-30)",3,2021,4,517764785,Biotechnology,CA
+exact,True,,True,EIP Pharma Inc,"EIP Pharma, Inc.",eip,eip,100.0,0001736525,"Industry, small (<=5 drugs)",8,2018,6,20499999,Other Health Care,MA
+exact,True,,True,"Elcelyx Therapeutics, Inc.","Elcelyx Therapeutics, Inc.",elcelyx,elcelyx,100.0,0001486988,"Industry, small (<=5 drugs)",6,2010,10,24720101,Biotechnology,CA
+exact,True,,True,Eledon Pharmaceuticals,"Eledon Pharmaceuticals, Inc.",eledon,eledon,100.0,0001404281,"Industry, small (<=5 drugs)",4,2009,8,108144151,Biotechnology,MA
+exact,True,,True,Elevation Oncology,"Elevation Oncology, Inc.",elevation oncology,elevation oncology,100.0,0001783032,"Industry, mid (6-30)",3,2019,2,65000000,Other Health Care,NY
+exact,True,,True,Elixir Pharmaceuticals,"Elixir Pharmaceuticals, Inc.",elixir,elixir,100.0,0001175784,"Industry, small (<=5 drugs)",1,2009,1,11994995,Pharmaceuticals,MA
+exact,True,,True,"Embera NeuroTherapeutics, Inc.",EMBERA NEUROTHERAPEUTICS INC,embera neurotherapeutics,embera neurotherapeutics,100.0,0001388707,"Industry, small (<=5 drugs)",4,2009,9,6128235,Pharmaceuticals,LA
+exact,True,,True,Emergent BioSolutions,Emergent BioSolutions Inc.,emergent biosolutions,emergent biosolutions,100.0,0001367644,"Industry, mid (6-30)",3,2018,1,47870412,Biotechnology,MD
+exact,True,,True,"ENB Therapeutics, Inc","ENB Therapeutics, Inc.",enb,enb,100.0,0001753420,"Industry, small (<=5 drugs)",1,2018,4,8094584,Biotechnology,NY
+exact,True,,True,"Endeavor Biomedicines, Inc.","Endeavor Biomedicines, Inc.",endeavor biomedicines,endeavor biomedicines,100.0,0001909364,"Industry, small (<=5 drugs)",2,2022,2,132583908,Biotechnology,CA
+exact,True,,True,Endocyte,ENDOCYTE INC,endocyte,endocyte,100.0,0001235007,"Industry, mid (6-30)",12,2009,2,26645523,Biotechnology,IN
+exact,True,,True,"Engage Therapeutics, Inc.","Engage Therapeutics, Inc.",engage,engage,100.0,0001719075,"Industry, small (<=5 drugs)",1,2017,2,23600000,Pharmaceuticals,NJ
+exact,True,,True,Engeneic Pty Limited,EnGeneIC Ltd,engeneic,engeneic,100.0,0001648902,"Industry, small (<=5 drugs)",2,2015,2,2905000,Biotechnology,C3
+exact,True,,True,Enliven Therapeutics,"Enliven Therapeutics, Inc.",enliven,enliven,100.0,0001672619,"Industry, small (<=5 drugs)",2,2016,3,90001086,Pharmaceuticals,MA
+exact,True,,True,Ensoma,"Ensoma, Inc.",ensoma,ensoma,100.0,0001846902,"Industry, small (<=5 drugs)",2,2021,3,129000467,Biotechnology,MA
+exact,True,,True,Ensysce Biosciences,"Ensysce Biosciences, Inc.",ensysce,ensysce,100.0,0001716947,"Industry, small (<=5 drugs)",1,2021,8,77200000,Other Health Care,CA
+exact,True,,True,Entera Bio Ltd.,Entera Bio Ltd.,entera bio,entera bio,100.0,0001638097,"Industry, small (<=5 drugs)",2,2017,4,274999976,Biotechnology,L3
+exact,True,,True,Envisia Therapeutics,"Envisia Therapeutics, Inc.",envisia,envisia,100.0,0001655970,"Industry, small (<=5 drugs)",1,2015,2,10117521,Biotechnology,NC
+exact,True,,True,EpiCept Corporation,EPICEPT CORP,epicept,epicept,100.0,0001208261,"Industry, small (<=5 drugs)",2,2014,1,11720475,Pharmaceuticals,NY
+exact,True,,True,"Erasca, Inc.","Erasca, Inc.",erasca,erasca,100.0,0001761918,"Industry, mid (6-30)",3,2019,3,125405005,Biotechnology,CA
+exact,True,,True,ERYtech Pharma,Erytech Pharma,erytech,erytech,100.0,0001624422,"Industry, mid (6-30)",5,2014,3,37232686,Biotechnology,I0
+exact,True,,True,Esanex Inc.,"Esanex, Inc.",esanex,esanex,100.0,0001531658,"Industry, small (<=5 drugs)",11,2012,4,15500000,Pharmaceuticals,IN
+exact,True,,True,Esperance Pharmaceuticals Inc,"Esperance Pharmaceuticals, Inc",esperance,esperance,100.0,0001451464,"Industry, small (<=5 drugs)",2,2010,4,9000000,Biotechnology,LA
+exact,True,,True,"Esperion Therapeutics, Inc.","Esperion Therapeutics, Inc.",esperion,esperion,100.0,0001434868,"Industry, small (<=5 drugs)",13,2010,4,27950000,Other Health Care,MI
+exact,True,accept,False,ESSA Pharmaceuticals,ESSA Pharma Inc.,essa,essa,100.0,0001633932,"Industry, small (<=5 drugs)",2,2016,3,36000000,Pharmaceuticals,A1
+exact,True,,True,Eupraxia Pharmaceuticals Inc.,EUPRAXIA PHARMACEUTICALS INC.,eupraxia,eupraxia,100.0,0001581178,"Industry, small (<=5 drugs)",2,2013,8,1894413,Pharmaceuticals,A1
+exact,True,,True,"Euthymics BioScience, Inc.","Euthymics Bioscience, Inc.",euthymics,euthymics,100.0,0001066833,"Industry, small (<=5 drugs)",1,2017,1,300000,Biotechnology,MA
+exact,True,,True,"Evelo Biosciences, Inc.","Evelo Biosciences, Inc.",evelo,evelo,100.0,0001694665,"Industry, small (<=5 drugs)",1,2017,4,81500003,Biotechnology,MA
+exact,True,,True,Evoke Pharma,Evoke Pharma Inc,evoke,evoke,100.0,0001403708,"Industry, small (<=5 drugs)",3,2010,1,6000001,Biotechnology,CA
+exact,True,,True,Exelixis,EXELIXIS INC,exelixis,exelixis,100.0,0000939767,"Industry, mid (6-30)",28,2009,1,0,Biotechnology,CA
+exact,True,,True,"Exicure, Inc.","EXICURE, INC.",exicure,exicure,100.0,0001698530,"Industry, small (<=5 drugs)",1,2017,3,43090544,Biotechnology,IL
+exact,True,,True,"Eye Therapies, LLC","Eye Therapies, LLC",eye therapies,eye therapies,100.0,0001564439,"Industry, small (<=5 drugs)",2,2012,1,5820000,Pharmaceuticals,CA
+exact,True,,True,EyeBiotech Ltd.,Eyebiotech Ltd,eyebiotech,eyebiotech,100.0,0001878733,"Industry, small (<=5 drugs)",5,2021,1,486,Pharmaceuticals,X0
+exact,True,,True,"Eyegate Pharmaceuticals, Inc.",EYEGATE PHARMACEUTICALS INC,eyegate,eyegate,100.0,0001372514,"Industry, small (<=5 drugs)",6,2009,17,15000000,Pharmaceuticals,MA
+exact,True,,True,Eyenovia Inc.,"EYENOVIA, INC.",eyenovia,eyenovia,100.0,0001682639,"Industry, small (<=5 drugs)",4,2016,4,49999999,Other Health Care,FL
+exact,True,,True,"EyePoint Pharmaceuticals, Inc.","EyePoint Pharmaceuticals, Inc.",eyepoint,eyepoint,100.0,0001314102,"Industry, mid (6-30)",11,2018,3,15704829,Pharmaceuticals,MA
+exact,True,accept,False,Eyetech Pharmaceuticals,EYETECH INC,eyetech,eyetech,100.0,0001445503,"Industry, small (<=5 drugs)",7,2009,3,4550,Biotechnology,NJ
+exact,True,,True,Faeth Therapeutics,"Faeth Therapeutics, Inc.",faeth,faeth,100.0,0002100543,"Industry, small (<=5 drugs)",3,2026,1,24434214,Biotechnology,TX
+exact,True,,True,Fate Therapeutics,FATE THERAPEUTICS INC,fate,fate,100.0,0001434316,"Industry, mid (6-30)",9,2009,11,56749988,Biotechnology,CA
+exact,True,,True,"Five Prime Therapeutics, Inc.",FIVE PRIME THERAPEUTICS INC,five prime,five prime,100.0,0001175505,"Industry, mid (6-30)",6,2010,3,21040488,Biotechnology,CA
+exact,True,,True,Flame Biosciences,"Flame Biosciences, Inc.",flame,flame,100.0,0001806233,"Industry, small (<=5 drugs)",1,2020,2,100000009,Biotechnology,NY
+exact,True,,True,"Forma Therapeutics, Inc.",FORMA THERAPEUTICS INC,forma,forma,100.0,0001430390,"Industry, mid (6-30)",9,2009,2,25454311,Biotechnology,MA
+exact,True,,True,"ForSight Vision5, Inc.","ForSight VISION5, Inc.",forsight vision5,forsight vision5,100.0,0001512390,"Industry, small (<=5 drugs)",6,2011,9,15000000,Other Health Care,CA
+exact,True,,True,Frequency Therapeutics,"Frequency Therapeutics, Inc.",frequency,frequency,100.0,0001703647,"Industry, small (<=5 drugs)",1,2017,3,61999366,Biotechnology,MA
+exact,True,,True,Fulcrum Therapeutics,"Fulcrum Therapeutics, Inc.",fulcrum,fulcrum,100.0,0001680581,"Industry, small (<=5 drugs)",6,2016,5,80000000,Biotechnology,MA
+exact,True,,True,Galectin Therapeutics Inc.,GALECTIN THERAPEUTICS INC,galectin,galectin,100.0,0001133416,"Industry, small (<=5 drugs)",7,2011,4,3000000,Pharmaceuticals,MA
+exact,True,accept,False,Galecto Biotech AB,Galecto Inc.,galecto,galecto,100.0,0001800315,"Industry, small (<=5 drugs)",3,2020,3,285000000,Pharmaceuticals,G7
+exact,True,,True,"Galena Biopharma, Inc.","Galena Biopharma, Inc.",galena,galena,100.0,0001390478,"Industry, small (<=5 drugs)",1,2014,5,24000000,Biotechnology,OR
+exact,True,accept,False,Gemin X,Gemin X Pharmaceuticals Inc,gemin x,gemin x,100.0,0001407168,"Industry, mid (6-30)",12,2009,2,9259078,Biotechnology,A8
+exact,True,,True,Genelux Corporation,GENELUX CORP,genelux,genelux,100.0,0001231457,"Industry, mid (6-30)",3,2009,5,18304319,Pharmaceuticals,CA
+exact,True,,True,Geneos Therapeutics,"GENEOS Therapeutics, Inc.",geneos,geneos,100.0,0001769177,"Industry, small (<=5 drugs)",1,2019,4,17249984,Biotechnology,PA
+exact,True,,True,"General Oncology, Inc.","General Oncology, Inc.",general oncology,general oncology,100.0,0001658021,"Industry, small (<=5 drugs)",1,2015,12,34803641,Pharmaceuticals,MA
+exact,True,,True,Generex Biotechnology Corp.,GENEREX BIOTECHNOLOGY CORP,generex,generex,100.0,0001059784,"Industry, small (<=5 drugs)",1,2012,3,2000000,Pharmaceuticals,A6
+exact,True,,True,Geno LLC,Geno LLC,geno,geno,100.0,0001359620,"Industry, small (<=5 drugs)",1,2009,7,29941000,Pharmaceuticals,FL
+exact,True,,True,"Genocea Biosciences, Inc.","GENOCEA BIOSCIENCES, INC.",genocea,genocea,100.0,0001457612,"Industry, small (<=5 drugs)",2,2011,6,75508015,Biotechnology,MA
+exact,True,,True,"Genprex, Inc.","Genprex, Inc.",genprex,genprex,100.0,0001595248,"Industry, small (<=5 drugs)",4,2013,7,10000000,Biotechnology,TX
+exact,True,,True,"GenSpera, Inc.",GENSPERA INC,genspera,genspera,100.0,0001421204,"Industry, small (<=5 drugs)",6,2009,27,5200032,Pharmaceuticals,TX
+exact,True,,True,"Gila Therapeutics, Inc.","Gila Therapeutics, Inc.",gila,gila,100.0,0001673503,"Industry, small (<=5 drugs)",1,2016,8,3344885,Biotechnology,MN
+exact,True,,True,Glaukos Corporation,GLAUKOS CORP,glaukos,glaukos,100.0,0001192448,"Industry, mid (6-30)",14,2010,5,30000002,Other Health Care,CA
+exact,True,,True,GlobeImmune,GLOBEIMMUNE INC,globeimmune,globeimmune,100.0,0001245104,"Industry, small (<=5 drugs)",1,2009,8,17999124,Pharmaceuticals,CO
+exact,True,,True,GlycoMimetics Incorporated,GLYCOMIMETICS INC,glycomimetics,glycomimetics,100.0,0001253689,"Industry, mid (6-30)",4,2009,3,38979412,Pharmaceuticals,MD
+exact,True,accept,False,"Gossamer Bio USA, Inc.","Gossamer Bio, Inc.",gossamer bio,gossamer bio,100.0,0001728117,"Industry, small (<=5 drugs)",2,2018,6,230015000,Biotechnology,CA
+exact,True,,True,Grace Therapeutics Inc.,"Grace Therapeutics, Inc.",grace,grace,100.0,0001444192,"Industry, small (<=5 drugs)",1,2011,5,14999985,Biotechnology,A8
+exact,True,accept,False,"Graceway Pharmaceuticals, LLC",Graceway Pharma Holding Corp.,graceway,graceway,100.0,0001503320,"Industry, small (<=5 drugs)",13,2010,1,9084161,Pharmaceuticals,TN
+exact,True,,True,"Gradalis, Inc.","GRADALIS, INC.",gradalis,gradalis,100.0,0001457915,"Industry, mid (6-30)",9,2018,2,43936167,Biotechnology,TX
+exact,True,,True,Granata Bio Corporation,GRANATA BIO Corp,granata bio,granata bio,100.0,0001773867,"Industry, small (<=5 drugs)",1,2023,2,13765000,Biotechnology,MA
+exact,True,,True,Graybug Vision,"GRAYBUG VISION, INC.",graybug vision,graybug vision,100.0,0001534133,"Industry, small (<=5 drugs)",3,2011,11,75393829,Biotechnology,MD
+exact,True,,True,"GRI Bio Operations, Inc.","GRI BIO OPERATIONS, INC.",gri bio operations,gri bio operations,100.0,0001639824,"Industry, small (<=5 drugs)",1,2015,4,15583333,Biotechnology,CA
+exact,True,,True,"Gritstone bio, Inc.","Gritstone bio, Inc.",gritstone bio,gritstone bio,100.0,0001656634,"Industry, small (<=5 drugs)",2,2021,2,55000000,Biotechnology,CA
+exact,True,,True,"Halia Therapeutics, Inc.","Halia Therapeutics, Inc.",halia,halia,100.0,0001829255,"Industry, small (<=5 drugs)",1,2020,5,12223338,Biotechnology,UT
+exact,True,accept,False,Harbor Therapeutics,"Harbor BioSciences, Inc.",harbor,harbor,100.0,0000899394,"Industry, small (<=5 drugs)",1,2011,1,2825000,Pharmaceuticals,CA
+exact,True,,True,Haus Bioceuticals,HAUS BIOCEUTICALS INC,haus bioceuticals,haus bioceuticals,100.0,0001541491,"Industry, small (<=5 drugs)",1,2012,1,150000,Pharmaceuticals,OK
+exact,True,,True,Heat Biologics,"HEAT BIOLOGICS, INC.",heat biologics,heat biologics,100.0,0001476963,"Industry, small (<=5 drugs)",1,2009,7,13388889,Biotechnology,FL
+exact,True,,True,"Hibernaid, Inc","Hibernaid, Inc.",hibernaid,hibernaid,100.0,0001727663,"Industry, small (<=5 drugs)",1,2018,1,100000,Pharmaceuticals,NY
+exact,True,,True,Histogen,Histogen Inc.,histogen,histogen,100.0,0001645829,"Industry, small (<=5 drugs)",1,2015,10,15326531,Biotechnology,CA
+exact,True,accept,False,Hookipa Biotech GmbH,HOOKIPA Pharma Inc.,hookipa,hookipa,100.0,0001760542,"Industry, small (<=5 drugs)",1,2019,1,37432050,Pharmaceuticals,NY
+exact,True,,True,"Humanigen, Inc.","HUMANIGEN, INC",humanigen,humanigen,100.0,0001293310,"Industry, small (<=5 drugs)",5,2016,5,12150000,Pharmaceuticals,CA
+exact,True,,True,Icagen,"Icagen, Inc.",icagen,icagen,100.0,0001518520,"Industry, small (<=5 drugs)",5,2011,11,8855000,Pharmaceuticals,NM
+exact,True,,True,"Iconic Therapeutics, Inc.",ICONIC THERAPEUTICS INC,iconic,iconic,100.0,0001226555,"Industry, small (<=5 drugs)",1,2014,5,48561000,Biotechnology,2Q
+exact,True,,True,IDEAYA Biosciences,"Ideaya Biosciences, Inc.",ideaya,ideaya,100.0,0001676725,"Industry, mid (6-30)",5,2018,1,94019988,Biotechnology,CA
+exact,True,,True,"IGF Oncology, LLC","IGF Oncology, LLC",igf oncology,igf oncology,100.0,0001745915,"Industry, small (<=5 drugs)",1,2018,1,0,Pharmaceuticals,MN
+exact,True,,True,"IGM Biosciences, Inc.","IGM Biosciences, Inc.",igm,igm,100.0,0001496323,"Industry, mid (6-30)",2,2010,2,22500000,Biotechnology,CA
+exact,True,,True,Ikena Oncology,"Ikena Oncology, Inc.",ikena oncology,ikena oncology,100.0,0001835579,"Industry, small (<=5 drugs)",3,2023,2,42571751,Biotechnology,MA
+exact,True,,True,"Imara, Inc.",IMARA Inc.,imara,imara,100.0,0001672619,"Industry, small (<=5 drugs)",1,2016,3,90001086,Pharmaceuticals,MA
+exact,True,,True,Immune-Onc Therapeutics,"Immune-Onc Therapeutics, Inc.",immune onc,immune onc,100.0,0001685307,"Industry, small (<=5 drugs)",2,2016,1,7003890,Biotechnology,CA
+exact,True,,True,Immuneering Corporation,Immuneering Corp,immuneering,immuneering,100.0,0001790340,"Industry, mid (6-30)",1,2019,3,24998919,Pharmaceuticals,MA
+exact,True,,True,Immunic AG,"IMMUNIC, INC.",immunic,immunic,100.0,0001280776,"Industry, small (<=5 drugs)",6,2009,24,200000000,Biotechnology,CA
+exact,True,,True,Immunitas Therapeutics,"Immunitas Therapeutics, Inc.",immunitas,immunitas,100.0,0001879910,"Industry, small (<=5 drugs)",1,2021,1,29080112,Biotechnology,MA
+exact,True,,True,"ImmunityBio, Inc.","ImmunityBio, Inc.",immunitybio,immunitybio,100.0,0001326110,"Industry, large (>30)",46,2009,9,469986600,Biotechnology,CA
+exact,True,accept,False,Immunocore Ltd,Immunocore Holdings plc,immunocore,immunocore,100.0,0001671927,"Industry, mid (6-30)",8,2022,1,139999988,Biotechnology,X0
+exact,True,,True,ImmunoGenesis,"ImmunoGenesis, Inc.",immunogenesis,immunogenesis,100.0,0002018057,"Industry, mid (6-30)",5,2024,2,44426112,Biotechnology,TX
+exact,True,,True,Implicit Bioscience,Implicit Bioscience Ltd,implicit,implicit,100.0,0001684309,"Industry, small (<=5 drugs)",8,2016,4,367227,Biotechnology,C3
+exact,True,,True,"Imprimis Pharmaceuticals, Inc.","Imprimis Pharmaceuticals, Inc.",imprimis,imprimis,100.0,0001360214,"Industry, small (<=5 drugs)",1,2012,4,10670000,Pharmaceuticals,CA
+exact,True,,True,Imunon,"Imunon, Inc.",imunon,imunon,100.0,0000749647,"Industry, small (<=5 drugs)",12,2010,6,10000000,Pharmaceuticals,MD
+exact,True,,True,Incannex Healthcare Ltd,Incannex Healthcare Inc.,incannex healthcare,incannex healthcare,100.0,0001873875,"Industry, small (<=5 drugs)",1,2025,1,12499825,Pharmaceuticals,C3
+exact,True,,True,"InCarda Therapeutics, Inc.","InCarda Therapeutics, Inc.",incarda,incarda,100.0,0001552622,"Industry, small (<=5 drugs)",2,2012,6,35296018,Pharmaceuticals,X1
+exact,True,,True,Incyclix Bio,"Incyclix Bio, LLC",incyclix bio,incyclix bio,100.0,0001916275,"Industry, small (<=5 drugs)",1,2022,3,14952930,Pharmaceuticals,NC
+exact,True,,True,"Indaptus Therapeutics, Inc","Indaptus Therapeutics, Inc.",indaptus,indaptus,100.0,0001857044,"Industry, small (<=5 drugs)",1,2021,6,30000000,Pharmaceuticals,NY
+exact,True,,True,"Infinity Pharmaceuticals, Inc.","INFINITY PHARMACEUTICALS, INC.",infinity,infinity,100.0,0001113148,"Industry, mid (6-30)",19,2012,1,78540191,Biotechnology,MA
+exact,True,,True,"Informed Data Systems, Inc.",InforMed Data Systems Inc.,informed data systems,informed data systems,100.0,0001644327,"Industry, small (<=5 drugs)",1,2017,5,40081663,Biotechnology,NY
+exact,True,accept,False,"Inhibrx Biosciences, Inc","Inhibrx, Inc.",inhibrx,inhibrx,100.0,0001739614,"Industry, mid (6-30)",2,2018,5,410000006,Biotechnology,CA
+exact,True,,True,Innate Pharma,"Innate Pharma, SA",innate,innate,100.0,0001598599,"Industry, mid (6-30)",14,2014,1,27417392,Pharmaceuticals,I0
+exact,True,accept,False,Innocoll,"Innocoll Holdings, Inc.",innocoll,innocoll,100.0,0001468806,"Industry, small (<=5 drugs)",2,2009,10,5250000,Pharmaceuticals,VA
+exact,True,accept,False,Innocrin Pharmaceutical,"Innocrin Pharmaceuticals Holdings, LLC",innocrin,innocrin,100.0,0001626547,"Industry, small (<=5 drugs)",5,2014,3,28100000,Pharmaceuticals,NC
+exact,True,,True,Inotek Pharmaceuticals Corporation,INOTEK PHARMACEUTICALS CORP,inotek,inotek,100.0,0001281895,"Industry, small (<=5 drugs)",4,2010,2,23600000,Pharmaceuticals,MA
+exact,True,,True,Inovio Pharmaceuticals,"INOVIO PHARMACEUTICALS, INC.",inovio,inovio,100.0,0001055726,"Industry, mid (6-30)",2,2019,2,15164526,Biotechnology,PA
+exact,True,,True,InSightec,INSIGHTEC LTD,insightec,insightec,100.0,0001376126,"Industry, mid (6-30)",1,2018,5,150000000,Other Health Care,L3
+exact,True,,True,Insmed Incorporated,INSMED INC,insmed,insmed,100.0,0001104506,"Industry, mid (6-30)",10,2010,1,83720903,Biotechnology,VA
+exact,True,,True,"Inspirna, Inc.","Inspirna, Inc.",inspirna,inspirna,100.0,0001651159,"Industry, mid (6-30)",3,2015,6,55096738,Biotechnology,NY
+exact,True,,True,INSYS Therapeutics Inc,"Insys Therapeutics, Inc.",insys,insys,100.0,0001516479,"Industry, mid (6-30)",21,2011,1,2315006,Biotechnology,AZ
+exact,True,,True,Intarcia Therapeutics,"INTARCIA THERAPEUTICS, INC",intarcia,intarcia,100.0,0001086688,"Industry, mid (6-30)",14,2009,19,524601480,Pharmaceuticals,CA
+exact,True,,True,Intec Pharma Ltd.,Intec Pharma Ltd.,intec,intec,100.0,0001638381,"Industry, small (<=5 drugs)",5,2020,1,5000000,Pharmaceuticals,L3
+exact,True,,True,"InteKrin Therapeutics, Inc.",Intekrin Therapeutics Inc,intekrin,intekrin,100.0,0001360245,"Industry, small (<=5 drugs)",3,2009,2,21391923,Pharmaceuticals,CA
+exact,True,,True,"Intensity Therapeutics, Inc.","Intensity Therapeutics, Inc.",intensity,intensity,100.0,0001567264,"Industry, small (<=5 drugs)",1,2013,5,3649483,Pharmaceuticals,CT
+exact,True,,True,Intercept Pharmaceuticals,INTERCEPT PHARMACEUTICALS INC,intercept,intercept,100.0,0001270073,"Industry, small (<=5 drugs)",17,2012,2,30000000,Biotechnology,NY
+exact,True,,True,Intersect ENT,"Intersect ENT, Inc.",intersect ent,intersect ent,100.0,0001271214,"Industry, small (<=5 drugs)",3,2010,4,31018585,Other Health Care,CA
+exact,True,,True,"Intra-Cellular Therapies, Inc.",INTRA CELLULAR THERAPIES INC,intra cellular therapies,intra cellular therapies,100.0,0001176407,"Industry, small (<=5 drugs)",23,2010,6,60000000,Pharmaceuticals,NY
+exact,True,,True,IntraBio Inc,IntraBio Inc,intrabio,intrabio,100.0,0001730493,"Industry, small (<=5 drugs)",4,2018,3,40267575,Biotechnology,NJ
+exact,True,accept,False,Intracel,INTRACEL HOLDINGS Corp,intracel,intracel,100.0,0001211400,"Industry, small (<=5 drugs)",2,2010,1,383947,Pharmaceuticals,MD
+exact,True,,True,"Ironwood Pharmaceuticals, Inc.",IRONWOOD PHARMACEUTICALS INC,ironwood,ironwood,100.0,0001446847,"Industry, mid (6-30)",6,2009,6,175000000,Pharmaceuticals,MA
+exact,True,,True,"Istari Oncology, Inc.","Istari Oncology, Inc.",istari oncology,istari oncology,100.0,0001698240,"Industry, small (<=5 drugs)",1,2017,3,43481976,Biotechnology,NC
+exact,True,accept,False,"Iterum Therapeutics, International Limited",Iterum Therapeutics Ltd,iterum,iterum,100.0,0001659323,"Industry, mid (6-30)",3,2015,6,78097985,Biotechnology,L2
+exact,True,,True,"Jasper Therapeutics, Inc.","Jasper Therapeutics, Inc.",jasper,jasper,100.0,0001788028,"Industry, small (<=5 drugs)",5,2026,1,131999611,Biotechnology,CA
+exact,True,,True,Jazz Pharmaceuticals,JAZZ PHARMACEUTICALS INC,jazz,jazz,100.0,0001232524,"Industry, large (>30)",69,2009,4,120000000,Pharmaceuticals,CA
+exact,True,,True,"JDP Therapeutics, Inc.","JDP Therapeutics, Inc.",jdp,jdp,100.0,0001488520,"Industry, small (<=5 drugs)",2,2010,5,2000000,Pharmaceuticals,PA
+exact,True,,True,"Jounce Therapeutics, Inc.","Jounce Therapeutics, Inc.",jounce,jounce,100.0,0001640455,"Industry, mid (6-30)",2,2015,2,56000000,Biotechnology,MA
+exact,True,,True,Journey Medical Corporation,Journey Medical Corp,journey medical,journey medical,100.0,0001867066,"Industry, small (<=5 drugs)",3,2021,2,18977000,Other Health Care,AZ
+exact,True,,True,"K-PAX Pharmaceuticals, Inc.","K-PAX Pharmaceuticals, Inc.",k pax,k pax,100.0,0001515314,"Industry, small (<=5 drugs)",1,2011,3,1460000,Pharmaceuticals,CA
+exact,True,accept,False,"Kadmon Corporation, LLC","Kadmon Holdings, LLC",kadmon,kadmon,100.0,0001557142,"Industry, mid (6-30)",13,2012,2,5690000,Biotechnology,NY
+exact,True,,True,"Kala Pharmaceuticals, Inc.","Kala Pharmaceuticals, Inc.",kala,kala,100.0,0001479419,"Industry, small (<=5 drugs)",2,2009,12,67921796,Biotechnology,MA
+exact,True,,True,Kallyope Inc.,"Kallyope, Inc.",kallyope,kallyope,100.0,0001655846,"Industry, small (<=5 drugs)",1,2015,2,28050000,Biotechnology,NY
+exact,True,,True,Karyopharm Therapeutics Inc,Karyopharm Therapeutics Inc.,karyopharm,karyopharm,100.0,0001503802,"Industry, large (>30)",34,2010,4,165000003,Pharmaceuticals,MA
+exact,True,,True,Kazia Therapeutics Limited,KAZIA THERAPEUTICS LTD,kazia,kazia,100.0,0001075880,"Industry, small (<=5 drugs)",1,2023,4,55251088,Biotechnology,C3
+exact,True,,True,Kinex Pharmaceuticals Inc.,Kinex Pharmaceuticals LLC,kinex,kinex,100.0,0001300699,"Industry, small (<=5 drugs)",2,2012,10,100000000,Biotechnology,NY
+exact,True,accept,False,"Kiniksa Pharmaceuticals International, plc","Kiniksa Pharmaceuticals, Ltd.",kiniksa,kiniksa,100.0,0001730430,"Industry, small (<=5 drugs)",2,2019,3,8799667,Biotechnology,D0
+exact,True,accept,False,Kiromic BioPharma Inc.,"Kiromic, LLC",kiromic,kiromic,100.0,0001588511,"Industry, small (<=5 drugs)",2,2013,3,135000,Other Health Care,TX
+exact,True,accept,False,"Kitov Pharmaceuticals, Ltd.",Kitov Pharmaceuticals Holdings Ltd.,kitov,kitov,100.0,0001614744,"Industry, small (<=5 drugs)",1,2016,13,10000001,Pharmaceuticals,L3
+exact,True,,True,Kodiak Sciences Inc,Kodiak Sciences Inc.,kodiak sciences,kodiak sciences,100.0,0001468748,"Industry, small (<=5 drugs)",3,2009,2,33960000,Biotechnology,CA
+exact,True,,True,"Kriya Therapeutics, Inc.","Kriya Therapeutics, Inc.",kriya,kriya,100.0,0001811209,"Industry, small (<=5 drugs)",1,2020,7,361794505,Biotechnology,CA
+exact,True,,True,Kronos Bio,"Kronos Bio, Inc.",kronos bio,kronos bio,100.0,0001741830,"Industry, small (<=5 drugs)",2,2018,2,105000005,Biotechnology,NY
+exact,True,,True,"Krystal Biotech, Inc.","Krystal Biotech, Inc.",krystal,krystal,100.0,0001711279,"Industry, small (<=5 drugs)",4,2017,1,11254534,Biotechnology,PA
+exact,True,,True,Kumquat Biosciences Inc.,Kumquat Biosciences Inc,kumquat,kumquat,100.0,0001781822,"Industry, mid (6-30)",2,2019,5,55922930,Biotechnology,CA
+exact,True,,True,"Kura Oncology, Inc.","KURA ONCOLOGY, INC.",kura oncology,kura oncology,100.0,0001631246,"Industry, mid (6-30)",11,2015,2,60448784,Biotechnology,CA
+exact,True,,True,La Jolla Pharmaceutical Company,LA JOLLA PHARMACEUTICAL CO,la jolla,la jolla,100.0,0000920465,"Industry, mid (6-30)",5,2011,2,17755714,Pharmaceuticals,CA
+exact,True,,True,Lantern Pharma Inc.,Lantern Pharma Inc.,lantern,lantern,100.0,0001763950,"Industry, small (<=5 drugs)",1,2019,3,2385005,Biotechnology,TX
+exact,True,,True,"Leading BioSciences, Inc","Leading Biosciences, Inc.",leading,leading,100.0,0001862235,"Industry, small (<=5 drugs)",1,2021,1,20000000,Biotechnology,CA
+exact,True,,True,Leaf Vertical Inc.,"LEAF VERTICAL, INC.",leaf vertical,leaf vertical,100.0,0001744231,"Industry, mid (6-30)",1,2018,4,669000,Pharmaceuticals,FL
+exact,True,,True,"Leap Therapeutics, Inc.","LEAP THERAPEUTICS, INC.",leap,leap,100.0,0001509745,"Industry, mid (6-30)",8,2011,3,77219193,Pharmaceuticals,MA
+exact,True,,True,"Levo Therapeutics, Inc.","Levo Therapeutics, Inc.",levo,levo,100.0,0001793935,"Industry, small (<=5 drugs)",1,2019,2,46537068,Other Health Care,IL
+exact,True,,True,Lexaria Bioscience Corp.,Lexaria Bioscience Corp.,lexaria,lexaria,100.0,0001348362,"Industry, small (<=5 drugs)",1,2016,14,5000000,Biotechnology,A1
+exact,True,,True,Lexicon Pharmaceuticals,"LEXICON PHARMACEUTICALS, INC.",lexicon,lexicon,100.0,0001062822,"Industry, mid (6-30)",28,2010,8,150000000,Pharmaceuticals,TX
+exact,True,,True,LianBio LLC,LianBio,lianbio,lianbio,100.0,0001831283,"Industry, small (<=5 drugs)",4,2020,2,269999972,Pharmaceuticals,E9
+exact,True,,True,Ligand Pharmaceuticals,LIGAND PHARMACEUTICALS INC,ligand,ligand,100.0,0000886163,"Industry, mid (6-30)",10,2016,1,85438488,Pharmaceuticals,CA
+exact,True,,True,Light Sciences Oncology,Light Sciences Oncology Inc,light sciences oncology,light sciences oncology,100.0,0001342272,"Industry, small (<=5 drugs)",1,2009,5,35093823,Biotechnology,WA
+exact,True,,True,Liminal BioSciences Ltd.,Liminal BioSciences Inc.,liminal,liminal,100.0,0001351172,"Industry, small (<=5 drugs)",6,2019,2,37140000,Biotechnology,A8
+exact,True,,True,"Linnaeus Therapeutics, Inc.","Linnaeus Therapeutics, Inc.",linnaeus,linnaeus,100.0,0001752026,"Industry, small (<=5 drugs)",2,2018,11,5824155,Biotechnology,NJ
+exact,True,,True,Lipac Oncology LLC,LIPAC Oncology LLC,lipac oncology,lipac oncology,100.0,0001799023,"Industry, small (<=5 drugs)",1,2020,2,372500,Pharmaceuticals,CA
+exact,True,,True,"Lipella Pharmaceuticals, Inc.",LIPELLA PHARMACEUTICALS INC,lipella,lipella,100.0,0001347242,"Industry, small (<=5 drugs)",2,2009,11,3121602,Pharmaceuticals,PA
+exact,True,,True,Lipocine Inc.,Lipocine Inc.,lipocine,lipocine,100.0,0001535955,"Industry, small (<=5 drugs)",2,2013,2,38019984,Pharmaceuticals,X1
+exact,True,,True,"Liquidia Technologies, Inc.",Liquidia Technologies Inc,liquidia technologies,liquidia technologies,100.0,0001330436,"Industry, small (<=5 drugs)",5,2012,3,25500000,Biotechnology,NC
+exact,True,,True,"Lixte Biotechnology Holdings, Inc.","LIXTE BIOTECHNOLOGY HOLDINGS, INC.",lixte,lixte,100.0,0001335105,"Industry, small (<=5 drugs)",2,2009,4,4500000,Biotechnology,NY
+exact,True,,True,Logical Therapeutics,Logical Therapeutics Inc,logical,logical,100.0,0001405056,"Industry, small (<=5 drugs)",1,2009,2,32537580,Biotechnology,MA
+exact,True,,True,"Lomond Therapeutics Holdings, Inc.","Lomond Therapeutics Holdings, Inc.",lomond,lomond,100.0,0001900520,"Industry, small (<=5 drugs)",1,2024,2,53915492,Pharmaceuticals,DE
+exact,True,,True,"Lpath, Inc.","LPATH, INC",lpath,lpath,100.0,0001251769,"Industry, small (<=5 drugs)",1,2010,4,24982480,Biotechnology,CA
+exact,True,,True,"Lux Biosciences, Inc.",LUX BIOSCIENCES INC,lux,lux,100.0,0001366282,"Industry, small (<=5 drugs)",4,2009,7,37940274,Biotechnology,NJ
+exact,True,,True,Lycera Corp.,LYCERA CORP,lycera,lycera,100.0,0001382268,"Industry, small (<=5 drugs)",1,2009,5,33917556,Pharmaceuticals,MI
+exact,True,,True,Lyndra Inc.,"Lyndra, Inc.",lyndra,lyndra,100.0,0001679037,"Industry, small (<=5 drugs)",3,2016,8,122749667,Biotechnology,MA
+exact,True,,True,Lyra Therapeutics,"Lyra Therapeutics, Inc.",lyra,lyra,100.0,0001327273,"Industry, small (<=5 drugs)",4,2009,11,100494970,Biotechnology,MA
+exact,True,,True,MacroGenics,MACROGENICS INC,macrogenics,macrogenics,100.0,0001125345,"Industry, mid (6-30)",21,2011,1,12016500,Biotechnology,MD
+exact,True,,True,"Madrigal Pharmaceuticals, Inc.","MADRIGAL PHARMACEUTICALS, INC.",madrigal,madrigal,100.0,0001157601,"Industry, mid (6-30)",6,2017,1,35000018,Pharmaceuticals,PA
+exact,True,,True,"Magna Pharmaceuticals, Inc.","Magna Pharmaceuticals, Inc.",magna,magna,100.0,0001596152,"Industry, small (<=5 drugs)",3,2014,2,1005536,Pharmaceuticals,KY
+exact,True,,True,Maia Biotechnology,"MAIA Biotechnology, Inc.",maia,maia,100.0,0001878313,"Industry, small (<=5 drugs)",2,2023,7,4859092,Biotechnology,IL
+exact,True,,True,Manhattan Pharmaceuticals,MANHATTAN PHARMACEUTICALS INC,manhattan,manhattan,100.0,0001001316,"Industry, small (<=5 drugs)",1,2010,4,25000000,Pharmaceuticals,NY
+exact,True,,True,Mannkind Corporation,MANNKIND CORP,mannkind,mannkind,100.0,0000899460,"Industry, mid (6-30)",30,2013,1,58900000,Pharmaceuticals,CA
+exact,True,,True,Marinus Pharmaceuticals,MARINUS PHARMACEUTICALS INC,marinus,marinus,100.0,0001267813,"Industry, small (<=5 drugs)",17,2009,5,30000000,Pharmaceuticals,CT
+exact,True,,True,Marius Pharmaceuticals,"Marius Pharmaceuticals, LLC",marius,marius,100.0,0001777443,"Industry, small (<=5 drugs)",2,2019,3,6006000,Pharmaceuticals,NC
+exact,True,,True,"Marker Therapeutics, Inc.","Marker Therapeutics, Inc.",marker,marker,100.0,0001094038,"Industry, mid (6-30)",1,2009,10,16100000,Biotechnology,WA
+exact,True,,True,"Mast Therapeutics, Inc.","Mast Therapeutics, Inc.",mast,mast,100.0,0001160308,"Industry, mid (6-30)",5,2014,2,26779912,Pharmaceuticals,CA
+exact,True,,True,Mateon Therapeutics,MATEON THERAPEUTICS INC,mateon,mateon,100.0,0000908259,"Industry, mid (6-30)",9,2010,8,27000000,Biotechnology,CA
+exact,True,,True,Mati Therapeutics Inc.,Mati Therapeutics Inc.,mati,mati,100.0,0001574251,"Industry, small (<=5 drugs)",13,2013,7,9867695,Biotechnology,TX
+exact,True,accept,False,Mayne Pharma International Pty Ltd,Mayne Pharma Group Ltd,mayne,mayne,100.0,0001560183,"Industry, mid (6-30)",2,2012,2,2705000,Pharmaceuticals,C3
+exact,True,accept,False,"Medexus Pharma, Inc.",Medexus Pharmaceuticals Inc.,medexus,medexus,100.0,0001806605,"Industry, small (<=5 drugs)",3,2020,1,400000,Pharmaceuticals,A8
+exact,True,accept,False,MediQuest Therapeutics,MediQuest Holdings LLC,mediquest,mediquest,100.0,0001487666,"Industry, small (<=5 drugs)",2,2010,2,3683631,Pharmaceuticals,WA
+exact,True,,True,"MEI Pharma, Inc.","MEI Pharma, Inc.",mei,mei,100.0,0001262104,"Industry, mid (6-30)",9,2011,2,74999990,Pharmaceuticals,CA
+exact,True,,True,Melt Pharmaceuticals,"Melt Pharmaceuticals, Inc.",melt,melt,100.0,0001767398,"Industry, small (<=5 drugs)",1,2019,11,42292450,Pharmaceuticals,CA
+exact,True,,True,"Memgen, Inc.","Memgen, LLC",memgen,memgen,100.0,0001760644,"Industry, small (<=5 drugs)",1,2018,10,9767223,Biotechnology,TX
+exact,True,,True,"MenoGeniX, Inc.","MenoGeniX, Inc.",menogenix,menogenix,100.0,0001555128,"Industry, small (<=5 drugs)",1,2012,4,500000,Biotechnology,CO
+exact,True,,True,"Mercator MedSystems, Inc.",MERCATOR MEDSYSTEMS INC,mercator medsystems,mercator medsystems,100.0,0001355036,"Industry, small (<=5 drugs)",3,2013,4,14333502,Biotechnology,CA
+exact,True,accept,False,Mereo BioPharma,Mereo Biopharma Group plc,mereo,mereo,100.0,0001719714,"Industry, mid (6-30)",2,2020,1,70000000,Pharmaceuticals,X0
+exact,True,,True,Merrimack Pharmaceuticals,MERRIMACK PHARMACEUTICALS INC,merrimack,merrimack,100.0,0001274792,"Industry, mid (6-30)",14,2011,1,77000000,Pharmaceuticals,MA
+exact,True,,True,Merus B.V.,Merus B.V.,merus b v,merus b v,100.0,0001651311,"Industry, mid (6-30)",6,2017,3,80000000,Biotechnology,P7
+exact,True,,True,Metabolic Solutions Development Company,METABOLIC SOLUTIONS DEVELOPMENT CO,metabolic solutions,metabolic solutions,100.0,0001422580,"Industry, small (<=5 drugs)",1,2009,8,16135409,Pharmaceuticals,MI
+exact,True,,True,"Metacrine, Inc.","Metacrine, Inc.",metacrine,metacrine,100.0,0001634379,"Industry, small (<=5 drugs)",1,2015,5,65000000,Pharmaceuticals,CA
+exact,True,accept,False,"Millendo Therapeutics US, Inc.","Millendo Therapeutics, Inc.",millendo,millendo,100.0,0001544227,"Industry, small (<=5 drugs)",3,2012,9,37238097,Biotechnology,MA
+exact,True,,True,"MimiVax, LLC","MimiVax, LLC",mimivax,mimivax,100.0,0001634552,"Industry, small (<=5 drugs)",1,2015,2,0,Biotechnology,NY
+exact,True,,True,Minerva Neurosciences,"Minerva Neurosciences, Inc.",minerva neurosciences,minerva neurosciences,100.0,0001598646,"Industry, small (<=5 drugs)",2,2015,3,30999997,Biotechnology,MA
+exact,True,,True,"Mirador Therapeutics, Inc.","Mirador Therapeutics, Inc.",mirador,mirador,100.0,0002017193,"Industry, small (<=5 drugs)",1,2024,2,332999976,Other Health Care,CA
+exact,True,,True,"miRagen Therapeutics, Inc.",Miragen Therapeutics Inc,miragen,miragen,100.0,0001417827,"Industry, small (<=5 drugs)",3,2009,9,40703067,Biotechnology,CO
+exact,True,,True,"Mirna Therapeutics, Inc.","Mirna Therapeutics, Inc.",mirna,mirna,100.0,0001527599,"Industry, small (<=5 drugs)",1,2011,4,79999992,Biotechnology,TX
+exact,True,,True,"Mirum Pharmaceuticals, Inc.","Mirum Pharmaceuticals, Inc.",mirum,mirum,100.0,0001759425,"Industry, mid (6-30)",22,2018,3,68480000,Pharmaceuticals,CA
+exact,True,,True,"Molecular Templates, Inc.","Molecular Templates, Inc.",molecular templates,molecular templates,100.0,0001183765,"Industry, small (<=5 drugs)",4,2009,6,40000000,Biotechnology,CA
+exact,True,accept,False,"Moleculin Biotech, Inc.","Moleculin, LLC",moleculin,moleculin,100.0,0001514912,"Industry, small (<=5 drugs)",2,2011,10,4490309,Pharmaceuticals,TX
+exact,True,,True,Monopar Therapeutics,Monopar Therapeutics,monopar,monopar,100.0,0001645469,"Industry, small (<=5 drugs)",1,2015,4,2105100,Biotechnology,IL
+exact,True,,True,"MyoKardia, Inc.",MyoKardia Inc,myokardia,myokardia,100.0,0001552451,"Industry, small (<=5 drugs)",4,2012,5,46000001,Biotechnology,CA
+exact,True,,True,"NantBioScience, Inc.","NantBioscience, Inc.",nantbioscience,nantbioscience,100.0,0001608318,"Industry, small (<=5 drugs)",3,2014,6,100000000,Other Health Care,CA
+exact,True,,True,"NantCell, Inc.","NantCell, Inc.",nantcell,nantcell,100.0,0001642116,"Industry, mid (6-30)",9,2015,7,100000000,Other Health Care,CA
+exact,True,,True,"Napo Pharmaceuticals, Inc.",NAPO PHARMACEUTICALS INC,napo,napo,100.0,0001188290,"Industry, small (<=5 drugs)",1,2009,5,3360000,Biotechnology,CA
+exact,True,,True,Nascent Biotech,Nascent Biotech Inc.,nascent,nascent,100.0,0001622057,"Industry, small (<=5 drugs)",1,2014,1,542500,Biotechnology,MN
+exact,True,,True,"Nastech Pharmaceutical Company, Inc.",NASTECH  PHARMACEUTICAL  CO INC,nastech,nastech,100.0,0000737207,"Industry, small (<=5 drugs)",2,2010,11,44000000,Biotechnology,WA
+exact,True,,True,Nasus Pharma,Nasus Pharma Ltd,nasus,nasus,100.0,0002029039,"Industry, small (<=5 drugs)",3,2026,1,15000040,Biotechnology,L3
+exact,True,,True,Nektar Therapeutics,NEKTAR THERAPEUTICS,nektar,nektar,100.0,0000906709,"Industry, mid (6-30)",15,2018,2,849999960,Pharmaceuticals,CA
+exact,True,,True,"Neos Therapeutics, Inc","Neos Therapeutics, Inc.",neos,neos,100.0,0001467652,"Industry, small (<=5 drugs)",1,2009,11,24195000,Pharmaceuticals,TX
+exact,True,,True,"Neothetics, Inc","Neothetics,  Inc.",neothetics,neothetics,100.0,0001618835,"Industry, small (<=5 drugs)",2,2019,11,30000001,Biotechnology,CA
+exact,True,,True,"NeoTract, Inc.",NEOTRACT INC,neotract,neotract,100.0,0001356876,"Industry, small (<=5 drugs)",1,2009,6,50556684,Biotechnology,CA
+exact,True,accept,False,NeoTX Therapeutics Ltd.,Neotx Holdings Ltd.,neotx,neotx,100.0,0001659794,"Industry, small (<=5 drugs)",2,2015,5,44700000,Biotechnology,L3
+exact,True,,True,NeoVista,NEOVISTA INC,neovista,neovista,100.0,0001231108,"Industry, small (<=5 drugs)",1,2011,3,33784545,Other Health Care,CA
+exact,True,,True,"Neumora Therapeutics, Inc.","Neumora Therapeutics, Inc.",neumora,neumora,100.0,0001885522,"Industry, small (<=5 drugs)",6,2023,1,474356988,Biotechnology,MA
+exact,True,,True,"Neuraltus Pharmaceuticals, Inc.","NEURALTUS PHARMACEUTICALS, INC.",neuraltus,neuraltus,100.0,0001459308,"Industry, small (<=5 drugs)",1,2009,4,14938357,Pharmaceuticals,CA
+exact,True,,True,"Neuraly, Inc.","Neuraly, Inc.",neuraly,neuraly,100.0,0001692816,"Industry, small (<=5 drugs)",2,2016,2,10447685,Other Health Care,MD
+exact,True,accept,False,NeurAxon Inc.,"NeurAxon(USA), Inc.",neuraxon,neuraxon,100.0,0001486097,"Industry, small (<=5 drugs)",1,2010,2,3568217,Biotechnology,A6
+exact,True,,True,"Neurelis, Inc.","Neurelis, Inc.",neurelis,neurelis,100.0,0001481632,"Industry, small (<=5 drugs)",3,2010,10,114759923,Biotechnology,CA
+exact,True,,True,NeuroBo Pharmaceuticals Inc.,"NeuroBo Pharmaceuticals, Inc.",neurobo,neurobo,100.0,0001638287,"Industry, small (<=5 drugs)",2,2015,13,17030344,Biotechnology,MI
+exact,True,,True,NeurogesX,NeurogesX Inc,neurogesx,neurogesx,100.0,0001385830,"Industry, small (<=5 drugs)",7,2011,5,20209229,Pharmaceuticals,CA
+exact,True,,True,"NeuroRx, Inc.","NeuroRx, Inc.",neurorx,neurorx,100.0,0001679768,"Industry, small (<=5 drugs)",6,2016,2,4541991,Pharmaceuticals,DE
+exact,True,,True,NeuroSense Therapeutics Ltd.,NeuroSense Therapeutics Ltd.,neurosense,neurosense,100.0,0001875091,"Industry, small (<=5 drugs)",4,2023,3,5000000,Biotechnology,L3
+exact,True,,True,NeuroVive Pharmaceutical AB,NeuroVive Pharmaceutical AB,neurovive,neurovive,100.0,0001643349,"Industry, small (<=5 drugs)",1,2015,1,7462732,Pharmaceuticals,V7
+exact,True,,True,"Nevakar, Inc.",Nevakar LLC,nevakar,nevakar,100.0,0001677308,"Industry, small (<=5 drugs)",2,2016,2,11502000,Pharmaceuticals,NJ
+exact,True,,True,"New Haven Pharmaceuticals, Inc.","New Haven Pharmaceuticals, Inc.",new haven,new haven,100.0,0001558788,"Industry, small (<=5 drugs)",1,2012,3,11786611,Pharmaceuticals,CT
+exact,True,,True,NewLink Genetics Corporation,NEWLINK GENETICS CORP,newlink genetics,newlink genetics,100.0,0001126234,"Industry, mid (6-30)",15,2009,8,20714105,Biotechnology,IA
+exact,True,,True,"NGM Biopharmaceuticals, Inc",NGM BIOPHARMACEUTICALS INC,ngm,ngm,100.0,0001426332,"Industry, small (<=5 drugs)",11,2009,10,105999996,Biotechnology,CA
+exact,True,,True,"NiKang Therapeutics, Inc.","NiKang Therapeutics, Inc.",nikang,nikang,100.0,0001864608,"Industry, small (<=5 drugs)",2,2021,1,199999915,Biotechnology,DE
+exact,True,,True,"Nitric BioTherapeutics, Inc","Nitric BioTherapeutics, Inc.",nitric biotherapeutics,nitric biotherapeutics,100.0,0001460586,"Industry, small (<=5 drugs)",5,2009,4,1750000,Biotechnology,PA
+exact,True,,True,Nivagen Pharmaceuticals Inc.,"Nivagen Pharmaceuticals, Inc.",nivagen,nivagen,100.0,0001716747,"Industry, small (<=5 drugs)",1,2017,3,15966462,Pharmaceuticals,CA
+exact,True,,True,"Nivalis Therapeutics, Inc.","Nivalis Therapeutics, Inc.",nivalis,nivalis,100.0,0001626199,"Industry, small (<=5 drugs)",6,2014,4,90999934,Biotechnology,CO
+exact,True,,True,NLS Pharmaceutics,NLS Pharmaceutics Ltd.,nls pharmaceutics,nls pharmaceutics,100.0,0001783036,"Industry, small (<=5 drugs)",4,2022,10,10000000,Pharmaceuticals,V8
+exact,True,,True,"Nohla Therapeutics, Inc.",Nohla Therapeutics Inc.,nohla,nohla,100.0,0001662002,"Industry, mid (6-30)",3,2015,4,44999999,Biotechnology,WA
+exact,True,,True,Nova Mentis Life Science Corp,Nova Mentis Life Science Corp.,nova mentis life science,nova mentis life science,100.0,0001689231,"Industry, small (<=5 drugs)",1,2020,1,12170,Other Health Care,A1
+exact,True,,True,"Novalar Pharmaceuticals, Inc.",NOVALAR PHARMACEUTICALS INC,novalar,novalar,100.0,0001130807,"Industry, small (<=5 drugs)",1,2010,1,1000999,Biotechnology,CA
+exact,True,,True,"Novira Therapeutics, Inc.","Novira Therapeutics, Inc.",novira,novira,100.0,0001556754,"Industry, small (<=5 drugs)",1,2012,3,27995233,Pharmaceuticals,PA
+exact,True,,True,"Nuon Therapeutics, Inc.",NUON THERAPEUTICS INC,nuon,nuon,100.0,0001432580,"Industry, small (<=5 drugs)",3,2010,2,9999999,Biotechnology,CA
+exact,True,,True,NuPathe Inc.,NUPATHE INC.,nupathe,nupathe,100.0,0001375200,"Industry, small (<=5 drugs)",4,2010,3,28000000,Pharmaceuticals,PA
+exact,True,,True,Nuvalent Inc.,"Nuvalent, Inc.",nuvalent,nuvalent,100.0,0001861560,"Industry, small (<=5 drugs)",1,2021,1,134999971,Other Health Care,MA
+exact,True,,True,Nuvation Bio Inc.,Nuvation Bio Inc.,nuvation bio,nuvation bio,100.0,0001829093,"Industry, mid (6-30)",7,2020,1,275348195,Pharmaceuticals,NY
+exact,True,,True,"Nuvectis Pharma, Inc.","Nuvectis Pharma, Inc.",nuvectis,nuvectis,100.0,0001875558,"Industry, small (<=5 drugs)",1,2022,1,15878637,Biotechnology,NJ
+exact,True,,True,Ocugen,"Ocugen, Inc.",ocugen,ocugen,100.0,0001372299,"Industry, mid (6-30)",1,2011,7,37638679,Biotechnology,MA
+exact,True,,True,"Ocular Therapeutix, Inc.","OCULAR THERAPEUTIX, INC",ocular therapeutix,ocular therapeutix,100.0,0001393434,"Industry, mid (6-30)",22,2009,7,37500000,Biotechnology,MA
+exact,True,,True,"Ocuphire Pharma, Inc.","Ocuphire Pharma, Inc.",ocuphire,ocuphire,100.0,0001738266,"Industry, small (<=5 drugs)",6,2018,4,2126253,Biotechnology,MI
+exact,True,,True,Odyssey Therapeutics,"Odyssey Therapeutics, Inc.",odyssey,odyssey,100.0,0001882782,"Industry, small (<=5 drugs)",1,2021,5,214025200,Biotechnology,MA
+exact,True,,True,Ohr Pharmaceutical Inc.,Ohr Pharmaceutical Inc,ohr,ohr,100.0,0001173281,"Industry, small (<=5 drugs)",4,2009,7,10180224,Biotechnology,UT
+exact,True,,True,"Olema Pharmaceuticals, Inc.","Olema Pharmaceuticals, Inc.",olema,olema,100.0,0001750284,"Industry, mid (6-30)",4,2018,6,249999225,Pharmaceuticals,CA
+exact,True,,True,"Ollin Biosciences, Inc.","Ollin Biosciences, Inc.",ollin,ollin,100.0,0002141184,"Industry, small (<=5 drugs)",1,2026,1,156249990,Biotechnology,TX
+exact,True,,True,Omeros Corporation,OMEROS CORP,omeros,omeros,100.0,0001285819,"Industry, small (<=5 drugs)",6,2010,2,0,Biotechnology,WA
+exact,True,accept,False,"Omeza, LLC","Omeza Holdings, Inc.",omeza,omeza,100.0,0001916474,"Industry, small (<=5 drugs)",1,2022,4,6500000,Other Health Care,FL
+exact,True,,True,"OncoC4, Inc.","OncoC4, Inc.",oncoc4,oncoc4,100.0,0001839078,"Industry, small (<=5 drugs)",3,2021,1,0,Biotechnology,MD
+exact,True,,True,"OncoMed Pharmaceuticals, Inc.",OncoMed Pharmaceuticals Inc,oncomed,oncomed,100.0,0001302573,"Industry, mid (6-30)",20,2013,1,22249996,Biotechnology,CA
+exact,True,,True,"OncoNano Medicine, Inc.","OncoNano Medicine, Inc.",onconano medicine,onconano medicine,100.0,0001735726,"Industry, small (<=5 drugs)",1,2018,7,68407469,Biotechnology,TX
+exact,True,,True,"OncoPep, Inc.","ONCoPEP, Inc.",oncopep,oncopep,100.0,0001519887,"Industry, small (<=5 drugs)",2,2011,4,3650000,Biotechnology,MA
+exact,True,,True,"OncoResponse, Inc.",OncoResponse Inc,oncoresponse,oncoresponse,100.0,0001655774,"Industry, small (<=5 drugs)",2,2015,7,40625995,Biotechnology,WA
+exact,True,,True,OncoSec Medical Incorporated,ONCOSEC MEDICAL Inc,oncosec medical,oncosec medical,100.0,0001444307,"Industry, small (<=5 drugs)",2,2011,5,5685507,Biotechnology,CA
+exact,True,accept,False,Oncotelic Inc.,"Oncotelic Therapeutics, Inc.",oncotelic,oncotelic,100.0,0000908259,"Industry, mid (6-30)",3,2010,8,27000000,Biotechnology,CA
+exact,True,,True,"OncoVerity, Inc.","OncoVerity, Inc.",oncoverity,oncoverity,100.0,0001943593,"Industry, small (<=5 drugs)",6,2024,1,14000000,Biotechnology,CO
+exact,True,,True,"Oncternal Therapeutics, Inc","Oncternal Therapeutics, Inc.",oncternal,oncternal,100.0,0001600987,"Industry, small (<=5 drugs)",2,2014,10,17874045,Biotechnology,CA
+exact,True,,True,"OnKure, Inc.","OnKure, Inc.",onkure,onkure,100.0,0001533914,"Industry, mid (6-30)",1,2011,14,56649181,Pharmaceuticals,CO
+exact,True,,True,Ophthotech Corporation,Ophthotech Corp.,ophthotech,ophthotech,100.0,0001410939,"Industry, mid (6-30)",10,2009,7,16666668,Biotechnology,NY
+exact,True,,True,"OPKO Health, Inc.","Opko Health, Inc.",opko health,opko health,100.0,0000944809,"Industry, mid (6-30)",21,2009,2,175000000,Pharmaceuticals,FL
+exact,True,accept,False,Optinose US Inc.,"OptiNose, Inc.",optinose,optinose,100.0,0001494650,"Industry, small (<=5 drugs)",13,2010,9,35000065,Other Health Care,NY
+exact,True,accept,False,"Oramed, Ltd.",ORAMED PHARMACEUTICALS INC.,oramed,oramed,100.0,0001176309,"Industry, small (<=5 drugs)",13,2011,9,3356000,Pharmaceuticals,L3
+exact,True,,True,"Orbus Therapeutics, Inc.","Orbus Therapeutics, Inc.",orbus,orbus,100.0,0001650743,"Industry, small (<=5 drugs)",2,2015,4,18500014,Biotechnology,CA
+exact,True,,True,"Orca Biosystems, Inc.",Orca BioSystems Inc,orca biosystems,orca biosystems,100.0,0001720544,"Industry, small (<=5 drugs)",1,2020,1,191999870,Other Health Care,CA
+exact,True,,True,"Orexigen Therapeutics, Inc","Orexigen Therapeutics, Inc.",orexigen,orexigen,100.0,0001382911,"Industry, small (<=5 drugs)",12,2015,3,165000000,Pharmaceuticals,CA
+exact,True,,True,ORIC Pharmaceuticals,"Oric Pharmaceuticals, Inc.",oric,oric,100.0,0001796280,"Industry, mid (6-30)",4,2023,3,125000000,Biotechnology,CA
+exact,True,,True,"OrphoMed, Inc.","OrphoMed, Inc.",orphomed,orphomed,100.0,0001650809,"Industry, small (<=5 drugs)",1,2015,3,21772377,Biotechnology,CA
+exact,True,accept,False,Osmotica Pharmaceutical US LLC,Osmotica Pharmaceuticals plc,osmotica,osmotica,100.0,0001739426,"Industry, small (<=5 drugs)",1,2023,1,5000000,Pharmaceuticals,NJ
+exact,True,,True,"Ossium Health, Inc.","Ossium Health, Inc.",ossium health,ossium health,100.0,0001741662,"Industry, mid (6-30)",1,2018,1,10406198,Biotechnology,CA
+exact,True,,True,Othera Pharmaceuticals,"OTHERA PHARMACEUTICALS, INC",othera,othera,100.0,0001203928,"Industry, small (<=5 drugs)",1,2009,2,10619994,Biotechnology,PA
+exact,True,,True,"Otonomy, Inc.","Otonomy, Inc.",otonomy,otonomy,100.0,0001493566,"Industry, mid (6-30)",9,2010,3,24214701,Biotechnology,CA
+exact,True,,True,"Outlook Therapeutics, Inc.","Outlook Therapeutics, Inc.",outlook,outlook,100.0,0001649989,"Industry, small (<=5 drugs)",3,2020,8,60000000,Biotechnology,NJ
+exact,True,,True,OX2 Therapeutics,"OX2 Therapeutics, Inc.",ox2,ox2,100.0,0001704490,"Industry, small (<=5 drugs)",1,2017,2,649415,Biotechnology,MN
+exact,True,,True,"Oyster Point Pharma, Inc.","Oyster Point Pharma, Inc.",oyster point,oyster point,100.0,0001720725,"Industry, small (<=5 drugs)",5,2017,2,84999985,Pharmaceuticals,CA
+exact,True,,True,Pain Therapeutics,PAIN THERAPEUTICS INC,pain,pain,100.0,0001069530,"Industry, small (<=5 drugs)",3,2018,1,1107597,Pharmaceuticals,TX
+exact,True,,True,PainReform LTD,PAINREFORM LTD.,painreform,painreform,100.0,0001801834,"Industry, small (<=5 drugs)",1,2021,1,6000000,Biotechnology,L3
+exact,True,,True,"Palatin Technologies, Inc",PALATIN TECHNOLOGIES INC,palatin technologies,palatin technologies,100.0,0000911216,"Industry, small (<=5 drugs)",7,2012,1,35000000,Pharmaceuticals,NJ
+exact,True,,True,Palladio Biosciences,"Palladio Biosciences, Inc.",palladio,palladio,100.0,0001827356,"Industry, small (<=5 drugs)",4,2020,1,27983505,Biotechnology,PA
+exact,True,accept,False,"Palleon Pharmaceuticals, Inc.",Palleon Pharma Inc.,palleon,palleon,100.0,0001678852,"Industry, small (<=5 drugs)",1,2016,3,100000007,Biotechnology,MA
+exact,True,,True,"Paloma Pharmaceuticals, Inc.",PALOMA PHARMACEUTICALS INC,paloma,paloma,100.0,0001353255,"Industry, small (<=5 drugs)",1,2009,2,1200000,Biotechnology,MA
+exact,True,,True,"Palvella Therapeutics, Inc.","Palvella Therapeutics, Inc.",palvella,palvella,100.0,0001742961,"Industry, small (<=5 drugs)",5,2018,5,45000002,Biotechnology,PA
+exact,True,,True,Panacela Labs LLC,"PANACELA LABS, INC.",panacela labs,panacela labs,100.0,0001526077,"Industry, small (<=5 drugs)",2,2011,3,37000000,Biotechnology,NY
+exact,True,,True,"Panbela Therapeutics, Inc.","Panbela Therapeutics, Inc.",panbela,panbela,100.0,0001029125,"Industry, small (<=5 drugs)",2,2016,8,8800000,Pharmaceuticals,MN
+exact,True,,True,"PanOptica, Inc.","PanOptica, Inc.",panoptica,panoptica,100.0,0001508856,"Industry, small (<=5 drugs)",3,2010,6,40681615,Biotechnology,NJ
+exact,True,,True,"Pathos AI, Inc.","Pathos AI, Inc.",pathos ai,pathos ai,100.0,0001967854,"Industry, small (<=5 drugs)",1,2023,3,282999950,Biotechnology,IL
+exact,True,,True,Paxmedica,"PaxMedica, Inc.",paxmedica,paxmedica,100.0,0001811623,"Industry, small (<=5 drugs)",1,2020,2,3000000,Biotechnology,NJ
+exact,True,,True,PDS Biotechnology Corp.,PDS Biotechnology Corp,pds,pds,100.0,0001531147,"Industry, small (<=5 drugs)",2,2016,2,1135000,Biotechnology,NJ
+exact,True,,True,"Pearl Therapeutics, Inc.",Pearl Therapeutics Inc,pearl,pearl,100.0,0001413805,"Industry, small (<=5 drugs)",10,2010,3,37453334,Pharmaceuticals,CA
+exact,True,,True,"PellePharm, Inc.","PellePharm, Inc.",pellepharm,pellepharm,100.0,0001611568,"Industry, small (<=5 drugs)",2,2014,8,7500000,Biotechnology,CA
+exact,True,,True,Perspective Therapeutics,"Perspective Therapeutics, Inc.",perspective,perspective,100.0,0000728387,"Industry, small (<=5 drugs)",1,2018,4,87409482,Biotechnology,WA
+exact,True,,True,"Pfenex, Inc",Pfenex Inc.,pfenex,pfenex,100.0,0001478121,"Industry, small (<=5 drugs)",2,2009,1,24000000,Biotechnology,CA
+exact,True,accept,False,PharmaTher Inc.,PharmaTher Holdings Ltd.,pharmather,pharmather,100.0,0001886748,"Industry, small (<=5 drugs)",1,2021,1,7886000,Biotechnology,A6
+exact,True,,True,PhaseBio Pharmaceuticals Inc.,PhaseBio Pharmaceuticals Inc,phasebio,phasebio,100.0,0001169245,"Industry, small (<=5 drugs)",1,2009,8,48524067,Biotechnology,NC
+exact,True,,True,Phenomix,Phenomix CORP,phenomix,phenomix,100.0,0001424342,"Industry, small (<=5 drugs)",6,2010,1,5955935,Biotechnology,CA
+exact,True,,True,PhytoCeutica,"PhytoCeutica, Inc.",phytoceutica,phytoceutica,100.0,0001506496,"Industry, small (<=5 drugs)",1,2010,1,2000000,Pharmaceuticals,CT
+exact,True,,True,"Pieris Pharmaceuticals, Inc.","PIERIS PHARMACEUTICALS, INC.",pieris,pieris,100.0,0001583648,"Industry, small (<=5 drugs)",2,2014,4,40000000,Pharmaceuticals,2M
+exact,True,accept,False,Plethora Solutions Ltd,Plethora Solutions Holdings plc,plethora solutions,plethora solutions,100.0,0001619872,"Industry, small (<=5 drugs)",2,2014,1,0,Pharmaceuticals,X0
+exact,True,,True,PLx Pharma,PLx Pharma Inc.,plx,plx,100.0,0001497504,"Industry, small (<=5 drugs)",2,2010,9,18191869,Pharmaceuticals,NY
+exact,True,,True,"PMV Pharmaceuticals, Inc","PMV Pharmaceuticals, Inc.",pmv,pmv,100.0,0001699382,"Industry, mid (6-30)",1,2017,1,73728198,Pharmaceuticals,NJ
+exact,True,,True,"Pneuma Respiratory, Inc","Pneuma Respiratory, Inc.",pneuma respiratory,pneuma respiratory,100.0,0001701794,"Industry, small (<=5 drugs)",1,2018,21,8106688,Pharmaceuticals,NC
+exact,True,,True,Point Therapeutics,POINT THERAPEUTICS INC,point,point,100.0,0000919745,"Industry, mid (6-30)",1,2009,3,1716500,Pharmaceuticals,NC
+exact,True,,True,"Polarean, Inc.","Polarean, Inc.",polarean,polarean,100.0,0001543089,"Industry, small (<=5 drugs)",1,2015,1,1929213,Other Health Care,NC
+exact,True,,True,Portola Pharmaceuticals,PORTOLA PHARMACEUTICALS INC,portola,portola,100.0,0001269021,"Industry, mid (6-30)",2,2009,3,88961766,Pharmaceuticals,CA
+exact,True,,True,"Precigen, Inc","PRECIGEN, INC.",precigen,precigen,100.0,0001356090,"Industry, small (<=5 drugs)",1,2009,26,150000000,Biotechnology,VA
+exact,True,,True,"Precision Biologics, Inc","Precision Biologics, Inc.",precision biologics,precision biologics,100.0,0001560075,"Industry, small (<=5 drugs)",3,2012,6,53096422,Biotechnology,NY
+exact,True,,True,Presage Biosciences,"preSage Biosciences, Inc.",presage,presage,100.0,0001485311,"Industry, mid (6-30)",1,2010,3,8000000,Other Health Care,WA
+exact,True,,True,"Presidio Pharmaceuticals, Inc.","Presidio Pharmaceuticals, Inc.",presidio,presidio,100.0,0001467435,"Industry, mid (6-30)",1,2009,7,21827981,Pharmaceuticals,CA
+exact,True,,True,"Primmune Therapeutics, Inc.","Primmune Therapeutics, Inc.",primmune,primmune,100.0,0001721931,"Industry, small (<=5 drugs)",1,2020,4,13000009,Pharmaceuticals,CA
+exact,True,,True,"Proacta, Incorporated",ProActa Inc,proacta,proacta,100.0,0001297823,"Industry, small (<=5 drugs)",2,2010,3,3000445,Biotechnology,CA
+exact,True,,True,Processa Pharmaceuticals,"Processa Pharmaceuticals, Inc.",processa,processa,100.0,0001533743,"Industry, mid (6-30)",2,2017,4,10238773,Pharmaceuticals,MD
+exact,True,,True,"Progenics Pharmaceuticals, Inc.",PROGENICS PHARMACEUTICALS INC,progenics,progenics,100.0,0000835887,"Industry, small (<=5 drugs)",1,2013,1,12922374,Biotechnology,NY
+exact,True,,True,Proteon Therapeutics,PROTEON THERAPEUTICS INC,proteon,proteon,100.0,0001359931,"Industry, small (<=5 drugs)",5,2011,4,29565934,Biotechnology,MA
+exact,True,,True,"Proteonomix, Inc.","PROTEONOMIX, INC.",proteonomix,proteonomix,100.0,0001469559,"Industry, small (<=5 drugs)",1,2012,1,3804991,Biotechnology,NJ
+exact,True,accept,False,Prothena Biosciences Limited,Prothena Corp plc,prothena,prothena,100.0,0001559053,"Industry, small (<=5 drugs)",1,2018,1,49999997,Biotechnology,L2
+exact,True,accept,False,"Provectus Biopharmaceuticals, Inc.",PROVECTUS PHARMACEUTICALS INC,provectus,provectus,100.0,0000315545,"Industry, mid (6-30)",1,2009,17,7937499,Pharmaceuticals,TN
+exact,True,,True,"Provention Bio, Inc.","Provention Bio, Inc.",provention bio,provention bio,100.0,0001695357,"Industry, small (<=5 drugs)",1,2017,1,28454995,Biotechnology,NJ
+exact,True,,True,PTC Therapeutics,"PTC THERAPEUTICS, INC.",ptc,ptc,100.0,0001070081,"Industry, mid (6-30)",42,2009,10,150000000,Biotechnology,NJ
+exact,True,,True,"Puma Biotechnology, Inc.","PUMA BIOTECHNOLOGY, INC.",puma,puma,100.0,0001401667,"Industry, mid (6-30)",17,2011,3,70000249,Biotechnology,CA
+exact,True,accept,False,Pure Green,PURE GREEN PHARMACEUTICALS INC.,pure green,pure green,100.0,0001954424,"Industry, small (<=5 drugs)",3,2022,1,5436364,Pharmaceuticals,MI
+exact,True,,True,"Qlaris Bio, Inc.","Qlaris Bio, Inc.",qlaris bio,qlaris bio,100.0,0001786717,"Industry, small (<=5 drugs)",2,2019,4,24032554,Biotechnology,MA
+exact,True,,True,QRxPharma Inc.,QRXPHARMA LTD,qrxpharma,qrxpharma,100.0,0001433008,"Industry, small (<=5 drugs)",4,2009,1,12397760,Pharmaceuticals,C3
+exact,True,,True,Quark Pharmaceuticals,QUARK PHARMACEUTICALS INC,quark,quark,100.0,0000920189,"Industry, small (<=5 drugs)",2,2010,1,10000000,Pharmaceuticals,CA
+exact,True,,True,QuatRx Pharmaceuticals Company,QUATRX PHARMACEUTICALS Co,quatrx,quatrx,100.0,0001166029,"Industry, small (<=5 drugs)",4,2009,1,14025045,Pharmaceuticals,MI
+exact,True,,True,Quest PharmaTech Inc.,Quest PharmaTech Inc.,quest pharmatech,quest pharmatech,100.0,0001657074,"Industry, small (<=5 drugs)",1,2015,1,1500000,Pharmaceuticals,A0
+exact,True,,True,"Radius Health, Inc.","Radius Health, Inc.",radius health,radius health,100.0,0001428522,"Industry, small (<=5 drugs)",5,2011,2,126880217,Pharmaceuticals,MA
+exact,True,,True,Rainier Therapeutics,"Rainier Therapeutics, Inc.",rainier,rainier,100.0,0001605096,"Industry, small (<=5 drugs)",2,2014,6,50003996,Biotechnology,CA
+exact,True,,True,"Rakuten Medical, Inc.","Rakuten Medical, Inc.",rakuten medical,rakuten medical,100.0,0001595215,"Industry, small (<=5 drugs)",7,2015,21,166010712,Biotechnology,CA
+exact,True,,True,"Ralexar Therapeutics, Inc.","Ralexar Therapeutics, Inc.",ralexar,ralexar,100.0,0001596494,"Industry, small (<=5 drugs)",2,2014,5,10600000,Pharmaceuticals,PA
+exact,True,,True,Rapamycin Holdings Inc.,"Rapamycin Holdings, Inc.",rapamycin,rapamycin,100.0,0001582949,"Industry, small (<=5 drugs)",1,2013,7,1426094,Pharmaceuticals,TX
+exact,True,,True,"RAPT Therapeutics, Inc.","RAPT Therapeutics, Inc.",rapt,rapt,100.0,0001673772,"Industry, small (<=5 drugs)",2,2016,6,149984200,Biotechnology,CA
+exact,True,,True,"RayzeBio, Inc.","RayzeBio, Inc.",rayzebio,rayzebio,100.0,0001825367,"Industry, small (<=5 drugs)",1,2020,4,167901481,Biotechnology,CA
+exact,True,,True,Recursion Pharmaceuticals Inc.,"Recursion Pharmaceuticals, LLC",recursion,recursion,100.0,0001601830,"Industry, small (<=5 drugs)",1,2014,12,245896677,Pharmaceuticals,UT
+exact,True,,True,RedHill Biopharma Limited,RedHill Biopharma Ltd.,redhill,redhill,100.0,0001553846,"Industry, mid (6-30)",9,2014,6,48300000,Pharmaceuticals,L3
+exact,True,,True,"Regado Biosciences, Inc.",Regado Biosciences Inc,regado,regado,100.0,0001311596,"Industry, small (<=5 drugs)",3,2010,7,40000000,Biotechnology,NJ
+exact,True,,True,"Relay Therapeutics, Inc.","Relay Therapeutics, Inc.",relay,relay,100.0,0001812364,"Industry, mid (6-30)",3,2024,1,30000000,Pharmaceuticals,MA
+exact,True,,True,"Relmada Therapeutics, Inc.","RELMADA THERAPEUTICS, INC.",relmada,relmada,100.0,0001553643,"Industry, small (<=5 drugs)",1,2014,10,10694588,Biotechnology,NY
+exact,True,,True,"Relypsa, Inc.",Relypsa Inc,relypsa,relypsa,100.0,0001416792,"Industry, small (<=5 drugs)",3,2010,7,70129747,Biotechnology,CA
+exact,True,,True,"Remedy Pharmaceuticals, Inc.","Remedy Pharmaceuticals, Inc.",remedy,remedy,100.0,0001501657,"Industry, small (<=5 drugs)",6,2010,8,9062000,Pharmaceuticals,NY
+exact,True,,True,Renovo,"ReNovo, Inc.",renovo,renovo,100.0,0001661397,"Industry, small (<=5 drugs)",1,2015,2,3950000,Other Health Care,OR
+exact,True,,True,RenovoRx,"RenovoRx, Inc.",renovorx,renovorx,100.0,0001574094,"Industry, small (<=5 drugs)",2,2013,7,11136557,Other Health Care,CA
+exact,True,,True,Repligen Corporation,REPLIGEN CORP,repligen,repligen,100.0,0000730272,"Industry, small (<=5 drugs)",2,2017,2,238590580,Other Health Care,MA
+exact,True,,True,"Reprieve Cardiovascular, Inc","Reprieve Cardiovascular, Inc.",reprieve cardiovascular,reprieve cardiovascular,100.0,0001820102,"Industry, small (<=5 drugs)",1,2020,6,30852111,Other Health Care,MA
+exact,True,,True,Repros Therapeutics Inc.,REPROS THERAPEUTICS INC.,repros,repros,100.0,0000897075,"Industry, small (<=5 drugs)",20,2009,2,23601997,Biotechnology,TX
+exact,True,,True,Respirics Inc.,RESPIRICS INC,respirics,respirics,100.0,0001287016,"Industry, small (<=5 drugs)",1,2009,3,3726283,Pharmaceuticals,NC
+exact,True,,True,Response Pharmaceuticals,"Response Pharmaceuticals, Inc.",response,response,100.0,0001913970,"Industry, small (<=5 drugs)",3,2022,3,7988250,Pharmaceuticals,VA
+exact,True,,True,Resverlogix Corp,RESVERLOGIX CORP.,resverlogix,resverlogix,100.0,0001372821,"Industry, small (<=5 drugs)",10,2011,1,1841995,Biotechnology,A0
+exact,True,,True,Revalesio Corporation,Revalesio Corp,revalesio,revalesio,100.0,0001552377,"Industry, small (<=5 drugs)",1,2012,8,38877508,Pharmaceuticals,WA
+exact,True,,True,"Revance Therapeutics, Inc.","Revance Therapeutics, Inc.",revance,revance,100.0,0001479290,"Industry, small (<=5 drugs)",7,2009,11,63360183,Pharmaceuticals,CA
+exact,True,,True,"ReveraGen BioPharma, Inc.","ReveraGen BioPharma, Inc.",reveragen,reveragen,100.0,0001733555,"Industry, small (<=5 drugs)",6,2018,1,800000,Pharmaceuticals,MD
+exact,True,,True,"Revolution Medicines, Inc.","Revolution Medicines, Inc.",revolution medicines,revolution medicines,100.0,0001628171,"Industry, mid (6-30)",3,2016,3,100287058,Pharmaceuticals,CA
+exact,True,,True,"Rexahn Pharmaceuticals, Inc.","Rexahn Pharmaceuticals, Inc.",rexahn,rexahn,100.0,0001228627,"Industry, small (<=5 drugs)",2,2020,2,25778641,Biotechnology,MI
+exact,True,,True,"RFS Pharma, LLC","RFS Pharma, LLC",rfs,rfs,100.0,0001627335,"Industry, small (<=5 drugs)",1,2014,1,5000000,Biotechnology,GA
+exact,True,,True,"Rhythm Pharmaceuticals, Inc.","Rhythm Pharmaceuticals, Inc.",rhythm,rhythm,100.0,0001483887,"Industry, small (<=5 drugs)",18,2010,4,22500000,Pharmaceuticals,MA
+exact,True,,True,"Ribon Therapeutics, Inc.","Ribon Therapeutics, Inc.",ribon,ribon,100.0,0001660410,"Industry, small (<=5 drugs)",1,2015,6,25415384,Biotechnology,MA
+exact,True,,True,Romark Laboratories L.C.,"Romark Laboratories, L.C.",romark laboratories l c,romark laboratories l c,100.0,0001470263,"Industry, mid (6-30)",5,2009,10,23111817,Pharmaceuticals,FL
+exact,True,,True,Rubius Therapeutics,"Rubius Therapeutics, Inc.",rubius,rubius,100.0,0001709401,"Industry, small (<=5 drugs)",1,2017,2,115000060,Biotechnology,MA
+exact,True,,True,"RVL Pharmaceuticals, Inc.",RVL Pharmaceuticals plc,rvl,rvl,100.0,0001739426,"Industry, small (<=5 drugs)",5,2023,1,5000000,Pharmaceuticals,NJ
+exact,True,,True,Sage Therapeutics,"Sage Therapeutics, Inc.",sage,sage,100.0,0001597553,"Industry, small (<=5 drugs)",3,2014,3,649986998,Other Health Care,MA
+exact,True,,True,"Salarius Pharmaceuticals, LLC","Salarius Pharmaceuticals, Inc.",salarius,salarius,100.0,0001615219,"Industry, small (<=5 drugs)",1,2014,4,16224982,Biotechnology,MA
+exact,True,,True,"Salutaris Medical Devices, Inc.",SALUTARIS MEDICAL DEVICES INC,salutaris medical devices,salutaris medical devices,100.0,0001452230,"Industry, small (<=5 drugs)",1,2009,12,2055074,Biotechnology,AZ
+exact,True,,True,Santa Maria Biotherapeutics,"Santa Maria Biotherapeutics, Inc.",santa maria biotherapeutics,santa maria biotherapeutics,100.0,0001593628,"Industry, small (<=5 drugs)",1,2013,2,17998555,Biotechnology,CA
+exact,True,,True,"Sarepta Therapeutics, Inc.","Sarepta Therapeutics, Inc.",sarepta,sarepta,100.0,0000873303,"Industry, mid (6-30)",13,2019,2,399999980,Biotechnology,MA
+exact,True,,True,"Satsuma Pharmaceuticals, Inc.","Satsuma Pharmaceuticals, Inc.",satsuma,satsuma,100.0,0001692830,"Industry, small (<=5 drugs)",3,2016,2,12134401,Pharmaceuticals,CA
+exact,True,accept,False,"Scholar Rock, Inc.",Scholar Rock Holding Corp,scholar rock,scholar rock,100.0,0001727196,"Industry, small (<=5 drugs)",6,2018,1,46999998,Biotechnology,MA
+exact,True,,True,"SCOLR Pharma, Inc.","SCOLR Pharma, Inc.",scolr,scolr,100.0,0000934936,"Industry, small (<=5 drugs)",1,2010,4,4130000,Pharmaceuticals,WA
+exact,True,,True,"scPharmaceuticals, Inc.",scPharmaceuticals Inc.,scpharmaceuticals,scpharmaceuticals,100.0,0001604950,"Industry, small (<=5 drugs)",6,2014,5,46962788,Pharmaceuticals,MA
+exact,True,,True,"Scynexis, Inc.",SCYNEXIS INC,scynexis,scynexis,100.0,0001178253,"Industry, mid (6-30)",2,2011,3,11449343,Pharmaceuticals,NC
+exact,True,,True,"Seelos Therapeutics, Inc.","SEELOS THERAPEUTICS, INC.",seelos,seelos,100.0,0001017491,"Industry, small (<=5 drugs)",1,2010,9,4000000,Biotechnology,CA
+exact,True,,True,"Selecta Biosciences, Inc.",SELECTA BIOSCIENCES INC,selecta,selecta,100.0,0001453687,"Industry, small (<=5 drugs)",3,2010,16,130023000,Biotechnology,MA
+exact,True,,True,Sellas Life Sciences Group,"SELLAS Life Sciences Group, Inc.",sellas life sciences,sellas life sciences,100.0,0001390478,"Industry, mid (6-30)",5,2014,5,24000000,Biotechnology,OR
+exact,True,,True,"Semnur Pharmaceuticals, Inc.","Semnur Pharmaceuticals, Inc.",semnur,semnur,100.0,0001584541,"Industry, small (<=5 drugs)",1,2013,1,6000000,Pharmaceuticals,CA
+exact,True,,True,"Sensei Biotherapeutics, Inc.","Sensei Biotherapeutics, Inc.",sensei biotherapeutics,sensei biotherapeutics,100.0,0001829802,"Industry, small (<=5 drugs)",2,2026,1,348906500,Biotechnology,MD
+exact,True,,True,Serina Therapeutics,"Serina Therapeutics, Inc.",serina,serina,100.0,0001558525,"Industry, small (<=5 drugs)",1,2012,16,11150080,Biotechnology,AL
+exact,True,,True,Sermonix Pharmaceuticals Inc.,"Sermonix Pharmaceuticals, LLC",sermonix,sermonix,100.0,0001655566,"Industry, small (<=5 drugs)",2,2015,3,40225000,Pharmaceuticals,OH
+exact,True,,True,"Shattuck Labs, Inc.","Shattuck Labs, Inc.",shattuck labs,shattuck labs,100.0,0001680367,"Industry, small (<=5 drugs)",2,2016,6,83000009,Biotechnology,TX
+exact,True,,True,Sienna Biopharmaceuticals,"Sienna Biopharmaceuticals, Inc.",sienna,sienna,100.0,0001656328,"Industry, small (<=5 drugs)",2,2015,3,46630453,Biotechnology,CA
+exact,True,,True,"Sight Sciences, Inc.","Sight Sciences, Inc.",sight sciences,sight sciences,100.0,0001531177,"Industry, small (<=5 drugs)",1,2011,9,30749980,Biotechnology,CA
+exact,True,,True,"SignalRX Pharmaceuticals, Inc.","SignalRX Pharmaceuticals, Inc",signalrx,signalrx,100.0,0001974464,"Industry, small (<=5 drugs)",1,2023,1,250000,Pharmaceuticals,GA
+exact,True,,True,Silence Therapeutics GmbH,Silence Therapeutics plc,silence,silence,100.0,0001479615,"Industry, small (<=5 drugs)",1,2010,4,45499905,Biotechnology,X0
+exact,True,,True,Silenseed Ltd,Silenseed Ltd.,silenseed,silenseed,100.0,0001602634,"Industry, mid (6-30)",1,2014,1,500000,Biotechnology,L3
+exact,True,,True,Silverback Therapeutics,"Silverback Therapeutics, Inc.",silverback,silverback,100.0,0001671858,"Industry, mid (6-30)",1,2016,7,84999995,Biotechnology,WA
+exact,True,accept,False,"Sirion Therapeutics, Inc.","Sirion Holdings, Inc.",sirion,sirion,100.0,0001355015,"Industry, small (<=5 drugs)",5,2009,2,27684009,Pharmaceuticals,FL
+exact,True,,True,"SkinJect, Inc.","SkinJect, Inc.",skinject,skinject,100.0,0001640615,"Industry, small (<=5 drugs)",3,2015,5,2500000,Biotechnology,PA
+exact,True,,True,"Skye Bioscience, Inc.","Skye Bioscience, Inc.",skye,skye,100.0,0001516551,"Industry, small (<=5 drugs)",1,2014,13,62254435,Pharmaceuticals,CA
+exact,True,,True,Soligenix,"SOLIGENIX, INC.",soligenix,soligenix,100.0,0000812796,"Industry, small (<=5 drugs)",2,2009,6,5904277,Pharmaceuticals,NJ
+exact,True,,True,"Sollis Therapeutics, Inc.",Sollis Therapeutics Inc,sollis,sollis,100.0,0001739483,"Industry, small (<=5 drugs)",2,2020,2,2500000,Biotechnology,OH
+exact,True,,True,Somaxon Pharmaceuticals,"Somaxon Pharmaceuticals, Inc.",somaxon,somaxon,100.0,0001339455,"Industry, small (<=5 drugs)",2,2009,1,5999990,Pharmaceuticals,CA
+exact,True,,True,Sorbent Therapeutics,Sorbent Therapeutics Inc,sorbent,sorbent,100.0,0001352145,"Industry, small (<=5 drugs)",1,2010,5,18056217,Pharmaceuticals,IL
+exact,True,,True,"Sorrento Therapeutics, Inc.","Sorrento Therapeutics, Inc.",sorrento,sorrento,100.0,0000850261,"Industry, mid (6-30)",12,2009,5,7525000,Biotechnology,CA
+exact,True,,True,"Spark Therapeutics, Inc.","Spark Therapeutics, Inc.",spark,spark,100.0,0001609351,"Industry, mid (6-30)",3,2014,1,72800000,Biotechnology,PA
+exact,True,,True,Sparrow Pharmaceuticals,"Sparrow Pharmaceuticals, Inc.",sparrow,sparrow,100.0,0001786949,"Industry, small (<=5 drugs)",2,2019,5,61841225,Pharmaceuticals,OR
+exact,True,,True,"Spectrum Pharmaceuticals, Inc",SPECTRUM PHARMACEUTICALS INC,spectrum,spectrum,100.0,0000831547,"Industry, large (>30)",33,2013,2,27500000,Pharmaceuticals,NV
+exact,True,,True,Spinifex Pharmaceuticals Pty Ltd,Spinifex Pharmaceuticals Inc,spinifex,spinifex,100.0,0001607267,"Industry, small (<=5 drugs)",2,2014,1,6168383,Pharmaceuticals,X1
+exact,True,,True,SQZ Biotechnologies,SQZ Biotechnologies Co,sqz biotechnologies,sqz biotechnologies,100.0,0001604477,"Industry, small (<=5 drugs)",3,2014,7,71253215,Biotechnology,MA
+exact,True,,True,"Starton Therapeutics, Inc",Starton Therapeutics Inc.,starton,starton,100.0,0001743192,"Industry, small (<=5 drugs)",1,2018,9,2126035,Biotechnology,NY
+exact,True,,True,"Stemline Therapeutics, Inc.",STEMLINE THERAPEUTICS INC,stemline,stemline,100.0,0001264587,"Industry, mid (6-30)",13,2010,3,1250000,Pharmaceuticals,NY
+exact,True,,True,Stingray Therapeutics,"Stingray Therapeutics, Inc.",stingray,stingray,100.0,0001759143,"Industry, small (<=5 drugs)",1,2020,7,6612080,Biotechnology,TX
+exact,True,,True,Strand Therapeutics Inc.,STRAND THERAPEUTICS INC,strand,strand,100.0,0001778475,"Industry, small (<=5 drugs)",1,2019,3,108099927,Biotechnology,MA
+exact,True,,True,"Strategic Science & Technologies, LLC",Strategic Science & Technologies LLC,strategic science technologies,strategic science technologies,100.0,0001347296,"Industry, small (<=5 drugs)",2,2014,1,5061900,Other Health Care,MA
+exact,True,accept,False,Summit Therapeutics,Summit Corp plc,summit,summit,100.0,0001599298,"Industry, mid (6-30)",5,2014,6,234999889,Biotechnology,X0
+exact,True,,True,Sunesis Pharmaceuticals,SUNESIS PHARMACEUTICALS INC,sunesis,sunesis,100.0,0001061027,"Industry, small (<=5 drugs)",10,2009,2,28500000,Pharmaceuticals,CA
+exact,True,,True,"Supernus Pharmaceuticals, Inc.",SUPERNUS PHARMACEUTICALS INC,supernus,supernus,100.0,0001356576,"Industry, mid (6-30)",32,2011,2,30000000,Pharmaceuticals,MD
+exact,True,,True,"Surface Ophthalmics, Inc.","Surface Ophthalmics, Inc.",surface ophthalmics,surface ophthalmics,100.0,0001741522,"Industry, small (<=5 drugs)",3,2018,4,25129840,Other Health Care,CA
+exact,True,,True,"Sutro Biopharma, Inc.",SUTRO BIOPHARMA INC,sutro,sutro,100.0,0001382101,"Industry, small (<=5 drugs)",2,2018,2,85382349,Biotechnology,CA
+exact,True,,True,"Sydnexis, Inc.","SYDNEXIS, INC.",sydnexis,sydnexis,100.0,0001719753,"Industry, small (<=5 drugs)",1,2017,2,45767548,Pharmaceuticals,CA
+exact,True,,True,SynAgile Corporation,Synagile Corp,synagile,synagile,100.0,0001519196,"Industry, small (<=5 drugs)",1,2011,2,4675945,Other Health Care,CA
+exact,True,,True,Synchroneuron Inc.,SYNCHRONEURON INC.,synchroneuron,synchroneuron,100.0,0001541871,"Industry, small (<=5 drugs)",1,2012,2,3500054,Other Health Care,MA
+exact,True,,True,Syndax Pharmaceuticals,Syndax Pharmaceuticals Inc,syndax,syndax,100.0,0001395937,"Industry, mid (6-30)",22,2010,9,61252462,Pharmaceuticals,MA
+exact,True,,True,"SynDevRx, Inc.",SYNDEVRX INC,syndevrx,syndevrx,100.0,0001455364,"Industry, small (<=5 drugs)",1,2009,24,29354820,Biotechnology,MA
+exact,True,,True,"SynerGene Therapeutics, Inc.","SynerGene Therapeutics, Inc.",synergene,synergene,100.0,0001091006,"Industry, small (<=5 drugs)",2,2011,6,6368989,Biotechnology,MD
+exact,True,,True,Synlogic,"SYNLOGIC, INC.",synlogic,synlogic,100.0,0001527599,"Industry, small (<=5 drugs)",1,2011,4,79999992,Biotechnology,TX
+exact,True,,True,Synta Pharmaceuticals Corp.,SYNTA PHARMACEUTICALS CORP,synta,synta,100.0,0001157601,"Industry, mid (6-30)",17,2017,1,35000018,Pharmaceuticals,PA
+exact,True,,True,Syros Pharmaceuticals,"Syros Pharmaceuticals, Inc.",syros,syros,100.0,0001556263,"Industry, mid (6-30)",5,2012,7,129843346,Biotechnology,MA
+exact,True,,True,"T3D Therapeutics, Inc.","T3D Therapeutics, Inc.",t3d,t3d,100.0,0001579600,"Industry, small (<=5 drugs)",2,2013,8,15000000,Pharmaceuticals,NC
+exact,True,,True,"Talphera, Inc","TALPHERA, INC.",talphera,talphera,100.0,0001427925,"Industry, small (<=5 drugs)",1,2009,10,20839994,Pharmaceuticals,CA
+exact,True,,True,"Tango Therapeutics, Inc.","Tango Therapeutics, Inc.",tango,tango,100.0,0001819133,"Industry, mid (6-30)",1,2023,2,80016604,Pharmaceuticals,MA
+exact,True,,True,Targacept Inc.,Targacept Inc.,targacept,targacept,100.0,0001124105,"Industry, mid (6-30)",13,2023,1,5000000,Pharmaceuticals,CA
+exact,True,,True,TargeGen,TARGEGEN INC,targegen,targegen,100.0,0001170149,"Industry, small (<=5 drugs)",3,2009,1,3728379,Biotechnology,CA
+exact,True,,True,Targeted Medical Pharma,"Targeted Medical Pharma, Inc.",targeted medical,targeted medical,100.0,0001420030,"Industry, small (<=5 drugs)",3,2011,1,1,Pharmaceuticals,CA
+exact,True,,True,Taris Biomedical LLC,TARIS BIOMEDICAL INC,taris biomedical,taris biomedical,100.0,0001444975,"Industry, small (<=5 drugs)",2,2009,4,18372751,Biotechnology,MA
+exact,True,,True,"Tarsa Therapeutics, Inc.","Tarsa Therapeutics, Inc.",tarsa,tarsa,100.0,0001475030,"Industry, small (<=5 drugs)",1,2009,8,15500000,Biotechnology,MA
+exact,True,,True,TearClear Corp,TearClear Corp.,tearclear,tearclear,100.0,0001706975,"Industry, small (<=5 drugs)",1,2017,10,22346503,Pharmaceuticals,OH
+exact,True,,True,Telik,TELIK INC,telik,telik,100.0,0001109196,"Industry, mid (6-30)",14,2014,5,11614501,Biotechnology,CA
+exact,True,,True,Tempest Therapeutics,"Tempest Therapeutics, Inc.",tempest,tempest,100.0,0001544227,"Industry, small (<=5 drugs)",2,2012,9,37238097,Biotechnology,MA
+exact,True,,True,"Tenax Therapeutics, Inc.","TENAX THERAPEUTICS, INC.",tenax,tenax,100.0,0000034956,"Industry, small (<=5 drugs)",5,2009,11,99681169,Pharmaceuticals,NC
+exact,True,,True,TenNor Therapeutics (Suzhou) Limited,TenNor Therapeutics (Suzhou) Ltd,tennor suzhou,tennor suzhou,100.0,0002136090,"Industry, small (<=5 drugs)",4,2026,1,14699667,Biotechnology,F4
+exact,True,,True,"Tesaro, Inc.","Tesaro, Inc.",tesaro,tesaro,100.0,0001491576,"Industry, mid (6-30)",16,2010,4,154999915,Pharmaceuticals,MA
+exact,True,,True,"TesoRx Pharma, LLC","TesoRx Pharma, LLC",tesorx,tesorx,100.0,0001554258,"Industry, small (<=5 drugs)",3,2012,5,5922610,Pharmaceuticals,CA
+exact,True,,True,Tetra Bio-Pharma,Tetra Bio-Pharma Inc.,tetra bio,tetra bio,100.0,0001814888,"Industry, mid (6-30)",1,2020,1,371020,Pharmaceuticals,Z4
+exact,True,,True,Tetra Discovery Partners,"TETRA DISCOVERY PARTNERS, INC.",tetra discovery partners,tetra discovery partners,100.0,0001681274,"Industry, small (<=5 drugs)",6,2016,3,35758306,Biotechnology,MI
+exact,True,,True,TetraLogic Pharmaceuticals,TETRALOGIC PHARMACEUTICALS CORP,tetralogic,tetralogic,100.0,0001361248,"Industry, small (<=5 drugs)",5,2010,6,12496000,Pharmaceuticals,PA
+exact,True,,True,Tharimmune Inc,"Tharimmune, Inc.",tharimmune,tharimmune,100.0,0001861657,"Industry, small (<=5 drugs)",1,2024,5,2500000,Biotechnology,NJ
+exact,True,,True,Theracos,THERACOS INC,theracos,theracos,100.0,0001175700,"Industry, mid (6-30)",10,2013,2,93092700,Other Health Care,MA
+exact,True,,True,TherapeuticsMD,"TherapeuticsMD, Inc.",therapeuticsmd,therapeuticsmd,100.0,0000025743,"Industry, small (<=5 drugs)",4,2012,6,15000000,Pharmaceuticals,FL
+exact,True,,True,Threshold Pharmaceuticals,THRESHOLD PHARMACEUTICALS INC,threshold,threshold,100.0,0001183765,"Industry, mid (6-30)",6,2009,6,40000000,Biotechnology,CA
+exact,True,,True,"Thrombolex, Inc.","Thrombolex, Inc.",thrombolex,thrombolex,100.0,0001703764,"Industry, small (<=5 drugs)",2,2017,8,32775000,Other Health Care,PA
+exact,True,,True,Tiburio Therapeutics,Tiburio Therapeutics Inc.,tiburio,tiburio,100.0,0001763894,"Industry, small (<=5 drugs)",1,2019,1,5000001,Pharmaceuticals,MA
+exact,True,,True,Tigris Pharmaceuticals,Tigris Pharmaceuticals Inc,tigris,tigris,100.0,1329666,"Industry, small (<=5 drugs)",1,2010,2,540760,Pharmaceuticals,FL
+exact,True,,True,Tioga Pharmaceuticals,Tioga Pharmaceuticals Inc,tioga,tioga,100.0,0001331886,"Industry, small (<=5 drugs)",4,2009,4,10000000,Pharmaceuticals,CA
+exact,True,,True,Titan Pharmaceuticals,TITAN PHARMACEUTICALS INC,titan,titan,100.0,0000910267,"Industry, mid (6-30)",9,2019,4,9673750,Pharmaceuticals,CA
+exact,True,,True,"Tobira Therapeutics, Inc.","Tobira Therapeutics, Inc.",tobira,tobira,100.0,0001409690,"Industry, mid (6-30)",5,2010,3,14199776,Biotechnology,NJ
+exact,True,accept,False,"Tonix Pharmaceuticals, Inc.",Tonix Pharmaceuticals Holding Corp.,tonix,tonix,100.0,0001430306,"Industry, small (<=5 drugs)",18,2011,6,4302950,Pharmaceuticals,NY
+exact,True,,True,Torax Medical Incorporated,TORAX MEDICAL INC,torax medical,torax medical,100.0,0001214172,"Industry, small (<=5 drugs)",1,2009,6,25001500,Biotechnology,MN
+exact,True,,True,"TORL Biotherapeutics, LLC",TORL Biotherapeutics LLC,torl biotherapeutics,torl biotherapeutics,100.0,0001797180,"Industry, small (<=5 drugs)",1,2024,1,158300000,Pharmaceuticals,CA
+exact,True,,True,TorreyPines Therapeutics,"TorreyPines Therapeutics, Inc.",torreypines,torreypines,100.0,0001070698,"Industry, small (<=5 drugs)",1,2010,1,15060163,Pharmaceuticals,CA
+exact,True,,True,Tracon Pharmaceuticals Inc.,Tracon Pharmaceuticals Inc,tracon,tracon,100.0,0001394319,"Industry, mid (6-30)",14,2010,6,38673734,Biotechnology,CA
+exact,True,,True,"Tragara Pharmaceuticals, Inc.",Tragara Pharmaceuticals Inc,tragara,tragara,100.0,0001386218,"Industry, mid (6-30)",6,2010,6,13058784,Pharmaceuticals,CA
+exact,True,,True,"Tranzyme, Inc.",TRANZYME INC,tranzyme,tranzyme,100.0,0001274644,"Industry, small (<=5 drugs)",4,2010,6,28000000,Pharmaceuticals,NC
+exact,True,,True,"Traws Pharma, Inc.","Traws Pharma, Inc.",traws,traws,100.0,0001130598,"Industry, mid (6-30)",7,2009,11,49999999,Biotechnology,PA
+exact,True,,True,Trevena Inc.,TREVENA INC,trevena,trevena,100.0,0001429560,"Industry, small (<=5 drugs)",7,2010,2,59999997,Pharmaceuticals,PA
+exact,True,,True,Trevi Therapeutics,"Trevi Therapeutics, Inc.",trevi,trevi,100.0,0001563880,"Industry, small (<=5 drugs)",7,2012,6,54999998,Biotechnology,CT
+exact,True,,True,"Trigemina, Inc",TRIGEMINA INC,trigemina,trigemina,100.0,0001385405,"Industry, small (<=5 drugs)",1,2009,2,400000,Biotechnology,CA
+exact,True,,True,"TrippBio, Inc.","TrippBio, Inc.",trippbio,trippbio,100.0,0001817701,"Industry, small (<=5 drugs)",1,2020,2,0,Biotechnology,FL
+exact,True,,True,"Tris Pharma, Inc.","Tris Pharma, Inc.",tris,tris,100.0,0001754826,"Industry, mid (6-30)",16,2018,1,125000000,Pharmaceuticals,NJ
+exact,True,,True,"TriSalus Life Sciences, Inc.","TriSalus Life Sciences, Inc.",trisalus life sciences,trisalus life sciences,100.0,0001518906,"Industry, mid (6-30)",3,2011,8,81391914,Other Health Care,CO
+exact,True,,True,"Triumvira Immunologics, Inc.",Triumvira Immunologics Inc.,triumvira immunologics,triumvira immunologics,100.0,0001861332,"Industry, small (<=5 drugs)",1,2021,4,59742729,Biotechnology,TX
+exact,True,,True,"TuHURA Biosciences, Inc.","TuHURA Biosciences, Inc.",tuhura,tuhura,100.0,0001252142,"Industry, small (<=5 drugs)",2,2016,10,9101001,Biotechnology,FL
+exact,True,,True,"Turnstone Biologics, Corp.",Turnstone Biologics Corp.,turnstone biologics,turnstone biologics,100.0,0001764974,"Industry, small (<=5 drugs)",4,2019,2,79999979,Biotechnology,NY
+exact,True,,True,"Tvardi Therapeutics, Incorporated","Tvardi Therapeutics, Inc.",tvardi,tvardi,100.0,0001742947,"Industry, small (<=5 drugs)",1,2018,3,72418254,Pharmaceuticals,TX
+exact,True,,True,TVAX Biomedical,TVAX Biomedical LLC,tvax biomedical,tvax biomedical,100.0,0001358793,"Industry, small (<=5 drugs)",1,2010,5,3487741,Biotechnology,KS
+exact,True,,True,Tyrogenex,"TYROGENEX, INC.",tyrogenex,tyrogenex,100.0,0001471413,"Industry, small (<=5 drugs)",2,2011,5,8218436,Biotechnology,FL
+exact,True,,True,UbiVac,"UBIVAC, LLC",ubivac,ubivac,100.0,0001713945,"Industry, mid (6-30)",2,2017,9,1945773,Biotechnology,OR
+exact,True,,True,Ultragenyx Pharmaceutical Inc,Ultragenyx Pharmaceutical Inc.,ultragenyx,ultragenyx,100.0,0001515673,"Industry, mid (6-30)",10,2011,4,75000005,Biotechnology,CA
+exact,True,,True,Umoja Biopharma,"Umoja Biopharma, Inc.",umoja,umoja,100.0,0001868882,"Industry, small (<=5 drugs)",1,2021,1,209969286,Biotechnology,WA
+exact,True,,True,Unigene Laboratories Inc.,UNIGENE LABORATORIES INC,unigene laboratories,unigene laboratories,100.0,0000352747,"Industry, small (<=5 drugs)",1,2010,3,33000000,Biotechnology,NJ
+exact,True,,True,"Unity Biotechnology, Inc.","Unity Biotechnology, Inc.",unity,unity,100.0,0001463361,"Industry, small (<=5 drugs)",2,2016,3,151230099,Biotechnology,CA
+exact,True,,True,"Unravel Biosciences, Inc.","Unravel Biosciences, Inc.",unravel,unravel,100.0,0001876967,"Industry, small (<=5 drugs)",2,2021,3,4100000,Biotechnology,MA
+exact,True,,True,Urica Therapeutics Inc.,"Urica Therapeutics, Inc.",urica,urica,100.0,0001959861,"Industry, small (<=5 drugs)",1,2023,1,2533350,Biotechnology,FL
+exact,True,accept,False,Urigen,"Urigen Pharmaceuticals, Inc.",urigen,urigen,100.0,0000932352,"Industry, small (<=5 drugs)",1,2013,7,3021843,Pharmaceuticals,DE
+exact,True,,True,Urotronic Inc.,"Urotronic, Inc.",urotronic,urotronic,100.0,0001745565,"Industry, small (<=5 drugs)",1,2018,3,20000000,Other Health Care,MN
+exact,True,,True,Vaccinex Inc.,"VACCINEX, INC.",vaccinex,vaccinex,100.0,0001205922,"Industry, small (<=5 drugs)",7,2017,10,13799915,Pharmaceuticals,NY
+exact,True,,True,"Vaneltix Pharma, Inc.","Vaneltix Pharma, Inc.",vaneltix,vaneltix,100.0,0000932352,"Industry, small (<=5 drugs)",1,2013,7,3021843,Pharmaceuticals,DE
+exact,True,,True,Veana Therapeutics,"Veana Therapeutics, Inc.",veana,veana,100.0,0001741217,"Industry, small (<=5 drugs)",1,2018,2,830998,Biotechnology,OR
+exact,True,,True,"Vedanta Biosciences, Inc.","VEDANTA BIOSCIENCES, INC.",vedanta,vedanta,100.0,0001677878,"Industry, small (<=5 drugs)",1,2019,7,118500000,Other Health Care,MA
+exact,True,,True,"Velicept Therapeutics, Inc.","Velicept Therapeutics, Inc.",velicept,velicept,100.0,0001659819,"Industry, small (<=5 drugs)",2,2015,4,18410010,Pharmaceuticals,PA
+exact,True,,True,"Ventrus Biosciences, Inc",VENTRUS BIOSCIENCES INC,ventrus,ventrus,100.0,0001426800,"Industry, small (<=5 drugs)",4,2010,3,2725000,Biotechnology,NY
+exact,True,,True,"Vera Therapeutics, Inc.","Vera Therapeutics, Inc.",vera,vera,100.0,0001831828,"Industry, small (<=5 drugs)",5,2021,1,70736334,Biotechnology,CA
+exact,True,,True,"Verastem, Inc.","Verastem, Inc.",verastem,verastem,100.0,0001526119,"Industry, mid (6-30)",13,2011,7,100000000,Biotechnology,MA
+exact,True,,True,Verona Pharma Inc,Verona Pharma plc,verona,verona,100.0,0001657312,"Industry, small (<=5 drugs)",1,2016,2,200155041,Pharmaceuticals,X0
+exact,True,,True,Vicus Therapeutics,VICUS THERAPEUTICS LLC,vicus,vicus,100.0,0001357741,"Industry, small (<=5 drugs)",2,2009,2,755000,Biotechnology,NJ
+exact,True,,True,Viela Bio,"Viela Bio, Inc.",viela bio,viela bio,100.0,0001734517,"Industry, small (<=5 drugs)",1,2018,2,282253240,Biotechnology,MD
+exact,True,,True,"Viking Therapeutics, Inc.","Viking Therapeutics, Inc.",viking,viking,100.0,0001607678,"Industry, small (<=5 drugs)",3,2017,1,0,Biotechnology,CA
+exact,True,,True,"Vir Biotechnology, Inc.","Vir Biotechnology, Inc.",vir,vir,100.0,0001706431,"Industry, mid (6-30)",4,2018,3,250000000,Biotechnology,CA
+exact,True,,True,"Viracta Therapeutics, Inc.","Viracta Therapeutics, INC.",viracta,viracta,100.0,0001416377,"Industry, small (<=5 drugs)",1,2010,11,64999994,Biotechnology,WA
+exact,True,,True,"ViralClear Pharmaceuticals, Inc.","ViralClear Pharmaceuticals, Inc.",viralclear,viralclear,100.0,0001783807,"Industry, small (<=5 drugs)",1,2019,4,10751250,Other Health Care,CT
+exact,True,accept,False,Viron Therapeutics Inc,"Viron Therapeutics Holdings, Inc.",viron,viron,100.0,0001934919,"Industry, small (<=5 drugs)",1,2022,5,3625000,Biotechnology,MA
+exact,True,,True,"VistaGen Therapeutics, Inc.","VistaGen Therapeutics, Inc.",vistagen,vistagen,100.0,0001411685,"Industry, small (<=5 drugs)",3,2012,8,4778750,Biotechnology,CA
+exact,True,,True,"Vivace Therapeutics, Inc","Vivace Therapeutics, Inc.",vivace,vivace,100.0,0001630575,"Industry, small (<=5 drugs)",1,2015,5,29999993,Biotechnology,CA
+exact,True,,True,"Vividion Therapeutics, Inc.","Vividion Therapeutics, Inc.",vividion,vividion,100.0,0001671687,"Industry, small (<=5 drugs)",1,2016,4,135000015,Biotechnology,NJ
+exact,True,,True,vTv Therapeutics,vTv Therapeutics Inc.,vtv,vtv,100.0,0001641489,"Industry, small (<=5 drugs)",3,2017,7,50961457,Pharmaceuticals,NC
+exact,True,,True,Vyne Therapeutics Inc.,VYNE Therapeutics Inc.,vyne,vyne,100.0,0001566044,"Industry, small (<=5 drugs)",12,2013,4,88151508,Pharmaceuticals,CA
+exact,True,,True,"Vyriad, Inc.","Vyriad, Inc.",vyriad,vyriad,100.0,0001794098,"Industry, mid (6-30)",4,2019,1,24376966,Biotechnology,MN
+exact,True,,True,Watson Pharmaceuticals,WATSON PHARMACEUTICALS INC,watson,watson,100.0,0000884629,"Industry, mid (6-30)",13,2009,1,500000000,Pharmaceuticals,CA
+exact,True,,True,"Wellesley Pharmaceuticals, LLC",WELLESLEY PHARMACEUTICALS LLC,wellesley,wellesley,100.0,0001634861,"Industry, small (<=5 drugs)",1,2015,4,3777581,Pharmaceuticals,PA
+exact,True,,True,"Werewolf Therapeutics, Inc.","Werewolf Therapeutics, Inc.",werewolf,werewolf,100.0,0001785530,"Industry, small (<=5 drugs)",1,2019,3,72069999,Pharmaceuticals,MA
+exact,True,,True,WindMIL Therapeutics,"WindMIL Therapeutics, Inc.",windmil,windmil,100.0,0001671352,"Industry, small (<=5 drugs)",1,2016,3,32525358,Biotechnology,NJ
+exact,True,,True,"WinSanTor, Inc",WinSanTor,winsantor,winsantor,100.0,0001611161,"Industry, small (<=5 drugs)",1,2017,1,782939,Pharmaceuticals,CA
+exact,True,,True,Woolsey Pharmaceuticals,"Woolsey Pharmaceuticals, Inc.",woolsey,woolsey,100.0,0001804846,"Industry, small (<=5 drugs)",3,2020,3,19658498,Pharmaceuticals,NY
+exact,True,,True,Xanodyne Pharmaceuticals,XANODYNE PHARMACEUTICALS INC,xanodyne,xanodyne,100.0,0001335480,"Industry, small (<=5 drugs)",1,2009,3,87783861,Pharmaceuticals,KY
+exact,True,accept,False,"Xcovery Holdings, Inc.",XCOVERY HOLDING Co LLC,xcovery,xcovery,100.0,0001520127,"Industry, small (<=5 drugs)",2,2011,6,2420000,Biotechnology,FL
+exact,True,,True,"Xencor, Inc.",Xencor Inc,xencor,xencor,100.0,0001326732,"Industry, mid (6-30)",8,2009,4,25000000,Biotechnology,CA
+exact,True,,True,"Xenetic Biosciences, Inc.","Xenetic Biosciences, Inc.",xenetic,xenetic,100.0,0001534525,"Industry, small (<=5 drugs)",1,2019,5,12500000,Biotechnology,MA
+exact,True,,True,"XenoPort, Inc.",XENOPORT INC,xenoport,xenoport,100.0,0001130591,"Industry, mid (6-30)",20,2012,1,20000000,Pharmaceuticals,CA
+exact,True,,True,Xeris Pharmaceuticals,XERIS PHARMACEUTICALS INC,xeris,xeris,100.0,0001346302,"Industry, small (<=5 drugs)",11,2016,3,45005982,Pharmaceuticals,TX
+exact,True,,True,"Xoft, Inc.",XOFT INC,xoft,xoft,100.0,0001325981,"Industry, small (<=5 drugs)",1,2009,3,10328083,Other Health Care,CA
+exact,True,,True,XTL Biopharmaceuticals,XTL BIOPHARMACEUTICALS LTD,xtl,xtl,100.0,0001023549,"Industry, small (<=5 drugs)",1,2017,2,2800000,Pharmaceuticals,L3
+exact,True,accept,False,"Xynomic Pharmaceuticals, Inc.","XYNOMIC PHARMACEUTICALS HOLDINGS, INC.",xynomic,xynomic,100.0,0001697805,"Industry, small (<=5 drugs)",6,2019,1,0,Pharmaceuticals,F4
+exact,True,,True,Yaupon Therapeutics,YAUPON THERAPEUTICS INC,yaupon,yaupon,100.0,0001175706,"Industry, small (<=5 drugs)",1,2009,4,8292176,Pharmaceuticals,PA
+exact,True,,True,Yiviva Inc.,"Yiviva, Inc.",yiviva,yiviva,100.0,0001732143,"Industry, small (<=5 drugs)",1,2018,1,5000005,Biotechnology,NY
+exact,True,,True,"Zafgen, Inc.","ZAFGEN, INC.",zafgen,zafgen,100.0,0001374690,"Industry, small (<=5 drugs)",9,2010,7,82079593,Other Health Care,MA
+exact,True,,True,Zalicus,Zalicus Inc.,zalicus,zalicus,100.0,0001135906,"Industry, mid (6-30)",8,2010,1,0,Biotechnology,MA
+exact,True,accept,False,"Zenas BioPharma (USA), LLC","Zenas BioPharma, Inc.",zenas,zenas,100.0,0001953926,"Industry, small (<=5 drugs)",5,2022,2,200145732,Biotechnology,MA
+exact,True,,True,"ZetrOZ, Inc.",ZetrOZ LLC,zetroz,zetroz,100.0,0001491984,"Industry, small (<=5 drugs)",3,2010,8,4457653,Other Health Care,NY
+exact,True,,True,"Zogenix, Inc.",ZOGENIX INC,zogenix,zogenix,100.0,0001375151,"Industry, small (<=5 drugs)",9,2009,6,70962156,Pharmaceuticals,CA
+exact,True,,True,Zosano Pharma Corporation,Zosano Pharma Corp,zosano,zosano,100.0,0001587221,"Industry, small (<=5 drugs)",5,2013,6,14999996,Pharmaceuticals,CA
+exact,True,,True,Zura Bio Inc,Zura Bio Ltd,zura bio,zura bio,100.0,0001855644,"Industry, small (<=5 drugs)",2,2023,2,112499985,Biotechnology,CA
+fuzzy,True,accept,False,Opna Bio LLC,"Opna-IO, LLC",opna bio,opna io,93.33333333333333,0001815104,"Industry, small (<=5 drugs)",2,2020,1,0,Biotechnology,NY

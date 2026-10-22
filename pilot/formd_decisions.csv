@@ -1,0 +1,94 @@
+lead_sponsor,issuer_name,decision,reason
+Agennix,"Agennix Holdings, LLC",accept,"same company (Agennix, Houston TX)"
+Antares Pharma Inc.,"Antares Therapeutics, Inc.",reject,different company: Antares Therapeutics is a 2025 Massachusetts start-up
+Arrowhead Pharmaceuticals,ARROWHEAD RESEARCH CORP,accept,same company: Arrowhead Research Corp renamed in 2016
+Arvinas Inc.,"ARVINAS HOLDING COMPANY, LLC",accept,pre-IPO holding company of Arvinas
+"Auris Medical, Inc.",Auris Medical Holding AG,accept,same group (Auris Medical Holding AG)
+Bellerophon,Bellerophon Therapeutics LLC,accept,same company (Bellerophon Therapeutics)
+BeyondSpring Pharmaceuticals Inc.,BeyondSpring Inc.,accept,same group (BeyondSpring Inc.)
+BIND Therapeutics,BIND Biosciences Inc,accept,same company: BIND Biosciences renamed
+BioGene Pharmaceutical Ltd.,BioGene Therapeutics Inc.,reject,not verified as the same company
+"Biohaven Pharmaceuticals, Inc.",Biohaven Pharmaceutical Holding Co Ltd.,accept,same group (Biohaven Pharmaceutical Holding)
+"BioNTech Research & Development, Inc.",BioNTech AG,accept,US subsidiary of BioNTech
+"Biostar Pharma, Inc.","Biostar Pharmaceuticals, Inc.",reject,not verified: issuer is a China-based company
+BioVex Limited,"BioVex Group, Inc.",accept,same group (BioVex Group)
+Boston Pharmaceuticals,"Boston Therapeutics, Inc.",reject,"different company (Boston Therapeutics, NH)"
+"Catalyst Pharmaceuticals, Inc.",CATALYST BIOSCIENCES INC,reject,different company (Catalyst Biosciences)
+CBA Research,CBA PHARMA INC,accept,"research arm of CBA Pharma, Lexington KY"
+"Centaurus Biopharma Co., Ltd.",CENTAURUS PHARMACEUTICALS INC,reject,different company (China vs Massachusetts)
+Centrexion Therapeutics,Centrexion Corp,accept,same company (Centrexion Corp)
+Chase Therapeutics Corporation,Chase Pharmaceuticals Corp,accept,"same company: Chase Pharmaceuticals renamed, Washington DC"
+"Clarus Therapeutics, Inc.","Clarus Therapeutics Holdings, Inc.",accept,same group (Clarus Therapeutics Holdings)
+"CNS Pharmaceuticals, Inc.",CNS THERAPEUTICS INC,reject,"different company (CNS Therapeutics, MN)"
+"Concentrx Pharmaceuticals, Inc.","ConcentRx, Inc.",accept,same company (ConcentRx)
+"COUR Pharmaceutical Development Company, Inc.",Cour Pharmaceuticals Development Co Inc,accept,same company
+Cure Therapeutics,CURE PHARMACEUTICAL Corp,reject,"different company (Cure Pharmaceutical, CA)"
+DalCor Pharmaceuticals,"DalCor Pharmaceuticals US, LLC",accept,US entity of DalCor
+Dance Biopharm Inc.,"Dance Biopharm Holdings, Inc.",accept,same group (Dance Biopharm Holdings)
+"Day One Biopharmaceuticals, Inc.",Day One Biopharmaceuticals Holding Co LLC,accept,pre-IPO holding company of Day One
+"DOV Pharmaceutical, Inc.","Dov Pharmaceuticals, Inc.",reject,not verified: DOV (NJ) was acquired in 2010; issuer is a 2017 Massachusetts filer
+"Eleos, Inc.","Eleos Pharmaceuticals, Inc.",reject,not verified as the same company
+ESSA Pharmaceuticals,ESSA Pharma Inc.,accept,"same company (ESSA Pharma, British Columbia)"
+Eyetech Pharmaceuticals,EYETECH INC,accept,same lineage: Eyetech Inc. took over the Macugen business in 2008
+Fulgent Pharma LLC.,Fulgent Therapeutics LLC,reject,not verified: Fulgent Therapeutics LLC was the predecessor of Fulgent Genetics
+Galecto Biotech AB,Galecto Inc.,accept,same group (Galecto Inc.)
+Gemin X,Gemin X Pharmaceuticals Inc,accept,same company (Gemin X Pharmaceuticals)
+"Gossamer Bio USA, Inc.","Gossamer Bio, Inc.",accept,same company (Gossamer Bio)
+"Graceway Pharmaceuticals, LLC",Graceway Pharma Holding Corp.,accept,same group (Graceway Pharma Holding)
+Harbor Therapeutics,"Harbor BioSciences, Inc.",accept,same company: Harbor BioSciences renamed
+Helix BioPharma Corporation,"Helix Therapeutics, LLC",reject,"different company (Helix Therapeutics, CT)"
+Hookipa Biotech GmbH,HOOKIPA Pharma Inc.,accept,same group (HOOKIPA Pharma)
+Ikaria Bioscience Pty Ltd,IKARIA HOLDINGS INC,reject,not verified as part of Ikaria Holdings
+Immunocore Ltd,Immunocore Holdings plc,accept,same group (Immunocore Holdings)
+"Inhibrx Biosciences, Inc","Inhibrx, Inc.",accept,same lineage (spin-off of Inhibrx in 2024)
+Innocoll,"Innocoll Holdings, Inc.",accept,same group (Innocoll Holdings)
+Innocrin Pharmaceutical,"Innocrin Pharmaceuticals Holdings, LLC",accept,same group (Innocrin Pharmaceuticals Holdings)
+Intracel,INTRACEL HOLDINGS Corp,accept,same group (Intracel Holdings)
+"Iterum Therapeutics, International Limited",Iterum Therapeutics Ltd,accept,same group (Iterum Therapeutics)
+"Kadmon Corporation, LLC","Kadmon Holdings, LLC",accept,same group (Kadmon Holdings)
+"Kiniksa Pharmaceuticals International, plc","Kiniksa Pharmaceuticals, Ltd.",accept,same group (Kiniksa Pharmaceuticals)
+Kiromic BioPharma Inc.,"Kiromic, LLC",accept,"same company (Kiromic, Houston TX)"
+"Kitov Pharmaceuticals, Ltd.",Kitov Pharmaceuticals Holdings Ltd.,accept,same group (Kitov Pharmaceuticals Holdings)
+Lotus Pharmaceutical,"Lotus Development, LLC",reject,"different company (Lotus Development, FL)"
+Mayne Pharma International Pty Ltd,Mayne Pharma Group Ltd,accept,same group (Mayne Pharma Group)
+"Medexus Pharma, Inc.",Medexus Pharmaceuticals Inc.,accept,same company (Medexus Pharmaceuticals)
+MediQuest Therapeutics,MediQuest Holdings LLC,accept,"same group (MediQuest Holdings, WA)"
+Mereo BioPharma,Mereo Biopharma Group plc,accept,same group (Mereo BioPharma Group)
+"Millendo Therapeutics US, Inc.","Millendo Therapeutics, Inc.",accept,same company (Millendo Therapeutics)
+"Moleculin Biotech, Inc.","Moleculin, LLC",accept,same lineage: Moleculin LLC was the predecessor
+NeoTX Therapeutics Ltd.,Neotx Holdings Ltd.,accept,same group (NeoTX Holdings)
+"Nereus Pharmaceuticals, Inc.",Nereus BioPharma LLC,reject,not verified as the same company
+NeurAxon Inc.,"NeurAxon(USA), Inc.",accept,same company (NeurAxon USA)
+"Novita Pharmaceuticals, Inc.","Novita Therapeutics, LLC",reject,not verified as the same company
+Nuvo Research Inc.,Nuvo Group Ltd.,reject,"different company (Nuvo Group, Israel)"
+"Omeza, LLC","Omeza Holdings, Inc.",accept,same group (Omeza Holdings)
+Oncotelic Inc.,"Oncotelic Therapeutics, Inc.",accept,"same lineage (Oncotelic Therapeutics, formerly Mateon)"
+Optinose US Inc.,"OptiNose, Inc.",accept,same company (OptiNose)
+"Oramed, Ltd.",ORAMED PHARMACEUTICALS INC.,accept,same group (Oramed Pharmaceuticals)
+Osmotica Pharmaceutical US LLC,Osmotica Pharmaceuticals plc,accept,same group (Osmotica Pharmaceuticals)
+Ozmosis Research Inc.,"Ozmosis, Inc.",reject,not verified as the same company
+"Palleon Pharmaceuticals, Inc.",Palleon Pharma Inc.,accept,same company (Palleon Pharma)
+PharmaTher Inc.,PharmaTher Holdings Ltd.,accept,same group (PharmaTher Holdings)
+Plethora Solutions Ltd,Plethora Solutions Holdings plc,accept,same group (Plethora Solutions Holdings)
+"Precision BioSciences, Inc.",Precision Therapeutics Inc.,reject,"different company (Precision Therapeutics, MN)"
+Prelude Therapeutics,Prelude Corp,reject,"different company (Prelude Corp, CA diagnostics)"
+Prevail Therapeutics,"Prevail Holdings, Inc",reject,"different company (Prevail Holdings, LA)"
+Primus Pharmaceuticals,Primus Therapeutics Inc.,reject,not verified as the same company
+Prothena Biosciences Limited,Prothena Corp plc,accept,same group (Prothena Corp)
+"Provectus Biopharmaceuticals, Inc.",PROVECTUS PHARMACEUTICALS INC,accept,same company: Provectus Pharmaceuticals renamed
+Pure Green,PURE GREEN PHARMACEUTICALS INC.,accept,"same company (Pure Green Pharmaceuticals, MI)"
+"Respira Therapeutics, Inc.",RESPIRA INC,reject,not verified as the same company
+"Scholar Rock, Inc.",Scholar Rock Holding Corp,accept,same group (Scholar Rock Holding)
+"Sirion Therapeutics, Inc.","Sirion Holdings, Inc.",accept,"same group (Sirion Holdings, Tampa FL)"
+Stem Cell Therapeutics Corp.,International Stem Cell CORP,reject,different company (International Stem Cell Corp)
+Summit Therapeutics,Summit Corp plc,accept,same lineage (Summit Corp plc)
+"Tonix Pharmaceuticals, Inc.",Tonix Pharmaceuticals Holding Corp.,accept,same group (Tonix Pharmaceuticals Holding)
+Urigen,"Urigen Pharmaceuticals, Inc.",accept,same company (Urigen Pharmaceuticals)
+UroGen Pharma Ltd.,UROGEN CORP,reject,"different company (UroGen Corp, CA)"
+Viron Therapeutics Inc,"Viron Therapeutics Holdings, Inc.",accept,same group (Viron Therapeutics Holdings)
+Voyager Pharmaceutical Corporation,"Voyager Therapeutics, Inc.",reject,"different company (Voyager Therapeutics, MA, founded 2013)"
+"Xcovery Holdings, Inc.",XCOVERY HOLDING Co LLC,accept,same company
+"Xynomic Pharmaceuticals, Inc.","XYNOMIC PHARMACEUTICALS HOLDINGS, INC.",accept,same group (Xynomic Pharmaceuticals Holdings)
+"Zenas BioPharma (USA), LLC","Zenas BioPharma, Inc.",accept,same company (Zenas BioPharma)
+Ziarco Pharma Ltd,"Ziarco, Inc.",reject,not verified: issuer is a California filer in Other Health Care
+Opna Bio LLC,"Opna-IO, LLC",accept,same company: Opna Bio was called Opna-IO

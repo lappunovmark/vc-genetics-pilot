@@ -1,0 +1,42 @@
+Programmes (insight indications, first trial 2010+ by non-top-20 industry):
+                                n   formd  gs_ante
+tier                                              
+Industry, large (>30)        1047  0.0602   0.0649
+Industry, mid (6-30)         1587  0.3031   0.0536
+Industry, small (<=5 drugs)  1380  0.3101   0.0428
+          n  gs_ante  gs_post
+formd                        
+0      3042   0.0588   0.0920
+1       972   0.0340   0.0545
+====================================================================================================
+H1: ex-ante support at first trial ~ prior Form D
+y ~ formd + C(tier) + C(yb) + C(area) + C(modality)
+N=4014; clusters (drugs)=1387; formd share=0.2422; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.4219    0.2397  0.0784 -0.8918   0.048  0.6558  0.4099  1.0492
+====================================================================================================
+H1, small sponsors only: ex-ante support ~ prior Form D
+y ~ formd + C(yb) + C(area) + C(modality)
+N=1380; clusters (drugs)=631; formd share=0.3101; converged=True
+        Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.2687    0.3557   0.45 -0.9659  0.4285  0.7644  0.3806  1.5349
+Phase entries 2010-2020 (non-top-20 industry):
+          n     adv      gs
+formd                      
+0      3031  0.3154  0.0663
+1       974  0.2536  0.0380
+====================================================================================================
+Advancement ~ prior Form D + ex-ante support
+adv ~ formd + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4005; clusters (drugs)=1348; formd share=0.2432; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.1299    0.1106  0.2401 -0.3466  0.0868  0.8782  0.7071  1.0907
+gs     0.9084    0.1518  0.0000  0.6109  1.2060  2.4804  1.8420  3.3400
+====================================================================================================
+Advancement ~ prior Form D x ex-ante support
+adv ~ formd * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4005; clusters (drugs)=1348; formd share=0.2432; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd    -0.1536    0.1141  0.1782 -0.3773  0.0700  0.8576  0.6857  1.0725
+gs        0.8307    0.1580  0.0000  0.5209  1.1404  2.2948  1.6836  3.1279
+formd:gs  0.4565    0.3765  0.2253 -0.2814  1.1943  1.5785  0.7547  3.3013
