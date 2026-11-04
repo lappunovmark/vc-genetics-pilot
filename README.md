@@ -117,7 +117,7 @@ data downloads and models. The tables in `results/` were built locally with Pyth
 * Stop-reason classifier v3 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
   κ 0.79); financial or strategic class precision 0.91, recall 0.86. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
-  ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)), so these figures may change.
+  ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8)), so these figures may change.
 
 ## Pilot results (Open Targets 26.09, ClinicalTrials.gov snapshot 17 Oct 2026)
 * 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
@@ -140,11 +140,11 @@ data downloads and models. The tables in `results/` were built locally with Pyth
 
 ## Roadmap
 - [x] Link SEC Form D private placements to industry sponsors (first pass; next: US-only comparison and venture
-  investors among related persons, [#1](https://github.com/lappunovmark/vc-genetics-pilot/issues/1))
-- [ ] Blind double-coding of the 200 held-out stop-reason texts by the author ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2))
-- [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#3](https://github.com/lappunovmark/vc-genetics-pilot/issues/3))
-- [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4))
-- [ ] Working paper draft ([#5](https://github.com/lappunovmark/vc-genetics-pilot/issues/5))
+  investors among related persons, [#7](https://github.com/lappunovmark/vc-genetics-pilot/issues/7))
+- [ ] Blind double-coding of the 200 held-out stop-reason texts by the author ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8))
+- [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#9](https://github.com/lappunovmark/vc-genetics-pilot/issues/9))
+- [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#10](https://github.com/lappunovmark/vc-genetics-pilot/issues/10))
+- [ ] Working paper draft ([#11](https://github.com/lappunovmark/vc-genetics-pilot/issues/11))
 - [ ] Re-run the full pipeline under Python 3.13 and the pinned `requirements.txt` (the tables in `results/` were
   built locally with Python 3.9.6 and pandas 2.2.3; see `results/PROVENANCE.txt`)
 
