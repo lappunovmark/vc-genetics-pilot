@@ -2,27 +2,36 @@
 ### Human genetic support × sponsor type × clinical success
 
 [![checks](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml/badge.svg)](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml)
-![Python 3.13](https://img.shields.io/badge/python-3.13-3776AB)
+![CI: Python 3.13](https://img.shields.io/badge/CI-python%203.13-3776AB)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
-![Data: Open Targets 26.09](https://img.shields.io/badge/data-Open%20Targets%2026.09%20%C2%B7%20ClinicalTrials.gov%20%C2%B7%20NIH%20RePORTER-1E3A5F)
+![Data: Open Targets 26.09](https://img.shields.io/badge/data-Open%20Targets%2026.09%20%C2%B7%20ClinicalTrials.gov%20%C2%B7%20NIH%20RePORTER%20%C2%B7%20SEC%20Form%20D-1E3A5F)
 ![Status: pilot](https://img.shields.io/badge/status-pilot%2C%20not%20peer--reviewed-orange)
 
 Independent research project by **Mark Lapunov** (MSc Bioscience Innovation and Enterprise, University College London).
 Pilot code and results for a working paper on ex-ante human genetic support, sponsor type and clinical development
 outcomes, which is also the basis of my MSc dissertation.
 
+**In plain words.** Drugs aimed at targets with human genetic evidence succeed in clinical trials much more often, and
+this evidence is public before a programme starts. The project asks whether the companies and investors who choose
+drug programmes use that signal. So far the signal works as well for small biotechs as for big pharma, yet small
+biotechs start fewer such programmes, and there is no sign that companies raising private money pick better-supported
+targets.
+
 [Results at a glance](#results-at-a-glance) · [Pipeline](#pipeline) · [Validation](#validation-done) ·
 [Pilot results](#pilot-results-open-targets-2609-clinicaltrialsgov-snapshot-17-oct-2026) · [Roadmap](#roadmap) ·
 [Methods](docs/methods.md) · [Data dictionary](docs/data_dictionary.md) · [Citation](#citation)
 
 **Questions**
-1. Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug targets with
-   stronger human genetic support?
-2. Does that explain differences in how often their programmes advance from one clinical phase to the next?
-3. How did the 2022 biotech funding downturn change why clinical trials stop, and did money-driven stops hit
-   genetically better-supported programmes?
-4. Do sponsors that raised private money (SEC Form D private placements) pick better-supported targets, and do their
-   programmes advance more often?
+1. **H1.** Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug
+   targets with stronger human genetic support?
+2. **H2, H3.** Does genetic support predict advancement from one clinical phase to the next, and does it explain
+   differences between sponsors in how often their programmes advance?
+3. **RQ2, H4.** How did the 2022 biotech funding downturn change why clinical trials stop, and did money-driven stops
+   hit genetically better-supported programmes?
+4. **Form D.** Do sponsors that raised private money (SEC Form D private placements) pick better-supported targets,
+   and do their programmes advance more often?
+
+The labels match the script names and `docs/methods.md`.
 
 **Status.** Pilot results, not peer-reviewed. Private financing is measured by SEC Form D private placements (first
 pass, linked in October 2026); sponsor tiers remain the main grouping.
@@ -34,9 +43,10 @@ pass, linked in October 2026); sponsor tiers remain the main grouping.
   entry have about 2.5 times the odds of advancing a phase, with no significant difference between small sponsors and
   top-20 pharma.
 * **Small sponsors use the signal less.** They start fewer programmes with genetic support (adjusted OR 0.64).
-* **Funding-driven stops rose after 2022.** Trial stops citing lack of funding rose 2.45-fold among small sponsors;
-  trials stopped for financial or strategic reasons carried no more genetic support than completed ones.
-* **Private money does not buy better biology.** Sponsors with an SEC Form D private placement before their first
+* **Funding-driven stops rose after 2022.** Among small sponsors, trial stops citing lack of funding were 2.45 times as
+  frequent in 2022–25 as in 2016–21; trials stopped for financial or strategic reasons carried no more genetic support
+  than completed ones.
+* **No sign that private money buys better biology.** Sponsors with an SEC Form D private placement before their first
   trial started genetically supported programmes no more often than other non-top-20 industry sponsors (adjusted
   OR 0.66, 0.41–1.05), and their programmes advanced no more often (OR 0.88, 0.71–1.09).
 
@@ -93,17 +103,21 @@ factcheck/   scripts that re-check the working paper's numbers and citations aga
 `make check` runs ruff and the tests. `pytest -q` runs unit tests of the stop-reason classifier, including its
 negation handling, and verifies that every headline number in this README matches the model output in `results/`.
 GitHub Actions runs the same checks, lint and formatting checks, a byte-compile of all scripts and a rebuild of the
-figure on every push.
+figure on every push, on Python 3.13 with `requirements.txt`. CI checks the stored results; it does not re-run the
+data downloads and models. The tables in `results/` were built locally with Python 3.9.6 and pandas 2.2.3
+(`results/PROVENANCE.txt`).
 
 ## Validation done
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).
 * Genetic insight for indications outside their set: approximation agrees with their label for 96.6% of their 1,013 indications with a MeSH ID.
-* Replication note: their headline Phase I→launch RS (2.6) is a crude ratio of launch shares; the product of
-  phase-wise RS (1.076 × 1.571 × 1.275), as their Methods define it, gives 2.16.
-* Stop-reason classifier v3: 83.0% agreement with hand labels on 200 held-out texts (Cohen's κ 0.79); financial or
-  strategic class precision 0.91, recall 0.86. Hand labels: `results/rq2_hand_labels.csv` (LLM-assisted first pass,
-  to be double-coded by the author).
+* Replication note: in their data, the Phase I→launch RS computed as the product of phase-wise RS, as described in
+  their Methods (1.076 × 1.571 × 1.275), is 2.16, while the ratio of launch shares among programmes entering phase I
+  is 2.63, close to the headline 2.6. Both are reported in `results/robust.txt` for comparison.
+* Stop-reason classifier v3 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
+  κ 0.79); financial or strategic class precision 0.91, recall 0.86. The reference labels in
+  `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
+  ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)), so these figures may change.
 
 ## Pilot results (Open Targets 26.09, ClinicalTrials.gov snapshot 17 Oct 2026)
 * 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
@@ -131,6 +145,8 @@ figure on every push.
 - [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#3](https://github.com/lappunovmark/vc-genetics-pilot/issues/3))
 - [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4))
 - [ ] Working paper draft ([#5](https://github.com/lappunovmark/vc-genetics-pilot/issues/5))
+- [ ] Re-run the full pipeline under Python 3.13 and the pinned `requirements.txt` (the tables in `results/` were
+  built locally with Python 3.9.6 and pandas 2.2.3; see `results/PROVENANCE.txt`)
 
 ## Corrections
 * 19 Oct 2026: ClinicalTrials.gov mixes `YYYY-MM` and `YYYY-MM-DD` dates; pandas 2 without `format='mixed'` dropped 38%
