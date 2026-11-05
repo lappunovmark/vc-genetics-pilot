@@ -69,7 +69,7 @@ def row(p):
 
 def main(out, fy0=2000, fy1=2025):
     s = requests.Session()
-    s.headers["User-Agent"] = "vc-genetics-thesis (UCL MSc dissertation; contact via repository)"
+    s.headers["User-Agent"] = "vc-genetics-pilot (independent research project; contact via repository)"
     n = 0
     with open(out, "w", newline="") as f:
         w = csv.writer(f)

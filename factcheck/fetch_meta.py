@@ -4,7 +4,7 @@ import urllib.parse
 
 import requests
 
-UA = {"User-Agent": "vc-genetics-thesis-factcheck/1.0 (UCL MSc dissertation)"}
+UA = {"User-Agent": "vc-genetics-pilot-factcheck/1.0 (independent research project)"}
 dois = json.load(open("dois.json"))
 out = {}
 for d in dois:

@@ -9,7 +9,7 @@
 
 Independent research project by **Mark Lapunov** (MSc Bioscience Innovation and Enterprise, University College London).
 Pilot code and results for a working paper on ex-ante human genetic support, sponsor type and clinical development
-outcomes, which is also the basis of my MSc dissertation.
+outcomes.
 
 **In plain words.** Drugs aimed at targets with human genetic evidence succeed in clinical trials much more often, and
 this evidence is public before a programme starts. The project asks whether the companies and investors who choose
