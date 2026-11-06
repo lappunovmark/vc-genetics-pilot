@@ -16,10 +16,13 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
   industry group. Among small sponsors, stops citing lack of funding rose 2.45-fold (1.57–3.82); in the other groups
   such stops are rare.
-* Trials stopped for financial or strategic reasons carried no more, and probably less, ex-ante genetic support than
-  completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
-  Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
-* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
+* Trials stopped for financial or strategic reasons carried no more ex-ante genetic support than completed trials
+  (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04, most clearly in trials that ended in 2022 or later). Whether they
+  carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.86,
+  0.61–1.22), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
+  there is no gap at all (11.0% vs 11.5%; OR 0.88, 0.64–1.22; trials ending 2022 or later OR 1.02, 0.70–1.49).
+* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
+  Open Targets measure 0.83, 0.49–1.41).
 * SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
   2,964 non-top-20 industry sponsor names matched to an issuer (751 on identical names up to legal form, 50 accepted
   after hand review; 15 candidate matches not used). Among programmes first trialled in 2010 or later, sponsors with
@@ -28,7 +31,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   in this version of the linkage, more strongly among Form D filers (interaction OR 2.12, 1.10–4.10); the interaction
   was 1.58 (0.75–3.30) before the linkage fixes of 6 November 2026, so it should be read as fragile. Dating the first
   Form D by own names only gives OR 0.77 (0.50–1.20) for selection and 0.91 (0.73–1.14) for advancement; the
-  whole-CIK dating changes no flag in the analysis window.
+  whole-CIK dating changes no flag in the analysis window. With the dated Open Targets measure the selection OR is
+  0.73 (0.46–1.17). Restricting both groups to sponsors classified as US-based (`pilot/sponsor_region.py`: US
+  financing records, else legal form and place names; 1,990 programmes, 47% with a prior Form D) gives OR 0.89
+  (0.51–1.56) for selection, 0.89 (0.69–1.17) for advancement and an interaction of 0.89 (0.37–2.12), so the
+  significant interaction in the full sample reflects the mix of US and non-US sponsors among non-filers.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly

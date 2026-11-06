@@ -36,7 +36,9 @@ and Genebass. The re-implementation reproduces all 1,258 supported target–indi
 
 **Ex ante.** Only associations dated before the phase-entry year count. OMIM rows are undated and are treated as
 ex ante; every model is also run without OMIM. `gs_ot_dated.py` adds an independent measure from Open Targets
-evidence dated by Falaguera et al. (Zenodo 15922783), where undated evidence never counts as ex ante.
+evidence dated by Falaguera et al. (Zenodo 15922783), where undated evidence never counts as ex ante; H1, H3 and the
+KHB decomposition are run with it there, and `h4_biology.py`, `sbir_models.py` and `formd_models.py` repeat their
+headline models with it when the dated evidence (or `gs_ot_programmes.csv.gz`) is available.
 
 ## Sponsor groups
 
@@ -95,6 +97,12 @@ that first filed under that name is the original company and keeps its whole his
 (usually a listed shell adopted by reverse merger) contributes only filings under the sponsor's own or later names.
 Two bounds are reported as sensitivity: own and later names only (`formd_first_year_own`) and every filing of every
 own CIK (`formd_first_year_cik`). The selection is deterministic (ties broken by filings, first year and CIK).
+
+**US-only comparison.** Only issuers raising money in the US file Form D, so sponsors are classified as US,
+non-US or unknown (`sponsor_region.py`): US or foreign location in the financing records (Form D state, SBIR), else a
+legal form or place name pointing abroad (GmbH, AG, SA, Ltd, Co. Ltd., Shanghai, India, …), else a US legal form
+(Inc, LLC, Corp, Company); the rest are unknown and left out. `formd_models.py` repeats the selection and advancement
+models for US sponsors only.
 
 `formd` = the lead sponsor's first Form D is dated in a calendar year before the trial's start year. Because the data
 start in 2009, the Form D models use programmes and phase entries from 2010 onwards. In the selection models,

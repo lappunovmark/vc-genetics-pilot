@@ -10,10 +10,10 @@
 | Robustness: adjusted H1, strict / similar-indication advancement, no-OMIM, benchmark | `pilot/robust26.py` | — |
 | Ex-ante support from Open Targets evidence dated by Falaguera et al. | `pilot/gs_ot_dated.py` | Zenodo 15922783 (OT 25.03) |
 | Trial stop reasons and rates around the 2022 funding downturn | `pilot/rq2_stops.py`, `pilot/rq2_rr.py`, `pilot/stopreasons.py` | — |
-| Genetic support of trials stopped for money vs completed (H4) | `pilot/h4_biology.py` | — |
+| Genetic support of trials stopped for money vs completed (H4), with the dated Open Targets measure when its directory is given | `pilot/h4_biology.py` | — |
 | NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
-| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`), models | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
+| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`), models incl. the US-only comparison (`pilot/sponsor_region.py`) | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
 | Approval dates: EMA/PMDA report years and ChEMBL first-approval years, advancement variants that drop approvals preceding the phase entry | `pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py` | ChEMBL web service, release 37 (CC BY-SA 3.0) |
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
@@ -28,7 +28,7 @@ python pilot/robust26.py results
 python pilot/gs_ot_dated.py results data/ot data/falaguera/evidence_dated /tmp/genetic_support/data
 python pilot/rq2_stops.py data/ctgov_all.csv results
 python pilot/rq2_rr.py results
-python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data
+python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data data/falaguera/evidence_dated
 python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
 python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results
 python pilot/sbir_models.py results

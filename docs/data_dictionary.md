@@ -52,7 +52,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 
 | File | Content |
 |---|---|
-| `h4_biology.txt` | Ex-ante support of trials stopped for financial or strategic reasons vs completed trials |
+| `h4_biology.txt` | Ex-ante support of trials stopped for financial or strategic reasons vs completed trials (Minikel measure, no-OMIM variant and the dated Open Targets measure) |
 | `sbir_match_review.csv` | Every sponsor ↔ SBIR/STTR awardee match with both names, score and decision |
 | `sbir_summary.txt`, `sbir_models.txt` | Linkage coverage and models of prior SBIR/STTR funding |
 
@@ -70,7 +70,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 |---|---|
 | `formd_match_review.csv` | One row per matched sponsor name: match type and score, the issuer name shown for review, strict-name flag and hand-review decision, `accepted`, own CIKs (`;`-separated when pooled), numbers of candidate names, own CIKs and own names, first and last filing year, filings and largest amount sold under the main dating rule, the two sensitivity datings (`formd_first_year_own`, `formd_first_year_cik`), and the reviewed candidate's own first year and filings |
 | `formd_sponsors.csv` | Accepted matches: one row per normalised sponsor name with the three first-year datings |
-| `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag |
+| `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the dating sensitivities, the dated Open Targets measure and the US-only comparison |
 
 ## Other
 

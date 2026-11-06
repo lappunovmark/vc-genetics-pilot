@@ -1,7 +1,9 @@
 """H4, second part: were industry trials stopped for financial or strategic reasons as genetically well supported as
 completed ones?
 
-Usage: python h4_biology.py OT_DIR RESULTS_DIR CTGOV_ALL_CSV MINIKEL_DATA_DIR
+Usage: python h4_biology.py OT_DIR RESULTS_DIR CTGOV_ALL_CSV MINIKEL_DATA_DIR [FALAGUERA_EVIDENCE_DIR]
+With the optional Falaguera et al. evidence directory, every model is also run with the independent ex-ante measure
+built from dated Open Targets germline evidence (gs_ot_dated.py rules; undated evidence never counts as ex ante).
 Unit: an industry Phase 1-3 drug trial on ClinicalTrials.gov that Open Targets links to at least one drug x MeSH
 indication with genetic insight, started 2000-2024, with a terminal status (completed, or terminated/withdrawn/
 suspended). Support = any linked programme whose target gene has an association with a similar trait
@@ -62,7 +64,7 @@ def outcome(r):
     return {"Efficacy / futility": OUT[2], "Safety / benefit-risk": OUT[3], "Enrolment": OUT[4]}.get(r.reason, OUT[5])
 
 
-def build(ot, R, ctg, mdir):
+def build(ot, R, ctg, mdir, fal=None):
     ev = read(f"{ot}/evidence_clinical_precedence", ["drugId", "diseaseId", "clinicalReportId"])
     ev = ev[ev.clinicalReportId.fillna("").str.startswith("nct")]
     mol = read(f"{ot}/drug_molecule", ["id", "parentId"])
@@ -99,7 +101,16 @@ def build(ot, R, ctg, mdir):
     g = lab.groupby(k2).agg(gs_ante=("gs_ante", "any"), gs_post=("gs_post", "any")).reset_index()
     g2 = lab2.groupby(k2).agg(gs_ante_noomim=("gs_ante", "any")).reset_index()
     L = L.merge(g, on=k2, how="left").merge(g2, on=k2, how="left")
-    for c in ("gs_ante", "gs_post", "gs_ante_noomim"):
+    gs_cols = ["gs_ante", "gs_post", "gs_ante_noomim"]
+    if fal:
+        import gs_ot_dated
+
+        a_ot, _ = gs_ot_dated.load_evidence(fal, ot, pd.read_csv(f"{R}/disease_mesh.csv.gz"))
+        lab3 = gensup.label(ti, a_ot, simp, year_col="start_year", omim_mode="none")
+        g3 = lab3.groupby(k2).agg(gs_ot_ante=("gs_ante", "any")).reset_index()
+        L = L.merge(g3, on=k2, how="left")
+        gs_cols.append("gs_ot_ante")
+    for c in gs_cols:
         L[c] = L[c].fillna(False).astype(bool)
     # trial level: support if any linked insight programme is supported
     T = (
@@ -120,6 +131,7 @@ def build(ot, R, ctg, mdir):
             gs_ante=("gs_ante", "any"),
             gs_post=("gs_post", "any"),
             gs_ante_noomim=("gs_ante_noomim", "any"),
+            **({"gs_ot_ante": ("gs_ot_ante", "any")} if fal else {}),
         )
         .reset_index()
     )
@@ -279,11 +291,30 @@ def analyse(T, L, out):
     for lab, sub in (("ended before 2022", T[T.post22.eq(0)]), ("ended 2022 or later", T[T.post22.eq(1)])):
         fit(f"y ~ {ref} + {CTRL}", sub, out, f"gs_ante_noomim ~ outcome, trials that {lab}")
     financial_models(T, out, "trial, no OMIM", y="gs_ante_noomim", robust=True)
+    if "gs_ot_ante" in T.columns:
+        # Independent measure: Open Targets germline evidence dated by Falaguera et al. (no OMIM, no undated rows)
+        tab5 = (
+            T.groupby(["outcome", "post22"], observed=True)
+            .agg(trials=("nct_id", "size"), gs_ot_ante=("gs_ot_ante", "mean"))
+            .unstack()
+        )
+        out.extend(
+            [
+                "=" * 100,
+                "Dated Open Targets evidence (Falaguera et al.): ex-ante support by outcome x ended 2022 or later:",
+                tab5.round(4).to_string(),
+            ]
+        )
+        T["y"] = T.gs_ot_ante.astype(int)
+        fit(f"y ~ {ref} + {CTRL}", T, out, "gs_ot_ante ~ outcome (reference: completed), all years")
+        for lab, sub in (("ended before 2022", T[T.post22.eq(0)]), ("ended 2022 or later", T[T.post22.eq(1)])):
+            fit(f"y ~ {ref} + {CTRL}", sub, out, f"gs_ot_ante ~ outcome, trials that {lab}")
+        financial_models(T, out, "trial, dated OT evidence", y="gs_ot_ante", robust=True)
     return T
 
 
-def main(ot, R, ctg, mdir):
-    L, T = build(ot, R, ctg, mdir)
+def main(ot, R, ctg, mdir, fal=None):
+    L, T = build(ot, R, ctg, mdir, fal)
     out = [f"links={len(L)} trials={len(T)} drugs={T.drug.nunique()}"]
     analyse(T, L, out)
     T.to_csv(f"{R}/h4_trials.csv.gz", index=False)
@@ -292,4 +323,4 @@ def main(ot, R, ctg, mdir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*sys.argv[1:6])

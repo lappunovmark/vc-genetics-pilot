@@ -15,6 +15,12 @@ N=4014; clusters (drugs)=1387; formd share=0.2489; converged=True
         Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
 formd -0.3024      0.22  0.1692 -0.7335  0.1287  0.739  0.4802  1.1374
 ====================================================================================================
+H1 [dated OT evidence]: ex-ante support ~ prior Form D
+y ~ formd + C(tier) + C(yb) + C(area) + C(modality)
+N=4014; clusters (drugs)=1387; formd share=0.2489; converged=True
+        Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.3094    0.2377  0.193 -0.7752  0.1564  0.7339  0.4606  1.1693
+====================================================================================================
 H1, small sponsors only: ex-ante support ~ prior Form D
 y ~ formd + C(yb) + C(area) + C(modality)
 N=1380; clusters (drugs)=631; formd share=0.3159; converged=True
@@ -70,3 +76,39 @@ N=4005; clusters (drugs)=1348; formd share=0.2489; converged=True
         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
 formd -0.1227    0.1081  0.2563 -0.3346  0.0892  0.8845  0.7156  1.0933
 gs     0.9140    0.1521  0.0000  0.6159  1.2120  2.4943  1.8514  3.3603
+====================================================================================================
+Sponsor region (heuristic, see sponsor_region.py): programmes by region x prior Form D
+formd       0    1   All
+region                  
+US       1052  938  1990
+non-US   1148   61  1209
+unknown   815    0   815
+All      3015  999  4014
+phase entries by region x prior Form D
+formd       0    1   All
+region                  
+US       1080  951  2031
+non-US   1083   46  1129
+unknown   845    0   845
+All      3008  997  4005
+====================================================================================================
+H1, US sponsors only: ex-ante support ~ prior Form D
+y ~ formd + C(tier) + C(yb) + C(area) + C(modality)
+N=1990; clusters (drugs)=729; formd share=0.4714; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.1134    0.2848  0.6904 -0.6716  0.4447  0.8928  0.5109  1.5601
+====================================================================================================
+Advancement, US sponsors only ~ prior Form D + ex-ante support
+adv ~ formd + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2031; clusters (drugs)=718; formd share=0.4682; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd -0.1125    0.1355  0.4064 -0.3781  0.1531  0.8936  0.6852  1.1654
+gs     1.5833    0.2390  0.0000  1.1149  2.0516  4.8708  3.0493  7.7804
+====================================================================================================
+Advancement, US sponsors only ~ prior Form D x ex-ante support
+adv ~ formd * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2031; clusters (drugs)=718; formd share=0.4682; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+formd    -0.1048    0.1407  0.4564 -0.3804  0.1709  0.9005  0.6836  1.1864
+gs        1.6449    0.3168  0.0000  1.0240  2.2658  5.1803  2.7842  9.6386
+formd:gs -0.1197    0.4443  0.7877 -0.9905  0.7512  0.8872  0.3714  2.1195

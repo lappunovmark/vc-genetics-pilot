@@ -107,6 +107,18 @@ fit(
     "H1: ex-ante support at first trial ~ prior Form D",
     ("formd",),
 )
+if os.path.exists(f"{R}/gs_ot_programmes.csv.gz"):
+    # independent measure: dated Open Targets germline evidence (gs_ot_dated.py)
+    G = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz", usecols=["drug", "indication_mesh_id", "gs_ot_ante_first"])
+    P2 = P.drop(columns="y").merge(G, on=["drug", "indication_mesh_id"], how="left")
+    P2["y"] = P2.gs_ot_ante_first.fillna(False).astype(int)
+    P2 = pool_sparse(P2)
+    fit(
+        "y ~ formd + C(tier) + C(yb) + C(area) + C(modality)",
+        P2,
+        "H1 [dated OT evidence]: ex-ante support ~ prior Form D",
+        ("formd",),
+    )
 S = pool_sparse(P[P.tier.eq("Industry, small (<=5 drugs)")])
 fit(
     "y ~ formd + C(yb) + C(area) + C(modality)",
@@ -148,5 +160,40 @@ for lab, name in (("own names only (lower bound on history)", "own"), ("whole CI
         ("formd",),
     )
     fit(f"adv ~ formd + gs + {base}", E2, f"Advancement [{name}] ~ prior Form D + ex-ante support", ("formd", "gs"))
+# US-only comparison: only issuers raising money in the US file Form D, so "no prior Form D" mixes non-US sponsors with
+# US sponsors that raised no private money. Restrict both groups to sponsors classified as US (sponsor_region.py).
+import sponsor_region  # noqa: E402
+
+us_norms, foreign_norms = sponsor_region.financing_locations(f"{R}/formd_match_review.csv")
+
+
+def region(names):
+    return pd.Series(
+        [sponsor_region.classify(n, rq2_stops.norm_sponsor(n), us_norms, foreign_norms) for n in names],
+        index=names.index,
+    )
+
+
+P["region"] = region(P.first_sponsor)
+E["region"] = region(E.lead_sponsor)
+out.append("=" * 100 + "\nSponsor region (heuristic, see sponsor_region.py): programmes by region x prior Form D")
+out.append(pd.crosstab(P.region, P.formd, margins=True).to_string())
+out.append("phase entries by region x prior Form D")
+out.append(pd.crosstab(E.region, E.formd, margins=True).to_string())
+PU = pool_sparse(P[P.region.eq("US")].copy())
+EU = E[E.region.eq("US")].copy()
+fit(
+    "y ~ formd + C(tier) + C(yb) + C(area) + C(modality)",
+    PU,
+    "H1, US sponsors only: ex-ante support ~ prior Form D",
+    ("formd",),
+)
+fit(f"adv ~ formd + gs + {base}", EU, "Advancement, US sponsors only ~ prior Form D + ex-ante support", ("formd", "gs"))
+fit(
+    f"adv ~ formd * gs + {base}",
+    EU,
+    "Advancement, US sponsors only ~ prior Form D x ex-ante support",
+    ("formd", "gs", "formd:gs"),
+)
 open(f"{R}/formd_models.txt", "w").write("\n".join(out))
 print("\n".join(out))

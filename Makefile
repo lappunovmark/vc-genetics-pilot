@@ -37,6 +37,7 @@ results:
 
 dated:  # needs Falaguera et al. evidence (Zenodo 15922783) in $(DATA)/falaguera/evidence_dated
 	$(PY) pilot/gs_ot_dated.py $(RES) $(DATA)/ot $(DATA)/falaguera/evidence_dated $(MINIKEL)/data
+	$(PY) pilot/h4_biology.py $(DATA)/ot $(RES) $(DATA)/ctgov_all.csv $(MINIKEL)/data $(DATA)/falaguera/evidence_dated
 
 approvals:  # approval dates from EMA/PMDA reports and ChEMBL; the ChEMBL extract used is kept in results/
 	$(PY) pilot/fetch_chembl_approval.py $(DATA)/chembl_first_approval.csv

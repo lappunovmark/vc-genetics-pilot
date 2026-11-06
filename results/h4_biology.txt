@@ -242,3 +242,97 @@ failed: LinAlgError('Singular matrix')
 [trial, no OMIM] robustness: + years since the drug's first trial
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group) + C(drug_age)
 failed: LinAlgError('Singular matrix')
+====================================================================================================
+Dated Open Targets evidence (Falaguera et al.): ex-ante support by outcome x ended 2022 or later:
+                                trials       gs_ot_ante        
+post22                               0     1          0       1
+outcome                                                        
+Completed                        16842  3047     0.1049  0.1710
+Stopped: financial or strategic    466   459     0.0923  0.1285
+Stopped: efficacy                  405   156     0.1210  0.1026
+Stopped: safety                    232    80     0.0862  0.2500
+Stopped: enrolment                 504   160     0.0972  0.1250
+Stopped: other or no reason       1616   418     0.0835  0.1220
+====================================================================================================
+gs_ot_ante ~ outcome (reference: completed), all years
+y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
+N=24385; clusters (drugs)=2687
+                                                                                  Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1228    0.1643  0.4548 -0.4449  0.1992  0.8844  0.6409  1.2205
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.0955    0.1911  0.6173 -0.2791  0.4701  1.1002  0.7564  1.6002
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.0652    0.2647  0.8054 -0.4536  0.5841  1.0674  0.6353  1.7934
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0028    0.1756  0.9871 -0.3469  0.3413  0.9972  0.7069  1.4067
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2005    0.1051  0.0563 -0.4064  0.0054  0.8183  0.6660  1.0054
+====================================================================================================
+gs_ot_ante ~ outcome, trials that ended before 2022
+y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
+N=20065; clusters (drugs)=2526
+                                                                                  Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.2413    0.2426  0.3198 -0.7167  0.2341  0.7856  0.4883  1.2638
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.2570    0.2231  0.2493 -0.1803  0.6943  1.2930  0.8350  2.0022
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.2991    0.2773  0.2807 -0.8425  0.2443  0.7415  0.4306  1.2767
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]               0.0097    0.2062  0.9627 -0.3945  0.4138  1.0097  0.6740  1.5126
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2101    0.1207  0.0817 -0.4467  0.0264  0.8105  0.6397  1.0268
+====================================================================================================
+gs_ot_ante ~ outcome, trials that ended 2022 or later
+y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
+N=4320; clusters (drugs)=1061
+                                                                                  Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic]  0.0234    0.1905  0.9021 -0.3499  0.3968  1.0237  0.7047  1.4870
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.3667    0.3033  0.2266 -0.9611  0.2277  0.6930  0.3825  1.2557
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.7473    0.4770  0.1172 -0.1877  1.6822  2.1113  0.8289  5.3776
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0609    0.3269  0.8521 -0.7016  0.5797  0.9409  0.4958  1.7856
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.1220    0.1797  0.4970 -0.4742  0.2301  0.8851  0.6224  1.2588
+====================================================================================================
+[trial, dated OT evidence] Financial/strategic stop vs completed
+y ~ fin + C(phase) + C(yb) + C(area) + C(modality) + C(group)
+N=20814; clusters (drugs)=2508
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
+fin -0.1257    0.1667  0.4508 -0.4525  0.2011  0.8819  0.636  1.2227
+====================================================================================================
+[trial, dated OT evidence] ... x ended 2022 or later
+y ~ fin * post22 + C(phase) + C(yb) + C(area) + C(modality) + C(group)
+N=20814; clusters (drugs)=2508
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin        -0.1812    0.2429  0.4558 -0.6572  0.2949  0.8343  0.5183  1.3430
+post22      0.4619    0.1302  0.0004  0.2067  0.7171  1.5871  1.2296  2.0486
+fin:post22  0.0141    0.3098  0.9636 -0.5930  0.6213  1.0142  0.5527  1.8613
+====================================================================================================
+Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] trials that ended before 2022
+diff=-0.0242 se=0.0198 90% CI=(-0.0568, 0.0084) equivalent=False; share among completed=0.1049; among financial stops=0.0923; N=17308
+====================================================================================================
+Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] trials that ended 2022 or later
+diff=0.0052 se=0.0206 90% CI=(-0.0286, 0.0390) equivalent=False; share among completed=0.1710; among financial stops=0.1285; N=3506
+====================================================================================================
+[trial, dated OT evidence] ... x small sponsor (<=20 trials)
+y ~ fin * small + C(phase) + C(yb) + C(area) + C(modality)
+N=20814; clusters (drugs)=2508
+            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin       -0.2901    0.1803  0.1076 -0.6435  0.0633  0.7482  0.5254  1.0653
+small     -0.4308    0.1222  0.0004 -0.6703 -0.1912  0.6500  0.5115  0.8260
+fin:small  0.6028    0.3017  0.0457  0.0116  1.1941  1.8273  1.0117  3.3005
+====================================================================================================
+[trial, dated OT evidence] Small sponsors only
+y ~ fin + C(phase) + C(yb) + C(area) + C(modality)
+N=3695; clusters (drugs)=1048
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]    OR   OR_lo   OR_hi
+fin  0.5008    0.3005  0.0956 -0.0882  1.0898  1.65  0.9155  2.9736
+====================================================================================================
+Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] all years
+diff=-0.0161 se=0.0160 90% CI=(-0.0424, 0.0102) equivalent=False; share among completed=0.1150; among financial stops=0.1103; N=20814
+====================================================================================================
+[trial, dated OT evidence] robustness: start-year fixed effects
+y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group)
+N=20814; clusters (drugs)=2508
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin        -0.2237    0.2483  0.3675 -0.7103  0.2628  0.7995  0.4915  1.3006
+post22      0.1347    0.1455  0.3546 -0.1505  0.4199  1.1442  0.8603  1.5218
+fin:post22 -0.1131    0.3139  0.7185 -0.7283  0.5020  0.8930  0.4827  1.6521
+====================================================================================================
+[trial, dated OT evidence] robustness: + years since the drug's first trial
+y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group) + C(drug_age)
+N=20814; clusters (drugs)=2508
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin        -0.2228    0.2488  0.3705 -0.7104  0.2648  0.8003  0.4915  1.3031
+post22      0.1368    0.1449  0.3453 -0.1472  0.4208  1.1466  0.8631  1.5231
+fin:post22 -0.1174    0.3146  0.7090 -0.7341  0.4993  0.8892  0.4799  1.6475

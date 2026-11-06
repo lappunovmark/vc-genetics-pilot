@@ -6,6 +6,7 @@ sbir = the sponsor had an NIH SBIR/STTR award in a fiscal year before the trial'
 Writes RESULTS_DIR/sbir_models.txt.
 """
 
+import os
 import sys
 
 import numpy as np
@@ -78,6 +79,17 @@ fit(
     "H1: ex-ante support at first trial ~ prior SBIR/STTR",
     ("sbir",),
 )
+if os.path.exists(f"{R}/gs_ot_programmes.csv.gz"):
+    # independent measure: dated Open Targets germline evidence (gs_ot_dated.py)
+    G = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz", usecols=["drug", "indication_mesh_id", "gs_ot_ante_first"])
+    P2 = P.merge(G, on=["drug", "indication_mesh_id"], how="left")
+    P2["y"] = P2.gs_ot_ante_first.fillna(False).astype(int)
+    fit(
+        "y ~ sbir + C(tier) + C(yb) + C(area) + C(modality)",
+        P2,
+        "H1 [dated OT evidence]: ex-ante support ~ prior SBIR/STTR",
+        ("sbir",),
+    )
 
 E = pd.read_csv(f"{R}/phase_entries.csv.gz")
 end_year = int(E.entry_year.max())
