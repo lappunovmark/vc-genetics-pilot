@@ -41,7 +41,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   $10–50M and $50M or more had ex-ante support in 4.2%, 4.8% and 3.2% of cases against 5.7% without a prior Form D
   (adjusted OR 0.75, 0.39–1.44; 1.11, 0.59–2.08; 0.51, 0.23–1.11); among filers, each tenfold increase in the amount
   raised changes the odds of support by 0.85 (0.56–1.30). Advancement does not rise with the amount either (0.92,
-  0.72, 1.02 for the three bands; log-linear 1.12, 0.85–1.48 among filers).
+  0.72, 1.02 for the three bands; log-linear 1.12, 0.85–1.48 among filers). Counting only equity offerings outside
+  business combinations, the best-funded band is lower still (2.6% supported; OR 0.41, 0.19–0.85, on eight supported
+  programmes) while the log-linear trend among filers stays non-significant (0.81, 0.55–1.20): if anything, the
+  sponsors with the most private capital behind them picked less-supported targets.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 85,300 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 3.1 at $10–50M, 1.8 at $50M or more), with no steeper rise for less-funded sponsors

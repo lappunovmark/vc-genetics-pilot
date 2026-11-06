@@ -100,6 +100,37 @@ log_raised     0.1773    0.1517  0.2425 -0.1200  0.4746   1.1940  0.8869    1.60
 gs             3.1620    0.9536  0.0009  1.2929  5.0311  23.6173  3.6433  153.0969
 log_raised:gs -1.0885    0.6263  0.0822 -2.3160  0.1390   0.3367  0.0987    1.1491
 ====================================================================================================
+Sensitivity, equity-only amounts (no debt-only offerings, no business combinations): programmes by band
+            n  raised_median  gs_ante
+band                                 
+none     3015         0.0000   0.0570
+<$10M     381         2.0000   0.0472
+$10-50M   314        26.1895   0.0446
+>=$50M    304       102.0268   0.0263
+====================================================================================================
+H1 [equity only]: ex-ante support ~ amount raised before the first trial (bands)
+y ~ C(band) + C(tier) + C(yb) + C(area) + C(modality)
+N=4014; clusters (drugs)=1387; formd share=0.2489; converged=True
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]   -0.1818    0.3294  0.5811 -0.8275  0.4639  0.8338  0.4371  1.5903
+C(band)[T.$10-50M]  0.0353    0.3371  0.9166 -0.6254  0.6960  1.0359  0.5351  2.0057
+C(band)[T.>=$50M]  -0.9025    0.3765  0.0165 -1.6404 -0.1645  0.4056  0.1939  0.8483
+====================================================================================================
+Advancement [equity only] ~ amount raised before the entry (bands) + ex-ante support
+adv ~ C(band) + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4005; clusters (drugs)=1348; formd share=0.2489; converged=True
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]   -0.0580    0.1442  0.6875 -0.3406  0.2246  0.9437  0.7114  1.2518
+C(band)[T.$10-50M] -0.2169    0.1685  0.1982 -0.5472  0.1135  0.8050  0.5786  1.1202
+C(band)[T.>=$50M]  -0.1047    0.1858  0.5730 -0.4690  0.2595  0.9006  0.6257  1.2963
+gs                  0.9135    0.1518  0.0000  0.6159  1.2110  2.4929  1.8513  3.3569
+====================================================================================================
+H1 [equity only], Form D filers only: ex-ante support ~ log10(1 + USD millions of equity raised)
+y ~ log_raised + C(tier) + C(yb) + C(area) + C(modality)
+N=999; clusters (drugs)=408; formd share=1.0000; converged=True
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+log_raised -0.2088    0.1991  0.2945 -0.5991  0.1815  0.8116  0.5493  1.1991
+====================================================================================================
 Sensitivity, first Form D dated by own names only (lower bound on history): formd share programmes=0.2260, entries=0.2252
 ====================================================================================================
 H1 [own]: ex-ante support ~ prior Form D
