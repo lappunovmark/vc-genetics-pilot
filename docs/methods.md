@@ -87,6 +87,12 @@ The extract used for the published results is on the `formd-data` branch (`data_
 
 ## Known limitations
 
-See *Known pilot simplifications* in the README. The two that matter most: most approval records carry no date,
-and registry programmes include investigator-initiated trials of marketed drugs, so absolute success rates are not
-comparable with Pharmaprojects-based estimates.
+* Form D marks private placements, not venture capital as such: some venture rounds are never filed, some filers are
+  not venture-backed, and only issuers raising money in the US file. "No prior Form D" therefore mixes non-US
+  sponsors with US sponsors that raised no private money; a US-only comparison is the next step.
+* Most approval records carry no date, so an approval that preceded a phase entry can count as advancement.
+* Registry programmes include investigator-initiated trials of marketed drugs; levels of relative success are therefore
+  not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
+* Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
+  Falaguera et al. (2026) evidence timestamps will replace this.
+* The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.

@@ -1,187 +1,55 @@
 # Do investors pick better biology?
-### Human genetic support × sponsor type × clinical success
+
+**Human genetic support × sponsor type × clinical success.** Independent research project by Mark Lapunov.
 
 [![checks](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml/badge.svg)](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml)
-![CI: Python 3.13](https://img.shields.io/badge/CI-python%203.13-3776AB)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
-![Data: Open Targets 26.09](https://img.shields.io/badge/data-Open%20Targets%2026.09%20%C2%B7%20ClinicalTrials.gov%20%C2%B7%20NIH%20RePORTER%20%C2%B7%20SEC%20Form%20D-1E3A5F)
 ![Status: pilot](https://img.shields.io/badge/status-pilot%2C%20not%20peer--reviewed-orange)
 
-Independent research project by **Mark Lapunov** (MSc Bioscience Innovation and Enterprise, University College London).
-Pilot code and results for a working paper on ex-ante human genetic support, sponsor type and clinical development
-outcomes.
+Drugs aimed at targets with human genetic evidence are more likely to succeed in clinical trials, and that evidence
+is public before a programme starts. This project asks whether the companies running drug programmes, and the private
+money behind them, choose targets with such evidence, and what happened to their trials when biotech funding fell
+in 2022.
 
-**In plain words.** Drugs aimed at targets with human genetic evidence succeed in clinical trials much more often, and
-this evidence is public before a programme starts. The project asks whether the companies and investors who choose
-drug programmes use that signal. So far the signal works as well for small biotechs as for big pharma, yet small
-biotechs start fewer such programmes, and there is no sign that companies raising private money pick better-supported
-targets.
+Everything is built from open data: Open Targets Platform 26.09 and ClinicalTrials.gov (35,887 drug × indication
+programmes, 29,199 of them in indications with genetic data), NIH SBIR/STTR grants and SEC Form D private placements.
 
-[Results at a glance](#results-at-a-glance) · [Pipeline](#pipeline) · [Validation](#validation-done) ·
-[Pilot results](#pilot-results-open-targets-2609-clinicaltrialsgov-snapshot-17-oct-2026) · [Roadmap](#roadmap) ·
-[Methods](docs/methods.md) · [Data dictionary](docs/data_dictionary.md) · [Citation](#citation)
+## Main findings (pilot, not peer-reviewed)
 
-**Questions**
-1. **H1.** Do different sponsors (small and mid-size industry sponsors vs. top-20 pharma) start programmes on drug
-   targets with stronger human genetic support?
-2. **H2, H3.** Does genetic support predict advancement from one clinical phase to the next, and does it explain
-   differences between sponsors in how often their programmes advance?
-3. **RQ2, H4.** How did the 2022 biotech funding downturn change why clinical trials stop, and did money-driven stops
-   hit genetically better-supported programmes?
-4. **Form D.** Do sponsors that raised private money (SEC Form D private placements) pick better-supported targets,
-   and do their programmes advance more often?
-
-The labels match the script names and `docs/methods.md`.
-
-**Status.** Pilot results, not peer-reviewed. Private financing is measured by SEC Form D private placements (first
-pass, linked in October 2026); sponsor tiers remain the main grouping.
-
-## Results at a glance
 ![Pilot results: genetic support, sponsor type and trial stops](figures/results_glance.png)
 
-* **Genetic support predicts progress for every sponsor.** Programmes on targets with human genetic support at phase
-  entry have about 2.5 times the odds of advancing a phase, with no significant difference between small sponsors and
-  top-20 pharma.
-* **Small sponsors use the signal less.** They start fewer programmes with genetic support (adjusted OR 0.64).
-* **Funding-driven stops rose after 2022.** Among small sponsors, trial stops citing lack of funding were 2.45 times as
-  frequent in 2022–25 as in 2016–21; trials stopped for financial or strategic reasons carried no more genetic support
-  than completed ones.
-* **No sign that private money buys better biology.** Sponsors with an SEC Form D private placement before their first
-  trial started genetically supported programmes no more often than other non-top-20 industry sponsors (adjusted
-  OR 0.66, 0.41–1.05), and their programmes advanced no more often (OR 0.88, 0.71–1.09).
+| Finding | Estimate (95% CI) |
+|---|---|
+| Programmes with genetic support are more likely to advance to the next clinical phase | OR 2.48 (2.10–2.93) |
+| No significant difference in that effect between small sponsors and top-20 pharma | OR 1.26 (0.75–2.12) |
+| Small sponsors start fewer programmes with genetic support than top-20 pharma | OR 0.64 (0.46–0.88) |
+| Small sponsors stopped trials for lack of funding more often in 2022–25 than in 2016–21 | rate ratio 2.45 (1.57–3.82) |
+| Trials stopped for financial or strategic reasons carried no more genetic support than completed trials | OR 0.75 (0.53–1.04) |
+| Sponsors that raised private money (SEC Form D) did not pick better-supported targets | OR 0.66 (0.41–1.05) |
+| Nor did sponsors with earlier NIH SBIR/STTR grants | OR 0.72 (0.38–1.39) |
 
-Figure: `python pilot/figure_glance.py results figures/results_glance.png` (reads the numbers from `results/`).
+**In short:** genetic evidence pays off for every kind of sponsor, but small biotechs use it less, and raising private
+money does not go with better-supported targets.
 
-## Pipeline
-| Step | Script | Source (licence) |
-|---|---|---|
-| Open Targets clinical reports, evidence, targets, diseases, molecules | `pilot/fetch_opentargets.py` | Open Targets Platform ≥ 26.03 (CC0) |
-| All interventional studies (sponsor, phase, dates, status, why_stopped) | `pilot/fetch_ctgov.py all` | ClinicalTrials.gov API v2 (public domain) |
-| Genetic-support labels (Minikel et al. 2024 definition) | `pilot/gensup.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
-| Programme panel, H1 selection, phase transitions, logits | `pilot/build_panel26.py` | — |
-| Robustness: adjusted H1, strict / similar-indication advancement, no-OMIM, benchmark | `pilot/robust26.py` | — |
-| Ex-ante support from Open Targets evidence dated by Falaguera et al. | `pilot/gs_ot_dated.py` | Zenodo 15922783 (OT 25.03) |
-| RQ2: stop reasons and rates around the 2022 funding downturn | `pilot/rq2_stops.py`, `pilot/rq2_rr.py`, `pilot/stopreasons.py` | — |
-| H4, second part: genetic support of trials stopped for money vs completed | `pilot/h4_biology.py` | — |
-| NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
-| Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
-| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`), models | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
-| Results-at-a-glance figure | `pilot/figure_glance.py` | — |
+OR: odds ratio from logistic regressions adjusted for period, therapeutic area, modality and, where relevant, phase
+and sponsor group, with standard errors clustered by drug. Small sponsors: industry sponsors with at most 5 drugs (programme models) or at most
+20 trials (trial-stop model).
 
-Run locally with `make all` (downloads, rebuilds `results/`, redraws the figure and runs the checks), or step by step:
-```
-python pilot/fetch_opentargets.py data/ot
-python pilot/fetch_ctgov.py all data/ctgov_all.csv
-git clone https://github.com/ericminikel/genetic_support /tmp/genetic_support   # then checkout b84cf05
-python pilot/build_panel26.py data/ot /tmp/genetic_support/data results
-python pilot/robust26.py results
-python pilot/gs_ot_dated.py results data/ot data/falaguera/evidence_dated /tmp/genetic_support/data
-python pilot/rq2_stops.py data/ctgov_all.csv results
-python pilot/rq2_rr.py results
-python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data
-python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
-python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results
-python pilot/sbir_models.py results
-SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_formd.py data/formd
-python pilot/formd_link.py data/formd/formd_biopharma.csv.gz results
-python pilot/formd_models.py results
-```
-or run **Actions → pilot → Run workflow**, which downloads the sources and rebuilds the core tables on GitHub.
+**Limits.** Sponsor size and Form D filings stand in for venture backing, which is not measured directly yet. The
+stop-reason classifier is validated against provisional labels ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8)),
+and most approvals carry no date ([#10](https://github.com/lappunovmark/vc-genetics-pilot/issues/10)).
 
-## Repository layout
-```
-pilot/       pipeline: data download, programme panel, models, stop-reason classifier, README figure
-docs/        methods (definitions, models) and data dictionary for results/
-results/     model output and derived tables (small, versioned; provenance in results/PROVENANCE.txt)
-figures/     README figure, rebuilt from results/ by pilot/figure_glance.py
-tests/       unit tests and README-vs-results consistency checks
-factcheck/   scripts that re-check the working paper's numbers and citations against their sources
-.github/     CI checks on every push; manual end-to-end pipeline workflow
-```
-
-## Checks
-`make check` runs ruff and the tests. `pytest -q` runs unit tests of the stop-reason classifier, including its
-negation handling, and verifies that every headline number in this README matches the model output in `results/`.
-GitHub Actions runs the same checks, lint and formatting checks, a byte-compile of all scripts and a rebuild of the
-figure on every push, on Python 3.13 with `requirements.txt`. CI checks the stored results; it does not re-run the
-data downloads and models. The tables in `results/` were built locally with Python 3.9.6 and pandas 2.2.3
-(`results/PROVENANCE.txt`).
-
-## Validation done
-* `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
-  (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).
-* Genetic insight for indications outside their set: approximation agrees with their label for 96.6% of their 1,013 indications with a MeSH ID.
-* Replication note: in their data, the Phase I→launch RS computed as the product of phase-wise RS, as described in
-  their Methods (1.076 × 1.571 × 1.275), is 2.16, while the ratio of launch shares among programmes entering phase I
-  is 2.63, close to the headline 2.6. Both are reported in `results/robust.txt` for comparison.
-* Stop-reason classifier v3 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
-  κ 0.79); financial or strategic class precision 0.91, recall 0.86. The reference labels in
-  `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
-  ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8)), so these figures may change.
-
-## Pilot results (Open Targets 26.09, ClinicalTrials.gov snapshot 17 Oct 2026)
-* 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
-* Ex-ante genetic support at phase entry: OR 2.48 (2.10–2.93) for advancing a phase; no difference between small
-  industry sponsors and top-20 pharma (interaction OR 1.26, 0.75–2.12).
-* Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
-  for novel drugs (0.79, 0.49–1.29).
-* Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
-  industry group; stops citing lack of funding rose 2.45-fold (1.57–3.82), almost only among small sponsors.
-* Trials stopped for financial or strategic reasons carried no more, and probably less, ex-ante genetic support than
-  completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
-  Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
-* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
-* SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 784 of
-  2,964 non-top-20 industry sponsor names matched to an issuer (66 of them after hand review, 27 candidate matches
-  rejected). Among programmes first trialled in 2010 or later, sponsors with a prior Form D started genetically
-  supported programmes no more often (3.4% vs 5.9%; adjusted OR 0.66, 0.41–1.05) and advanced no more often
-  (adjusted OR 0.88, 0.71–1.09); genetic support predicted advancement in both groups (interaction OR 1.58,
-  0.75–3.30).
-
-## Roadmap
-- [x] Link SEC Form D private placements to industry sponsors (first pass; next: US-only comparison and venture
-  investors among related persons, [#7](https://github.com/lappunovmark/vc-genetics-pilot/issues/7))
-- [ ] Blind double-coding of the 200 held-out stop-reason texts by the author ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8))
-- [ ] Falaguera et al. dated evidence as the main ex-ante measure ([#9](https://github.com/lappunovmark/vc-genetics-pilot/issues/9))
-- [ ] Approval dates, so that pre-entry approvals do not count as advancement ([#10](https://github.com/lappunovmark/vc-genetics-pilot/issues/10))
-- [ ] Working paper draft ([#11](https://github.com/lappunovmark/vc-genetics-pilot/issues/11))
-- [ ] Re-run the full pipeline under Python 3.13 and the pinned `requirements.txt` (the tables in `results/` were
-  built locally with Python 3.9.6 and pandas 2.2.3; see `results/PROVENANCE.txt`)
-
-## Corrections
-* 19 Oct 2026: ClinicalTrials.gov mixes `YYYY-MM` and `YYYY-MM-DD` dates; pandas 2 without `format='mixed'` dropped 38%
-  of start dates and 41% of completion dates in `rq2_stops.py`. Fixed; RQ2 and H4 re-run (numbers above are corrected).
-  The Open Targets panel (H1–H3) was not affected: its dates are typed.
-
-## Known pilot simplifications
-* Form D marks private placements, not venture capital as such: some venture rounds are never filed, some filers are
-  not venture-backed, and only issuers raising money in the US file. "No prior Form D" therefore mixes non-US
-  sponsors with US sponsors that raised no private money; a US-only comparison is the next step.
-* Most approval records carry no date, so an approval that preceded a phase entry can count as advancement.
-* Registry programmes include investigator-initiated trials of marketed drugs; levels of relative success are therefore
-  not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
-* Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
-  Falaguera et al. (2026) evidence timestamps will replace this.
-
-## Citation
-Use **Cite this repository** on GitHub (from `CITATION.cff`) or:
-```bibtex
-@software{lapunov_2026_vcgenetics,
-  author  = {Lapunov, Mark},
-  title   = {Do investors pick better biology? Human genetic support, sponsor type and clinical success (pilot)},
-  year    = {2026},
-  version = {0.1.0-pilot},
-  url     = {https://github.com/lappunovmark/vc-genetics-pilot}
-}
-```
+## More
+* [Detailed results, validation and corrections](docs/results.md)
+* [Methods and limitations](docs/methods.md) · [Data dictionary](docs/data_dictionary.md)
+* [Pipeline, how to run it, checks and licences](docs/pipeline.md): `make all` rebuilds everything, `make check` runs
+  the tests
+* [Open issues and next steps](https://github.com/lappunovmark/vc-genetics-pilot/issues)
 
 ## Author
-**Mark Lapunov**, MSc Bioscience Innovation and Enterprise, University College London. Previously a research intern at
-Skoltech, the Russian Academy of Sciences and Westlake University.
+**Mark Lapunov**, MSc Bioscience Innovation and Enterprise, University College London. Previously a research intern
+at Skoltech, the Russian Academy of Sciences and Westlake University.
 [LinkedIn](https://www.linkedin.com/in/mark-lapunov-085909240) · [GitHub](https://github.com/lappunovmark)
 
-## Licence
-Code: MIT (see `LICENSE`). Derived tables in `results/` keep the licences of their sources: Open Targets Platform
-(CC0), ClinicalTrials.gov (public domain), NIH RePORTER (public), and Minikel et al. (2024) `genetic_support` data
-(CC BY 4.0; Minikel EV, Painter JL, Dong CC, Nelson MR. *Refining the impact of genetic evidence on clinical success.*
-Nature 629, 624–629 (2024), doi:10.1038/s41586-024-07316-0).
+To cite, use **Cite this repository** (from `CITATION.cff`). Code is MIT-licensed; data keep their sources' licences,
+including CC BY 4.0 for the genetic-support data of Minikel et al. (2024), doi:10.1038/s41586-024-07316-0.
