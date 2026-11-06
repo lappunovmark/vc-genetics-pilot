@@ -54,7 +54,8 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Stop-reason classifier v3 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
   κ 0.79); financial or strategic class precision 0.91, recall 0.86. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
-  ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)), so these figures may change.
+  ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2); the coding sheet, codebook and scoring script
+  are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
 * 6 Nov 2026: results depended on the run date. `build_panel26.py` counted a trial as started if its start date was
