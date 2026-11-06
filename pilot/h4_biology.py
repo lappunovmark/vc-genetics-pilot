@@ -250,6 +250,7 @@ def analyse(T, L, out):
         gs_ante=("gs_ante", "mean"),
         gs_post=("gs_post", "mean"),
         gs_ante_noomim=("gs_ante_noomim", "mean"),
+        **({"gs_ot_ante": ("gs_ot_ante", "mean")} if "gs_ot_ante" in T.columns else {}),
     )
     out.extend(
         [
