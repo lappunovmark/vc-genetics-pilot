@@ -36,8 +36,8 @@ and sponsor group, with standard errors clustered by drug. Small sponsors: indus
 20 trials (trial-stop model).
 
 **Limits.** Sponsor size and Form D filings stand in for venture backing, which is not measured directly yet. The
-stop-reason classifier is validated against provisional labels ([#8](https://github.com/lappunovmark/vc-genetics-pilot/issues/8)),
-and most approvals carry no date ([#10](https://github.com/lappunovmark/vc-genetics-pilot/issues/10)).
+stop-reason classifier is validated against provisional labels ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)),
+and most approvals carry no date ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4)).
 
 ## More
 * [Detailed results, validation and corrections](docs/results.md)
