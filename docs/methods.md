@@ -108,6 +108,14 @@ models for US sponsors only.
 start in 2009, the Form D models use programmes and phase entries from 2010 onwards. In the selection models,
 therapeutic areas with fewer than three supported programmes are pooled into "other" to avoid separation.
 
+**Amount raised.** Filings are folded into offerings: an amendment (Form D/A) restates the offering it amends, so
+each chain of filings linked by `PREVIOUSACCESSIONNUMBER` is one offering, dated by its first filing, with the amount
+sold taken from the latest filing (amendments report the cumulative amount). Every offering in a sponsor's history
+under the main dating rule is listed in `results/formd_sponsor_offerings.csv.gz`. For each programme or phase entry
+the amounts sold in the sponsor's offerings dated before the trial year are summed (nominal US dollars, no deflation)
+and banded: no prior Form D, under $10M, $10–50M, $50M or more. `formd_models.py` fits the selection and advancement
+models with the bands (reference: no prior Form D) and, among filers, with log10(1 + millions raised).
+
 The extract used for the published results is on the `formd-data` branch (`data_formd/`), with the fetch log.
 
 ## Reference date

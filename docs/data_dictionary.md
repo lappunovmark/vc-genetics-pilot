@@ -70,7 +70,8 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 |---|---|
 | `formd_match_review.csv` | One row per matched sponsor name: match type and score, the issuer name shown for review, strict-name flag and hand-review decision, `accepted`, own CIKs (`;`-separated when pooled), numbers of candidate names, own CIKs and own names, first and last filing year, filings and largest amount sold under the main dating rule, the two sensitivity datings (`formd_first_year_own`, `formd_first_year_cik`), and the reviewed candidate's own first year and filings |
 | `formd_sponsors.csv` | Accepted matches: one row per normalised sponsor name with the three first-year datings |
-| `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the dating sensitivities, the dated Open Targets measure and the US-only comparison |
+| `formd_sponsor_offerings.csv.gz` | Every offering in an accepted sponsor's history under the main dating rule: `offering` (accession number of the first filing of the chain), CIK and issuer name at that filing, `year` (first filing), `sale_date`, `sold` (amount sold on the latest filing of the chain, USD), `equity` / `debt` / `business_combination` flags, `investors` (number already invested, latest filing), `n_filings` in the chain |
+| `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the amount raised before the trial (bands and log-linear among filers), the dating sensitivities, the dated Open Targets measure and the US-only comparison |
 
 ## Other
 

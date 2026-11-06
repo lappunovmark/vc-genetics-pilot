@@ -36,6 +36,12 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   financing records, else legal form and place names; 1,990 programmes, 47% with a prior Form D) gives OR 0.89
   (0.51–1.56) for selection, 0.89 (0.69–1.17) for advancement and an interaction of 0.89 (0.37–2.12), so the
   significant interaction in the full sample reflects the mix of US and non-US sponsors among non-filers.
+* Amount raised: summing the amounts sold in the sponsor's Form D offerings before the first trial (3,060 offerings of
+  the 801 linked sponsors, median $6.0M) shows no dose–response. Programmes of sponsors that had raised under $10M,
+  $10–50M and $50M or more had ex-ante support in 4.2%, 4.8% and 3.2% of cases against 5.7% without a prior Form D
+  (adjusted OR 0.75, 0.39–1.44; 1.11, 0.59–2.08; 0.51, 0.23–1.11); among filers, each tenfold increase in the amount
+  raised changes the odds of support by 0.85 (0.56–1.30). Advancement does not rise with the amount either (0.92,
+  0.72, 1.02 for the three bands; log-linear 1.12, 0.85–1.48 among filers).
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly

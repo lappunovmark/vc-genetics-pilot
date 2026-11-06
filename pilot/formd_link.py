@@ -22,9 +22,15 @@ are kept for sensitivity: formd_first_year_own counts only filings under the spo
 the same CIK (a successor name is one whose filing lists an own name as a previous name); formd_first_year_cik counts
 every filing of every own CIK. EDGAR state suffixes such as "/DE/" are removed before names are compared.
 
+Offerings. An amendment (Form D/A) restates the offering it amends, so filings are folded into offerings by following
+PREVIOUSACCESSIONNUMBER to the first filing of the chain; an offering is dated by its first filing and its amount sold
+is the figure on the latest filing of the chain (amendments report the cumulative amount). Offerings whose chain
+starts outside the extract (filed before 2009 or under another industry group) start at the first filing seen.
+
 Writes RESULTS_DIR/formd_match_review.csv (every candidate sponsor name with the chosen issuer record), formd_sponsors.csv
-(accepted sponsors: first filing year under the three definitions, filings, largest amount sold, CIKs) and
-formd_summary.txt.
+(accepted sponsors: first filing year under the three definitions, filings, largest amount sold, CIKs),
+formd_sponsor_offerings.csv.gz (every offering in an accepted sponsor's history under the main rule: year, amount sold,
+security type, number of investors) and formd_summary.txt.
 """
 
 import os
@@ -70,6 +76,48 @@ def filings(path):
     f = f[f.CIK.notna() & f.CIK.ne("") & f.filing_year.notna() & f.ENTITYNAME.notna()].copy()
     f["fname"] = f.ENTITYNAME.map(strict)
     return f
+
+
+def offerings(f):
+    """One row per offering, amendments folded into the filing they amend (see the module docstring)."""
+    prev = dict(zip(f.ACCESSIONNUMBER, f.PREVIOUSACCESSIONNUMBER))
+    known = set(f.ACCESSIONNUMBER)
+
+    def root(a):
+        seen = set()
+        while True:
+            p = prev.get(a)
+            if not isinstance(p, str) or p not in known or p in seen:
+                return a
+            seen.add(a)
+            a = p
+
+    f = f.assign(
+        offering=f.ACCESSIONNUMBER.map(root), investors=pd.to_numeric(f.TOTALNUMBERALREADYINVESTED, errors="coerce")
+    )
+    f = f.sort_values(["offering", "FILING_DATE", "ACCESSIONNUMBER"], kind="mergesort")
+    flag = lambda c: (c.astype(str).str.lower().eq("true")).any()  # noqa: E731
+    o = f.groupby("offering").agg(
+        CIK=("CIK", "first"),
+        fname=("fname", "first"),
+        issuer_name=("ENTITYNAME", "first"),
+        year=("filing_year", "min"),
+        sale_date=("SALE_DATE", "first"),
+        sold=("sold", "last"),
+        sold_max=("sold", "max"),
+        equity=("ISEQUITYTYPE", flag),
+        debt=("ISDEBTTYPE", flag),
+        business_combination=("ISBUSINESSCOMBINATIONTRANS", flag),
+        investors=("investors", "last"),
+        n_filings=("ACCESSIONNUMBER", "size"),
+    )
+    o["sold"] = o.sold.fillna(o.sold_max)
+    o["year"] = o.year.astype(int)
+    # every (CIK, name at filing time) that appears in the chain, so that an offering amended under a later name is
+    # still found from the earlier name's history
+    k = f[["offering", "CIK", "fname"]].drop_duplicates()
+    keys = {off: list(zip(g.CIK, g.fname)) for off, g in k.groupby("offering", sort=False)}
+    return o.drop(columns="sold_max"), keys
 
 
 def name_history(f):
@@ -145,7 +193,9 @@ def own_and_successor_names(own, succ):
 
 
 def resolve(m, hist, succ, dec):
-    """One record per sponsor name: pooled history of its own and successor names, or the top candidate for review."""
+    """One record per sponsor name: pooled history of its own and successor names, or the top candidate for review.
+
+    Also returns, per accepted sponsor, the (CIK, name) pairs of its history under the main dating rule."""
     m = m.copy()
     m["strict_eq"] = [strict(a) == strict(b) for a, b in zip(m.lead_sponsor, m.issuer_name)]
     m["decision"] = [dec.get((strict(a), b)) for a, b in zip(m.lead_sponsor, m.fname)]
@@ -158,7 +208,7 @@ def resolve(m, hist, succ, dec):
         kind="mergesort",
         na_position="last",
     )
-    rows = []
+    rows, history = [], {}
     for norm, g in m.groupby("norm", sort=False):
         top = g.iloc[0]
         own = g[g.same_company]
@@ -175,6 +225,8 @@ def resolve(m, hist, succ, dec):
             h = hist[(hist.index.get_level_values("CIK") == original) | hist.index.isin(list(keys))]
         else:
             h = h_cik
+        if len(own) and len(h):
+            history[norm] = set(h.index)
         rows.append(
             {
                 "match": top.match,
@@ -205,7 +257,22 @@ def resolve(m, hist, succ, dec):
                 "candidate_filings": int(top.n_filings),
             }
         )
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows), history
+
+
+def sponsor_offerings(o, keys, history):
+    """Offerings in each accepted sponsor's history: an offering belongs to a sponsor when any filing of its chain was
+    made under a (CIK, name) pair of that sponsor's history under the main dating rule."""
+    owner = {}
+    for norm, hk in history.items():
+        for key in hk:
+            owner.setdefault(key, set()).add(norm)
+    rows = []
+    for off, ks in keys.items():
+        norms = set().union(*(owner.get(k, set()) for k in ks))
+        rows.extend({"norm": n, "offering": off} for n in sorted(norms))
+    so = pd.DataFrame(rows).merge(o, left_on="offering", right_index=True)
+    return so.sort_values(["norm", "year", "offering"], kind="mergesort").reset_index(drop=True)
 
 
 def main(formd_csv, R):
@@ -215,9 +282,16 @@ def main(formd_csv, R):
     cand = candidates(f)
     sp = sponsors(R)
     m = match(sp, cand).rename(columns={"sbir_norm": "issuer_norm"})
-    m = resolve(m, hist, succ, decisions())
+    m, history = resolve(m, hist, succ, decisions())
     m.sort_values(["accepted", "match", "score", "norm"]).to_csv(f"{R}/formd_match_review.csv", index=False)
     acc = m[m.accepted]
+    o, keys = offerings(f)
+    so = sponsor_offerings(o, keys, history)
+    so.to_csv(f"{R}/formd_sponsor_offerings.csv.gz", index=False)
+    # the earliest offering of every sponsor must be the first filing year of the main dating rule
+    first_off = so.groupby("norm").year.min()
+    mismatch = acc[acc.norm.map(first_off).ne(pd.to_numeric(acc.formd_first_year))]
+    assert len(mismatch) == 0, mismatch[["norm", "formd_first_year"]].head()
     acc[
         [
             "norm",
@@ -244,6 +318,12 @@ def main(formd_csv, R):
         f"{int((acc.n_own_ciks > 1).sum())}; first year under the main rule differs from the own-names-only bound for "
         f"{int((acc.formd_first_year != acc.formd_first_year_own).sum())} sponsors and from the whole-CIK bound for "
         f"{int((acc.formd_first_year != acc.formd_first_year_cik).sum())}",
+        f"offerings: {len(o)} from {len(f)} filings ({int((o.n_filings > 1).sum())} amended at least once; "
+        f"{int(f.ISAMENDMENT.astype(str).str.lower().eq('true').sum())} amendments, of which "
+        f"{int((f.ISAMENDMENT.astype(str).str.lower().eq('true') & ~f.PREVIOUSACCESSIONNUMBER.isin(set(f.ACCESSIONNUMBER))).sum())} "
+        f"amend a filing outside the extract); offerings of accepted sponsors: {len(so)} "
+        f"({int(so.equity.sum())} with equity, {int(so.debt.sum())} with debt; amount sold known for "
+        f"{int(so.sold.notna().sum())}, median ${so.sold.median():,.0f})",
         "",
         "Share of sponsor names matched to a Form D issuer, by tier:",
         sp.assign(matched=sp.norm.isin(acc.norm))

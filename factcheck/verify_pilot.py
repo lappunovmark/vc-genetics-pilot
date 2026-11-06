@@ -1,6 +1,7 @@
 """Recompute every number quoted in Section 5.1 / abstract of the working paper from the pilot outputs."""
 
 import json
+import os
 
 import pandas as pd
 
@@ -61,17 +62,20 @@ T6 = T[
 print("entries in main model (6 tiers):", len(T6), "| years", T6.entry_year.min(), T6.entry_year.max())
 print("ex-ante support share by tier:")
 print(T6.groupby("sponsor_tier").gs_ante.mean().round(4).to_string())
-P = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz")
-I = P[P.insight]
-both = (I.gs_post.fillna(False) & I.gs_ot_post).sum()
-print(
-    "label agreement: Minikel-supported",
-    int(I.gs_post.fillna(False).sum()),
-    "OT-supported",
-    int(I.gs_ot_post.sum()),
-    "both",
-    int(both),
-)
+if os.path.exists(f"{R}/gs_ot_programmes.csv.gz"):  # produced locally by gs_ot_dated.py, not versioned
+    P = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz")
+    I = P[P.insight]
+    both = (I.gs_post.fillna(False) & I.gs_ot_post).sum()
+    print(
+        "label agreement: Minikel-supported",
+        int(I.gs_post.fillna(False).sum()),
+        "OT-supported",
+        int(I.gs_ot_post.sum()),
+        "both",
+        int(both),
+    )
+else:
+    print("gs_ot_programmes.csv.gz not present: label agreement is in results/gs_ot_models.txt")
 r = pd.read_csv(f"{R}/rq2_rates.csv")
 print(
     r[r.year.between(2018, 2025)].pivot(index="year", columns="group", values="rate_fin_per_1000").round(2).to_string()
