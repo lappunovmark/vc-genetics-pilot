@@ -156,8 +156,13 @@ def main(path, out):
                 "=" * 90,
                 f"event study ({y}): small (<=20 trials) vs top-20, gap by year relative to 2021",
                 f"N={int(res.nobs)}",
-                es.to_string(),
             ]
+            if res.mle_retvals["converged"]:
+                lines.append(es.to_string())
+            else:
+                # with a handful of events per year the year x group cells separate; the coefficients are not
+                # interpretable and are not printed
+                lines.append(f"NOT CONVERGED (quasi-separation; events={int(e.y.sum())}): not estimable")
     except Exception as ex:
         lines.append(f"models failed: {ex!r}")
     open(f"{out}/rq2_did.txt", "w").write("\n".join(lines))
