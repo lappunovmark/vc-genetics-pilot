@@ -151,20 +151,23 @@ fit(f"adv ~ formd * gs + {base}", E, "Advancement ~ prior Form D x ex-ante suppo
 # the latest filing of each offering; formd_link.py). Bands: none (no prior Form D), under $10M, $10-50M, $50M or more.
 O = pd.read_csv(f"{R}/formd_sponsor_offerings.csv.gz")
 HIST = {n: (g.year.to_numpy(), g.sold.fillna(0).to_numpy()) for n, g in O.groupby("norm")}
+# equity-only sensitivity: offerings that include equity and are not business combinations (reverse-merger PIPEs)
+OE = O[O.equity.astype(bool) & ~O.business_combination.astype(bool)]
+HIST_EQ = {n: (g.year.to_numpy(), g.sold.fillna(0).to_numpy()) for n, g in OE.groupby("norm")}
 BANDS = ["none", "<$10M", "$10-50M", ">=$50M"]
 
 
-def raised_before(names, years):
+def raised_before(names, years, hist=HIST):
     """Cumulative USD millions sold in the sponsor's offerings dated before the trial year (0 when none)."""
     out = []
     for s, y in zip(names, years):
-        h = HIST.get(rq2_stops.norm_sponsor(s))
+        h = hist.get(rq2_stops.norm_sponsor(s))
         out.append(float(h[1][h[0] < y].sum()) / 1e6 if h is not None else 0.0)
     return pd.Series(out, index=names.index)
 
 
-def band(d):
-    r = d.raised
+def band(d, col="raised"):
+    r = d[col]
     b = np.select([d.formd.eq(0), r < 10, r < 50], BANDS[:3], default=BANDS[3])
     return pd.Categorical(b, categories=BANDS)
 
@@ -209,6 +212,20 @@ EF = E[E.formd.eq(1)].assign(log_raised=lambda d: np.log10(1 + d.raised))
 fit("y ~ log_raised + C(tier) + C(yb) + C(area) + C(modality)", PF, "H1, Form D filers only: ex-ante support ~ log10(1 + USD millions raised before the first trial)", ("log_raised",))  # fmt: skip
 fit(f"adv ~ log_raised + gs + {base}", EF, "Advancement, Form D filers only ~ log10(1 + USD millions raised before the entry) + ex-ante support", ("log_raised", "gs"))  # fmt: skip
 fit(f"adv ~ log_raised * gs + {base}", EF, "Advancement, Form D filers only ~ log10(1 + raised) x ex-ante support", ("log_raised", "gs", "log_raised:gs"))  # fmt: skip
+# equity-only amounts (debt-only offerings and business-combination placements excluded)
+P["raised_eq"] = raised_before(P.first_sponsor, P.first_year, HIST_EQ)
+E["raised_eq"] = raised_before(E.lead_sponsor, E.entry_year, HIST_EQ)
+PQ = P.assign(band=band(P, "raised_eq"))
+EQ = E.assign(band=band(E, "raised_eq"))
+out.append(
+    "=" * 100
+    + "\nSensitivity, equity-only amounts (no debt-only offerings, no business combinations): programmes by band"
+)
+out.append(PQ.groupby("band", observed=False).agg(n=("drug", "size"), raised_median=("raised_eq", "median"), gs_ante=("y", "mean")).round(4).to_string())  # fmt: skip
+fit("y ~ C(band) + C(tier) + C(yb) + C(area) + C(modality)", PQ, "H1 [equity only]: ex-ante support ~ amount raised before the first trial (bands)", keep_bands)  # fmt: skip
+fit(f"adv ~ C(band) + gs + {base}", EQ, "Advancement [equity only] ~ amount raised before the entry (bands) + ex-ante support", keep_bands + ("gs",))  # fmt: skip
+PFQ = pool_sparse(P[P.formd.eq(1)].assign(log_raised=lambda d: np.log10(1 + d.raised_eq)))
+fit("y ~ log_raised + C(tier) + C(yb) + C(area) + C(modality)", PFQ, "H1 [equity only], Form D filers only: ex-ante support ~ log10(1 + USD millions of equity raised)", ("log_raised",))  # fmt: skip
 
 # Sensitivity: the two bounds on the dating of the first Form D
 for lab, name in (("own names only (lower bound on history)", "own"), ("whole CIK history (upper bound)", "cik")):
