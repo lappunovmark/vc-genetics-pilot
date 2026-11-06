@@ -17,10 +17,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   industry group. Among small sponsors, stops citing lack of funding rose 2.45-fold (1.57–3.82); in the other groups
   such stops are rare.
 * Trials stopped for financial or strategic reasons carried no more ex-ante genetic support than completed trials
-  (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04, most clearly in trials that ended in 2022 or later). Whether they
+  (9.0% vs 10.4%; adjusted OR 0.75, 0.54–1.04, most clearly in trials that ended in 2022 or later). Whether they
   carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.87,
   0.61–1.23), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
-  there is no gap at all (11.0% vs 11.5%; OR 0.88, 0.64–1.22; trials ending 2022 or later OR 1.02, 0.70–1.49).
+  there is no gap at all (11.0% vs 11.5%; OR 0.88, 0.64–1.22; trials ending 2022 or later OR 1.03, 0.71–1.49).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
   Open Targets measure 0.83, 0.49–1.41).
 * SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
