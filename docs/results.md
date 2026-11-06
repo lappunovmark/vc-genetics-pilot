@@ -46,8 +46,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 3.1 at $10–50M, 1.8 at $50M or more), with no steeper rise for less-funded sponsors
   (interactions 0.99, 1.29, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
-  reasons more often throughout (OR 1.62, 1.21–2.17), while stops citing lack of funding (107 in all) were more
-  frequent among sponsors with under $10M raised (OR 2.41, 1.11–5.24, on 7 such stops).
+  reasons more often throughout (OR 1.62, 1.21–2.17), but among sponsors classified as US-based the excess is small
+  (1.25, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
+  funding (107 in all) were more frequent among sponsors with under $10M raised (OR 2.41, 1.11–5.24, on 7 such
+  stops; too few events for a US-only model).
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
