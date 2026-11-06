@@ -6,7 +6,8 @@ Capital behind the sponsor = amount sold in its Form D offerings dated before th
 (results/formd_sponsor_offerings.csv.gz, main dating rule), banded as in formd_models.py: no prior Form D,
 under $10M, $10-50M, $50M or more.
 Rates are financial or strategic stops (and stops citing lack of funding) per 1,000 active trial-years, 2016-21 vs
-2022-25, by band, with Poisson rate ratios; logits on trial-years with standard errors clustered by sponsor.
+2022-25, by band, with Poisson rate ratios; logits on trial-years with standard errors clustered by sponsor. The logits are
+repeated for sponsors classified as US (sponsor_region.py), because sponsors without a Form D include non-US firms.
 Writes RESULTS_DIR/formd_stops.txt and formd_stops_rates.csv.
 """
 
@@ -128,39 +129,71 @@ def main(ctgov, R):
     out.append(show.round(3).to_string(index=False))
     ty["phase"] = ty.phases.fillna("").str.extract(r"(PHASE[123])", expand=False).fillna("other")
     ty["yb"] = pd.cut(ty.start_year, [0, 2009, 2014, 2019, 2100]).astype(str)
-    for y, lab in (("fin_t", "financial or strategic stop"), ("nofund_t", "stop citing lack of funding")):
-        ty["y"] = ty[y]
-        for f, title in (
-            (
-                "y ~ C(band) * post + C(group) + C(phase) + C(yb)",
-                f"{lab} per trial-year ~ band x post-2022 (reference: no prior Form D, pre-2022)",
-            ),
-            ("y ~ C(band) + post + C(group) + C(phase) + C(yb)", f"{lab} per trial-year ~ band + post-2022"),
-        ):
-            try:
-                r = smf.logit(f, ty).fit(
-                    disp=0,
-                    maxiter=300,
-                    cov_type="cluster",
-                    cov_kwds={"groups": pd.factorize(ty.sponsor_norm.fillna("?"))[0]},
-                )
-                t = r.summary2().tables[1]
-                t = t.loc[
-                    [i for i in t.index if i.startswith("C(band)") or i == "post"],
-                    ["Coef.", "Std.Err.", "P>|z|", "[0.025", "0.975]"],
+
+    def fit(d, f, title):
+        try:
+            r = smf.logit(f, d).fit(
+                disp=0,
+                maxiter=300,
+                cov_type="cluster",
+                cov_kwds={"groups": pd.factorize(d.sponsor_norm.fillna("?"))[0]},
+            )
+            t = r.summary2().tables[1]
+            t = t.loc[
+                [i for i in t.index if i.startswith("C(band)") or i == "post"],
+                ["Coef.", "Std.Err.", "P>|z|", "[0.025", "0.975]"],
+            ]
+            t["OR"], t["OR_lo"], t["OR_hi"] = np.exp(t["Coef."]), np.exp(t["[0.025"]), np.exp(t["0.975]"])
+            out.extend(
+                [
+                    "=" * 100,
+                    title,
+                    f,
+                    f"N={int(r.nobs)} trial-years; clusters (sponsors)={d.sponsor_norm.nunique()}; events={int(d.y.sum())}",
+                    t.round(4).to_string(),
                 ]
-                t["OR"], t["OR_lo"], t["OR_hi"] = np.exp(t["Coef."]), np.exp(t["[0.025"]), np.exp(t["0.975]"])
-                out.extend(
-                    [
-                        "=" * 100,
-                        title,
-                        f,
-                        f"N={int(r.nobs)} trial-years; clusters (sponsors)={ty.sponsor_norm.nunique()}; events={int(ty.y.sum())}",
-                        t.round(4).to_string(),
-                    ]
-                )
-            except Exception as e:
-                out.extend(["=" * 100, title, f, f"failed: {e!r}"])
+            )
+        except Exception as e:
+            out.extend(["=" * 100, title, f, f"failed: {e!r}"])
+
+    specs = (
+        (
+            "y ~ C(band) * post + C(group) + C(phase) + C(yb)",
+            "{lab} per trial-year ~ band x post-2022 (reference: no prior Form D, pre-2022)",
+        ),
+        ("y ~ C(band) + post + C(group) + C(phase) + C(yb)", "{lab} per trial-year ~ band + post-2022"),
+    )
+    outcomes = (("fin_t", "financial or strategic stop"), ("nofund_t", "stop citing lack of funding"))
+    for y, lab in outcomes:
+        ty["y"] = ty[y]
+        for f, title in specs:
+            fit(ty, f, title.format(lab=lab))
+    # US sponsors only: "no prior Form D" otherwise mixes non-US sponsors with US sponsors that raised no private money
+    import sponsor_region  # noqa: E402
+
+    us_norms, foreign_norms = sponsor_region.financing_locations(f"{R}/formd_match_review.csv")
+    names = ct.drop_duplicates("sponsor_norm")[["sponsor_norm", "lead_sponsor"]]
+    region = dict(
+        zip(
+            names.sponsor_norm,
+            [
+                sponsor_region.classify(n, s, us_norms, foreign_norms)
+                for s, n in zip(names.sponsor_norm, names.lead_sponsor)
+            ],
+        )
+    )
+    ty["region"] = ty.sponsor_norm.map(region)
+    tu = ty[ty.region.eq("US")].copy()
+    out.append("=" * 100 + "\nUS sponsors only (sponsor_region.py): trial-years and events by band")
+    out.append(
+        tu.groupby(["band", "post"], observed=False)
+        .agg(trial_years=("nct_id", "size"), fin=("fin_t", "sum"), nofund=("nofund_t", "sum"))
+        .to_string()
+    )
+    for y, lab in outcomes:
+        tu["y"] = tu[y]
+        for f, title in specs:
+            fit(tu, f, "US sponsors only: " + title.format(lab=lab))
     open(f"{R}/formd_stops.txt", "w").write("\n".join(out))
     print("\n".join(out))
 
