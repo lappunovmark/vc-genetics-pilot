@@ -121,14 +121,17 @@ calendar advances (91 reports between 17 October and 6 November 2026).
 
 * Form D marks private placements, not venture capital as such: some venture rounds are never filed, some filers are
   not venture-backed, and only issuers raising money in the US file. "No prior Form D" therefore mixes non-US
-  sponsors with US sponsors that raised no private money; a US-only comparison is the next step.
+  sponsors with US sponsors that raised no private money; the US-only comparison above (`sponsor_region.py`, a
+  name-based heuristic that leaves 20% of programmes unclassified) gives the same answer for selection and
+  advancement and no support × Form D interaction.
 * Most approval records carry no date, so an approval that preceded a phase entry can count as advancement; the
   dated variants above bound the effect (genetic premium 2.48 → 2.53 when such approvals are removed, 2.25 with trials
   only).
 * Registry programmes include investigator-initiated trials of marketed drugs; levels of relative success are therefore
   not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
-* Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
-  Falaguera et al. (2026) evidence timestamps will replace this.
+* Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity and
+  a parallel measure from Open Targets evidence dated by Falaguera et al. (2026), reported for every model. Where the
+  two measures disagree (H4), the paper reports both.
 * The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.
 * A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
   shell's earlier placements; the own-names-only bound shows how much this can matter.
