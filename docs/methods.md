@@ -62,6 +62,13 @@ indications with genetic insight.
 * **Mediation (H2).** Karlson–Holm–Breen decomposition of the tier gap in advancement through ex-ante support
   (`khb26.py`).
 
+**Convergence.** A control category with no or almost no events makes a logit quasi-separated: its coefficient drifts
+towards minus infinity and the optimiser never reports convergence, although the coefficients of interest are stable
+to three or four decimals. Every logit in the pipeline is checked with `factcheck/convergence_audit.py`; where a
+sample has such categories (the novel-drug, trial-level H4, SBIR and stop-rate models), nominal controls with fewer
+than three events are pooled into "other" and sparse start-period bins are merged into the next bin
+(`pilot/pooling.py`), and any fit that still fails to converge is flagged in the output.
+
 ## Trial stops around the 2022 funding downturn (`rq2_stops.py`, `rq2_rr.py`, `stopreasons.py`)
 
 `why_stopped` texts of terminated, withdrawn and suspended industry drug trials are classified by a keyword
