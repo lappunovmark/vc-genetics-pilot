@@ -8,3 +8,4 @@ rerun_all_20261106: full pipeline re-run from code at GitHub main 485f6eb + this
 reference_date: 2026-10-17 (PILOT_ASOF; see docs/methods.md)
 formd_offerings_20261106: formd_link.py and formd_models.py re-run on the author Mac (Python 3.9.6, pandas 2.2.3) from data_formd/formd_biopharma.csv.gz; formd_match_review.csv and formd_sponsors.csv byte-identical to the previous run; new formd_sponsor_offerings.csv.gz identical in content under Python 3.13 / pandas 3.0.5
 formd_stops_20261106: formd_stops.py run on the author Mac (Python 3.9.6, pandas 2.2.3) from data/ctgov_all.csv (snapshot 2026-10-17) and results/formd_sponsor_offerings.csv.gz
+robust_20261106b: robust26.py re-run (author Mac, Python 3.9.6, pandas 2.2.3; byte-identical under Python 3.13 / pandas 3.0.5) after pooling sparse areas in the novel-drug H1 models; only those two models changed

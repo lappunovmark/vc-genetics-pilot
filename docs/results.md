@@ -8,7 +8,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Ex-ante genetic support at phase entry: OR 2.48 (2.10–2.93) for advancing a phase; no difference between small
   industry sponsors and top-20 pharma (interaction OR 1.26, 0.75–2.12).
 * Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
-  for novel drugs (0.79, 0.49–1.29).
+  for novel drugs (0.80, 0.50–1.29).
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
@@ -66,6 +66,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
+* 6 Nov 2026: the two novel-drug selection models in `robust26.py` had not converged (quasi-separation: no novel-drug
+  programme in the infection area has ex-ante support). Areas with fewer than three supported programmes are now
+  pooled, as in the Form D models; the small-sponsor OR moves from 0.79 (0.49–1.29) to 0.80 (0.50–1.29) and the
+  large-sponsor OR from 1.62 (1.02–2.57) to 1.63 (1.02–2.58). Every other logit in the pipeline converges
+  (`factcheck/convergence_audit.py`); non-converged fits are now flagged in `robust.txt`.
 * 6 Nov 2026: results depended on the run date. `build_panel26.py` counted a trial as started if its start date was
   not later than *today*, so trials registered with a future start date entered the panel as the calendar advanced
   (35,896 programmes on 6 November instead of 35,887). The reference date is now fixed at 17 October 2026 (the data
