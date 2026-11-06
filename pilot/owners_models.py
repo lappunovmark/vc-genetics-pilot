@@ -21,6 +21,7 @@ import statsmodels.formula.api as smf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rq2_stops
+from pooling import pool_sparse
 
 R = sys.argv[1]
 IND = ["Industry, large (>30)", "Industry, mid (6-30)", "Industry, small (<=5 drugs)"]
@@ -51,6 +52,7 @@ def mark(names, table, default=False):
 
 def fit(f, d, title, keep):
     try:
+        d = pool_sparse(d, f)  # pooling.py: sparse control categories, so that the fit converges
         r = smf.logit(f, d).fit(disp=0, maxiter=300, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
         t = r.summary2().tables[1]
         t = t.loc[[i for i in t.index if i in keep], ["Coef.", "Std.Err.", "P>|z|", "[0.025", "0.975]"]]
@@ -68,11 +70,6 @@ def fit(f, d, title, keep):
         )
     except Exception as e:
         out.extend(["=" * 100, title, f, f"failed: {e!r}"])
-
-
-def pool_sparse(d, col="area", min_events=3):
-    ev = d.groupby(col).y.transform("sum")
-    return d.assign(**{col: d[col].where(ev.ge(min_events), "other")})
 
 
 P = pd.read_csv(f"{R}/programmes.csv.gz")
@@ -104,12 +101,12 @@ out.append(
 base_p = "C(tier) + C(yb) + C(area) + C(modality)"
 fit(
     f"y ~ vc + {base_p}",
-    pool_sparse(P),
+    P,
     "H1: ex-ante support at first trial ~ VC-backed (all non-top-20 industry)",
     ("vc",),
 )
-fit(f"y ~ vc + public + {base_p}", pool_sparse(P), "H1: ex-ante support ~ VC-backed + public", ("vc", "public"))
-PP = pool_sparse(P[P.public.eq(1)].copy())
+fit(f"y ~ vc + public + {base_p}", P, "H1: ex-ante support ~ VC-backed + public", ("vc", "public"))
+PP = P[P.public.eq(1)].copy()
 fit(f"y ~ vc + {base_p}", PP, "H1, public sponsors only: ex-ante support ~ VC-backed", ("vc",))
 fit(
     f"y ~ vc + crossover + {base_p}",
@@ -119,7 +116,7 @@ fit(
 )
 fit(
     f"y ~ public_at_trial + {base_p}",
-    pool_sparse(P),
+    P,
     "H1: ex-ante support ~ public at the time of the first trial",
     ("public_at_trial",),
 )
@@ -127,10 +124,10 @@ if os.path.exists(f"{R}/gs_ot_programmes.csv.gz"):
     G = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz", usecols=["drug", "indication_mesh_id", "gs_ot_ante_first"])
     P2 = P.drop(columns="y").merge(G, on=["drug", "indication_mesh_id"], how="left")
     P2["y"] = P2.gs_ot_ante_first.fillna(False).astype(int)
-    fit(f"y ~ vc + {base_p}", pool_sparse(P2), "H1 [dated OT evidence]: ex-ante support ~ VC-backed", ("vc",))
+    fit(f"y ~ vc + {base_p}", P2, "H1 [dated OT evidence]: ex-ante support ~ VC-backed", ("vc",))
     fit(
         f"y ~ vc + {base_p}",
-        pool_sparse(P2[P2.public.eq(1)].copy()),
+        P2[P2.public.eq(1)].copy(),
         "H1 [dated OT evidence], public sponsors only",
         ("vc",),
     )

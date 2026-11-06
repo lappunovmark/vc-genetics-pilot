@@ -20,6 +20,7 @@ import statsmodels.formula.api as smf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rq2_stops
+from pooling import pool_sparse
 
 BANDS = ["none", "<$10M", "$10-50M", ">=$50M"]
 PRE, POST = (2016, 2021), (2022, 2025)
@@ -132,6 +133,7 @@ def main(ctgov, R):
 
     def fit(d, f, title):
         try:
+            d = pool_sparse(d, f)  # pooling.py: sparse control categories, so that the fit converges
             r = smf.logit(f, d).fit(
                 disp=0,
                 maxiter=300,
@@ -149,7 +151,8 @@ def main(ctgov, R):
                     "=" * 100,
                     title,
                     f,
-                    f"N={int(r.nobs)} trial-years; clusters (sponsors)={d.sponsor_norm.nunique()}; events={int(d.y.sum())}",
+                    f"N={int(r.nobs)} trial-years; clusters (sponsors)={d.sponsor_norm.nunique()}; events={int(d.y.sum())}"
+                    + ("" if r.mle_retvals["converged"] else "; NOT CONVERGED"),
                     t.round(4).to_string(),
                 ]
             )

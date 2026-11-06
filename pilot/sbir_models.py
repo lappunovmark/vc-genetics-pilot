@@ -13,6 +13,9 @@ import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from pooling import pool_sparse  # noqa: E402
+
 R = sys.argv[1]
 IND = ["Industry, large (>30)", "Industry, mid (6-30)", "Industry, small (<=5 drugs)"]
 MOD = {
@@ -33,7 +36,8 @@ out = []
 
 def fit(f, d, title, keep):
     try:
-        r = smf.logit(f, d).fit(disp=0, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
+        d = pool_sparse(d, f)  # pooling.py: sparse control categories, so that the fit converges
+        r = smf.logit(f, d).fit(disp=0, maxiter=200, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
         t = r.summary2().tables[1]
         t = t.loc[[i for i in t.index if i in keep], ["Coef.", "Std.Err.", "P>|z|", "[0.025", "0.975]"]]
         t["OR"] = np.exp(t["Coef."])
@@ -44,7 +48,8 @@ def fit(f, d, title, keep):
                 "=" * 100,
                 title,
                 f,
-                f"N={int(r.nobs)}; clusters (drugs)={d.drug.nunique()}; sbir share={d.sbir.mean():.4f}",
+                f"N={int(r.nobs)}; clusters (drugs)={d.drug.nunique()}; sbir share={d.sbir.mean():.4f}"
+                + ("" if r.mle_retvals["converged"] else "; NOT CONVERGED"),
                 t.round(4).to_string(),
             ]
         )

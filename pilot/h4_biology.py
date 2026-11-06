@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gensup
 import rq2_stops
 import stopreasons
+from pooling import pool_sparse
 
 OUT = [
     "Completed",
@@ -140,7 +141,8 @@ def build(ot, R, ctg, mdir, fal=None):
 
 def fit(f, d, out, title, keep=("fin",)):
     try:
-        r = smf.logit(f, d).fit(disp=0, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
+        d = pool_sparse(d, f)  # pooling.py: sparse control categories, so that the fit converges
+        r = smf.logit(f, d).fit(disp=0, maxiter=200, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
         t = r.summary2().tables[1]
         t = t.loc[
             [i for i in t.index if i.startswith("C(outcome") or i in keep],
@@ -149,8 +151,15 @@ def fit(f, d, out, title, keep=("fin",)):
         t["OR"] = np.exp(t["Coef."])
         t["OR_lo"] = np.exp(t["[0.025"])
         t["OR_hi"] = np.exp(t["0.975]"])
+        conv = r.mle_retvals["converged"]
         out.extend(
-            ["=" * 100, title, f, f"N={int(r.nobs)}; clusters (drugs)={d.drug.nunique()}", t.round(4).to_string()]
+            [
+                "=" * 100,
+                title,
+                f,
+                f"N={int(r.nobs)}; clusters (drugs)={d.drug.nunique()}" + ("" if conv else "; NOT CONVERGED"),
+                t.round(4).to_string(),
+            ]
         )
         return t
     except Exception as e:
