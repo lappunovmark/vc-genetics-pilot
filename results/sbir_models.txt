@@ -11,14 +11,14 @@ sbir
 H1: ex-ante support at first trial ~ prior SBIR/STTR
 y ~ sbir + C(tier) + C(yb) + C(area) + C(modality)
 N=5857; clusters (drugs)=1847; sbir share=0.0820
-       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-sbir -0.3235    0.3332  0.3317 -0.9766  0.3297  0.7236  0.3766  1.3905
+       Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+sbir -0.3218    0.3324  0.333 -0.9733  0.3297  0.7249  0.3779  1.3905
 ====================================================================================================
 H1 [dated OT evidence]: ex-ante support ~ prior SBIR/STTR
 y ~ sbir + C(tier) + C(yb) + C(area) + C(modality)
 N=5857; clusters (drugs)=1847; sbir share=0.0820
-       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-sbir -0.1906    0.2716  0.4828 -0.7228  0.3417  0.8265  0.4854  1.4073
+       Coef.  Std.Err.  P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+sbir -0.2009    0.2731  0.462 -0.7362  0.3344  0.818  0.4789  1.3971
          n     adv      gs
 sbir                      
 0     5430  0.3260  0.0534

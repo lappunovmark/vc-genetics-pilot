@@ -22,7 +22,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   0.61–1.23), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
   there is no gap at all (11.0% vs 11.5%; OR 0.88, 0.64–1.22; trials ending 2022 or later OR 1.03, 0.71–1.49).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
-  Open Targets measure 0.83, 0.49–1.41).
+  Open Targets measure 0.82, 0.48–1.40).
 * SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
   2,964 non-top-20 industry sponsor names matched to an issuer (751 on identical names up to legal form, 50 accepted
   after hand review; 15 candidate matches not used). Among programmes first trialled in 2010 or later, sponsors with
@@ -47,8 +47,8 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   no prior Form D, 2.4 under $10M, 3.1 at $10–50M, 1.8 at $50M or more), with no steeper rise for less-funded sponsors
   (interactions 0.99, 1.29, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
   reasons more often throughout (OR 1.62, 1.21–2.17), but among sponsors classified as US-based the excess is small
-  (1.25, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
-  funding (107 in all) were more frequent among sponsors with under $10M raised (OR 2.41, 1.11–5.24, on 7 such
+  (1.29, 0.90–1.85), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
+  funding (107 in all) were more frequent among sponsors with under $10M raised (OR 2.51, 1.11–5.69, on 7 such
   stops; too few events for a US-only model).
 
 ## Validation
@@ -76,7 +76,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   moved little: novel-drug small-sponsor OR 0.79 (0.49–1.29) → 0.80 (0.50–1.29), large non-top-20 1.62 (1.02–2.57)
   → 1.63 (1.02–2.58); H4 financial stops 0.75 (0.53–1.04) → 0.75 (0.54–1.04) and, among trials ending 2022 or later,
   0.69 (0.46–1.02) → 0.69 (0.47–1.02); the other cells of Table P4 move by at most 0.04 (safety stops ending 2022 or
-  later, 1.96 → 1.92); the SBIR selection OR is unchanged at two decimals; the Form D models had converged already.
+  later, 1.96 → 1.92); the SBIR selection OR is unchanged at two decimals (with the dated measure 0.83 → 0.82); the
+  no-funding stop OR for sponsors with under $10M raised moves from 2.41 (1.11–5.24) to 2.51 (1.11–5.69) and the
+  US-only excess of financial stops among sponsors with $50M or more from 1.25 (0.88–1.79) to 1.29 (0.90–1.85); the
+  Form D selection and advancement models had converged already.
 * 6 Nov 2026: results depended on the run date. `build_panel26.py` counted a trial as started if its start date was
   not later than *today*, so trials registered with a future start date entered the panel as the calendar advanced
   (35,896 programmes on 6 November instead of 35,887). The reference date is now fixed at 17 October 2026 (the data
