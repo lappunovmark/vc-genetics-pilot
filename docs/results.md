@@ -66,11 +66,17 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
-* 6 Nov 2026: the two novel-drug selection models in `robust26.py` had not converged (quasi-separation: no novel-drug
-  programme in the infection area has ex-ante support). Areas with fewer than three supported programmes are now
-  pooled, as in the Form D models; the small-sponsor OR moves from 0.79 (0.49–1.29) to 0.80 (0.50–1.29) and the
-  large-sponsor OR from 1.62 (1.02–2.57) to 1.63 (1.02–2.58). Every other logit in the pipeline converges
-  (`factcheck/convergence_audit.py`); non-converged fits are now flagged in `robust.txt`.
+* 6 Nov 2026: convergence. An audit of every logit in the pipeline (`factcheck/convergence_audit.py`) found fits
+  that had not converged because a control category had no or almost no events (quasi-separation): the two
+  novel-drug selection models in `robust26.py` (no novel-drug programme in the infection area has ex-ante support),
+  most trial-level H4 models in `h4_biology.py` (one supported trial in the immune area; empty start-period bins
+  among trials ending 2022 or later), the SBIR selection model and the stop-rate models for stops citing lack of
+  funding. The coefficients of interest were stable to three decimals; sparse control categories are now pooled
+  before every such fit (`pilot/pooling.py`, see methods) and non-converged fits are flagged in the output. Numbers
+  moved little: novel-drug small-sponsor OR 0.79 (0.49–1.29) → 0.80 (0.50–1.29), large non-top-20 1.62 (1.02–2.57)
+  → 1.63 (1.02–2.58); H4 financial stops 0.75 (0.53–1.04) → 0.75 (0.54–1.04) and, among trials ending 2022 or later,
+  0.69 (0.46–1.02) → 0.69 (0.47–1.02); the other cells of Table P4 move by at most 0.04 (safety stops ending 2022 or
+  later, 1.96 → 1.92); the SBIR selection OR is unchanged at two decimals; the Form D models had converged already.
 * 6 Nov 2026: results depended on the run date. `build_panel26.py` counted a trial as started if its start date was
   not later than *today*, so trials registered with a future start date entered the panel as the calendar advanced
   (35,896 programmes on 6 November instead of 35,887). The reference date is now fixed at 17 October 2026 (the data
