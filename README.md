@@ -1,52 +1,70 @@
 # Do investors pick better biology?
 
-**Human genetic support × sponsor type × clinical success.** Independent research project by Mark Lapunov.
+An independent research project by Mark Lapunov, built only from public data.
 
 [![checks](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml/badge.svg)](https://github.com/lappunovmark/vc-genetics-pilot/actions/workflows/checks.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-2ea44f)](LICENSE)
 ![Status: pilot](https://img.shields.io/badge/status-pilot%2C%20not%20peer--reviewed-orange)
 
-Drugs aimed at targets with human genetic evidence are more likely to succeed in clinical trials, and that evidence
-is public before a programme starts. This project asks whether the companies running drug programmes, and the private
-money behind them, choose targets with such evidence, and what happened to their trials when biotech funding fell
-in 2022.
+## The idea
 
-Everything is built from open data: Open Targets Platform 26.09 and ClinicalTrials.gov (35,887 drug × indication
-programmes, 29,199 of them in indications with genetic data), NIH SBIR/STTR grants and SEC Form D private placements.
+Most new drugs fail in clinical trials. One of the best early clues that a drug will work is **human genetic
+evidence**: studies of human DNA that link the gene the drug acts on to the disease it is meant to treat. Drugs with
+this evidence succeed much more often (Minikel et al., *Nature*, 2024), and the evidence is often public and free
+before a drug project even starts.
 
-## Main findings (pilot, not peer-reviewed)
+**So do biotech companies, and the investors who fund them, actually choose drugs with this evidence?** And when
+biotech funding dried up in 2022, did companies drop their best projects for lack of money?
 
-![Pilot results: genetic support, sponsor type and trial stops](figures/results_glance.png)
+## What I found
+
+1. **Genetic evidence works for everyone.** Drug projects with it had about 2.5 times higher odds of moving on to
+   the next trial phase, and this was true for small biotechs as much as for big pharma.
+2. **Small biotechs use it less.** They start fewer projects with genetic evidence than the 20 largest drug
+   companies.
+3. **Investor money did not lead to better choices.** Companies that had raised private investment did not pick
+   drugs with more genetic evidence, and neither did companies with US government small-business grants.
+4. **After 2022, small biotechs stopped more trials because they ran out of money**, about 2.5 times as often as in
+   2016–21. Trials stopped for financial or business reasons did not have stronger genetic evidence than
+   trials that were completed.
+
+![Pilot results at a glance](figures/results_glance.png)
+
+<details>
+<summary>The numbers behind each finding</summary>
 
 | Finding | Estimate (95% CI) |
 |---|---|
-| Programmes with genetic support are more likely to advance to the next clinical phase | OR 2.48 (2.10–2.93) |
-| No significant difference in that effect between small sponsors and top-20 pharma | OR 1.26 (0.75–2.12) |
-| Small sponsors start fewer programmes with genetic support than top-20 pharma | OR 0.64 (0.46–0.88) |
-| Small sponsors stopped trials for lack of funding more often in 2022–25 than in 2016–21 | rate ratio 2.45 (1.57–3.82) |
-| Trials stopped for financial or strategic reasons carried no more genetic support than completed trials | OR 0.75 (0.53–1.04) |
-| Sponsors that raised private money (SEC Form D) did not pick better-supported targets | OR 0.66 (0.41–1.05) |
-| Nor did sponsors with earlier NIH SBIR/STTR grants | OR 0.72 (0.38–1.39) |
+| 1. Genetic evidence → moving to the next phase | odds ratio 2.48 (2.10–2.93) |
+| 1. Difference between small biotechs and top-20 pharma in that effect | odds ratio 1.26 (0.75–2.12), not significant |
+| 2. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.64 (0.46–0.88) |
+| 3. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.66 (0.41–1.05) |
+| 3. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.72 (0.38–1.39) |
+| 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.45 (1.57–3.82) |
+| 4. Genetic evidence of trials stopped for financial or business reasons, vs completed trials | odds ratio 0.75 (0.53–1.04) |
 
-**In short:** genetic evidence pays off for every kind of sponsor, but small biotechs use it less, and raising private
-money does not go with better-supported targets.
+Above 1 means more likely, below 1 less likely; if the range includes 1, the difference is not statistically
+significant. Small biotechs are companies with at most 5 drugs (or at most 20 trials for finding 4).
 
-OR: odds ratio from logistic regressions adjusted for period, therapeutic area, modality and, where relevant, phase
-and sponsor group, with standard errors clustered by drug. Small sponsors: industry sponsors with at most 5 drugs (programme models) or at most
-20 trials (trial-stop model).
+</details>
 
-**Limits.** Sponsor size and Form D filings stand in for venture backing, which is not measured directly yet. The
-stop-reason classifier is validated against provisional labels ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)),
-and most approvals carry no date ([#4](https://github.com/lappunovmark/vc-genetics-pilot/issues/4)).
+## Data
+
+35,887 drug–disease projects (29,199 of them in diseases where human genetic data exist) from Open Targets Platform
+26.09 and ClinicalTrials.gov, US government grant records (NIH RePORTER) and SEC Form D filings on private
+fundraising. Everything can be rebuilt with `make all`.
+
+**Limits.** This is a pilot and has not been peer-reviewed. Company size and Form D filings stand in for venture
+capital, which is not measured directly yet.
 
 ## More
-* [Detailed results, validation and corrections](docs/results.md)
-* [Methods and limitations](docs/methods.md) · [Data dictionary](docs/data_dictionary.md)
-* [Pipeline, how to run it, checks and licences](docs/pipeline.md): `make all` rebuilds everything, `make check` runs
-  the tests
+
+* [Detailed results](docs/results.md) · [Methods and limitations](docs/methods.md) ·
+  [Pipeline and how to run it](docs/pipeline.md) · [Data dictionary](docs/data_dictionary.md)
 * [Open issues and next steps](https://github.com/lappunovmark/vc-genetics-pilot/issues)
 
 ## Author
+
 **Mark Lapunov**, MSc Bioscience Innovation and Enterprise, University College London. Previously a research intern
 at Skoltech, the Russian Academy of Sciences and Westlake University.
 [LinkedIn](https://www.linkedin.com/in/mark-lapunov-085909240) · [GitHub](https://github.com/lappunovmark)
