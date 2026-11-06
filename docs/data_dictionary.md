@@ -56,6 +56,14 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `sbir_match_review.csv` | Every sponsor ↔ SBIR/STTR awardee match with both names, score and decision |
 | `sbir_summary.txt`, `sbir_models.txt` | Linkage coverage and models of prior SBIR/STTR funding |
 
+## Approval dates (`approval_dates.py`)
+
+| File | Content |
+|---|---|
+| `approval_dates.txt` | Counts of approval-only advancements with and without a date, by phase and sponsor tier, and the advancement models under four definitions (main, dated, dated-known-only, trial only) |
+| `chembl_first_approval.csv` | ChEMBL 37 extract: approved molecules with their year of first approval (input snapshot, fetched 6 Nov 2026) |
+| `approval_dated_entries.csv.gz` | Per phase entry: indication-level approval year and sources, drug-level first approval, and the advancement flags (produced locally, not versioned) |
+
 ## SEC Form D (`formd_link.py`, `formd_models.py`)
 
 | File | Content |

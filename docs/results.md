@@ -9,6 +9,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   industry sponsors and top-20 pharma (interaction OR 1.26, 0.75–2.12).
 * Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
   for novel drugs (0.79, 0.49–1.29).
+* Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
+  (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
+  trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
+  (2.10–2.98); trials only, 2.25 (1.87–2.69). The small-sponsor interaction stays non-significant (1.50, 0.89–2.54).
 * Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
   industry group. Among small sponsors, stops citing lack of funding rose 2.45-fold (1.57–3.82); in the other groups
   such stops are rare.

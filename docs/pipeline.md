@@ -14,6 +14,7 @@
 | NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
 | SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`), models | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
+| Approval dates: EMA/PMDA report years and ChEMBL first-approval years, advancement variants that drop approvals preceding the phase entry | `pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py` | ChEMBL web service, release 37 (CC BY-SA 3.0) |
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
 ## Running it
@@ -34,6 +35,8 @@ python pilot/sbir_models.py results
 SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_formd.py data/formd
 python pilot/formd_link.py data/formd/formd_biopharma.csv.gz results
 python pilot/formd_models.py results
+python pilot/fetch_chembl_approval.py data/chembl_first_approval.csv
+python pilot/approval_dates.py data/ot results data/chembl_first_approval.csv
 python pilot/figure_glance.py results figures/results_glance.png
 ```
 On GitHub, **Actions → pilot → Run workflow** downloads the sources and rebuilds the core tables.
@@ -59,6 +62,7 @@ data downloads and models. The tables in `results/` were built locally with Pyth
 
 ## Licences
 Code: MIT (see `LICENSE`). Derived tables in `results/` keep the licences of their sources: Open Targets Platform
-(CC0), ClinicalTrials.gov and SEC Form D data sets (public domain), NIH RePORTER (public), and Minikel et al. (2024)
+(CC0), ClinicalTrials.gov and SEC Form D data sets (public domain), NIH RePORTER (public), ChEMBL (CC BY-SA 3.0; the
+first-approval extract in `results/chembl_first_approval.csv`), and Minikel et al. (2024)
 `genetic_support` data (CC BY 4.0; Minikel EV, Painter JL, Dong CC, Nelson MR. *Refining the impact of genetic
 evidence on clinical success.* Nature 629, 624–629 (2024), doi:10.1038/s41586-024-07316-0).

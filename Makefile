@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated formd figure check lint test clean-data
+.PHONY: all data results dated approvals formd figure check lint test clean-data
 
 all: data results figure check
 
@@ -37,6 +37,10 @@ results:
 
 dated:  # needs Falaguera et al. evidence (Zenodo 15922783) in $(DATA)/falaguera/evidence_dated
 	$(PY) pilot/gs_ot_dated.py $(RES) $(DATA)/ot $(DATA)/falaguera/evidence_dated $(MINIKEL)/data
+
+approvals:  # approval dates from EMA/PMDA reports and ChEMBL; the ChEMBL extract used is kept in results/
+	$(PY) pilot/fetch_chembl_approval.py $(DATA)/chembl_first_approval.csv
+	$(PY) pilot/approval_dates.py $(DATA)/ot $(RES) $(DATA)/chembl_first_approval.csv
 
 formd:  # SEC asks for a contact: SEC_USER_AGENT="Your Name you@example.org" make formd
 	$(PY) pilot/fetch_formd.py $(DATA)/formd

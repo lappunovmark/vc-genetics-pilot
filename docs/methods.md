@@ -20,6 +20,14 @@ dropped. Entries from 2000 to six years before the last entry year are modelled,
 A stricter variant uses trials only (`advanced_trial_only`); a looser one counts higher-phase trials in a similar
 indication (`advanced_sim`).
 
+**Approval dates** (`approval_dates.py`). Most Open Targets approval records carry no date, so an approval granted
+before a phase entry can count as advancement (1,205 of 26,542 model entries advance through an approval alone).
+Two dates are looked up for them: the earliest EMA or PMDA approval report of the same drug × indication (the only
+dated approval sources in Open Targets 26.09) and the drug's year of first approval from ChEMBL 37. `advanced_dated`
+drops an approval whose indication-level date, or failing that the drug-level date, precedes the entry year (619
+entries); `advanced_dated_known` additionally drops undated approvals. The drug-level date is conservative: a later
+indication can be approved after the drug's first approval, so some genuine advancements are removed.
+
 ## Genetic support (`gensup.py`, validated against Minikel et al. 2024)
 
 `support(T, I)` is true if the drug's target gene T has an association with a trait A whose MeSH similarity to the
@@ -106,7 +114,9 @@ calendar advances (91 reports between 17 October and 6 November 2026).
 * Form D marks private placements, not venture capital as such: some venture rounds are never filed, some filers are
   not venture-backed, and only issuers raising money in the US file. "No prior Form D" therefore mixes non-US
   sponsors with US sponsors that raised no private money; a US-only comparison is the next step.
-* Most approval records carry no date, so an approval that preceded a phase entry can count as advancement.
+* Most approval records carry no date, so an approval that preceded a phase entry can count as advancement; the
+  dated variants above bound the effect (genetic premium 2.48 → 2.53 when such approvals are removed, 2.25 with trials
+  only).
 * Registry programmes include investigator-initiated trials of marketed drugs; levels of relative success are therefore
   not comparable with Pharmaprojects-based estimates (pilot RS 4.0–4.2 vs 2.16).
 * Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
