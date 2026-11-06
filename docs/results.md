@@ -16,12 +16,15 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   completed trials (9.0% vs 10.4%; adjusted OR 0.75, 0.53–1.04), most clearly in trials that ended in 2022 or later.
   Without undated OMIM evidence the overall gap is not significant (OR 0.86, 0.61–1.22).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39).
-* SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 784 of
-  2,964 non-top-20 industry sponsor names matched to an issuer (66 of them after hand review, 27 candidate matches
-  rejected). Among programmes first trialled in 2010 or later, sponsors with a prior Form D started genetically
-  supported programmes no more often (3.4% vs 5.9%; adjusted OR 0.66, 0.41–1.05) and advanced no more often
-  (adjusted OR 0.88, 0.71–1.09); genetic support predicted advancement in both groups (interaction OR 1.58,
-  0.75–3.30).
+* SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
+  2,964 non-top-20 industry sponsor names matched to an issuer (751 on identical names up to legal form, 50 accepted
+  after hand review; 15 candidate matches not used). Among programmes first trialled in 2010 or later, sponsors with
+  a prior Form D started genetically supported programmes no more often (4.0% vs 5.7%; adjusted OR 0.74, 0.48–1.14)
+  and advanced no more often (adjusted OR 0.88, 0.72–1.09). Genetic support predicted advancement in both groups and,
+  in this version of the linkage, more strongly among Form D filers (interaction OR 2.12, 1.10–4.10); the interaction
+  was 1.58 (0.75–3.30) before the linkage fixes of 6 November 2026, so it should be read as fragile. Dating the first
+  Form D by own names only gives OR 0.77 (0.50–1.20) for selection and 0.91 (0.73–1.14) for advancement; the
+  whole-CIK dating changes no flag in the analysis window.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -37,6 +40,17 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)), so these figures may change.
 
 ## Corrections
+* 6 Nov 2026: results depended on the run date. `build_panel26.py` counted a trial as started if its start date was
+  not later than *today*, so trials registered with a future start date entered the panel as the calendar advanced
+  (35,896 programmes on 6 November instead of 35,887). The reference date is now fixed at 17 October 2026 (the data
+  snapshot), which reproduces the published panel exactly. `rq2_stops.py` uses the same date for its year range.
+* 6 Nov 2026: Form D linkage. When several issuers shared a normalised name, the one kept was decided by an unstable
+  sort, so results differed between runs (5 sponsors); CIK zero-padding split some issuers in two; and a namesake with
+  more filings could displace the issuer with the sponsor's exact name (12 sponsors wrongly left unmatched, e.g.
+  Prevail Therapeutics matched to Prevail Holdings). The linkage is now deterministic, prefers exact names, pools
+  same-company issuers and dates placements as described in `docs/methods.md`. Accepted matches 784 → 801; selection
+  OR 0.66 (0.41–1.05) → 0.74 (0.48–1.14); advancement OR 0.88 (0.71–1.09) → 0.88 (0.72–1.09); the support × Form D
+  interaction 1.58 (0.75–3.30) → 2.12 (1.10–4.10). Conclusions unchanged.
 * 19 Oct 2026: ClinicalTrials.gov mixes `YYYY-MM` and `YYYY-MM-DD` dates; pandas 2 without `format='mixed'` dropped
   38% of start dates and 41% of completion dates in `rq2_stops.py`. Fixed; the trial-stop and H4 results were re-run
   (numbers above are corrected). The Open Targets panel (H1–H3) was not affected: its dates are typed.

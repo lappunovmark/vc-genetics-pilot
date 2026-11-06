@@ -60,11 +60,11 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 
 | File | Content |
 |---|---|
-| `formd_match_review.csv` | Every sponsor ↔ Form D issuer candidate match, with match type, decision, issuer CIK, first filing year, number of filings and largest amount sold |
-| `formd_sponsors.csv` | Accepted matches: one row per normalised sponsor name |
+| `formd_match_review.csv` | One row per matched sponsor name: match type and score, the issuer name shown for review, strict-name flag and hand-review decision, `accepted`, own CIKs (`;`-separated when pooled), numbers of candidate names, own CIKs and own names, first and last filing year, filings and largest amount sold under the main dating rule, the two sensitivity datings (`formd_first_year_own`, `formd_first_year_cik`), and the reviewed candidate's own first year and filings |
+| `formd_sponsors.csv` | Accepted matches: one row per normalised sponsor name with the three first-year datings |
 | `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag |
 
 ## Other
 
-`coverage.json` (row counts at each pipeline step), `disease_mesh.csv.gz` (disease → MeSH map), `robust_*.csv`
+`coverage.json` (row counts at each pipeline step and the reference date `asof`), `disease_mesh.csv.gz` (disease → MeSH map), `robust_*.csv`
 (benchmark and novel-drug tables behind `robust.txt`).

@@ -71,7 +71,8 @@ def load(path):
 def main(path, out):
     os.makedirs(out, exist_ok=True)
     ct = load(path)
-    today = pd.Timestamp.today()
+    # Reference date = ClinicalTrials.gov snapshot date, so that the year range does not depend on the run date.
+    today = pd.Timestamp(os.environ.get("PILOT_ASOF", "2026-10-17"))
     s = ct[ct.stopped & ct.stop_year.between(2012, today.year)]
     tab = s.groupby(["stop_year", "group", "reason"]).size().rename("n").reset_index()
     tab.to_csv(f"{out}/rq2_stops_by_year.csv", index=False)
@@ -161,12 +162,16 @@ def main(path, out):
         lines.append(f"models failed: {ex!r}")
     open(f"{out}/rq2_did.txt", "w").write("\n".join(lines))
 
-    w = s[s.why_stopped.notna()].copy()
-    w["period"] = np.where(w.stop_year >= 2022, "2022+", "<2022")
-    smp = w.sample(frac=1, random_state=42).groupby(["group", "period"]).head(50)
-    smp[["nct_id", "lead_sponsor", "group", "stop_year", "status", "why_stopped", "reason"]].rename(
-        columns={"reason": "keyword_class"}
-    ).assign(hand_label="").to_csv(f"{out}/rq2_label_sample.csv", index=False)
+    # The hand-coding sample is drawn once and kept: the labels in rq2_hand_labels.csv refer to the sample drawn on
+    # 2026-10-17 (before the date-format fix), so a re-run must not replace it.
+    sample_path = f"{out}/rq2_label_sample.csv"
+    if not os.path.exists(sample_path):
+        w = s[s.why_stopped.notna()].copy()
+        w["period"] = np.where(w.stop_year >= 2022, "2022+", "<2022")
+        smp = w.sample(frac=1, random_state=42).groupby(["group", "period"]).head(50)
+        smp[["nct_id", "lead_sponsor", "group", "stop_year", "status", "why_stopped", "reason"]].rename(
+            columns={"reason": "keyword_class"}
+        ).assign(hand_label="").to_csv(sample_path, index=False)
     print(ct.drop_duplicates("sponsor_norm").group.value_counts().to_string())
     print(sh.pivot(index="stop_year", columns="group", values="share_fin").round(3).to_string())
     print("\n".join(lines))

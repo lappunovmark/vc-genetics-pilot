@@ -2,17 +2,33 @@
 
 Usage: python formd_link.py FORMD_CSV RESULTS_DIR
 Inputs: FORMD_CSV from fetch_formd.py; RESULTS_DIR/sponsors.csv.gz from build_panel26.py (one row per trial record).
-Issuer names include current and previous names reported on the filing and in EDGAR, all mapped to the issuer CIK.
+
+Names. Every filing carries the issuer's name at filing time (ENTITYNAME) and up to six previous names (reported on the
+filing and in EDGAR). Candidate names for matching are all of these; CIKs are normalised (zero-padding is
+inconsistent in the source) and may legitimately appear under several names (renamed companies, reverse-merger
+shells).
+
 Matching follows sbir_link.py (precision first): exact match of normalised names, then RapidFuzz token_sort_ratio >= 92
-within blocks sharing the first normalised token. A match is used only if the two names agree after removing legal
-forms alone, and it is not rejected in formd_decisions.csv, or if it is accepted there after hand review.
-For each accepted sponsor: year of its first Form D filing (any non-fund offering in these industry groups), number of
-filings and the largest amount reported sold.
-Writes RESULTS_DIR/formd_match_review.csv (every candidate match), formd_sponsors.csv (accepted, one row per sponsor
-name) and formd_summary.txt.
+within blocks sharing the first normalised token. A candidate name counts as the sponsor's own ("same company") if it
+equals the sponsor's name after removing legal forms alone and is not rejected in formd_decisions.csv, or if it is
+accepted there after hand review. Several own names are pooled.
+
+Dating rule (formd_first_year). The sponsor's first private placement is the earliest Form D filed by its legal entity
+(CIK) under any name, because most name changes in EDGAR are renames of the same company. When the sponsor's name
+appears under more than one CIK, the CIK that first filed under that name is taken as the original company and keeps
+its whole history; the other CIKs (typically a listed shell that adopted the name after a reverse merger) contribute
+only filings made under the sponsor's own names or later names, not under their former businesses' names. Two bounds
+are kept for sensitivity: formd_first_year_own counts only filings under the sponsor's own names and later names of
+the same CIK (a successor name is one whose filing lists an own name as a previous name); formd_first_year_cik counts
+every filing of every own CIK. EDGAR state suffixes such as "/DE/" are removed before names are compared.
+
+Writes RESULTS_DIR/formd_match_review.csv (every candidate sponsor name with the chosen issuer record), formd_sponsors.csv
+(accepted sponsors: first filing year under the three definitions, filings, largest amount sold, CIKs) and
+formd_summary.txt.
 """
 
 import os
+import re
 import sys
 
 import pandas as pd
@@ -22,8 +38,7 @@ import rq2_stops
 from sbir_link import match, strict
 
 DECISIONS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "formd_decisions.csv")
-NAME_COLS = [
-    "ENTITYNAME",
+PREV_COLS = [
     "ISSUER_PREVIOUSNAME_1",
     "ISSUER_PREVIOUSNAME_2",
     "ISSUER_PREVIOUSNAME_3",
@@ -34,32 +49,64 @@ NAME_COLS = [
 IND = ["Industry, large (>30)", "Industry, mid (6-30)", "Industry, small (<=5 drugs)"]
 
 
-def issuers(path):
-    """One row per (normalised issuer name, CIK) with the CIK's filing history."""
+EDGAR_SUFFIX = re.compile(r"\s*/\s*(?:[A-Z]{2}|NEW|DELAWARE|CANADA|ADR)\s*/?\s*$", re.I)
+
+
+def clean_name(s):
+    """Issuer name without EDGAR's trailing state or status marker ("GTX INC /DE/", "KINETA, INC./DE")."""
+    return EDGAR_SUFFIX.sub("", str(s)).strip()
+
+
+def filings(path):
+    """Form D filings with normalised CIK, filing year, amount sold and the strict form of the name at filing time."""
     f = pd.read_csv(path, dtype=str)
+    for c in ["ENTITYNAME"] + PREV_COLS:
+        if c in f.columns:
+            f[c] = f[c].where(f[c].isna(), f[c].map(clean_name))
+    # CIKs come with inconsistent zero-padding ("000744218" and "0000744218" are the same issuer).
+    f["CIK"] = f.CIK.str.strip().str.lstrip("0")
     f["filing_year"] = pd.to_datetime(f.FILING_DATE, errors="coerce", format="mixed").dt.year
     f["sold"] = pd.to_numeric(f.TOTALAMOUNTSOLD, errors="coerce")
-    f = f[f.CIK.notna() & f.filing_year.notna()]
-    hist = f.groupby("CIK").agg(
-        formd_first_year=("filing_year", "min"),
-        formd_last_year=("filing_year", "max"),
-        formd_filings=("ACCESSIONNUMBER", "nunique"),
-        formd_max_sold=("sold", "max"),
-        formd_industry=("INDUSTRYGROUPTYPE", lambda x: x.mode().iat[0] if len(x.mode()) else None),
-        formd_state=("STATEORCOUNTRY", "first"),
-        formd_entity=("ENTITYNAME", "last"),
+    f = f[f.CIK.notna() & f.CIK.ne("") & f.filing_year.notna() & f.ENTITYNAME.notna()].copy()
+    f["fname"] = f.ENTITYNAME.map(strict)
+    return f
+
+
+def name_history(f):
+    """Filing history per (CIK, name at filing time)."""
+    return f.groupby(["CIK", "fname"]).agg(
+        first_year=("filing_year", "min"),
+        last_year=("filing_year", "max"),
+        n_filings=("ACCESSIONNUMBER", "nunique"),
+        max_sold=("sold", "max"),
+        industry=("INDUSTRYGROUPTYPE", lambda x: x.mode().iat[0] if len(x.mode()) else None),
+        state=("STATEORCOUNTRY", "first"),
+        entity=("ENTITYNAME", "last"),
     )
-    names = (
-        f.melt(id_vars=["CIK"], value_vars=[c for c in NAME_COLS if c in f.columns], value_name="issuer_name")
-        .dropna(subset=["issuer_name"])
-        .drop(columns="variable")
-        .drop_duplicates()
-    )
-    names = names[names.issuer_name.str.strip().ne("")]
-    names["norm"] = names.issuer_name.map(rq2_stops.norm_sponsor)
-    names = names[names.norm.notna() & names.norm.str.len().ge(3)]
-    names = names.drop_duplicates(["norm", "CIK"]).merge(hist.reset_index(), on="CIK")
-    return names, len(f)
+
+
+def successors(f):
+    """(CIK, earlier name) -> set of later names under which the same CIK filed, from the previous-name fields."""
+    cols = [c for c in PREV_COLS if c in f.columns]
+    p = f.melt(id_vars=["CIK", "fname"], value_vars=cols, value_name="prev").dropna(subset=["prev"])
+    p["prev"] = p.prev.map(strict)
+    p = p[p.prev.ne("") & (p.prev != p.fname)]
+    out = {}
+    for cik, prev, fname in p[["CIK", "prev", "fname"]].drop_duplicates().itertuples(index=False):
+        out.setdefault((cik, prev), set()).add(fname)
+    return out
+
+
+def candidates(f):
+    """One row per (normalised name, CIK, strict name) over names at filing time and previous names."""
+    cols = ["ENTITYNAME"] + [c for c in PREV_COLS if c in f.columns]
+    n = f.melt(id_vars=["CIK"], value_vars=cols, value_name="issuer_name").dropna(subset=["issuer_name"])
+    n = n[n.issuer_name.str.strip().ne("")].drop(columns="variable")
+    n["fname"] = n.issuer_name.map(strict)
+    n["norm"] = n.issuer_name.map(rq2_stops.norm_sponsor)
+    n = n[n.norm.notna() & n.norm.str.len().ge(3) & n.fname.ne("")]
+    n = n.sort_values(["CIK", "fname", "issuer_name"]).drop_duplicates(["norm", "CIK", "fname"])
+    return n
 
 
 def sponsors(R):
@@ -78,40 +125,125 @@ def sponsors(R):
     )
 
 
-def apply_decisions(m, path=DECISIONS):
+def decisions(path=DECISIONS):
+    if not os.path.exists(path):
+        return {}
+    d = pd.read_csv(path)
+    return {(strict(a), strict(b)): v for a, b, v in zip(d.lead_sponsor, d.issuer_name, d.decision)}
+
+
+def own_and_successor_names(own, succ):
+    """Closure of (CIK, name) pairs reachable from the sponsor's own names through successor links."""
+    seen, stack = set(), list(own)
+    while stack:
+        key = stack.pop()
+        if key in seen:
+            continue
+        seen.add(key)
+        stack.extend((key[0], nxt) for nxt in succ.get(key, ()))
+    return seen
+
+
+def resolve(m, hist, succ, dec):
+    """One record per sponsor name: pooled history of its own and successor names, or the top candidate for review."""
     m = m.copy()
     m["strict_eq"] = [strict(a) == strict(b) for a, b in zip(m.lead_sponsor, m.issuer_name)]
-    dec = {}
-    if os.path.exists(path):
-        d = pd.read_csv(path)
-        dec = {(strict(a), strict(b)): v for a, b, v in zip(d.lead_sponsor, d.issuer_name, d.decision)}
-    m["decision"] = [dec.get((strict(a), strict(b))) for a, b in zip(m.lead_sponsor, m.issuer_name)]
-    m["accepted"] = (m.strict_eq & m.decision.ne("reject")) | m.decision.eq("accept")
-    return m
+    m["decision"] = [dec.get((strict(a), b)) for a, b in zip(m.lead_sponsor, m.fname)]
+    m["same_company"] = (m.strict_eq & m.decision.ne("reject")) | m.decision.eq("accept")
+    m = m.merge(hist, left_on=["CIK", "fname"], right_index=True, how="left")
+    m["n_filings"] = m.n_filings.fillna(0).astype(int)
+    m = m.sort_values(
+        ["norm", "same_company", "strict_eq", "decision", "n_filings", "first_year", "CIK"],
+        ascending=[True, False, False, True, False, True, True],
+        kind="mergesort",
+        na_position="last",
+    )
+    rows = []
+    for norm, g in m.groupby("norm", sort=False):
+        top = g.iloc[0]
+        own = g[g.same_company]
+        keys = own_and_successor_names(set(zip(own.CIK, own.fname)), succ)
+        h_own = hist[hist.index.isin(list(keys))] if keys else hist.iloc[0:0]
+        ciks = sorted(set(own.CIK), key=int)
+        h_cik = hist[hist.index.get_level_values("CIK").isin(ciks)] if ciks else hist.iloc[0:0]
+        # main definition: the CIK that first filed under the sponsor's own name is the original company and keeps
+        # its whole history (renames); any other CIK sharing the name (usually a listed shell adopted by reverse
+        # merger) contributes own and successor names only
+        if len(ciks) > 1:
+            own_start = hist.loc[hist.index.isin(list(zip(own.CIK, own.fname)))].groupby(level="CIK").first_year.min()
+            original = own_start.sort_index(key=lambda i: i.astype(int)).idxmin()
+            h = hist[(hist.index.get_level_values("CIK") == original) | hist.index.isin(list(keys))]
+        else:
+            h = h_cik
+        rows.append(
+            {
+                "match": top.match,
+                "score": top.score,
+                "lead_sponsor": top.lead_sponsor,
+                "norm": norm,
+                "tier": top.tier,
+                "n_trials": top.n_trials,
+                "issuer_name": top.issuer_name,
+                "issuer_norm": top.issuer_norm,
+                "CIK": ";".join(ciks) if len(own) else top.CIK,
+                "strict_eq": bool(top.strict_eq),
+                "decision": top.decision,
+                "accepted": bool(len(own)) and len(h) > 0,
+                "n_candidate_names": len(g),
+                "n_own_ciks": len(ciks),
+                "n_own_names": int(len(own)),
+                "n_history_names": int(len(h)),
+                "formd_first_year": h.first_year.min() if len(h) else pd.NA,
+                "formd_last_year": h.last_year.max() if len(h) else pd.NA,
+                "formd_filings": int(h.n_filings.sum()) if len(h) else 0,
+                "formd_max_sold": h.max_sold.max() if len(h) else pd.NA,
+                "formd_first_year_own": h_own.first_year.min() if len(h_own) else pd.NA,
+                "formd_first_year_cik": h_cik.first_year.min() if len(h_cik) else pd.NA,
+                "formd_industry": top.industry,
+                "formd_state": top.state,
+                "candidate_first_year": top.first_year,
+                "candidate_filings": int(top.n_filings),
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def main(formd_csv, R):
-    names, n_rows = issuers(formd_csv)
+    f = filings(formd_csv)
+    hist = name_history(f)
+    succ = successors(f)
+    cand = candidates(f)
     sp = sponsors(R)
-    # one candidate CIK per normalised name: the one with the most filings
-    best = names.sort_values("formd_filings", ascending=False).drop_duplicates("norm")
-    m = match(sp, best).rename(columns={"sbir_norm": "issuer_norm"})
-    m = apply_decisions(m)
-    cols = ["match", "accepted", "decision", "strict_eq", "lead_sponsor", "issuer_name", "norm", "issuer_norm",
-            "score", "CIK", "tier", "n_trials", "formd_first_year", "formd_filings", "formd_max_sold",
-            "formd_industry", "formd_state"]  # fmt: skip
-    m[cols].sort_values(["accepted", "match", "score"]).to_csv(f"{R}/formd_match_review.csv", index=False)
+    m = match(sp, cand).rename(columns={"sbir_norm": "issuer_norm"})
+    m = resolve(m, hist, succ, decisions())
+    m.sort_values(["accepted", "match", "score", "norm"]).to_csv(f"{R}/formd_match_review.csv", index=False)
     acc = m[m.accepted]
     acc[
-        ["norm", "lead_sponsor", "issuer_name", "CIK", "tier", "formd_first_year", "formd_filings", "formd_max_sold"]
+        [
+            "norm",
+            "lead_sponsor",
+            "issuer_name",
+            "CIK",
+            "tier",
+            "formd_first_year",
+            "formd_first_year_own",
+            "formd_first_year_cik",
+            "formd_filings",
+            "formd_max_sold",
+        ]
     ].to_csv(f"{R}/formd_sponsors.csv", index=False)
     out = [
-        f"Form D rows kept (biotech, pharma, other health care; no pooled funds): {n_rows}; issuer CIKs: "
-        f"{names.CIK.nunique()}; issuer names incl. previous names: {len(names)}",
+        f"Form D filings kept (biotech, pharma, other health care; no pooled funds): {len(f)}; issuer CIKs: "
+        f"{f.CIK.nunique()}; distinct names at filing time: {hist.index.get_level_values('fname').nunique()}; "
+        f"candidate names incl. previous names: {len(cand)}",
         f"non-top-20 industry sponsor names in the panel: {len(sp)}",
         f"candidate matches: {len(m)} (exact {int(m.match.eq('exact').sum())}, fuzzy {int(m.match.eq('fuzzy').sum())}); "
         f"accepted {len(acc)} (strict name agreement {int((m.strict_eq & m.accepted).sum())}, accepted after hand "
         f"review {int((~m.strict_eq & m.accepted).sum())}, not used {int((~m.accepted).sum())})",
+        f"accepted sponsors with several own names pooled: {int((acc.n_own_names > 1).sum())}; with several own CIKs: "
+        f"{int((acc.n_own_ciks > 1).sum())}; first year under the main rule differs from the own-names-only bound for "
+        f"{int((acc.formd_first_year != acc.formd_first_year_own).sum())} sponsors and from the whole-CIK bound for "
+        f"{int((acc.formd_first_year != acc.formd_first_year_cik).sum())}",
         "",
         "Share of sponsor names matched to a Form D issuer, by tier:",
         sp.assign(matched=sp.norm.isin(acc.norm))

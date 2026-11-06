@@ -24,6 +24,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gensup
 import sponsors
 
+# Reference date for "has the trial started": the date of the Open Targets download and of the ClinicalTrials.gov
+# snapshot. Without a fixed date the panel depends on the day the script runs, because trials registered with a
+# future start date enter as the calendar advances. Override with PILOT_ASOF=YYYY-MM-DD.
+ASOF = pd.Timestamp(os.environ.get("PILOT_ASOF", "2026-10-17"))
+
 PHASE_MAP = {"PHASE1": 1, "PHASE1/PHASE2": 2, "PHASE2": 2, "PHASE2/PHASE3": 3, "PHASE3": 3, "PHASE4": 4}
 MESH_XREF = re.compile(r"^(?:MESH|MSH):\s*([CD]\d{6,9})$", re.I)
 SUFFIX = re.compile(
@@ -304,8 +309,9 @@ def main(ot, mdir, out):
         & cr.trialStudyType.eq("INTERVENTIONAL")
         & cr.phase_num.notna()
         & cr.start.notna()
-        & (cr.start <= pd.Timestamp.today())
+        & (cr.start <= ASOF)
     ]
+    cov["asof"] = str(ASOF.date())
     cov["trial_reports_usable"] = len(trials)
     cov["trial_reports_all"] = int(cr.origin.eq("CLINICAL_TRIAL").sum())
     tr = (
@@ -483,7 +489,7 @@ def main(ot, mdir, out):
     t.to_csv(f"{out}/h1_by_period.csv", index=False)
 
     # transitions
-    end_year = int(min(tr.start_year.max(), pd.Timestamp.today().year))
+    end_year = int(min(tr.start_year.max(), ASOF.year))
     rows = []
     E = ent[ent.insight & ~ent.prior_higher]
     for k in (1, 2, 3):

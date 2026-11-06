@@ -1,10 +1,11 @@
-Form D rows kept (biotech, pharma, other health care; no pooled funds): 40995; issuer CIKs: 15306; issuer names incl. previous names: 18944
+Form D filings kept (biotech, pharma, other health care; no pooled funds): 40995; issuer CIKs: 15335; distinct names at filing time: 16126; candidate names incl. previous names: 19034
 non-top-20 industry sponsor names in the panel: 2964
-candidate matches: 811 (exact 810, fuzzy 1); accepted 784 (strict name agreement 718, accepted after hand review 66, not used 27)
+candidate matches: 816 (exact 815, fuzzy 1); accepted 801 (strict name agreement 751, accepted after hand review 50, not used 15)
+accepted sponsors with several own names pooled: 50; with several own CIKs: 44; first year under the main rule differs from the own-names-only bound for 91 sponsors and from the whole-CIK bound for 10
 
 Share of sponsor names matched to a Form D issuer, by tier:
                                mean  sum  size
 tier                                          
-Industry, large (>30)        0.0625    6    96
-Industry, mid (6-30)         0.2554  190   744
-Industry, small (<=5 drugs)  0.2768  588  2124
+Industry, large (>30)        0.0729    7    96
+Industry, mid (6-30)         0.2581  192   744
+Industry, small (<=5 drugs)  0.2834  602  2124

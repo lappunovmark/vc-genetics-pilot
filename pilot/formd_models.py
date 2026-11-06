@@ -34,7 +34,13 @@ MOD = {
 }
 FIRST_DATA_YEAR = 2009
 fd = pd.read_csv(f"{R}/formd_sponsors.csv")
-first = dict(zip(fd.norm, fd.formd_first_year))
+# three datings of the sponsor's first Form D (see formd_link.py): main rule, own names only, whole CIK history
+FIRST = {
+    "main": dict(zip(fd.norm, fd.formd_first_year)),
+    "own": dict(zip(fd.norm, fd.formd_first_year_own)),
+    "cik": dict(zip(fd.norm, fd.formd_first_year_cik)),
+}
+first = FIRST["main"]
 out = []
 
 
@@ -60,7 +66,7 @@ def fit(f, d, title, keep):
         out.extend(["=" * 100, title, f, f"failed: {e!r}"])
 
 
-def flag(names, years):
+def flag(names, years, first=first):
     fy = names.map(lambda s: first.get(rq2_stops.norm_sponsor(s)))
     return (pd.to_numeric(fy, errors="coerce") < years).fillna(False).astype(int)
 
@@ -128,5 +134,19 @@ out.append(
 base = "C(phase) + C(tier) + C(yb) + C(area) + C(modality)"
 fit(f"adv ~ formd + gs + {base}", E, "Advancement ~ prior Form D + ex-ante support", ("formd", "gs"))
 fit(f"adv ~ formd * gs + {base}", E, "Advancement ~ prior Form D x ex-ante support", ("formd", "gs", "formd:gs"))
+
+# Sensitivity: the two bounds on the dating of the first Form D
+for lab, name in (("own names only (lower bound on history)", "own"), ("whole CIK history (upper bound)", "cik")):
+    P2 = P.assign(formd=flag(P.first_sponsor, P.first_year, FIRST[name]))
+    E2 = E.assign(formd=flag(E.lead_sponsor, E.entry_year, FIRST[name]))
+    out.append("=" * 100 + f"\nSensitivity, first Form D dated by {lab}: formd share programmes={P2.formd.mean():.4f}, "
+               f"entries={E2.formd.mean():.4f}")  # fmt: skip
+    fit(
+        "y ~ formd + C(tier) + C(yb) + C(area) + C(modality)",
+        P2,
+        f"H1 [{name}]: ex-ante support ~ prior Form D",
+        ("formd",),
+    )
+    fit(f"adv ~ formd + gs + {base}", E2, f"Advancement [{name}] ~ prior Form D + ex-ante support", ("formd", "gs"))
 open(f"{R}/formd_models.txt", "w").write("\n".join(out))
 print("\n".join(out))

@@ -75,15 +75,31 @@ A sponsor counts as SBIR/STTR-funded before a trial if its first award year prec
 Form D is the notice a company files with the SEC after selling securities in a private placement. The quarterly
 Form D data sets (2009 Q1 onwards) are filtered to offerings whose industry group is Biotechnology, Pharmaceuticals
 or Other Health Care and that are not pooled investment funds, then joined to the filing date and the primary issuer.
-Issuer names include current and previous names (on the filing and in EDGAR), all mapped to the issuer's CIK.
-Sponsors are matched to issuers with the same rules as the SBIR/STTR linkage; decisions on names that differ by more
-than a legal form are in `pilot/formd_decisions.csv`, each with a reason.
+Candidate names are the issuer's name at filing time and up to six previous names (on the filing and in EDGAR);
+CIKs are normalised because the source pads them inconsistently, and EDGAR state markers such as "/DE/" are removed.
+Sponsors are matched to names with the same rules as the SBIR/STTR linkage. A name counts as the sponsor's own if it
+equals the sponsor's name after removing legal forms, or is accepted in `pilot/formd_decisions.csv` (each decision
+carries a reason); several own names are pooled.
 
-`formd` = the lead sponsor filed a Form D in a calendar year before the trial's start year. Because the data start
-in 2009, the Form D models use programmes and phase entries from 2010 onwards. In the selection models, therapeutic
-areas with fewer than three supported programmes are pooled into "other" to avoid separation.
+**Dating.** The sponsor's first private placement is the earliest Form D filed by its legal entity (CIK) under any
+name, because most name changes in EDGAR are renames. When the sponsor's name appears under more than one CIK, the CIK
+that first filed under that name is the original company and keeps its whole history; any other CIK with the name
+(usually a listed shell adopted by reverse merger) contributes only filings under the sponsor's own or later names.
+Two bounds are reported as sensitivity: own and later names only (`formd_first_year_own`) and every filing of every
+own CIK (`formd_first_year_cik`). The selection is deterministic (ties broken by filings, first year and CIK).
+
+`formd` = the lead sponsor's first Form D is dated in a calendar year before the trial's start year. Because the data
+start in 2009, the Form D models use programmes and phase entries from 2010 onwards. In the selection models,
+therapeutic areas with fewer than three supported programmes are pooled into "other" to avoid separation.
 
 The extract used for the published results is on the `formd-data` branch (`data_formd/`), with the fetch log.
+
+## Reference date
+
+Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download
+and ClinicalTrials.gov snapshot (`PILOT_ASOF` in `build_panel26.py` and `rq2_stops.py`). Without a fixed date the
+panel changed with the day the script was run, because trials registered with a future start date enter as the
+calendar advances (91 reports between 17 October and 6 November 2026).
 
 ## Known limitations
 
@@ -96,3 +112,5 @@ The extract used for the published results is on the `formd-data` branch (`data_
 * Ex-ante support uses association years; OMIM rows (undated) are treated as ex ante, with a no-OMIM sensitivity.
   Falaguera et al. (2026) evidence timestamps will replace this.
 * The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.
+* A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
+  shell's earlier placements; the own-names-only bound shows how much this can matter.
