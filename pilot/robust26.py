@@ -53,7 +53,18 @@ def logit(f, d, groups, title):
         t["OR"] = np.exp(t["Coef."])
         t["OR_lo"] = np.exp(t["[0.025"])
         t["OR_hi"] = np.exp(t["0.975]"])
-        out.extend(["=" * 100, title, f, f"N={int(r.nobs)} clusters={groups.nunique()}", t.round(4).to_string()])
+        conv = r.mle_retvals["converged"]
+        out.extend(
+            [
+                "=" * 100,
+                title,
+                f,
+                f"N={int(r.nobs)} clusters={groups.nunique()}" + ("" if conv else " NOT CONVERGED"),
+                t.round(4).to_string(),
+            ]
+        )
+        if not conv:
+            print("WARNING: not converged:", title, file=sys.stderr)
         return t
     except Exception as e:
         out.extend(["=" * 100, title, f, f"failed: {e!r}"])
@@ -69,10 +80,24 @@ for y in ("gs_post", "gs_ante_first", "gs_post_noomim"):
 # novel-drug programmes: the drug's first indication(s), first trial 2000+, sponsor of the drug's first trial
 N = H[H.is_drug_first_indication & H.first_year.ge(2000)].copy()
 out.append(f"\nNovel-drug programmes (drug first indication, first trial >= 2000): {len(N)}")
+
+
+def pool_sparse(d, col="area", min_events=3):
+    """Categories with fewer than three supported programmes go to 'other' (otherwise the logit separates: in the
+    novel-drug sample no infection programme has ex-ante support)."""
+    ev = d.groupby(col).y.transform("sum")
+    return d.assign(**{col: d[col].where(ev.ge(min_events), "other")})
+
+
 N["y"] = N.gs_post.fillna(False).astype(int)
-logit("y ~ C(tier) + C(yb) + C(area) + C(modality)", N, N.drug, "H1 gs_post, novel-drug programmes only")
+logit("y ~ C(tier) + C(yb) + C(area) + C(modality)", pool_sparse(N), N.drug, "H1 gs_post, novel-drug programmes only")
 N["y"] = N.gs_ante_first.fillna(False).astype(int)
-logit("y ~ C(tier) + C(yb) + C(area) + C(modality)", N, N.drug, "H1 gs_ante_first, novel-drug programmes only")
+logit(
+    "y ~ C(tier) + C(yb) + C(area) + C(modality)",
+    pool_sparse(N),
+    N.drug,
+    "H1 gs_ante_first, novel-drug programmes only",
+)
 tab = N.groupby("first_sponsor_tier").agg(
     n=("drug", "size"), gs_post=("gs_post", "mean"), gs_ante=("gs_ante_first", "mean")
 )
