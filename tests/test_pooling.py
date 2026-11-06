@@ -20,10 +20,17 @@ def frame():
     )
 
 
-def test_nominal_sparse_pooled_into_other():
+def test_nominal_sparse_merged_into_largest_dense_level():
     d = pool_sparse(frame(), "y ~ fin + C(area) + C(yb)")
-    assert set(d.area) == {"onc", "neu", "other"}  # imm has 1 event -> other
-    assert (d.area.eq("other").sum()) == 2
+    assert set(d.area) == {"onc", "neu"}  # imm has 1 event -> merged into neu (largest level with events)
+    assert (d.area.eq("neu").sum()) == 12
+
+
+def test_nominal_sparse_merged_into_other_when_other_has_events():
+    f = frame()
+    f["area"] = ["onc"] * 5 + ["imm"] * 2 + ["other"] * 10
+    d = pool_sparse(f, "y ~ fin + C(area)")
+    assert set(d.area) == {"onc", "other"} and (d.area.eq("other").sum()) == 12
 
 
 def test_ordered_sparse_merged_forward_and_top_end_backward():
@@ -43,4 +50,4 @@ def test_exposure_and_absent_controls_untouched():
 def test_response_taken_from_formula():
     f = frame().rename(columns={"y": "adv"})
     d = pool_sparse(f, "adv ~ fin + C(area)")
-    assert set(d.area) == {"onc", "neu", "other"}
+    assert set(d.area) == {"onc", "neu"}
