@@ -2,6 +2,7 @@ Form D filings kept (biotech, pharma, other health care; no pooled funds): 40995
 non-top-20 industry sponsor names in the panel: 2964
 candidate matches: 816 (exact 815, fuzzy 1); accepted 801 (strict name agreement 751, accepted after hand review 50, not used 15)
 accepted sponsors with several own names pooled: 50; with several own CIKs: 44; first year under the main rule differs from the own-names-only bound for 91 sponsors and from the whole-CIK bound for 10
+offerings: 33956 from 40995 filings (4916 amended at least once; 7283 amendments, of which 244 amend a filing outside the extract); offerings of accepted sponsors: 3060 (2338 with equity, 569 with debt; amount sold known for 3060, median $6,000,000)
 
 Share of sponsor names matched to a Form D issuer, by tier:
                                mean  sum  size
