@@ -7,3 +7,4 @@ nih_reporter_sbir_sttr: 50125 awards, FY2000-2025, NIH RePORTER API v2, download
 rerun_all_20261106: full pipeline re-run from code at GitHub main 485f6eb + this commit (author Mac, Python 3.9.6, pandas 2.2.3); identical to the committed tables except formd_* (linkage fixes) and coverage.json (asof added); Form D outputs byte-identical under Python 3.13 / pandas 3.0.5
 reference_date: 2026-10-17 (PILOT_ASOF; see docs/methods.md)
 formd_offerings_20261106: formd_link.py and formd_models.py re-run on the author Mac (Python 3.9.6, pandas 2.2.3) from data_formd/formd_biopharma.csv.gz; formd_match_review.csv and formd_sponsors.csv byte-identical to the previous run; new formd_sponsor_offerings.csv.gz identical in content under Python 3.13 / pandas 3.0.5
+formd_stops_20261106: formd_stops.py run on the author Mac (Python 3.9.6, pandas 2.2.3) from data/ctgov_all.csv (snapshot 2026-10-17) and results/formd_sponsor_offerings.csv.gz

@@ -47,6 +47,7 @@ formd:  # SEC asks for a contact: SEC_USER_AGENT="Your Name you@example.org" mak
 	$(PY) pilot/fetch_formd.py $(DATA)/formd
 	$(PY) pilot/formd_link.py $(DATA)/formd/formd_biopharma.csv.gz $(RES)
 	$(PY) pilot/formd_models.py $(RES)
+	$(PY) pilot/formd_stops.py $(DATA)/ctgov_all.csv $(RES)
 
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png

@@ -42,6 +42,12 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (adjusted OR 0.75, 0.39–1.44; 1.11, 0.59–2.08; 0.51, 0.23–1.11); among filers, each tenfold increase in the amount
   raised changes the odds of support by 0.85 (0.56–1.30). Advancement does not rise with the amount either (0.92,
   0.72, 1.02 for the three bands; log-linear 1.12, 0.85–1.48 among filers).
+* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 85,300 active trial-years 2016–25):
+  financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
+  no prior Form D, 2.4 under $10M, 3.1 at $10–50M, 1.8 at $50M or more), with no steeper rise for less-funded sponsors
+  (interactions 0.99, 1.29, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
+  reasons more often throughout (OR 1.62, 1.21–2.17), while stops citing lack of funding (107 in all) were more
+  frequent among sponsors with under $10M raised (OR 2.41, 1.11–5.24, on 7 such stops).
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly

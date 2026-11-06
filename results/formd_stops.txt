@@ -1,0 +1,56 @@
+Non-top-20 industry Phase 1-3 drug trials by amount the sponsor had raised in Form D offerings before the start year:
+         trials  sponsors  raised_median
+band                                    
+none      36580      6564           0.00
+<$10M      1098       270           2.40
+$10-50M    1522       317          26.19
+>=$50M     2309       289         114.60
+
+Stops per 1,000 active trial-years, 2016-2021 vs 2022-2025, by band:
+   band  pre_trial_years  post_trial_years  fin_t_pre  fin_t_post  fin_t_rate_pre  fin_t_rate_post  fin_t_rr  fin_t_rr_lo  fin_t_rr_hi  nofund_t_pre  nofund_t_post  nofund_t_rate_pre  nofund_t_rate_post  nofund_t_rr  nofund_t_rr_lo  nofund_t_rr_hi
+   none            38016             36212        283         659           7.444           18.198     2.445        2.127        2.810            22             65              0.579               1.795        3.102           1.913           5.030
+  <$10M             1281               950         10          18           7.806           18.947     2.427        1.120        5.258             6              1              4.684               1.053        0.225           0.027           1.867
+$10-50M             2067              1179         21          37          10.160           31.383     3.089        1.808        5.277             1              7              0.484               5.937       12.272           1.510          99.750
+ >=$50M             2912              2683         44          71          15.110           26.463     1.751        1.202        2.551             2              3              0.687               1.118        1.628           0.272           9.743
+====================================================================================================
+financial or strategic stop per trial-year ~ band x post-2022 (reference: no prior Form D, pre-2022)
+y ~ C(band) * post + C(group) + C(phase) + C(yb)
+N=85300 trial-years; clusters (sponsors)=6130; events=1143
+                          Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]         0.0025    0.3652  0.9945 -0.7132  0.7182  1.0025  0.4901  2.0508
+C(band)[T.$10-50M]       0.2826    0.2378  0.2346 -0.1834  0.7487  1.3266  0.8324  2.1142
+C(band)[T.>=$50M]        0.6919    0.2397  0.0039  0.2221  1.1618  1.9975  1.2487  3.1956
+post                     1.0877    0.1152  0.0000  0.8619  1.3136  2.9675  2.3676  3.7194
+C(band)[T.<$10M]:post   -0.0058    0.4386  0.9895 -0.8655  0.8539  0.9942  0.4208  2.3488
+C(band)[T.$10-50M]:post  0.2534    0.2856  0.3749 -0.3063  0.8131  1.2884  0.7362  2.2549
+C(band)[T.>=$50M]:post  -0.3193    0.3009  0.2887 -0.9091  0.2705  0.7267  0.4029  1.3106
+====================================================================================================
+financial or strategic stop per trial-year ~ band + post-2022
+y ~ C(band) + post + C(group) + C(phase) + C(yb)
+N=85300 trial-years; clusters (sponsors)=6130; events=1143
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]   -0.0017    0.2697  0.9949 -0.5304  0.5269  0.9983  0.5884  1.6937
+C(band)[T.$10-50M]  0.4329    0.1802  0.0163  0.0798  0.7860  1.5417  1.0831  2.1946
+C(band)[T.>=$50M]   0.4834    0.1494  0.0012  0.1906  0.7761  1.6215  1.2100  2.1731
+post                1.0677    0.1077  0.0000  0.8567  1.2788  2.9088  2.3553  3.5924
+====================================================================================================
+stop citing lack of funding per trial-year ~ band x post-2022 (reference: no prior Form D, pre-2022)
+y ~ C(band) * post + C(group) + C(phase) + C(yb)
+N=85300 trial-years; clusters (sponsors)=6130; events=107
+                          Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+C(band)[T.<$10M]         1.8514    0.4519  0.0000  0.9658  2.7371  6.3689  2.6268  15.4417
+C(band)[T.$10-50M]      -0.3976    1.0229  0.6975 -2.4024  1.6072  0.6719  0.0905   4.9890
+C(band)[T.>=$50M]        0.1907    0.7330  0.7948 -1.2459  1.6273  1.2100  0.2877   5.0899
+post                     1.4138    0.2902  0.0000  0.8450  1.9825  4.1114  2.3280   7.2612
+C(band)[T.<$10M]:post   -2.5150    1.1109  0.0236 -4.6924 -0.3376  0.0809  0.0092   0.7135
+C(band)[T.$10-50M]:post  1.4468    1.1611  0.2127 -0.8289  3.7226  4.2495  0.4365  41.3699
+C(band)[T.>=$50M]:post  -0.6613    1.0624  0.5337 -2.7437  1.4211  0.5162  0.0643   4.1415
+====================================================================================================
+stop citing lack of funding per trial-year ~ band + post-2022
+y ~ C(band) + post + C(group) + C(phase) + C(yb)
+N=85300 trial-years; clusters (sponsors)=6130; events=107
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]    0.8814    0.3956  0.0259  0.1061  1.6568  2.4144  1.1119  5.2426
+C(band)[T.$10-50M]  0.6931    0.4814  0.1500 -0.2505  1.6367  1.9999  0.7784  5.1383
+C(band)[T.>=$50M]  -0.2562    0.5332  0.6308 -1.3013  0.7888  0.7740  0.2722  2.2008
+post                1.2998    0.2556  0.0000  0.7988  1.8009  3.6687  2.2229  6.0549

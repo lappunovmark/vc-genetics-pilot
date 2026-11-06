@@ -13,7 +13,7 @@
 | Genetic support of trials stopped for money vs completed (H4), with the dated Open Targets measure when its directory is given | `pilot/h4_biology.py` | — |
 | NIH SBIR/STTR awards, sponsor linkage (hand-review decisions in `pilot/sbir_decisions.csv`), models | `pilot/fetch_reporter_sbir.py`, `pilot/sbir_link.py`, `pilot/sbir_models.py` | NIH RePORTER API v2 (public) |
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
-| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`) with offerings and amounts, models incl. the amount raised before the trial and the US-only comparison (`pilot/sponsor_region.py`) | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
+| SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`) with offerings and amounts, models incl. the amount raised before the trial and the US-only comparison (`pilot/sponsor_region.py`) | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py`, `pilot/formd_stops.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
 | Approval dates: EMA/PMDA report years and ChEMBL first-approval years, advancement variants that drop approvals preceding the phase entry | `pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py` | ChEMBL web service, release 37 (CC BY-SA 3.0) |
 | Beneficial owners of public sponsors from the EDGAR master index (Schedule 13D/13G filers; registrants S-1/F-1/424B4/10-K/20-F/40-F); owner classes in `pilot/investor_classes.tsv`, hand-review decisions in `pilot/owners_decisions.csv` — *in preparation, not yet run* | `pilot/fetch_edgar_owners.py`, `pilot/owners_link.py` | EDGAR full index (public domain) |
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
@@ -36,6 +36,7 @@ python pilot/sbir_models.py results
 SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_formd.py data/formd
 python pilot/formd_link.py data/formd/formd_biopharma.csv.gz results
 python pilot/formd_models.py results
+python pilot/formd_stops.py data/ctgov_all.csv results
 python pilot/fetch_chembl_approval.py data/chembl_first_approval.csv
 python pilot/approval_dates.py data/ot results data/chembl_first_approval.csv
 SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_edgar_owners.py data/edgar 2001 2026   # in preparation
