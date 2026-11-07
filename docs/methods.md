@@ -121,7 +121,9 @@ sold taken from the latest filing (amendments report the cumulative amount). Eve
 under the main dating rule is listed in `results/formd_sponsor_offerings.csv.gz`. For each programme or phase entry
 the amounts sold in the sponsor's offerings dated before the trial year are summed (nominal US dollars, no deflation)
 and banded: no prior Form D, under $10M, $10–50M, $50M or more. `formd_models.py` fits the selection and advancement
-models with the bands (reference: no prior Form D) and, among filers, with log10(1 + millions raised).
+models with the bands (reference: no prior Form D) and, among filers, with log10(1 + millions raised); two
+sensitivities repeat the band models with equity offerings only (no debt-only offerings, no business combinations)
+and with amounts in 2024 dollars (CPI-U, `results/cpi_u_annual.csv`).
 
 The extract used for the published results is on the `formd-data` branch (`data_formd/`), with the fetch log.
 

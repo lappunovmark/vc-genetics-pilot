@@ -155,6 +155,10 @@ HIST = {n: (g.year.to_numpy(), g.sold.fillna(0).to_numpy()) for n, g in O.groupb
 OE = O[O.equity.astype(bool) & ~O.business_combination.astype(bool)]
 HIST_EQ = {n: (g.year.to_numpy(), g.sold.fillna(0).to_numpy()) for n, g in OE.groupby("norm")}
 BANDS = ["none", "<$10M", "$10-50M", ">=$50M"]
+# constant-dollar sensitivity: CPI-U annual averages (FRED CPIAUCSL, monthly values averaged by year; 2026 = Jan-Sep)
+CPI = pd.read_csv(f"{R}/cpi_u_annual.csv").set_index("year").cpi_u_avg
+DEFL = (CPI.loc[2024] / CPI).to_dict()  # multiply a nominal amount of year y to express it in 2024 dollars
+HIST_2024 = {n: (y, s * np.array([DEFL.get(int(t), np.nan) for t in y])) for n, (y, s) in HIST.items()}
 
 
 def raised_before(names, years, hist=HIST):
@@ -226,6 +230,15 @@ fit("y ~ C(band) + C(tier) + C(yb) + C(area) + C(modality)", PQ, "H1 [equity onl
 fit(f"adv ~ C(band) + gs + {base}", EQ, "Advancement [equity only] ~ amount raised before the entry (bands) + ex-ante support", keep_bands + ("gs",))  # fmt: skip
 PFQ = pool_sparse(P[P.formd.eq(1)].assign(log_raised=lambda d: np.log10(1 + d.raised_eq)))
 fit("y ~ log_raised + C(tier) + C(yb) + C(area) + C(modality)", PFQ, "H1 [equity only], Form D filers only: ex-ante support ~ log10(1 + USD millions of equity raised)", ("log_raised",))  # fmt: skip
+# constant 2024 dollars
+P["raised_2024"] = raised_before(P.first_sponsor, P.first_year, HIST_2024)
+E["raised_2024"] = raised_before(E.lead_sponsor, E.entry_year, HIST_2024)
+PD = P.assign(band=band(P, "raised_2024"))
+ED = E.assign(band=band(E, "raised_2024"))
+out.append("=" * 100 + "\nSensitivity, amounts in 2024 dollars (CPI-U): programmes by band")
+out.append(PD.groupby("band", observed=False).agg(n=("drug", "size"), raised_median=("raised_2024", "median"), gs_ante=("y", "mean")).round(4).to_string())  # fmt: skip
+fit("y ~ C(band) + C(tier) + C(yb) + C(area) + C(modality)", PD, "H1 [2024 dollars]: ex-ante support ~ amount raised before the first trial (bands)", keep_bands)  # fmt: skip
+fit(f"adv ~ C(band) + gs + {base}", ED, "Advancement [2024 dollars] ~ amount raised before the entry (bands) + ex-ante support", keep_bands + ("gs",))  # fmt: skip
 
 # Sensitivity: the two bounds on the dating of the first Form D
 for lab, name in (("own names only (lower bound on history)", "own"), ("whole CIK history (upper bound)", "cik")):
