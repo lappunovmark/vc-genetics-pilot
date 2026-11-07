@@ -8,7 +8,7 @@ Unit: an industry Phase 1-3 drug trial on ClinicalTrials.gov that Open Targets l
 indication with genetic insight, started 2000-2024, with a terminal status (completed, or terminated/withdrawn/
 suspended). Support = any linked programme whose target gene has an association with a similar trait
 (Minikel definition, MeSH similarity >= 0.8) dated before the trial's start year (OMIM counted as ex ante; a no-OMIM
-variant is reported). Stop reasons use the v3 classifier (stopreasons.py); sponsor groups follow rq2_stops.py.
+variant is reported). Stop reasons use the current classifier (stopreasons.py, v4); sponsor groups follow rq2_stops.py.
 Writes RESULTS_DIR/h4_trials.csv.gz and RESULTS_DIR/h4_biology.txt.
 """
 
