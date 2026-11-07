@@ -19,7 +19,9 @@
 | Results-at-a-glance figure | `pilot/figure_glance.py` | — |
 
 ## Running it
-`make all` downloads the sources, rebuilds `results/`, redraws the figure and runs the checks. Step by step:
+`make all` downloads the core sources, rebuilds the core tables, redraws the figure and runs the checks; the dated
+Open Targets evidence, the approval dates and the Form D steps are the separate targets `make dated`, `make approvals`
+and `make formd` (the last needs `SEC_USER_AGENT`). Step by step:
 ```
 python pilot/fetch_opentargets.py data/ot
 python pilot/fetch_ctgov.py all data/ctgov_all.csv

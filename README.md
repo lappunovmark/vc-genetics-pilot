@@ -52,7 +52,7 @@ significant. Small biotechs are companies with at most 5 drugs (or at most 20 tr
 
 35,887 drug–disease projects (29,199 of them in diseases where human genetic data exist) from Open Targets Platform
 26.09 and ClinicalTrials.gov, US government grant records (NIH RePORTER) and SEC Form D filings on private
-fundraising. Everything can be rebuilt with `make all`.
+fundraising. Everything can be rebuilt with `make` ([how to run it](docs/pipeline.md)).
 
 **Limits.** This is a pilot and has not been peer-reviewed. Company size and Form D filings stand in for venture
 capital, which is not measured directly yet.

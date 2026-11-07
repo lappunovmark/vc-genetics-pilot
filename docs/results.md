@@ -23,9 +23,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.25; trials ending 2022 or later OR 1.02, 0.71–1.49).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
   Open Targets measure 0.82, 0.48–1.40).
-* SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
-  2,964 non-top-20 industry sponsor names matched to an issuer (751 on identical names up to legal form, 50 accepted
-  after hand review; 15 candidate matches not used). Among programmes first trialled in 2010 or later, sponsors with
+* SEC Form D: 40,995 filings (33,956 offerings once amendments are folded into the offering they restate) by
+  biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of 2,964 non-top-20 industry sponsor names
+  matched to an issuer (751 on identical names up to legal form, 50 accepted after hand review; 15 candidate matches
+  not used). Among programmes first trialled in 2010 or later, sponsors with
   a prior Form D started genetically supported programmes no more often (4.0% vs 5.7%; adjusted OR 0.74, 0.48–1.14)
   and advanced no more often (adjusted OR 0.88, 0.72–1.09). Genetic support predicted advancement in both groups and,
   in this version of the linkage, more strongly among Form D filers (interaction OR 2.12, 1.10–4.10); the interaction
@@ -52,9 +53,9 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (interactions 1.03, 1.24, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
   reasons more often throughout (OR 1.60, 1.20–2.14), but among sponsors classified as US-based the excess is small
   (1.26, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
-  funding (113 in all) were more frequent among sponsors with under $50M raised (OR 2.28, 1.00–5.20 under $10M and
-  2.43, 1.02–5.79 at $10–50M, on 7 and 9 such stops; 1.00 at $50M or more; among US-based sponsors
-  1.74, 0.70–4.34 and 1.93, 0.81–4.60), too few to make much of.
+  funding (113 in all) were somewhat more frequent among sponsors with under $50M raised (OR 2.28, 1.00–5.20 under
+  $10M and 2.43, 1.02–5.79 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.00; among US-based
+  sponsors 1.74, 0.70–4.34 and 1.93, 0.81–4.60), too few to make much of.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly

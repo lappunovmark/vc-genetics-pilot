@@ -73,7 +73,8 @@ than three events are pooled into "other" and sparse start-period bins are merge
 
 `why_stopped` texts of terminated, withdrawn and suspended industry drug trials are classified by a keyword
 classifier (v4). One label per text, first match in this order: no funding; safety / benefit-risk; efficacy /
-futility; COVID-19; enrolment; M&A / licensing; business / strategic; sponsor decision, unspecified. Negated or
+futility; COVID-19; enrolment; M&A / licensing; business / strategic; sponsor decision, unspecified. A stated lack of
+funding therefore comes first, and a scientific or operational reason stated alongside a business one wins. Negated or
 neutral mentions ("not due to safety", "no safety concerns", "safety committee") are removed before matching.
 *Financial or strategic* = no funding, M&A / licensing or business / strategic. v4 (7 Nov 2026) adds patterns for
 business stops that v3 left unclassified (management or company decisions, programmes discontinued, withdrawn

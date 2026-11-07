@@ -14,8 +14,9 @@ patterns were narrowed after reading the texts they matched in the StopReasons f
 "no longer required/needed/relevant" fired on regulatory or data-no-longer-needed stops and now needs a strategic or
 commercial context, and "other studies" fired on stops explained by the results of other studies and is dropped
 ("other projects", "broader programme objectives" and "focus on other ..." remain).
-One label per text, first match in priority order. A scientific or operational reason stated alongside a business
-one wins, so a stop is called financial/strategic only when nothing scientific or operational is given.
+One label per text, first match in priority order. A stated lack of funding comes first (money is the decisive reason
+when it is mentioned); otherwise a scientific or operational reason stated alongside a business one wins, so a stop
+is called business/strategic only when nothing scientific or operational is given.
 Negated or neutral mentions ("not due to safety", "no safety concerns", "the safety profile remained unchanged",
 "safety committee") are removed before matching; v1 had no negation handling and labelled about 8% of texts
 Safety wrongly.

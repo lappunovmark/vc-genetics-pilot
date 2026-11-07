@@ -11,9 +11,10 @@ that the validation rests on human labels. This folder holds the sheet to fill i
    have finished: the sheet is blind on purpose (texts shuffled, trial ids removed).
 2. For every row, pick exactly one label in column C from the drop-down list. Use column D for doubts (`low`) and
    column E for a note when the text is ambiguous; both are optional.
-3. Code the reason the sponsor **gives**, not what you suspect behind it. If a text gives a scientific or
-   operational reason together with a business one ("portfolio prioritisation following interim efficacy data"),
-   the scientific or operational reason wins. This is the rule the classifier follows, so the comparison is fair.
+3. Code the reason the sponsor **gives**, not what you suspect behind it. A stated lack of funding comes first
+   ("lack of funding and slow accrual" → No funding). Otherwise, if a text gives a scientific or operational reason
+   together with a business one ("portfolio prioritisation following interim efficacy data"), the scientific or
+   operational reason wins. These are the rules the classifier follows, so the comparison is fair.
 4. Negated mentions do not count: "terminated by the sponsor, not due to safety concerns" is *not* a safety stop.
 5. When you are done, run from the repository root:
    `python factcheck/double_coding/double_coding_eval.py` — it writes `results/double_coding.txt` with the
