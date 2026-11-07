@@ -11,3 +11,4 @@ formd_stops_20261106: formd_stops.py run on the author Mac (Python 3.9.6, pandas
 robust_20261106b: robust26.py re-run (author Mac, Python 3.9.6, pandas 2.2.3; byte-identical under Python 3.13 / pandas 3.0.5) after pooling sparse areas in the novel-drug H1 models; only those two models changed
 pooled_fits_20261106: h4_biology.py, sbir_models.py, formd_stops.py and rq2_stops.py re-run on the author Mac (Python 3.9.6, pandas 2.2.3) with sparse control categories pooled (pilot/pooling.py); every logit converges (factcheck/convergence_audit.py); trial-level H4 blocks identical under Python 3.13 / pandas 3.0.5
 formd_equity_20261107: formd_models.py re-run on the author Mac (Python 3.9.6, pandas 2.2.3) with the equity-only amount sensitivity; identical in content under Python 3.13 / pandas 3.0.5
+formd_cpi_20261107: formd_models.py re-run on the author Mac with the 2024-dollar sensitivity (results/cpi_u_annual.csv from FRED CPIAUCSL, fetched 2026-11-07)

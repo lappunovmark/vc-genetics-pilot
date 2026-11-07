@@ -131,6 +131,31 @@ N=999; clusters (drugs)=408; formd share=1.0000; converged=True
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
 log_raised -0.2088    0.1991  0.2945 -0.5991  0.1815  0.8116  0.5493  1.1991
 ====================================================================================================
+Sensitivity, amounts in 2024 dollars (CPI-U): programmes by band
+            n  raised_median  gs_ante
+band                                 
+none     3015         0.0000   0.0570
+<$10M     269         3.2891   0.0483
+$10-50M   284        24.8128   0.0493
+>=$50M    446       121.6068   0.0291
+====================================================================================================
+H1 [2024 dollars]: ex-ante support ~ amount raised before the first trial (bands)
+y ~ C(band) + C(tier) + C(yb) + C(area) + C(modality)
+N=4014; clusters (drugs)=1387; formd share=0.2489; converged=True
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]   -0.1941    0.3414  0.5697 -0.8631  0.4750  0.8236  0.4218  1.6080
+C(band)[T.$10-50M]  0.1609    0.3345  0.6306 -0.4947  0.8165  1.1745  0.6097  2.2625
+C(band)[T.>=$50M]  -0.7213    0.3709  0.0518 -1.4482  0.0057  0.4861  0.2350  1.0057
+====================================================================================================
+Advancement [2024 dollars] ~ amount raised before the entry (bands) + ex-ante support
+adv ~ C(band) + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4005; clusters (drugs)=1348; formd share=0.2489; converged=True
+                     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(band)[T.<$10M]   -0.0634    0.1677  0.7052 -0.3921  0.2652  0.9385  0.6756  1.3037
+C(band)[T.$10-50M] -0.4055    0.1828  0.0266 -0.7638 -0.0472  0.6667  0.4659  0.9539
+C(band)[T.>=$50M]   0.0069    0.1448  0.9622 -0.2770  0.2907  1.0069  0.7581  1.3374
+gs                  0.9178    0.1516  0.0000  0.6206  1.2150  2.5037  1.8600  3.3703
+====================================================================================================
 Sensitivity, first Form D dated by own names only (lower bound on history): formd share programmes=0.2260, entries=0.2252
 ====================================================================================================
 H1 [own]: ex-ante support ~ prior Form D
