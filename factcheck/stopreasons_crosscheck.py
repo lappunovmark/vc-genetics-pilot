@@ -6,7 +6,7 @@ data/stopped_predictions_formatted_30_09_22.csv, 31,867 trial x prediction rows 
 by late 2021, predictions of the BERT classifier of Razuvayevskaya et al., 2024, Nature Genetics). The file is read in
 place and not redistributed.
 
-Our classifier (pilot/stopreasons.py, v3) is applied to the same why_stopped texts. The two schemes differ: theirs has
+Our classifier (pilot/stopreasons.py, current version) is applied to the same why_stopped texts. The two schemes differ: theirs has
 no 'no funding' class and its 'Business_Administrative' merges funding, business and sponsor decisions, so the
 comparison is made on binary classes with a stated mapping. Writes RESULTS_DIR/stopreasons_crosscheck.txt.
 """

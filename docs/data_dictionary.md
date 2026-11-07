@@ -46,7 +46,8 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `rq2_shares.csv` | Share of stops with a stated reason that are financial or no-funding, by year × group |
 | `rq2_did.txt` | Difference-in-differences and event-study logits |
 | `rq2_label_sample.csv` | Stratified sample of `why_stopped` texts drawn for hand coding |
-| `rq2_hand_labels.csv` | Hand labels for the tuning and held-out sets, with classifier v1 and v3 output |
+| `rq2_hand_labels.csv` | Hand labels for the tuning and held-out sets, with classifier v1, v3 and v4 output |
+| `stopreasons_crosscheck.txt`, `stopreasons_support.txt` | Agreement of the classifier with the Open Targets StopReasons predictions, and the number of texts each classifier pattern matches in the StopReasons file, the tuning texts and the held-out texts (`factcheck/`) |
 
 ## H4 and SBIR/STTR
 

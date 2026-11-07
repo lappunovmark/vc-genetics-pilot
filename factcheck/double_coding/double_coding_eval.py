@@ -2,7 +2,7 @@
 
 Usage (from the repository root): python factcheck/double_coding/double_coding_eval.py [coding_sheet.xlsx]
 Joins the filled sheet to results/rq2_hand_labels.csv through key.csv and reports, for the author's labels against
-(a) the first-pass labels and (b) classifier v3: agreement, Cohen's kappa, the confusion table, precision and recall
+(a) the first-pass labels, (b) classifier v3 and (c) classifier v4: agreement, Cohen's kappa, the confusion table, precision and recall
 of the financial-or-strategic class, and every disagreement for adjudication. Writes results/double_coding.txt and
 results/double_coding_disagreements.csv.
 """
@@ -43,7 +43,11 @@ def main(sheet=os.path.join(HERE, "coding_sheet.xlsx")):
     out = [f"texts coded: {len(done)} of {len(m)}"]
     if len(done) < len(m):
         out.append("WARNING: the sheet is not complete; results below use the coded rows only")
-    for name, col in (("first-pass labels (AI assistant)", "hand_label"), ("classifier v3", "classifier_v3")):
+    for name, col in (
+        ("first-pass labels (AI assistant)", "hand_label"),
+        ("classifier v3", "classifier_v3"),
+        ("classifier v4", "classifier_v4"),
+    ):
         agree = (done.author_label == done[col]).mean()
         prec, rec = fin_scores(done.author_label, done[col])
         out.extend(
@@ -59,7 +63,17 @@ def main(sheet=os.path.join(HERE, "coding_sheet.xlsx")):
         out.append(f"low-confidence rows: {len(low)}; agreement with first pass among them: "
                    f"{(low.author_label == low.hand_label).mean():.4f}")  # fmt: skip
     dis = done[done.author_label != done.hand_label][
-        ["id", "nct_id", "why_stopped", "author_label", "hand_label", "classifier_v3", "confidence", "note"]
+        [
+            "id",
+            "nct_id",
+            "why_stopped",
+            "author_label",
+            "hand_label",
+            "classifier_v3",
+            "classifier_v4",
+            "confidence",
+            "note",
+        ]
     ]
     dis.to_csv(os.path.join(ROOT, "results", "double_coding_disagreements.csv"), index=False)
     out.append(f"disagreements with the first pass written to results/double_coding_disagreements.csv ({len(dis)})")

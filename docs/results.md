@@ -63,9 +63,12 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Replication note: in their data, the Phase I→launch RS computed as the product of phase-wise RS, as described in
   their Methods (1.076 × 1.571 × 1.275), is 2.16, while the ratio of launch shares among programmes entering phase I
   is 2.63, close to the headline 2.6. Both are reported in `results/robust.txt` for comparison.
-* Stop-reason classifier v4 (provisional): 83.5% agreement with reference labels on 200 held-out texts (Cohen's
-  κ 0.80); financial or strategic class precision 0.91, recall 0.88 (v3: 83.0%, κ 0.79, 0.91 and 0.86). Against the
-  independent BERT classifier of Razuvayevskaya et al. (2024; Open Targets StopReasons predictions for 28,561 stopped
+* Stop-reason classifier v4 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
+  κ 0.79); financial or strategic class precision 0.91, recall 0.86. These are the same as for v3, which v4 extends:
+  on the held-out texts v4 gains one and loses one (94.3% against 93.8% on the 400 tuning texts), so the new
+  patterns are neutral there and matter only in the full data, where more stops are classed as financial or
+  strategic (Corrections below). Every pattern has support outside the held-out texts (`factcheck/stopreasons_support.py`,
+  `results/stopreasons_support.txt`). Against the independent BERT classifier of Razuvayevskaya et al. (2024; Open Targets StopReasons predictions for 28,561 stopped
   trials, `factcheck/stopreasons_crosscheck.py`), our financial-or-strategic-or-sponsor-decision class and their
   "business or administrative" class agree with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the
   H4 sample (each side recovers 87–88% of the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61
@@ -75,6 +78,15 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
+* 7 Nov 2026: stop-reason classifier v4. A cross-check of v3 against the Open Targets StopReasons predictions showed
+  business stops that v3 left in "Other" ("Management decision", "Program discontinued", "company focus on other
+  projects", "withdrawal of support", wind-downs, expired grants). v4 adds patterns for them. Two of the patterns
+  first written for v4 ("cessation of activities", "project adjustment") matched one held-out text each and nothing
+  in the tuning texts or the StopReasons file, that is, they had been written with held-out texts in view; they were
+  removed the same day, before any number built on them was published, and a check that every pattern has support
+  outside the held-out texts was added (`factcheck/stopreasons_support.py`). The held-out score of v4 is therefore
+  the same as v3's (83.0%, κ 0.79). The results above are still those of v3; the v4 re-run of the trial-stop, H4 and
+  Form D stop-rate outputs follows in the next revision, with the changes listed here.
 * 6 Nov 2026: convergence. An audit of every logit in the pipeline (`factcheck/convergence_audit.py`) found fits
   that had not converged because a control category had no or almost no events (quasi-separation): the two
   novel-drug selection models in `robust26.py` (no novel-drug programme in the infection area has ex-ante support),

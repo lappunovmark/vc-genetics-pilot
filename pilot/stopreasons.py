@@ -5,6 +5,10 @@ Open Targets StopReasons predictions (factcheck/stopreasons_crosscheck.py): mana
 discontinued (noun first), company focus or goals, withdrawn support, wind-downs, expired grants, and a catch-all for a
 bare decision or cancellation in the last class. v3 was revised after hand-labelling 400 texts (a stratified sample of
 stopped industry drug trials, 2012-2026).
+Rule for every pattern: it must match at least one text outside the 200 held-out texts (in the 400 tuning texts or in
+the StopReasons file), so that the held-out score is not tuned to the held-out set. factcheck/stopreasons_support.py
+checks this; two v4 patterns that failed it ("cessation of activities", "project adjustment": one held-out text each,
+nothing else) were removed on 7 Nov 2026 before any result built on them was published.
 One label per text, first match in priority order. A scientific or operational reason stated alongside a business
 one wins, so a stop is called financial/strategic only when nothing scientific or operational is given.
 Negated or neutral mentions ("not due to safety", "no safety concerns", "the safety profile remained unchanged",
@@ -40,8 +44,8 @@ CLASSES = [
         "No funding",
         r"fund|financ|budget|insolven|bankrupt|cash|capital|money|liquidat|ceased operations|"
         r"lack of resources|resource (constraints?|limitations?)|limited resources|"
-        # v4: cessation of the sponsor's activities, withdrawn support, expired grants, cost
-        r"cessation of (its |all )?(activit|operation)|wind(ing)? down|chapter (7|11)|receivership|"
+        # v4: wind-downs, withdrawn support, expired grants, cost
+        r"wind(ing)? down|chapter (7|11)|receivership|"
         r"ceased (its |all |to )?(support|operat)|withdr(ew|awn|awal of|aw) (its |their |all |the )?(financial )?support|"
         r"grant (expired|ended|has ended|was not renewed|funding)|cost constraints?|seeking (research )?(grant|funding)",
     ),
@@ -87,7 +91,7 @@ CLASSES = [
         r"no[- ]go\b|management decision|company (focus|policy|goals?|re-?evaluation|shifted|has decided|decided)|"
         r"(focus|redirect\w*|allocat\w*)\s+(\w+\s+){0,2}?(resources|on other|to other|other projects)|"
         r"(other|broader) (projects?|program(me)? objectives|studies)|reassess\w* of the (medical|commercial|clinical) need|"
-        r"marketing of (this|the) product|scope of the program|development timelines?|project adjustment|"
+        r"marketing of (this|the) product|scope of the program|development timelines?|"
         r"not (critical|needed|necessary) (to|for) (the )?(continued |further )?(evaluation|development)",
     ),
     (

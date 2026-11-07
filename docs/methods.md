@@ -77,8 +77,10 @@ futility; COVID-19; enrolment; M&A / licensing; business / strategic; sponsor de
 neutral mentions ("not due to safety", "no safety concerns", "safety committee") are removed before matching.
 *Financial or strategic* = no funding, M&A / licensing or business / strategic. v4 (7 Nov 2026) adds patterns for
 business stops that v3 left unclassified (management or company decisions, programmes discontinued, withdrawn
-support, wind-downs, expired grants), found by cross-checking v3 against the Open Targets StopReasons predictions;
-the hand-labelled held-out texts were not used to write them (validation in [results](results.md)).
+support, wind-downs, expired grants), found by cross-checking v3 against the Open Targets StopReasons predictions.
+Every pattern must match at least one text outside the 200 held-out texts (in the 400 tuning texts or in the
+StopReasons file), so that the held-out score is not tuned to the held-out set; `factcheck/stopreasons_support.py`
+checks this for every alternative of every pattern (validation in [results](results.md)).
 
 Rates are stops per 1,000 active trial-years (each trial at risk adds one trial-year per calendar year). Rate ratios
 compare 2022–25 with 2016–21, with Poisson confidence intervals: log RR ± 1.96 √(1/a + 1/b).

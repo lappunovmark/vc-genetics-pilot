@@ -10,6 +10,9 @@ the pipeline and expect to be run from this folder, with downloaded texts and da
 | `fetch_meta.py`, `show_meta.py`, `dois.json`, `meta.json` | Crossref metadata of every cited DOI (titles, journals, volumes, pages) |
 | `fetch_texts.py`, `fetch_grey.py`, `links.py`, `ctx.py` | Retrieve open-access texts of cited sources locally and print the passages behind each claim |
 | `sbir_review.py` | Sorts NIH SBIR/STTR-to-sponsor matches into confidence buckets for hand review |
+| `convergence_audit.py` | Runs a pipeline script with `Logit.fit` wrapped and lists every fit that did not converge (quasi-separation) |
+| `stopreasons_crosscheck.py` | Agreement of the stop-reason classifier with the Open Targets StopReasons predictions (Razuvayevskaya et al., 2024), by class; output in `../results/stopreasons_crosscheck.txt` |
+| `stopreasons_support.py` | Every pattern of the stop-reason classifier must match a text outside the held-out set (tuning texts or the StopReasons file); output in `../results/stopreasons_support.txt` |
 | `double_coding/` | Blind double-coding of the 200 held-out stop-reason texts ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)): `codebook.md`, `make_sheet.py` (builds `coding_sheet.xlsx` and `key.csv`), `double_coding_eval.py` (agreement, κ, financial-class precision and recall, disagreements) |
 
 Full texts are fetched for personal checking only and are not redistributed here.
