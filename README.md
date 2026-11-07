@@ -41,7 +41,7 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 | 3. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.74 (0.48–1.14) |
 | 3. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.72 (0.38–1.39) |
 | 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.20 (1.44–3.35) |
-| 4. Genetic evidence of trials stopped for financial or business reasons, vs completed trials | odds ratio 0.74 (0.53–1.03) |
+| 4. Genetic evidence of trials stopped for financial or business reasons, vs completed trials | odds ratio 0.75 (0.54–1.04) |
 
 Above 1 means more likely, below 1 less likely; if the range includes 1, the difference is not statistically
 significant. Small biotechs are companies with at most 5 drugs (or at most 20 trials for finding 4).

@@ -17,10 +17,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   industry group. Among small sponsors, stops citing lack of funding rose 2.20-fold (1.44–3.35); in the other groups
   such stops are rare.
 * Trials stopped for financial or strategic reasons carried no more ex-ante genetic support than completed trials
-  (8.9% vs 10.4%; adjusted OR 0.74, 0.53–1.03, most clearly in trials that ended in 2022 or later). Whether they
-  carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.87,
-  0.62–1.23), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
-  there is no gap at all (11.0% vs 11.5%; OR 0.90, 0.65–1.24; trials ending 2022 or later OR 1.02, 0.71–1.48).
+  (8.9% vs 10.4%; adjusted OR 0.75, 0.54–1.04, most clearly in trials that ended in 2022 or later). Whether they
+  carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.88,
+  0.62–1.24), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
+  there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.25; trials ending 2022 or later OR 1.02, 0.71–1.49).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
   Open Targets measure 0.82, 0.48–1.40).
 * SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
@@ -47,11 +47,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   top band gives 0.49 (0.23–1.01). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 85,300 active trial-years 2016–25):
-  financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.3 with
-  no prior Form D, 2.4 under $10M, 2.8 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
-  (interactions 1.05, 1.21, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
-  reasons more often throughout (OR 1.59, 1.19–2.13), but among sponsors classified as US-based the excess is small
-  (1.27, 0.89–1.81), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
+  financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
+  no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
+  (interactions 1.03, 1.24, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
+  reasons more often throughout (OR 1.60, 1.20–2.14), but among sponsors classified as US-based the excess is small
+  (1.26, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
   funding (113 in all) were more frequent among sponsors with under $50M raised (OR 2.28, 1.00–5.20 under $10M and
   2.43, 1.02–5.79 at $10–50M, on 7 and 9 such stops; 1.00 at $50M or more; among US-based sponsors
   1.74, 0.70–4.34 and 1.93, 0.81–4.60), too few to make much of.
@@ -66,14 +66,14 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   is 2.63, close to the headline 2.6. Both are reported in `results/robust.txt` for comparison.
 * Stop-reason classifier v4 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
   κ 0.79); financial or strategic class precision 0.91, recall 0.86. These are the same as for v3, which v4 extends:
-  on the held-out texts v4 gains one and loses one (94.3% against 93.8% on the 400 tuning texts), so the new
-  patterns are neutral there and matter only in the full data, where more stops are classed as financial or
-  strategic (Corrections below). Every pattern has support outside the held-out texts (`factcheck/stopreasons_support.py`,
-  `results/stopreasons_support.txt`). Against the independent BERT classifier of Razuvayevskaya et al. (2024; Open Targets StopReasons predictions for 28,561 stopped
-  trials, `factcheck/stopreasons_crosscheck.py`), our financial-or-strategic-or-sponsor-decision class and their
-  "business or administrative" class agree with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the
-  H4 sample (each side recovers 87–89% of the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61
-  on that sample. The reference labels in
+  on the held-out texts v4 gains one and loses one (94.3% against 93.8% on the 400 tuning texts), so the changes are
+  neutral there and matter only in the full data, where more stops are classed as financial or strategic
+  (Corrections below). Every pattern has support outside the held-out texts (`factcheck/stopreasons_support.py`,
+  `results/stopreasons_support.txt`). Against the independent BERT classifier of Razuvayevskaya et al. (2024; Open
+  Targets StopReasons predictions for 28,561 stopped trials, `factcheck/stopreasons_crosscheck.py`), our
+  financial-or-strategic class plus unspecified sponsor decisions and their "business or administrative" class agree
+  with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the H4 sample (each side recovers 87–89% of
+  the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61 on that sample. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
   ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2); the coding sheet, codebook and scoring script
   are in `factcheck/double_coding/`), so these figures may change.
@@ -91,14 +91,15 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   business decisions: "no longer required/needed/relevant" on regulatory stops ("FDA advised that study is no longer
   required") and data-no-longer-needed stops, and "other studies" on stops explained by the results of other
   studies; the first now needs a strategic or commercial context and the second is dropped. The held-out score of
-  v4 is the same as v3's (83.0%, κ 0.79; on the tuning texts 94.3% against 93.8%). More pre-2022 stops are classed as financial or strategic with v4, so the post-2022
-  rate ratios fall a little: small sponsors 2.56 → 2.43 (financial or strategic) and 2.45 → 2.20 (lack of funding),
-  mid-sized 2.09 → 1.97, top-20 2.22 → 2.17, large unchanged at 2.52; the difference-in-differences coefficients
-  move from +0.30 (p = 0.04), +0.44 and +0.34 to +0.26 (p = 0.07), +0.38 and +0.36. The H4 financial-stop OR moves
-  from 0.75 (0.54–1.04) to 0.74 (0.53–1.03), with 960 instead of 925 financial stops; the dated-measure OR from 0.88
-  (0.64–1.22) to 0.90 (0.65–1.24); the other cells of Table P4 move by at most 0.01. Stops by capital raised: the
-  no-funding ORs for sponsors with under $10M and $10–50M raised are now 2.28 (1.00–5.20) and 2.43 (1.02–5.79)
-  (before: 2.51, 1.11–5.69 and 2.43, 0.96–6.12). Conclusions unchanged.
+  v4 is the same as v3's (83.0%, κ 0.79; on the tuning texts 94.3% against 93.8%). More stops are classed as
+  financial or strategic with v4, before 2022 as well as after, so the rate ratios move a little: small sponsors
+  2.56 → 2.48 (financial or strategic) and 2.45 → 2.20 (lack of funding), mid-sized 2.09 → 2.02, top-20 2.22 → 2.17,
+  large unchanged at 2.52; the difference-in-differences coefficients move from +0.30 (p = 0.04), +0.44 and +0.34
+  to +0.29 (p = 0.05), +0.41 and +0.37. The H4 financial-stop OR is unchanged at 0.75 (0.54–1.04), with 952 instead
+  of 925 financial stops; the dated-measure OR moves from 0.88 (0.64–1.22) to 0.90 (0.65–1.25); the other cells of
+  Table P4 move by at most 0.01. Stops by capital raised: the no-funding ORs for sponsors with under $10M and
+  $10–50M raised are now 2.28 (1.00–5.20) and 2.43 (1.02–5.79) (before: 2.51, 1.11–5.69 and 2.43, 0.96–6.12).
+  Conclusions unchanged.
 * 6 Nov 2026: convergence. An audit of every logit in the pipeline (`factcheck/convergence_audit.py`) found fits
   that had not converged because a control category had no or almost no events (quasi-separation): the two
   novel-drug selection models in `robust26.py` (no novel-drug programme in the infection area has ex-ante support),
