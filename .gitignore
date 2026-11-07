@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 factcheck/texts/
 .pytest_cache/
+results/h4_trials.csv.gz

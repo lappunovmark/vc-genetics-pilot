@@ -63,8 +63,13 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Replication note: in their data, the Phase I→launch RS computed as the product of phase-wise RS, as described in
   their Methods (1.076 × 1.571 × 1.275), is 2.16, while the ratio of launch shares among programmes entering phase I
   is 2.63, close to the headline 2.6. Both are reported in `results/robust.txt` for comparison.
-* Stop-reason classifier v3 (provisional): 83.0% agreement with reference labels on 200 held-out texts (Cohen's
-  κ 0.79); financial or strategic class precision 0.91, recall 0.86. The reference labels in
+* Stop-reason classifier v4 (provisional): 83.5% agreement with reference labels on 200 held-out texts (Cohen's
+  κ 0.80); financial or strategic class precision 0.91, recall 0.88 (v3: 83.0%, κ 0.79, 0.91 and 0.86). Against the
+  independent BERT classifier of Razuvayevskaya et al. (2024; Open Targets StopReasons predictions for 28,561 stopped
+  trials, `factcheck/stopreasons_crosscheck.py`), our financial-or-strategic-or-sponsor-decision class and their
+  "business or administrative" class agree with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the
+  H4 sample (each side recovers 87–88% of the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61
+  on that sample. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
   ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2); the coding sheet, codebook and scoring script
   are in `factcheck/double_coding/`), so these figures may change.

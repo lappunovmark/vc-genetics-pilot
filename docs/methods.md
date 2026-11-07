@@ -72,10 +72,13 @@ than three events are pooled into "other" and sparse start-period bins are merge
 ## Trial stops around the 2022 funding downturn (`rq2_stops.py`, `rq2_rr.py`, `stopreasons.py`)
 
 `why_stopped` texts of terminated, withdrawn and suspended industry drug trials are classified by a keyword
-classifier (v3). One label per text, first match in this order: no funding; safety / benefit-risk; efficacy /
+classifier (v4). One label per text, first match in this order: no funding; safety / benefit-risk; efficacy /
 futility; COVID-19; enrolment; M&A / licensing; business / strategic; sponsor decision, unspecified. Negated or
 neutral mentions ("not due to safety", "no safety concerns", "safety committee") are removed before matching.
-*Financial or strategic* = no funding, M&A / licensing or business / strategic.
+*Financial or strategic* = no funding, M&A / licensing or business / strategic. v4 (7 Nov 2026) adds patterns for
+business stops that v3 left unclassified (management or company decisions, programmes discontinued, withdrawn
+support, wind-downs, expired grants), found by cross-checking v3 against the Open Targets StopReasons predictions;
+the hand-labelled held-out texts were not used to write them (validation in [results](results.md)).
 
 Rates are stops per 1,000 active trial-years (each trial at risk adds one trial-year per calendar year). Rate ratios
 compare 2022–25 with 2016–21, with Poisson confidence intervals: log RR ± 1.96 √(1/a + 1/b).

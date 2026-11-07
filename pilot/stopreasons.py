@@ -1,6 +1,10 @@
 """Keyword classifier for ClinicalTrials.gov why_stopped text (pilot).
 
-v3, revised after hand-labelling 400 texts (a stratified sample of stopped industry drug trials, 2012-2026).
+v4 (7 Nov 2026): v3 plus patterns for business stops that v3 left in 'Other', found by cross-checking v3 against the
+Open Targets StopReasons predictions (factcheck/stopreasons_crosscheck.py): management or company decisions, programmes
+discontinued (noun first), company focus or goals, withdrawn support, wind-downs, expired grants, and a catch-all for a
+bare decision or cancellation in the last class. v3 was revised after hand-labelling 400 texts (a stratified sample of
+stopped industry drug trials, 2012-2026).
 One label per text, first match in priority order. A scientific or operational reason stated alongside a business
 one wins, so a stop is called financial/strategic only when nothing scientific or operational is given.
 Negated or neutral mentions ("not due to safety", "no safety concerns", "the safety profile remained unchanged",
@@ -35,7 +39,11 @@ CLASSES = [
     (
         "No funding",
         r"fund|financ|budget|insolven|bankrupt|cash|capital|money|liquidat|ceased operations|"
-        r"lack of resources|resource (constraints?|limitations?)|limited resources",
+        r"lack of resources|resource (constraints?|limitations?)|limited resources|"
+        # v4: cessation of the sponsor's activities, withdrawn support, expired grants, cost
+        r"cessation of (its |all )?(activit|operation)|wind(ing)? down|chapter (7|11)|receivership|"
+        r"ceased (its |all |to )?(support|operat)|withdr(ew|awn|awal of|aw) (its |their |all |the )?(financial )?support|"
+        r"grant (expired|ended|has ended|was not renewed|funding)|cost constraints?|seeking (research )?(grant|funding)",
     ),
     (
         "Safety / benefit-risk",
@@ -52,7 +60,7 @@ CLASSES = [
         r"co-primary|study'?s|targeted|statistical|efficacy|clinical|endpoint)|"
         r"failed to (meet|demonstrate|show)|insufficient (evidence|data|activity|response)|modest activity|"
         r"based on (the )?(overall |available |emerging |interim |new |current )?(data|results?|analysis)|"
-        r"statistical significance|absence of encouraging",
+        r"statistical significance|absence of encouraging|data (do|does|did) not support",
     ),
     ("COVID-19", r"covid|sars-cov|coronavirus|pandemic"),
     (
@@ -72,12 +80,25 @@ CLASSES = [
         r"(research|development) status|status of the same target|"
         r"no longer (pursu|required|needed|relevant)|not required for development|"
         r"(stop|ceas|halt|end|discontinu|terminat)\w*\s+(\w+\s+){0,3}?(develop\w*|program(me)?)\b|"
-        r"development discontinued|not (to )?pursue|did not continue with development",
+        r"development discontinued|not (to )?pursue|did not continue with development|"
+        # v4: programme or development stopped (noun first), no-go decisions, company focus or goals, resources
+        # moved to other projects, reassessed need, marketing discontinued
+        r"(develop\w*|program(me)?s?|project)\s+(\w+\s+){0,2}?(halted|terminated|discontinued|cancell?ed|ceased|stopped|ended)|"
+        r"no[- ]go\b|management decision|company (focus|policy|goals?|re-?evaluation|shifted|has decided|decided)|"
+        r"(focus|redirect\w*|allocat\w*)\s+(\w+\s+){0,2}?(resources|on other|to other|other projects)|"
+        r"(other|broader) (projects?|program(me)? objectives|studies)|reassess\w* of the (medical|commercial|clinical) need|"
+        r"marketing of (this|the) product|scope of the program|development timelines?|project adjustment|"
+        r"not (critical|needed|necessary) (to|for) (the )?(continued |further )?(evaluation|development)",
     ),
     (
         "Sponsor decision, unspecified",
-        r"sponsor|company decision|internal decision|administrative|voluntar|"
-        r"decision from the sponsor|at .*discretion",
+        r"sponsor|sponser|company decision|internal decision|administrative|voluntar|"
+        r"decision from the sponsor|at .*discretion|"
+        # v4: a decision, cancellation or withdrawal by the company or its team with no reason given (last class, so
+        # it fires only when no reason above matched)
+        r"\bdecision\b|\bdecided\b|\bcancel|withdrawn by (industry|the company)|"
+        r"(closed|halted|stopped|terminated|discontinued) by (the )?(company|industry|\w+ pharma\w*|\w+ therapeutics)|"
+        r"company (has )?(withdr|discontinu|terminat|stopp)",
     ),
 ]
 _RX = [(k, re.compile(v, re.I)) for k, v in CLASSES]
