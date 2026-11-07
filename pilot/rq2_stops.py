@@ -138,7 +138,9 @@ def main(path, out):
                     f"outcome={y} among stops with a stated reason, 2016-{today.year - 1}",
                     f,
                     f"N={int(res.nobs)}",
-                    res.summary2().tables[1].to_string(),
+                    res.summary2().tables[1].to_string()
+                    if res.mle_retvals["converged"]
+                    else f"NOT CONVERGED (quasi-separation; events={int(d.y.sum())}): not estimable",
                 ]
             except Exception as ex:
                 lines += ["=" * 90, f, f"failed: {ex!r}"]
