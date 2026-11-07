@@ -13,14 +13,14 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
   (2.10–2.98); trials only, 2.25 (1.87–2.69). The small-sponsor interaction stays non-significant (1.50, 0.89–2.54).
-* Financial or strategic trial stops per 1,000 active trial-years rose 2.1–2.6-fold from 2016–21 to 2022–25 in every
-  industry group. Among small sponsors, stops citing lack of funding rose 2.45-fold (1.57–3.82); in the other groups
+* Financial or strategic trial stops per 1,000 active trial-years rose 2.0–2.5-fold from 2016–21 to 2022–25 in every
+  industry group. Among small sponsors, stops citing lack of funding rose 2.20-fold (1.44–3.35); in the other groups
   such stops are rare.
 * Trials stopped for financial or strategic reasons carried no more ex-ante genetic support than completed trials
-  (9.0% vs 10.4%; adjusted OR 0.75, 0.54–1.04, most clearly in trials that ended in 2022 or later). Whether they
+  (8.9% vs 10.4%; adjusted OR 0.74, 0.53–1.03, most clearly in trials that ended in 2022 or later). Whether they
   carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.87,
-  0.61–1.23), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
-  there is no gap at all (11.0% vs 11.5%; OR 0.88, 0.64–1.22; trials ending 2022 or later OR 1.03, 0.71–1.49).
+  0.62–1.23), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
+  there is no gap at all (11.0% vs 11.5%; OR 0.90, 0.65–1.24; trials ending 2022 or later OR 1.02, 0.71–1.48).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
   Open Targets measure 0.82, 0.48–1.40).
 * SEC Form D: 40,995 private offerings by biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of
@@ -47,13 +47,14 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   top band gives 0.49 (0.23–1.01). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 85,300 active trial-years 2016–25):
-  financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
-  no prior Form D, 2.4 under $10M, 3.1 at $10–50M, 1.8 at $50M or more), with no steeper rise for less-funded sponsors
-  (interactions 0.99, 1.29, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
-  reasons more often throughout (OR 1.62, 1.21–2.17), but among sponsors classified as US-based the excess is small
-  (1.29, 0.90–1.85), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
-  funding (107 in all) were more frequent among sponsors with under $10M raised (OR 2.51, 1.11–5.69, on 7 such
-  stops; too few events for a US-only model).
+  financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.3 with
+  no prior Form D, 2.4 under $10M, 2.8 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
+  (interactions 1.05, 1.21, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
+  reasons more often throughout (OR 1.59, 1.19–2.13), but among sponsors classified as US-based the excess is small
+  (1.27, 0.89–1.81), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
+  funding (113 in all) were more frequent among sponsors with under $50M raised (OR 2.28, 1.00–5.20 under $10M and
+  2.43, 1.02–5.79 at $10–50M, on 7 and 9 such stops; 1.00 at $50M or more; among US-based sponsors
+  1.74, 0.70–4.34 and 1.93, 0.81–4.60), too few to make much of.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -85,8 +86,14 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   in the tuning texts or the StopReasons file, that is, they had been written with held-out texts in view; they were
   removed the same day, before any number built on them was published, and a check that every pattern has support
   outside the held-out texts was added (`factcheck/stopreasons_support.py`). The held-out score of v4 is therefore
-  the same as v3's (83.0%, κ 0.79). The results above are still those of v3; the v4 re-run of the trial-stop, H4 and
-  Form D stop-rate outputs follows in the next revision, with the changes listed here.
+  the same as v3's (83.0%, κ 0.79). More pre-2022 stops are classed as financial or strategic with v4, so the post-2022
+  rate ratios fall a little: small sponsors 2.56 → 2.43 (financial or strategic) and 2.45 → 2.20 (lack of funding),
+  mid-sized 2.09 → 1.97, top-20 2.22 → 2.17, large unchanged at 2.52; the difference-in-differences coefficients
+  move from +0.30 (p = 0.04), +0.44 and +0.34 to +0.26 (p = 0.07), +0.38 and +0.36. The H4 financial-stop OR moves
+  from 0.75 (0.54–1.04) to 0.74 (0.53–1.03), with 960 instead of 925 financial stops; the dated-measure OR from 0.88
+  (0.64–1.22) to 0.90 (0.65–1.24); the other cells of Table P4 move by at most 0.01. Stops by capital raised: the
+  no-funding ORs for sponsors with under $10M and $10–50M raised are now 2.28 (1.00–5.20) and 2.43 (1.02–5.79)
+  (before: 2.51, 1.11–5.69 and 2.43, 0.96–6.12). Conclusions unchanged.
 * 6 Nov 2026: convergence. An audit of every logit in the pipeline (`factcheck/convergence_audit.py`) found fits
   that had not converged because a control category had no or almost no events (quasi-separation): the two
   novel-drug selection models in `robust26.py` (no novel-drug programme in the infection area has ex-ante support),

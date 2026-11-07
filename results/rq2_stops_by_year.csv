@@ -9,59 +9,59 @@ stop_year,group,reason,n
 2012.0,"Industry, mid (21-200)",Enrolment,12
 2012.0,"Industry, mid (21-200)",No funding,1
 2012.0,"Industry, mid (21-200)",No reason,24
-2012.0,"Industry, mid (21-200)",Other,15
+2012.0,"Industry, mid (21-200)",Other,14
 2012.0,"Industry, mid (21-200)",Safety / benefit-risk,3
-2012.0,"Industry, mid (21-200)","Sponsor decision, unspecified",6
+2012.0,"Industry, mid (21-200)","Sponsor decision, unspecified",7
 2012.0,"Industry, small (<=20)",Business / strategic,6
 2012.0,"Industry, small (<=20)",Efficacy / futility,8
 2012.0,"Industry, small (<=20)",Enrolment,23
 2012.0,"Industry, small (<=20)",M&A / licensing,1
-2012.0,"Industry, small (<=20)",No funding,5
+2012.0,"Industry, small (<=20)",No funding,7
 2012.0,"Industry, small (<=20)",No reason,27
-2012.0,"Industry, small (<=20)",Other,26
+2012.0,"Industry, small (<=20)",Other,23
 2012.0,"Industry, small (<=20)",Safety / benefit-risk,6
-2012.0,"Industry, small (<=20)","Sponsor decision, unspecified",7
-2012.0,Top-20 pharma,Business / strategic,18
+2012.0,"Industry, small (<=20)","Sponsor decision, unspecified",8
+2012.0,Top-20 pharma,Business / strategic,20
 2012.0,Top-20 pharma,COVID-19,1
 2012.0,Top-20 pharma,Efficacy / futility,13
 2012.0,Top-20 pharma,Enrolment,22
 2012.0,Top-20 pharma,No funding,1
 2012.0,Top-20 pharma,No reason,53
-2012.0,Top-20 pharma,Other,44
+2012.0,Top-20 pharma,Other,35
 2012.0,Top-20 pharma,Safety / benefit-risk,9
-2012.0,Top-20 pharma,"Sponsor decision, unspecified",9
+2012.0,Top-20 pharma,"Sponsor decision, unspecified",16
 2013.0,"Industry, large (>200 trials)",Efficacy / futility,3
 2013.0,"Industry, large (>200 trials)",Enrolment,6
 2013.0,"Industry, large (>200 trials)",M&A / licensing,2
 2013.0,"Industry, large (>200 trials)",No reason,4
-2013.0,"Industry, large (>200 trials)",Other,3
+2013.0,"Industry, large (>200 trials)",Other,2
 2013.0,"Industry, large (>200 trials)",Safety / benefit-risk,5
-2013.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",1
+2013.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",2
 2013.0,"Industry, mid (21-200)",Business / strategic,10
 2013.0,"Industry, mid (21-200)",Efficacy / futility,9
 2013.0,"Industry, mid (21-200)",Enrolment,13
 2013.0,"Industry, mid (21-200)",No funding,1
 2013.0,"Industry, mid (21-200)",No reason,23
-2013.0,"Industry, mid (21-200)",Other,9
+2013.0,"Industry, mid (21-200)",Other,7
 2013.0,"Industry, mid (21-200)",Safety / benefit-risk,1
-2013.0,"Industry, mid (21-200)","Sponsor decision, unspecified",6
-2013.0,"Industry, small (<=20)",Business / strategic,10
+2013.0,"Industry, mid (21-200)","Sponsor decision, unspecified",8
+2013.0,"Industry, small (<=20)",Business / strategic,11
 2013.0,"Industry, small (<=20)",Efficacy / futility,8
 2013.0,"Industry, small (<=20)",Enrolment,19
 2013.0,"Industry, small (<=20)",M&A / licensing,2
 2013.0,"Industry, small (<=20)",No funding,7
 2013.0,"Industry, small (<=20)",No reason,32
-2013.0,"Industry, small (<=20)",Other,16
+2013.0,"Industry, small (<=20)",Other,13
 2013.0,"Industry, small (<=20)",Safety / benefit-risk,3
-2013.0,"Industry, small (<=20)","Sponsor decision, unspecified",11
+2013.0,"Industry, small (<=20)","Sponsor decision, unspecified",13
 2013.0,Top-20 pharma,Business / strategic,21
-2013.0,Top-20 pharma,Efficacy / futility,9
-2013.0,Top-20 pharma,Enrolment,14
+2013.0,Top-20 pharma,Efficacy / futility,10
+2013.0,Top-20 pharma,Enrolment,13
 2013.0,Top-20 pharma,M&A / licensing,5
 2013.0,Top-20 pharma,No reason,47
-2013.0,Top-20 pharma,Other,32
+2013.0,Top-20 pharma,Other,30
 2013.0,Top-20 pharma,Safety / benefit-risk,20
-2013.0,Top-20 pharma,"Sponsor decision, unspecified",10
+2013.0,Top-20 pharma,"Sponsor decision, unspecified",12
 2014.0,"Industry, large (>200 trials)",Business / strategic,8
 2014.0,"Industry, large (>200 trials)",Efficacy / futility,3
 2014.0,"Industry, large (>200 trials)",Enrolment,4
@@ -69,13 +69,13 @@ stop_year,group,reason,n
 2014.0,"Industry, large (>200 trials)",Other,6
 2014.0,"Industry, large (>200 trials)",Safety / benefit-risk,2
 2014.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",1
-2014.0,"Industry, mid (21-200)",Business / strategic,8
+2014.0,"Industry, mid (21-200)",Business / strategic,10
 2014.0,"Industry, mid (21-200)",Efficacy / futility,8
 2014.0,"Industry, mid (21-200)",Enrolment,23
 2014.0,"Industry, mid (21-200)",M&A / licensing,1
 2014.0,"Industry, mid (21-200)",No funding,3
 2014.0,"Industry, mid (21-200)",No reason,24
-2014.0,"Industry, mid (21-200)",Other,15
+2014.0,"Industry, mid (21-200)",Other,13
 2014.0,"Industry, mid (21-200)",Safety / benefit-risk,3
 2014.0,"Industry, mid (21-200)","Sponsor decision, unspecified",11
 2014.0,"Industry, small (<=20)",Business / strategic,6
@@ -84,137 +84,137 @@ stop_year,group,reason,n
 2014.0,"Industry, small (<=20)",M&A / licensing,3
 2014.0,"Industry, small (<=20)",No funding,10
 2014.0,"Industry, small (<=20)",No reason,24
-2014.0,"Industry, small (<=20)",Other,23
+2014.0,"Industry, small (<=20)",Other,22
 2014.0,"Industry, small (<=20)",Safety / benefit-risk,3
-2014.0,"Industry, small (<=20)","Sponsor decision, unspecified",9
-2014.0,Top-20 pharma,Business / strategic,21
+2014.0,"Industry, small (<=20)","Sponsor decision, unspecified",10
+2014.0,Top-20 pharma,Business / strategic,25
 2014.0,Top-20 pharma,Efficacy / futility,25
 2014.0,Top-20 pharma,Enrolment,19
 2014.0,Top-20 pharma,No reason,52
-2014.0,Top-20 pharma,Other,39
+2014.0,Top-20 pharma,Other,30
 2014.0,Top-20 pharma,Safety / benefit-risk,24
-2014.0,Top-20 pharma,"Sponsor decision, unspecified",9
+2014.0,Top-20 pharma,"Sponsor decision, unspecified",14
 2015.0,"Industry, large (>200 trials)",Efficacy / futility,1
 2015.0,"Industry, large (>200 trials)",Enrolment,5
 2015.0,"Industry, large (>200 trials)",No reason,8
-2015.0,"Industry, large (>200 trials)",Other,3
-2015.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",3
+2015.0,"Industry, large (>200 trials)",Other,2
+2015.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",4
 2015.0,"Industry, mid (21-200)",Business / strategic,11
 2015.0,"Industry, mid (21-200)",Efficacy / futility,6
 2015.0,"Industry, mid (21-200)",Enrolment,11
 2015.0,"Industry, mid (21-200)",No funding,1
 2015.0,"Industry, mid (21-200)",No reason,21
-2015.0,"Industry, mid (21-200)",Other,11
+2015.0,"Industry, mid (21-200)",Other,10
 2015.0,"Industry, mid (21-200)",Safety / benefit-risk,6
-2015.0,"Industry, mid (21-200)","Sponsor decision, unspecified",13
-2015.0,"Industry, small (<=20)",Business / strategic,9
+2015.0,"Industry, mid (21-200)","Sponsor decision, unspecified",14
+2015.0,"Industry, small (<=20)",Business / strategic,10
 2015.0,"Industry, small (<=20)",Efficacy / futility,9
 2015.0,"Industry, small (<=20)",Enrolment,15
 2015.0,"Industry, small (<=20)",M&A / licensing,1
 2015.0,"Industry, small (<=20)",No funding,3
 2015.0,"Industry, small (<=20)",No reason,31
-2015.0,"Industry, small (<=20)",Other,28
+2015.0,"Industry, small (<=20)",Other,26
 2015.0,"Industry, small (<=20)",Safety / benefit-risk,11
-2015.0,"Industry, small (<=20)","Sponsor decision, unspecified",4
-2015.0,Top-20 pharma,Business / strategic,29
+2015.0,"Industry, small (<=20)","Sponsor decision, unspecified",5
+2015.0,Top-20 pharma,Business / strategic,30
 2015.0,Top-20 pharma,Efficacy / futility,25
 2015.0,Top-20 pharma,Enrolment,21
 2015.0,Top-20 pharma,M&A / licensing,4
 2015.0,Top-20 pharma,No reason,65
-2015.0,Top-20 pharma,Other,19
+2015.0,Top-20 pharma,Other,15
 2015.0,Top-20 pharma,Safety / benefit-risk,18
-2015.0,Top-20 pharma,"Sponsor decision, unspecified",8
+2015.0,Top-20 pharma,"Sponsor decision, unspecified",11
 2016.0,"Industry, large (>200 trials)",Business / strategic,1
 2016.0,"Industry, large (>200 trials)",Efficacy / futility,8
 2016.0,"Industry, large (>200 trials)",Enrolment,4
 2016.0,"Industry, large (>200 trials)",No reason,6
-2016.0,"Industry, large (>200 trials)",Other,2
+2016.0,"Industry, large (>200 trials)",Other,1
 2016.0,"Industry, large (>200 trials)",Safety / benefit-risk,3
-2016.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",4
-2016.0,"Industry, mid (21-200)",Business / strategic,10
+2016.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",5
+2016.0,"Industry, mid (21-200)",Business / strategic,13
 2016.0,"Industry, mid (21-200)",Efficacy / futility,3
 2016.0,"Industry, mid (21-200)",Enrolment,16
 2016.0,"Industry, mid (21-200)",M&A / licensing,1
 2016.0,"Industry, mid (21-200)",No reason,36
-2016.0,"Industry, mid (21-200)",Other,18
+2016.0,"Industry, mid (21-200)",Other,15
 2016.0,"Industry, mid (21-200)",Safety / benefit-risk,4
 2016.0,"Industry, mid (21-200)","Sponsor decision, unspecified",23
-2016.0,"Industry, small (<=20)",Business / strategic,16
+2016.0,"Industry, small (<=20)",Business / strategic,18
 2016.0,"Industry, small (<=20)",Efficacy / futility,8
 2016.0,"Industry, small (<=20)",Enrolment,23
 2016.0,"Industry, small (<=20)",M&A / licensing,2
-2016.0,"Industry, small (<=20)",No funding,5
+2016.0,"Industry, small (<=20)",No funding,6
 2016.0,"Industry, small (<=20)",No reason,46
-2016.0,"Industry, small (<=20)",Other,24
+2016.0,"Industry, small (<=20)",Other,20
 2016.0,"Industry, small (<=20)",Safety / benefit-risk,7
-2016.0,"Industry, small (<=20)","Sponsor decision, unspecified",13
-2016.0,Top-20 pharma,Business / strategic,22
+2016.0,"Industry, small (<=20)","Sponsor decision, unspecified",14
+2016.0,Top-20 pharma,Business / strategic,24
 2016.0,Top-20 pharma,Efficacy / futility,21
 2016.0,Top-20 pharma,Enrolment,24
 2016.0,Top-20 pharma,M&A / licensing,1
 2016.0,Top-20 pharma,No reason,73
-2016.0,Top-20 pharma,Other,18
+2016.0,Top-20 pharma,Other,12
 2016.0,Top-20 pharma,Safety / benefit-risk,8
-2016.0,Top-20 pharma,"Sponsor decision, unspecified",9
+2016.0,Top-20 pharma,"Sponsor decision, unspecified",13
 2017.0,"Industry, large (>200 trials)",Business / strategic,4
 2017.0,"Industry, large (>200 trials)",Efficacy / futility,3
 2017.0,"Industry, large (>200 trials)",Enrolment,4
 2017.0,"Industry, large (>200 trials)",No reason,5
 2017.0,"Industry, large (>200 trials)",Other,4
 2017.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",3
-2017.0,"Industry, mid (21-200)",Business / strategic,24
+2017.0,"Industry, mid (21-200)",Business / strategic,26
 2017.0,"Industry, mid (21-200)",Efficacy / futility,9
 2017.0,"Industry, mid (21-200)",Enrolment,16
 2017.0,"Industry, mid (21-200)",No reason,21
-2017.0,"Industry, mid (21-200)",Other,18
+2017.0,"Industry, mid (21-200)",Other,14
 2017.0,"Industry, mid (21-200)",Safety / benefit-risk,3
-2017.0,"Industry, mid (21-200)","Sponsor decision, unspecified",20
-2017.0,"Industry, small (<=20)",Business / strategic,9
+2017.0,"Industry, mid (21-200)","Sponsor decision, unspecified",22
+2017.0,"Industry, small (<=20)",Business / strategic,11
 2017.0,"Industry, small (<=20)",Efficacy / futility,9
 2017.0,"Industry, small (<=20)",Enrolment,20
 2017.0,"Industry, small (<=20)",No funding,2
 2017.0,"Industry, small (<=20)",No reason,23
-2017.0,"Industry, small (<=20)",Other,39
+2017.0,"Industry, small (<=20)",Other,34
 2017.0,"Industry, small (<=20)",Safety / benefit-risk,13
-2017.0,"Industry, small (<=20)","Sponsor decision, unspecified",18
-2017.0,Top-20 pharma,Business / strategic,30
-2017.0,Top-20 pharma,Efficacy / futility,22
+2017.0,"Industry, small (<=20)","Sponsor decision, unspecified",21
+2017.0,Top-20 pharma,Business / strategic,32
+2017.0,Top-20 pharma,Efficacy / futility,23
 2017.0,Top-20 pharma,Enrolment,25
 2017.0,Top-20 pharma,M&A / licensing,1
 2017.0,Top-20 pharma,No reason,43
-2017.0,Top-20 pharma,Other,32
+2017.0,Top-20 pharma,Other,24
 2017.0,Top-20 pharma,Safety / benefit-risk,13
-2017.0,Top-20 pharma,"Sponsor decision, unspecified",9
+2017.0,Top-20 pharma,"Sponsor decision, unspecified",14
 2018.0,"Industry, large (>200 trials)",Business / strategic,4
 2018.0,"Industry, large (>200 trials)",Efficacy / futility,2
 2018.0,"Industry, large (>200 trials)",Enrolment,1
 2018.0,"Industry, large (>200 trials)",M&A / licensing,1
 2018.0,"Industry, large (>200 trials)",No reason,4
-2018.0,"Industry, large (>200 trials)",Other,5
-2018.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",4
-2018.0,"Industry, mid (21-200)",Business / strategic,19
+2018.0,"Industry, large (>200 trials)",Other,4
+2018.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",5
+2018.0,"Industry, mid (21-200)",Business / strategic,20
 2018.0,"Industry, mid (21-200)",Efficacy / futility,10
 2018.0,"Industry, mid (21-200)",Enrolment,18
 2018.0,"Industry, mid (21-200)",No reason,23
-2018.0,"Industry, mid (21-200)",Other,20
+2018.0,"Industry, mid (21-200)",Other,18
 2018.0,"Industry, mid (21-200)",Safety / benefit-risk,5
-2018.0,"Industry, mid (21-200)","Sponsor decision, unspecified",13
-2018.0,"Industry, small (<=20)",Business / strategic,20
+2018.0,"Industry, mid (21-200)","Sponsor decision, unspecified",14
+2018.0,"Industry, small (<=20)",Business / strategic,21
 2018.0,"Industry, small (<=20)",Efficacy / futility,32
 2018.0,"Industry, small (<=20)",Enrolment,42
 2018.0,"Industry, small (<=20)",No funding,5
 2018.0,"Industry, small (<=20)",No reason,22
-2018.0,"Industry, small (<=20)",Other,37
+2018.0,"Industry, small (<=20)",Other,34
 2018.0,"Industry, small (<=20)",Safety / benefit-risk,12
-2018.0,"Industry, small (<=20)","Sponsor decision, unspecified",23
-2018.0,Top-20 pharma,Business / strategic,29
-2018.0,Top-20 pharma,Efficacy / futility,27
+2018.0,"Industry, small (<=20)","Sponsor decision, unspecified",25
+2018.0,Top-20 pharma,Business / strategic,32
+2018.0,Top-20 pharma,Efficacy / futility,28
 2018.0,Top-20 pharma,Enrolment,18
 2018.0,Top-20 pharma,M&A / licensing,2
 2018.0,Top-20 pharma,No reason,29
-2018.0,Top-20 pharma,Other,40
+2018.0,Top-20 pharma,Other,30
 2018.0,Top-20 pharma,Safety / benefit-risk,14
-2018.0,Top-20 pharma,"Sponsor decision, unspecified",9
+2018.0,Top-20 pharma,"Sponsor decision, unspecified",15
 2019.0,"Industry, large (>200 trials)",Business / strategic,3
 2019.0,"Industry, large (>200 trials)",Efficacy / futility,14
 2019.0,"Industry, large (>200 trials)",Enrolment,3
@@ -222,32 +222,32 @@ stop_year,group,reason,n
 2019.0,"Industry, large (>200 trials)",Other,3
 2019.0,"Industry, large (>200 trials)",Safety / benefit-risk,4
 2019.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",5
-2019.0,"Industry, mid (21-200)",Business / strategic,23
+2019.0,"Industry, mid (21-200)",Business / strategic,26
 2019.0,"Industry, mid (21-200)",COVID-19,1
 2019.0,"Industry, mid (21-200)",Efficacy / futility,9
 2019.0,"Industry, mid (21-200)",Enrolment,19
 2019.0,"Industry, mid (21-200)",No funding,1
 2019.0,"Industry, mid (21-200)",No reason,6
-2019.0,"Industry, mid (21-200)",Other,25
+2019.0,"Industry, mid (21-200)",Other,21
 2019.0,"Industry, mid (21-200)",Safety / benefit-risk,5
-2019.0,"Industry, mid (21-200)","Sponsor decision, unspecified",15
-2019.0,"Industry, small (<=20)",Business / strategic,36
+2019.0,"Industry, mid (21-200)","Sponsor decision, unspecified",16
+2019.0,"Industry, small (<=20)",Business / strategic,39
 2019.0,"Industry, small (<=20)",COVID-19,3
 2019.0,"Industry, small (<=20)",Efficacy / futility,15
 2019.0,"Industry, small (<=20)",Enrolment,42
-2019.0,"Industry, small (<=20)",No funding,5
+2019.0,"Industry, small (<=20)",No funding,8
 2019.0,"Industry, small (<=20)",No reason,5
-2019.0,"Industry, small (<=20)",Other,47
+2019.0,"Industry, small (<=20)",Other,38
 2019.0,"Industry, small (<=20)",Safety / benefit-risk,10
-2019.0,"Industry, small (<=20)","Sponsor decision, unspecified",24
-2019.0,Top-20 pharma,Business / strategic,29
+2019.0,"Industry, small (<=20)","Sponsor decision, unspecified",27
+2019.0,Top-20 pharma,Business / strategic,30
 2019.0,Top-20 pharma,Efficacy / futility,23
 2019.0,Top-20 pharma,Enrolment,18
 2019.0,Top-20 pharma,M&A / licensing,2
 2019.0,Top-20 pharma,No reason,14
-2019.0,Top-20 pharma,Other,22
+2019.0,Top-20 pharma,Other,19
 2019.0,Top-20 pharma,Safety / benefit-risk,16
-2019.0,Top-20 pharma,"Sponsor decision, unspecified",10
+2019.0,Top-20 pharma,"Sponsor decision, unspecified",12
 2020.0,"Industry, large (>200 trials)",Business / strategic,13
 2020.0,"Industry, large (>200 trials)",COVID-19,2
 2020.0,"Industry, large (>200 trials)",Efficacy / futility,14
@@ -262,34 +262,34 @@ stop_year,group,reason,n
 2020.0,"Industry, mid (21-200)",M&A / licensing,1
 2020.0,"Industry, mid (21-200)",No funding,2
 2020.0,"Industry, mid (21-200)",No reason,3
-2020.0,"Industry, mid (21-200)",Other,21
+2020.0,"Industry, mid (21-200)",Other,16
 2020.0,"Industry, mid (21-200)",Safety / benefit-risk,6
-2020.0,"Industry, mid (21-200)","Sponsor decision, unspecified",21
-2020.0,"Industry, small (<=20)",Business / strategic,38
+2020.0,"Industry, mid (21-200)","Sponsor decision, unspecified",26
+2020.0,"Industry, small (<=20)",Business / strategic,40
 2020.0,"Industry, small (<=20)",COVID-19,32
 2020.0,"Industry, small (<=20)",Efficacy / futility,20
 2020.0,"Industry, small (<=20)",Enrolment,31
 2020.0,"Industry, small (<=20)",No funding,4
 2020.0,"Industry, small (<=20)",No reason,8
-2020.0,"Industry, small (<=20)",Other,42
+2020.0,"Industry, small (<=20)",Other,36
 2020.0,"Industry, small (<=20)",Safety / benefit-risk,12
-2020.0,"Industry, small (<=20)","Sponsor decision, unspecified",25
-2020.0,Top-20 pharma,Business / strategic,46
+2020.0,"Industry, small (<=20)","Sponsor decision, unspecified",29
+2020.0,Top-20 pharma,Business / strategic,47
 2020.0,Top-20 pharma,COVID-19,10
 2020.0,Top-20 pharma,Efficacy / futility,18
 2020.0,Top-20 pharma,Enrolment,17
 2020.0,Top-20 pharma,No reason,10
-2020.0,Top-20 pharma,Other,28
+2020.0,Top-20 pharma,Other,23
 2020.0,Top-20 pharma,Safety / benefit-risk,13
-2020.0,Top-20 pharma,"Sponsor decision, unspecified",29
+2020.0,Top-20 pharma,"Sponsor decision, unspecified",33
 2021.0,"Industry, large (>200 trials)",Business / strategic,15
 2021.0,"Industry, large (>200 trials)",COVID-19,1
 2021.0,"Industry, large (>200 trials)",Efficacy / futility,5
 2021.0,"Industry, large (>200 trials)",Enrolment,4
 2021.0,"Industry, large (>200 trials)",No reason,1
-2021.0,"Industry, large (>200 trials)",Other,2
+2021.0,"Industry, large (>200 trials)",Other,1
 2021.0,"Industry, large (>200 trials)",Safety / benefit-risk,2
-2021.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",5
+2021.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",6
 2021.0,"Industry, mid (21-200)",Business / strategic,37
 2021.0,"Industry, mid (21-200)",COVID-19,12
 2021.0,"Industry, mid (21-200)",Efficacy / futility,20
@@ -297,9 +297,9 @@ stop_year,group,reason,n
 2021.0,"Industry, mid (21-200)",M&A / licensing,1
 2021.0,"Industry, mid (21-200)",No funding,1
 2021.0,"Industry, mid (21-200)",No reason,3
-2021.0,"Industry, mid (21-200)",Other,37
+2021.0,"Industry, mid (21-200)",Other,35
 2021.0,"Industry, mid (21-200)",Safety / benefit-risk,14
-2021.0,"Industry, mid (21-200)","Sponsor decision, unspecified",25
+2021.0,"Industry, mid (21-200)","Sponsor decision, unspecified",27
 2021.0,"Industry, small (<=20)",Business / strategic,33
 2021.0,"Industry, small (<=20)",COVID-19,23
 2021.0,"Industry, small (<=20)",Efficacy / futility,23
@@ -307,18 +307,18 @@ stop_year,group,reason,n
 2021.0,"Industry, small (<=20)",M&A / licensing,1
 2021.0,"Industry, small (<=20)",No funding,7
 2021.0,"Industry, small (<=20)",No reason,2
-2021.0,"Industry, small (<=20)",Other,47
+2021.0,"Industry, small (<=20)",Other,44
 2021.0,"Industry, small (<=20)",Safety / benefit-risk,12
-2021.0,"Industry, small (<=20)","Sponsor decision, unspecified",40
-2021.0,Top-20 pharma,Business / strategic,47
+2021.0,"Industry, small (<=20)","Sponsor decision, unspecified",43
+2021.0,Top-20 pharma,Business / strategic,46
 2021.0,Top-20 pharma,COVID-19,6
-2021.0,Top-20 pharma,Efficacy / futility,23
+2021.0,Top-20 pharma,Efficacy / futility,24
 2021.0,Top-20 pharma,Enrolment,19
 2021.0,Top-20 pharma,M&A / licensing,2
 2021.0,Top-20 pharma,No reason,9
-2021.0,Top-20 pharma,Other,25
+2021.0,Top-20 pharma,Other,19
 2021.0,Top-20 pharma,Safety / benefit-risk,13
-2021.0,Top-20 pharma,"Sponsor decision, unspecified",21
+2021.0,Top-20 pharma,"Sponsor decision, unspecified",27
 2022.0,"Industry, large (>200 trials)",Business / strategic,14
 2022.0,"Industry, large (>200 trials)",COVID-19,4
 2022.0,"Industry, large (>200 trials)",Efficacy / futility,3
@@ -327,65 +327,65 @@ stop_year,group,reason,n
 2022.0,"Industry, large (>200 trials)",Other,1
 2022.0,"Industry, large (>200 trials)",Safety / benefit-risk,1
 2022.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",7
-2022.0,"Industry, mid (21-200)",Business / strategic,64
+2022.0,"Industry, mid (21-200)",Business / strategic,65
 2022.0,"Industry, mid (21-200)",COVID-19,6
 2022.0,"Industry, mid (21-200)",Efficacy / futility,13
 2022.0,"Industry, mid (21-200)",Enrolment,18
 2022.0,"Industry, mid (21-200)",No reason,1
-2022.0,"Industry, mid (21-200)",Other,29
+2022.0,"Industry, mid (21-200)",Other,25
 2022.0,"Industry, mid (21-200)",Safety / benefit-risk,4
-2022.0,"Industry, mid (21-200)","Sponsor decision, unspecified",29
-2022.0,"Industry, small (<=20)",Business / strategic,85
+2022.0,"Industry, mid (21-200)","Sponsor decision, unspecified",32
+2022.0,"Industry, small (<=20)",Business / strategic,88
 2022.0,"Industry, small (<=20)",COVID-19,40
 2022.0,"Industry, small (<=20)",Efficacy / futility,26
 2022.0,"Industry, small (<=20)",Enrolment,60
 2022.0,"Industry, small (<=20)",M&A / licensing,7
-2022.0,"Industry, small (<=20)",No funding,12
-2022.0,"Industry, small (<=20)",Other,58
+2022.0,"Industry, small (<=20)",No funding,13
+2022.0,"Industry, small (<=20)",Other,49
 2022.0,"Industry, small (<=20)",Safety / benefit-risk,25
-2022.0,"Industry, small (<=20)","Sponsor decision, unspecified",57
-2022.0,Top-20 pharma,Business / strategic,68
+2022.0,"Industry, small (<=20)","Sponsor decision, unspecified",62
+2022.0,Top-20 pharma,Business / strategic,70
 2022.0,Top-20 pharma,COVID-19,4
 2022.0,Top-20 pharma,Efficacy / futility,24
 2022.0,Top-20 pharma,Enrolment,31
 2022.0,Top-20 pharma,No reason,2
-2022.0,Top-20 pharma,Other,25
+2022.0,Top-20 pharma,Other,20
 2022.0,Top-20 pharma,Safety / benefit-risk,22
-2022.0,Top-20 pharma,"Sponsor decision, unspecified",34
+2022.0,Top-20 pharma,"Sponsor decision, unspecified",37
 2023.0,"Industry, large (>200 trials)",Business / strategic,11
 2023.0,"Industry, large (>200 trials)",Efficacy / futility,3
 2023.0,"Industry, large (>200 trials)",No reason,2
-2023.0,"Industry, large (>200 trials)",Other,7
+2023.0,"Industry, large (>200 trials)",Other,6
 2023.0,"Industry, large (>200 trials)",Safety / benefit-risk,1
-2023.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",8
+2023.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",9
 2023.0,"Industry, mid (21-200)",Business / strategic,66
 2023.0,"Industry, mid (21-200)",COVID-19,3
 2023.0,"Industry, mid (21-200)",Efficacy / futility,17
 2023.0,"Industry, mid (21-200)",Enrolment,27
 2023.0,"Industry, mid (21-200)",No funding,3
 2023.0,"Industry, mid (21-200)",No reason,1
-2023.0,"Industry, mid (21-200)",Other,27
+2023.0,"Industry, mid (21-200)",Other,24
 2023.0,"Industry, mid (21-200)",Safety / benefit-risk,8
-2023.0,"Industry, mid (21-200)","Sponsor decision, unspecified",38
-2023.0,"Industry, small (<=20)",Business / strategic,113
+2023.0,"Industry, mid (21-200)","Sponsor decision, unspecified",41
+2023.0,"Industry, small (<=20)",Business / strategic,115
 2023.0,"Industry, small (<=20)",COVID-19,20
 2023.0,"Industry, small (<=20)",Efficacy / futility,26
 2023.0,"Industry, small (<=20)",Enrolment,58
 2023.0,"Industry, small (<=20)",M&A / licensing,2
 2023.0,"Industry, small (<=20)",No funding,20
 2023.0,"Industry, small (<=20)",No reason,3
-2023.0,"Industry, small (<=20)",Other,61
+2023.0,"Industry, small (<=20)",Other,54
 2023.0,"Industry, small (<=20)",Safety / benefit-risk,16
-2023.0,"Industry, small (<=20)","Sponsor decision, unspecified",54
-2023.0,Top-20 pharma,Business / strategic,74
+2023.0,"Industry, small (<=20)","Sponsor decision, unspecified",59
+2023.0,Top-20 pharma,Business / strategic,76
 2023.0,Top-20 pharma,COVID-19,4
-2023.0,Top-20 pharma,Efficacy / futility,39
+2023.0,Top-20 pharma,Efficacy / futility,40
 2023.0,Top-20 pharma,Enrolment,23
 2023.0,Top-20 pharma,No funding,1
 2023.0,Top-20 pharma,No reason,1
-2023.0,Top-20 pharma,Other,16
+2023.0,Top-20 pharma,Other,11
 2023.0,Top-20 pharma,Safety / benefit-risk,40
-2023.0,Top-20 pharma,"Sponsor decision, unspecified",26
+2023.0,Top-20 pharma,"Sponsor decision, unspecified",28
 2024.0,"Industry, large (>200 trials)",Business / strategic,21
 2024.0,"Industry, large (>200 trials)",Efficacy / futility,8
 2024.0,"Industry, large (>200 trials)",Enrolment,7
@@ -399,25 +399,25 @@ stop_year,group,reason,n
 2024.0,"Industry, mid (21-200)",M&A / licensing,1
 2024.0,"Industry, mid (21-200)",No funding,4
 2024.0,"Industry, mid (21-200)",No reason,1
-2024.0,"Industry, mid (21-200)",Other,23
+2024.0,"Industry, mid (21-200)",Other,21
 2024.0,"Industry, mid (21-200)",Safety / benefit-risk,5
-2024.0,"Industry, mid (21-200)","Sponsor decision, unspecified",24
-2024.0,"Industry, small (<=20)",Business / strategic,104
+2024.0,"Industry, mid (21-200)","Sponsor decision, unspecified",26
+2024.0,"Industry, small (<=20)",Business / strategic,103
 2024.0,"Industry, small (<=20)",COVID-19,7
 2024.0,"Industry, small (<=20)",Efficacy / futility,47
 2024.0,"Industry, small (<=20)",Enrolment,61
-2024.0,"Industry, small (<=20)",No funding,21
-2024.0,"Industry, small (<=20)",Other,52
+2024.0,"Industry, small (<=20)",No funding,22
+2024.0,"Industry, small (<=20)",Other,45
 2024.0,"Industry, small (<=20)",Safety / benefit-risk,22
-2024.0,"Industry, small (<=20)","Sponsor decision, unspecified",68
-2024.0,Top-20 pharma,Business / strategic,93
+2024.0,"Industry, small (<=20)","Sponsor decision, unspecified",75
+2024.0,Top-20 pharma,Business / strategic,94
 2024.0,Top-20 pharma,COVID-19,1
 2024.0,Top-20 pharma,Efficacy / futility,27
 2024.0,Top-20 pharma,Enrolment,10
 2024.0,Top-20 pharma,No reason,2
-2024.0,Top-20 pharma,Other,18
+2024.0,Top-20 pharma,Other,13
 2024.0,Top-20 pharma,Safety / benefit-risk,22
-2024.0,Top-20 pharma,"Sponsor decision, unspecified",48
+2024.0,Top-20 pharma,"Sponsor decision, unspecified",52
 2025.0,"Industry, large (>200 trials)",Business / strategic,19
 2025.0,"Industry, large (>200 trials)",Efficacy / futility,2
 2025.0,"Industry, large (>200 trials)",Enrolment,2
@@ -428,47 +428,48 @@ stop_year,group,reason,n
 2025.0,"Industry, mid (21-200)",Efficacy / futility,6
 2025.0,"Industry, mid (21-200)",Enrolment,7
 2025.0,"Industry, mid (21-200)",No funding,1
-2025.0,"Industry, mid (21-200)",Other,10
+2025.0,"Industry, mid (21-200)",Other,8
 2025.0,"Industry, mid (21-200)",Safety / benefit-risk,8
-2025.0,"Industry, mid (21-200)","Sponsor decision, unspecified",25
-2025.0,"Industry, small (<=20)",Business / strategic,96
+2025.0,"Industry, mid (21-200)","Sponsor decision, unspecified",27
+2025.0,"Industry, small (<=20)",Business / strategic,101
 2025.0,"Industry, small (<=20)",COVID-19,2
 2025.0,"Industry, small (<=20)",Efficacy / futility,32
 2025.0,"Industry, small (<=20)",Enrolment,38
 2025.0,"Industry, small (<=20)",M&A / licensing,1
 2025.0,"Industry, small (<=20)",No funding,15
-2025.0,"Industry, small (<=20)",Other,57
+2025.0,"Industry, small (<=20)",Other,51
 2025.0,"Industry, small (<=20)",Safety / benefit-risk,23
-2025.0,"Industry, small (<=20)","Sponsor decision, unspecified",86
+2025.0,"Industry, small (<=20)","Sponsor decision, unspecified",87
 2025.0,Top-20 pharma,Business / strategic,70
 2025.0,Top-20 pharma,Efficacy / futility,24
 2025.0,Top-20 pharma,Enrolment,14
 2025.0,Top-20 pharma,No reason,10
-2025.0,Top-20 pharma,Other,16
+2025.0,Top-20 pharma,Other,13
 2025.0,Top-20 pharma,Safety / benefit-risk,17
-2025.0,Top-20 pharma,"Sponsor decision, unspecified",52
+2025.0,Top-20 pharma,"Sponsor decision, unspecified",55
 2026.0,"Industry, large (>200 trials)",Business / strategic,3
-2026.0,"Industry, large (>200 trials)",Other,2
+2026.0,"Industry, large (>200 trials)",Other,1
 2026.0,"Industry, large (>200 trials)",Safety / benefit-risk,1
-2026.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",5
-2026.0,"Industry, mid (21-200)",Business / strategic,31
+2026.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",6
+2026.0,"Industry, mid (21-200)",Business / strategic,30
 2026.0,"Industry, mid (21-200)",Efficacy / futility,4
 2026.0,"Industry, mid (21-200)",Enrolment,4
-2026.0,"Industry, mid (21-200)",Other,7
+2026.0,"Industry, mid (21-200)",No funding,2
+2026.0,"Industry, mid (21-200)",Other,3
 2026.0,"Industry, mid (21-200)",Safety / benefit-risk,4
-2026.0,"Industry, mid (21-200)","Sponsor decision, unspecified",13
-2026.0,"Industry, small (<=20)",Business / strategic,46
+2026.0,"Industry, mid (21-200)","Sponsor decision, unspecified",16
+2026.0,"Industry, small (<=20)",Business / strategic,47
 2026.0,"Industry, small (<=20)",COVID-19,1
 2026.0,"Industry, small (<=20)",Efficacy / futility,11
 2026.0,"Industry, small (<=20)",Enrolment,21
 2026.0,"Industry, small (<=20)",M&A / licensing,1
 2026.0,"Industry, small (<=20)",No funding,7
-2026.0,"Industry, small (<=20)",Other,28
+2026.0,"Industry, small (<=20)",Other,25
 2026.0,"Industry, small (<=20)",Safety / benefit-risk,13
-2026.0,"Industry, small (<=20)","Sponsor decision, unspecified",41
+2026.0,"Industry, small (<=20)","Sponsor decision, unspecified",43
 2026.0,Top-20 pharma,Business / strategic,39
 2026.0,Top-20 pharma,Efficacy / futility,18
 2026.0,Top-20 pharma,Enrolment,6
-2026.0,Top-20 pharma,Other,10
+2026.0,Top-20 pharma,Other,9
 2026.0,Top-20 pharma,Safety / benefit-risk,7
-2026.0,Top-20 pharma,"Sponsor decision, unspecified",24
+2026.0,Top-20 pharma,"Sponsor decision, unspecified",25

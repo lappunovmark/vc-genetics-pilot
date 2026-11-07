@@ -3,348 +3,348 @@ Trials by outcome (industry, Phase 1-3, start 2000-2024, indications with geneti
                                  trials  drugs  gs_ante  gs_post  gs_ante_noomim  gs_ot_ante
 outcome                                                                                     
 Completed                         19889   2462   0.1039   0.2649          0.0624      0.1150
-Stopped: financial or strategic     925    435   0.0897   0.1405          0.0703      0.1103
-Stopped: efficacy                   561    339   0.1212   0.1854          0.0695      0.1159
+Stopped: financial or strategic     960    446   0.0885   0.1406          0.0698      0.1104
+Stopped: efficacy                   565    341   0.1204   0.1841          0.0690      0.1150
 Stopped: safety                     312    192   0.1058   0.1667          0.0449      0.1282
-Stopped: enrolment                  664    385   0.0542   0.1536          0.0301      0.1039
-Stopped: other or no reason        2034    922   0.0865   0.1839          0.0556      0.0914
+Stopped: enrolment                  663    384   0.0543   0.1538          0.0302      0.1041
+Stopped: other or no reason        1996    914   0.0872   0.1849          0.0556      0.0912
 
 Ex-ante support by outcome x sponsor group:
                                                        trials                                                                                   gs_ante                                                            
 group                           Industry, large (>200 trials) Industry, mid (21-200) Industry, small (<=20) Top-20 pharma Industry, large (>200 trials) Industry, mid (21-200) Industry, small (<=20) Top-20 pharma
 outcome                                                                                                                                                                                                            
 Completed                                                1759                   4176                   3428         10526                        0.1205                 0.1023                 0.0916        0.1058
-Stopped: financial or strategic                            79                    212                    267           367                        0.0759                 0.0849                 0.0824        0.1008
-Stopped: efficacy                                          63                    101                    116           281                        0.2857                 0.1089                 0.0603        0.1139
+Stopped: financial or strategic                            79                    224                    279           378                        0.0759                 0.0804                 0.0789        0.1032
+Stopped: efficacy                                          63                    102                    116           284                        0.2857                 0.1078                 0.0603        0.1127
 Stopped: safety                                            28                     53                     69           162                        0.0357                 0.0943                 0.0580        0.1420
-Stopped: enrolment                                         52                    155                    193           264                        0.1538                 0.0323                 0.0311        0.0644
-Stopped: other or no reason                               147                    447                    478           962                        0.1361                 0.0761                 0.0837        0.0852
+Stopped: enrolment                                         52                    155                    193           263                        0.1538                 0.0323                 0.0311        0.0646
+Stopped: other or no reason                               147                    434                    466           949                        0.1361                 0.0783                 0.0858        0.0843
 
 Ex-ante support by outcome x ended 2022 or later:
                                 trials       gs_ante        
 post22                               0     1       0       1
 outcome                                                     
 Completed                        16842  3047  0.0838  0.2150
-Stopped: financial or strategic    466   459  0.0773  0.1024
-Stopped: efficacy                  405   156  0.1185  0.1282
+Stopped: financial or strategic    499   461  0.0762  0.1020
+Stopped: efficacy                  408   157  0.1176  0.1274
 Stopped: safety                    232    80  0.0517  0.2625
-Stopped: enrolment                 504   160  0.0437  0.0875
-Stopped: other or no reason       1616   418  0.0780  0.1196
+Stopped: enrolment                 503   160  0.0437  0.0875
+Stopped: other or no reason       1581   415  0.0784  0.1205
 ====================================================================================================
 gs_ante ~ outcome (reference: completed) + phase, start period, area, modality, sponsor group
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=24385; clusters (drugs)=2687
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.2907    0.1703  0.0878 -0.6245  0.0430  0.7477  0.5355  1.0440
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.0381    0.1892  0.8404 -0.4089  0.3328  0.9626  0.6643  1.3948
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.0312    0.2636  0.9059 -0.5479  0.4855  0.9693  0.5782  1.6250
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6194    0.1810  0.0006 -0.9740 -0.2647  0.5383  0.3776  0.7675
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.1547    0.0993  0.1193 -0.3493  0.0399  0.8567  0.7052  1.0407
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.2980    0.1679  0.0759 -0.6272  0.0311  0.7423  0.5341  1.0316
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.0443    0.1887  0.8145 -0.4142  0.3256  0.9567  0.6609  1.3849
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.0312    0.2636  0.9056 -0.5479  0.4854  0.9692  0.5781  1.6249
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6163    0.1809  0.0007 -0.9708 -0.2619  0.5399  0.3788  0.7696
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.1480    0.1002  0.1397 -0.3443  0.0484  0.8625  0.7087  1.0496
 ====================================================================================================
 gs_post ~ outcome (reference: completed) + phase, start period, area, modality, sponsor group
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=24385; clusters (drugs)=2687
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3183    0.1695  0.0605 -0.6505  0.0140  0.7274  0.5218  1.0141
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.1941    0.1677  0.2470 -0.5227  0.1345  0.8236  0.5929  1.1440
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.4640    0.2612  0.0757 -0.9760  0.0480  0.6288  0.3768  1.0491
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.2903    0.1368  0.0338 -0.5584 -0.0222  0.7481  0.5721  0.9781
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2299    0.0855  0.0072 -0.3975 -0.0622  0.7946  0.6720  0.9397
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3299    0.1642  0.0445 -0.6517 -0.0080  0.7190  0.5212  0.9920
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.2028    0.1672  0.2251 -0.5305  0.1248  0.8164  0.5883  1.1330
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.4640    0.2612  0.0756 -0.9760  0.0479  0.6287  0.3768  1.0490
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.2852    0.1368  0.0371 -0.5534 -0.0171  0.7519  0.5750  0.9831
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2228    0.0861  0.0097 -0.3916 -0.0540  0.8002  0.6760  0.9474
 ====================================================================================================
 gs_ante_noomim ~ outcome (reference: completed) + phase, start period, area, modality, sponsor group
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=24385; clusters (drugs)=2687
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1421    0.1786  0.4264 -0.4921  0.2080  0.8676  0.6113  1.2312
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.1858    0.2223  0.4033 -0.6215  0.2499  0.8304  0.5371  1.2839
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.4316    0.3117  0.1663 -1.0426  0.1794  0.6495  0.3526  1.1966
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6186    0.2510  0.0137 -1.1106 -0.1265  0.5387  0.3294  0.8811
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]      0.0062    0.1256  0.9609 -0.2401  0.2524  1.0062  0.7866  1.2871
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1357    0.1749  0.4379 -0.4785  0.2072  0.8731  0.6197  1.2302
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.1904    0.2218  0.3907 -0.6252  0.2444  0.8266  0.5352  1.2769
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.4315    0.3117  0.1663 -1.0425  0.1795  0.6495  0.3526  1.1966
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6168    0.2510  0.0140 -1.1088 -0.1249  0.5397  0.3300  0.8826
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]      0.0061    0.1273  0.9615 -0.2434  0.2557  1.0062  0.7840  1.2913
 ====================================================================================================
 gs_ante ~ outcome, trials that ended before 2022
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=20065; clusters (drugs)=2526
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1631    0.2313  0.4806 -0.6164  0.2902  0.8495  0.5399  1.3366
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.2079    0.2284  0.3627 -0.2397  0.6555  1.2311  0.7868  1.9261
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.5319    0.3431  0.1211 -1.2042  0.1405  0.5875  0.2999  1.1509
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6770    0.2285  0.0030 -1.1248 -0.2292  0.5082  0.3247  0.7952
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.0415    0.1147  0.7176 -0.2662  0.1832  0.9594  0.7663  1.2011
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1819    0.2230  0.4146 -0.6190  0.2551  0.8337  0.5385  1.2906
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.2021    0.2283  0.3759 -0.2453  0.6495  1.2240  0.7825  1.9147
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.5319    0.3431  0.1210 -1.2043  0.1405  0.5875  0.2999  1.1508
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.6737    0.2283  0.0032 -1.1212 -0.2263  0.5098  0.3259  0.7975
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.0324    0.1160  0.7801 -0.2597  0.1949  0.9681  0.7713  1.2152
 ====================================================================================================
 gs_ante ~ outcome, trials that ended 2022 or later
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=4320; clusters (drugs)=1061
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3679    0.1997  0.0654 -0.7592  0.0235  0.6922  0.4680  1.0237
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.6625    0.2609  0.0111 -1.1738 -0.1511  0.5156  0.3092  0.8597
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.6507    0.4219  0.1230 -0.1763  1.4776  1.9168  0.8384  4.3824
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.5853    0.3036  0.0539 -1.1803  0.0097  0.5569  0.3072  1.0098
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.3346    0.1759  0.0571 -0.6793  0.0101  0.7156  0.5070  1.0102
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3702    0.1993  0.0633 -0.7609  0.0205  0.6906  0.4672  1.0207
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.6661    0.2607  0.0106 -1.1770 -0.1552  0.5137  0.3082  0.8562
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.6506    0.4219  0.1231 -0.1763  1.4775  1.9167  0.8383  4.3822
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.5853    0.3036  0.0539 -1.1803  0.0097  0.5570  0.3072  1.0098
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.3303    0.1760  0.0606 -0.6753  0.0147  0.7187  0.5090  1.0148
 ====================================================================================================
 [trial] Financial/strategic stop vs completed
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin -0.3048    0.1705  0.0738  -0.639  0.0294  0.7373  0.5278  1.0298
+fin -0.3098    0.1681  0.0654 -0.6393  0.0197  0.7336  0.5276  1.0199
 ====================================================================================================
 [trial] ... x ended 2022 or later
 y ~ fin * post22 + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.0975    0.2290  0.6703 -0.5463  0.3513  0.9071  0.5791  1.4209
-post22      0.6097    0.1209  0.0000  0.3728  0.8466  1.8399  1.4518  2.3318
-fin:post22 -0.4901    0.2805  0.0806 -1.0400  0.0597  0.6125  0.3535  1.0615
+fin        -0.1118    0.2201  0.6113 -0.5431  0.3195  0.8942  0.5809  1.3764
+post22      0.6118    0.1207  0.0000  0.3753  0.8484  1.8438  1.4554  2.3359
+fin:post22 -0.4776    0.2723  0.0795 -1.0114  0.0562  0.6202  0.3637  1.0578
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial] trials that ended before 2022
-diff=-0.0211 se=0.0156 90% CI=(-0.0467, 0.0046) equivalent=False; share among completed=0.0838; among financial stops=0.0773; N=17308
+diff=-0.0212 se=0.0148 90% CI=(-0.0456, 0.0032) equivalent=False; share among completed=0.0838; among financial stops=0.0762; N=17341
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial] trials that ended 2022 or later
-diff=-0.0349 se=0.0184 90% CI=(-0.0652, -0.0046) equivalent=False; share among completed=0.2150; among financial stops=0.1024; N=3506
+diff=-0.0350 se=0.0183 90% CI=(-0.0651, -0.0048) equivalent=False; share among completed=0.2150; among financial stops=0.1020; N=3508
 ====================================================================================================
 [trial] ... x small sponsor (<=20 trials)
 y ~ fin * small + C(phase) + C(yb) + C(area) + C(modality)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin       -0.3348    0.1900  0.0780 -0.7071  0.0375  0.7155  0.4931  1.0382
-small     -0.2954    0.1196  0.0135 -0.5298 -0.0610  0.7443  0.5887  0.9409
-fin:small  0.1409    0.3254  0.6649 -0.4969  0.7788  1.1514  0.6084  2.1789
+fin       -0.3342    0.1878  0.0752 -0.7022  0.0339  0.7159  0.4955  1.0345
+small     -0.2968    0.1196  0.0130 -0.5311 -0.0625  0.7432  0.5879  0.9394
+fin:small  0.1127    0.3244  0.7284 -0.5232  0.7486  1.1193  0.5926  2.1140
 ====================================================================================================
 [trial] Small sponsors only
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality)
-N=3695; clusters (drugs)=1048
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin -0.0261    0.3241  0.9357 -0.6614  0.6092  0.9742  0.5161  1.8389
+N=3707; clusters (drugs)=1050
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin -0.065    0.3229  0.8405 -0.6978  0.5678  0.9371  0.4977  1.7644
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial] all years
-diff=-0.0396 se=0.0134 90% CI=(-0.0617, -0.0176) equivalent=False; share among completed=0.1039; among financial stops=0.0897; N=20814
+diff=-0.0393 se=0.0131 90% CI=(-0.0607, -0.0178) equivalent=False; share among completed=0.1039; among financial stops=0.0885; N=20849
 ====================================================================================================
 [trial] robustness: start-year fixed effects
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.1338    0.2298  0.5604 -0.5842  0.3166  0.8748  0.5575  1.3725
-post22      0.1559    0.1356  0.2501 -0.1098  0.4217  1.1688  0.8960  1.5245
-fin:post22 -0.5985    0.2862  0.0365 -1.1594 -0.0376  0.5496  0.3137  0.9631
+fin        -0.1476    0.2208  0.5037 -0.5803  0.2851  0.8628  0.5597  1.3299
+post22      0.1583    0.1354  0.2422 -0.1070  0.4236  1.1715  0.8985  1.5275
+fin:post22 -0.5867    0.2783  0.0350 -1.1322 -0.0413  0.5561  0.3223  0.9595
 ====================================================================================================
 [trial] robustness: + years since the drug's first trial
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group) + C(drug_age)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.1314    0.2306  0.5686 -0.5833  0.3204  0.8768  0.5580  1.3777
-post22      0.1539    0.1352  0.2550 -0.1111  0.4188  1.1663  0.8949  1.5201
-fin:post22 -0.5973    0.2865  0.0371 -1.1588 -0.0358  0.5503  0.3139  0.9648
+fin        -0.1456    0.2216  0.5111 -0.5800  0.2887  0.8645  0.5599  1.3348
+post22      0.1563    0.1349  0.2467 -0.1082  0.4208  1.1692  0.8975  1.5231
+fin:post22 -0.5851    0.2787  0.0358 -1.1313 -0.0389  0.5570  0.3226  0.9618
 ====================================================================================================
 [trial x indication link] Financial/strategic stop vs completed
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=34714; clusters (drugs)=2724
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
-fin -0.3632    0.1693  0.0319  -0.695 -0.0315  0.6954  0.4991  0.969
+N=34774; clusters (drugs)=2726
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin -0.3709    0.1667  0.0261 -0.6977 -0.0441  0.6901  0.4977  0.9569
 ====================================================================================================
 [trial x indication link] ... x ended 2022 or later
 y ~ fin * post22 + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=34714; clusters (drugs)=2724
+N=34774; clusters (drugs)=2726
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.1200    0.2290  0.6002 -0.5688  0.3288  0.8869  0.5662  1.3893
-post22      0.6552    0.1189  0.0000  0.4222  0.8883  1.9256  1.5252  2.4309
-fin:post22 -0.5425    0.2668  0.0420 -1.0655 -0.0195  0.5813  0.3446  0.9807
+fin        -0.1444    0.2205  0.5125 -0.5765  0.2877  0.8655  0.5618  1.3334
+post22      0.6561    0.1188  0.0000  0.4233  0.8889  1.9273  1.5270  2.4324
+fin:post22 -0.5203    0.2602  0.0455 -1.0303 -0.0103  0.5943  0.3569  0.9897
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial x indication link] trials that ended before 2022
-diff=-0.0195 se=0.0104 90% CI=(-0.0366, -0.0024) equivalent=False; share among completed=0.0654; among financial stops=0.0494; N=27798
+diff=-0.0202 se=0.0099 90% CI=(-0.0364, -0.0040) equivalent=False; share among completed=0.0654; among financial stops=0.0485; N=27853
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial x indication link] trials that ended 2022 or later
-diff=-0.0237 se=0.0107 90% CI=(-0.0413, -0.0061) equivalent=False; share among completed=0.1505; among financial stops=0.0590; N=6916
+diff=-0.0237 se=0.0107 90% CI=(-0.0412, -0.0061) equivalent=False; share among completed=0.1505; among financial stops=0.0587; N=6921
 ====================================================================================================
 [trial x indication link] ... x small sponsor (<=20 trials)
 y ~ fin * small + C(phase) + C(yb) + C(area) + C(modality)
-N=34714; clusters (drugs)=2724
+N=34774; clusters (drugs)=2726
             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin       -0.3919    0.1835  0.0327 -0.7515 -0.0323  0.6758  0.4717  0.9682
-small     -0.2237    0.1170  0.0558 -0.4529  0.0056  0.7996  0.6358  1.0056
-fin:small  0.1152    0.2947  0.6960 -0.4625  0.6929  1.1221  0.6297  1.9994
+fin       -0.3928    0.1810  0.0300 -0.7475 -0.0381  0.6752  0.4736  0.9626
+small     -0.2249    0.1170  0.0545 -0.4541  0.0044  0.7986  0.6350  1.0044
+fin:small  0.0794    0.2934  0.7866 -0.4955  0.6544  1.0827  0.6092  1.9240
 ====================================================================================================
 [trial x indication link] Small sponsors only
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality)
-N=5882; clusters (drugs)=1175
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR  OR_lo   OR_hi
-fin -0.1347      0.29  0.6423 -0.7032  0.4338  0.874  0.495  1.5431
+N=5900; clusters (drugs)=1177
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin -0.1963    0.2868  0.4938 -0.7584  0.3659  0.8218  0.4684  1.4418
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial x indication link] all years
-diff=-0.0336 se=0.0085 90% CI=(-0.0475, -0.0196) equivalent=False; share among completed=0.0807; among financial stops=0.0548; N=34714
+diff=-0.0336 se=0.0082 90% CI=(-0.0472, -0.0200) equivalent=False; share among completed=0.0807; among financial stops=0.0541; N=34774
 ====================================================================================================
 Sensitivity without OMIM: ex-ante support (no OMIM) by outcome x ended 2022 or later:
                                 trials       gs_ante_noomim        
 post22                               0     1              0       1
 outcome                                                            
 Completed                        16842  3047         0.0415  0.1779
-Stopped: financial or strategic    466   459         0.0515  0.0893
-Stopped: efficacy                  405   156         0.0543  0.1090
+Stopped: financial or strategic    499   461         0.0521  0.0889
+Stopped: efficacy                  408   157         0.0539  0.1083
 Stopped: safety                    232    80         0.0302  0.0875
-Stopped: enrolment                 504   160         0.0159  0.0750
-Stopped: other or no reason       1616   418         0.0452  0.0957
+Stopped: enrolment                 503   160         0.0159  0.0750
+Stopped: other or no reason       1581   415         0.0449  0.0964
 ====================================================================================================
 gs_ante_noomim ~ outcome, trials that ended before 2022
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=20065; clusters (drugs)=2526
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic]  0.0651    0.2616  0.8034 -0.4475  0.5778  1.0673  0.6392  1.7820
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.0960    0.3140  0.7599 -0.5194  0.7114  1.1007  0.5949  2.0368
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.2649    0.4326  0.5403 -1.1128  0.5830  0.7673  0.3287  1.7914
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.7305    0.3902  0.0612 -1.4954  0.0343  0.4817  0.2242  1.0349
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]      0.2265    0.1577  0.1511 -0.0827  0.5356  1.2542  0.9206  1.7085
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic]  0.0654    0.2482  0.7923 -0.4211  0.5519  1.0676  0.6563  1.7366
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.0936    0.3137  0.7654 -0.5212  0.7084  1.0981  0.5938  2.0307
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.2648    0.4325  0.5404 -1.1125  0.5829  0.7674  0.3287  1.7913
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.7288    0.3901  0.0617 -1.4934  0.0358  0.4825  0.2246  1.0365
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]      0.2309    0.1603  0.1496 -0.0832  0.5450  1.2597  0.9202  1.7246
 ====================================================================================================
 gs_ante_noomim ~ outcome, trials that ended 2022 or later
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=4320; clusters (drugs)=1061
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3042    0.2082  0.1439 -0.7123  0.1038  0.7377  0.4905  1.1094
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.5802    0.2778  0.0367 -1.1246 -0.0358  0.5598  0.3248  0.9649
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.5442    0.4596  0.2364 -1.4449  0.3566  0.5803  0.2358  1.4284
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.5929    0.3192  0.0632 -1.2186  0.0327  0.5527  0.2957  1.0332
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.3163    0.1893  0.0948 -0.6874  0.0548  0.7289  0.5029  1.0563
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.3069    0.2078  0.1397 -0.7142  0.1004  0.7357  0.4896  1.1056
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.5846    0.2777  0.0352 -1.1288 -0.0404  0.5573  0.3234  0.9604
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.5442    0.4596  0.2364 -1.4449  0.3565  0.5803  0.2358  1.4284
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.5929    0.3192  0.0632 -1.2185  0.0327  0.5527  0.2957  1.0332
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.3111    0.1894  0.1005 -0.6824  0.0602  0.7326  0.5054  1.0620
 ====================================================================================================
 [trial, no OMIM] Financial/strategic stop vs completed
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin -0.1501    0.1781  0.3994 -0.4991  0.1989  0.8607  0.6071  1.2201
+N=20849; clusters (drugs)=2511
+      Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+fin -0.1407    0.1744   0.42 -0.4826  0.2012  0.8688  0.6172  1.2229
 ====================================================================================================
 [trial, no OMIM] ... x ended 2022 or later
 y ~ fin * post22 + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin         0.0836    0.2596  0.7474 -0.4251  0.5923  1.0872  0.6537  1.8082
-post22      0.7789    0.1265  0.0000  0.5309  1.0269  2.1791  1.7004  2.7925
-fin:post22 -0.5113    0.2940  0.0820 -1.0874  0.0649  0.5997  0.3371  1.0671
+fin         0.1060    0.2444  0.6646 -0.3731  0.5851  1.1118  0.6886  1.7951
+post22      0.7830    0.1264  0.0000  0.5353  1.0308  2.1881  1.7079  2.8034
+fin:post22 -0.5355    0.2823  0.0578 -1.0888  0.0177  0.5853  0.3366  1.0178
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, no OMIM] trials that ended before 2022
-diff=-0.0097 se=0.0121 90% CI=(-0.0297, 0.0102) equivalent=False; share among completed=0.0415; among financial stops=0.0515; N=17308
+diff=-0.0085 se=0.0115 90% CI=(-0.0275, 0.0105) equivalent=False; share among completed=0.0415; among financial stops=0.0521; N=17341
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, no OMIM] trials that ended 2022 or later
-diff=-0.0258 se=0.0173 90% CI=(-0.0542, 0.0026) equivalent=False; share among completed=0.1779; among financial stops=0.0893; N=3506
+diff=-0.0260 se=0.0172 90% CI=(-0.0543, 0.0023) equivalent=False; share among completed=0.1779; among financial stops=0.0889; N=3508
 ====================================================================================================
 [trial, no OMIM] ... x small sponsor (<=20 trials)
 y ~ fin * small + C(phase) + C(yb) + C(area) + C(modality)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin       -0.2538    0.2051  0.2158 -0.6558  0.1481  0.7758  0.5190  1.1597
-small     -0.4291    0.1286  0.0008 -0.6812 -0.1770  0.6511  0.5060  0.8378
-fin:small  0.4430    0.3445  0.1984 -0.2321  1.1182  1.5574  0.7929  3.0593
+fin       -0.2381    0.2009  0.2359 -0.6318  0.1556  0.7881  0.5316  1.1684
+small     -0.4308    0.1286  0.0008 -0.6830 -0.1787  0.6500  0.5051  0.8363
+fin:small  0.4207    0.3430  0.2199 -0.2514  1.0929  1.5231  0.7777  2.9829
 ====================================================================================================
 [trial, no OMIM] Small sponsors only
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality)
-N=3695; clusters (drugs)=1048
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin  0.2036    0.3101  0.5114 -0.4042  0.8114  1.2258  0.6675  2.2512
+N=3707; clusters (drugs)=1050
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+fin  0.1926    0.3086  0.5326 -0.4123  0.7975  1.2124  0.6621   2.22
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, no OMIM] all years
-diff=-0.0291 se=0.0118 90% CI=(-0.0485, -0.0096) equivalent=False; share among completed=0.0624; among financial stops=0.0703; N=20814
+diff=-0.0280 se=0.0115 90% CI=(-0.0469, -0.0091) equivalent=False; share among completed=0.0624; among financial stops=0.0698; N=20849
 ====================================================================================================
 [trial, no OMIM] robustness: start-year fixed effects
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin         0.0255    0.2640  0.9232 -0.4921  0.5430  1.0258  0.6114  1.7211
-post22      0.2479    0.1489  0.0958 -0.0438  0.5397  1.2813  0.9571  1.7155
-fin:post22 -0.5951    0.2966  0.0448 -1.1763 -0.0138  0.5515  0.3084  0.9863
+fin         0.0454    0.2486  0.8550 -0.4419  0.5327  1.0465  0.6428  1.7036
+post22      0.2529    0.1486  0.0888 -0.0384  0.5441  1.2877  0.9623  1.7231
+fin:post22 -0.6173    0.2858  0.0308 -1.1775 -0.0572  0.5394  0.3081  0.9444
 ====================================================================================================
 [trial, no OMIM] robustness: + years since the drug's first trial
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group) + C(drug_age)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin         0.0305    0.2672  0.9091 -0.4933  0.5543  1.0310  0.6106  1.7407
-post22      0.2499    0.1495  0.0947 -0.0432  0.5430  1.2839  0.9577  1.7211
-fin:post22 -0.6001    0.2987  0.0445 -1.1855 -0.0147  0.5488  0.3056  0.9854
+fin         0.0477    0.2517  0.8498 -0.4456  0.5409  1.0488  0.6404  1.7176
+post22      0.2549    0.1493  0.0878 -0.0377  0.5474  1.2903  0.9630  1.7288
+fin:post22 -0.6197    0.2878  0.0313 -1.1838 -0.0555  0.5381  0.3061  0.9460
 ====================================================================================================
 Dated Open Targets evidence (Falaguera et al.): ex-ante support by outcome x ended 2022 or later:
                                 trials       gs_ot_ante        
 post22                               0     1          0       1
 outcome                                                        
 Completed                        16842  3047     0.1049  0.1710
-Stopped: financial or strategic    466   459     0.0923  0.1285
-Stopped: efficacy                  405   156     0.1210  0.1026
+Stopped: financial or strategic    499   461     0.0942  0.1280
+Stopped: efficacy                  408   157     0.1201  0.1019
 Stopped: safety                    232    80     0.0862  0.2500
-Stopped: enrolment                 504   160     0.0972  0.1250
-Stopped: other or no reason       1616   418     0.0835  0.1220
+Stopped: enrolment                 503   160     0.0974  0.1250
+Stopped: other or no reason       1581   415     0.0829  0.1229
 ====================================================================================================
 gs_ot_ante ~ outcome (reference: completed), all years
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=24385; clusters (drugs)=2687
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1228    0.1643  0.4548 -0.4449  0.1992  0.8844  0.6409  1.2205
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.0955    0.1911  0.6173 -0.2791  0.4701  1.1002  0.7564  1.6002
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.0652    0.2647  0.8054 -0.4536  0.5841  1.0674  0.6353  1.7934
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0028    0.1756  0.9871 -0.3469  0.3413  0.9972  0.7069  1.4067
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2005    0.1051  0.0563 -0.4064  0.0054  0.8183  0.6660  1.0054
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1095    0.1652  0.5074 -0.4333  0.2143  0.8963  0.6484  1.2390
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.0852    0.1912  0.6559 -0.2895  0.4599  1.0889  0.7486  1.5839
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.0653    0.2648  0.8051 -0.4536  0.5842  1.0675  0.6353  1.7936
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0003    0.1754  0.9986 -0.3441  0.3434  0.9997  0.7089  1.4098
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2070    0.1069  0.0529 -0.4166  0.0026  0.8130  0.6593  1.0026
 ====================================================================================================
 gs_ot_ante ~ outcome, trials that ended before 2022
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=20065; clusters (drugs)=2526
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.2306    0.2429  0.3423 -0.7067  0.2454  0.7940  0.4933  1.2782
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.2488    0.2218  0.2620 -0.1860  0.6836  1.2825  0.8303  1.9809
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.3008    0.2791  0.2813 -0.8479  0.2463  0.7402  0.4283  1.2793
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]               0.0264    0.2058  0.8980 -0.3770  0.4297  1.0267  0.6859  1.5368
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2059    0.1207  0.0881 -0.4426  0.0307  0.8139  0.6424  1.0312
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic] -0.1873    0.2423  0.4397 -0.6623  0.2877  0.8292  0.5157  1.3334
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]                0.2383    0.2222  0.2836 -0.1973  0.6739  1.2691  0.8209  1.9618
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                 -0.3008    0.2792  0.2813 -0.8479  0.2464  0.7402  0.4283  1.2794
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]               0.0294    0.2054  0.8861 -0.3732  0.4321  1.0299  0.6885  1.5405
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.2188    0.1239  0.0774 -0.4617  0.0240  0.8035  0.6302  1.0243
 ====================================================================================================
 gs_ot_ante ~ outcome, trials that ended 2022 or later
 y ~ C(outcome, Treatment(reference='Completed')) + C(phase) + C(yb) + C(area) + C(modality) + C(group)
 N=4320; clusters (drugs)=1061
                                                                                   Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic]  0.0265    0.1900  0.8890 -0.3458  0.3988  1.0269  0.7077  1.4901
-C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.3708    0.3024  0.2202 -0.9634  0.2219  0.6902  0.3816  1.2485
-C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.7430    0.4771  0.1194 -0.1921  1.6781  2.1022  0.8252  5.3552
-C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0581    0.3265  0.8588 -0.6980  0.5819  0.9436  0.4976  1.7894
-C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.1218    0.1789  0.4959 -0.4725  0.2289  0.8853  0.6234  1.2572
+C(outcome, Treatment(reference='Completed'))[T.Stopped: financial or strategic]  0.0227    0.1895  0.9049 -0.3488  0.3942  1.0229  0.7055  1.4831
+C(outcome, Treatment(reference='Completed'))[T.Stopped: efficacy]               -0.3754    0.3022  0.2142 -0.9676  0.2169  0.6870  0.3800  1.2422
+C(outcome, Treatment(reference='Completed'))[T.Stopped: safety]                  0.7429    0.4771  0.1194 -0.1922  1.6780  2.1021  0.8252  5.3548
+C(outcome, Treatment(reference='Completed'))[T.Stopped: enrolment]              -0.0581    0.3265  0.8589 -0.6980  0.5819  0.9436  0.4976  1.7894
+C(outcome, Treatment(reference='Completed'))[T.Stopped: other or no reason]     -0.1161    0.1788  0.5163 -0.4666  0.2344  0.8904  0.6272  1.2642
 ====================================================================================================
 [trial, dated OT evidence] Financial/strategic stop vs completed
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
-      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
-fin -0.1257    0.1667  0.4508 -0.4525  0.2011  0.8819  0.636  1.2227
+N=20849; clusters (drugs)=2511
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+fin -0.1093    0.1675  0.5142 -0.4377  0.2191  0.8965  0.6455  1.245
 ====================================================================================================
 [trial, dated OT evidence] ... x ended 2022 or later
 y ~ fin * post22 + C(phase) + C(yb) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.1812    0.2429  0.4558 -0.6572  0.2949  0.8343  0.5183  1.3430
-post22      0.4619    0.1302  0.0004  0.2067  0.7171  1.5871  1.2296  2.0486
-fin:post22  0.0141    0.3098  0.9636 -0.5930  0.6213  1.0142  0.5527  1.8613
+fin        -0.1364    0.2412  0.5718 -0.6093  0.3364  0.8725  0.5438  1.3999
+post22      0.4671    0.1304  0.0003  0.2116  0.7227  1.5954  1.2357  2.0599
+fin:post22 -0.0339    0.3059  0.9117 -0.6335  0.5657  0.9667  0.5307  1.7606
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] trials that ended before 2022
-diff=-0.0242 se=0.0198 90% CI=(-0.0568, 0.0084) equivalent=False; share among completed=0.1049; among financial stops=0.0923; N=17308
+diff=-0.0204 se=0.0197 90% CI=(-0.0528, 0.0120) equivalent=False; share among completed=0.1049; among financial stops=0.0942; N=17341
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] trials that ended 2022 or later
-diff=0.0052 se=0.0206 90% CI=(-0.0286, 0.0390) equivalent=False; share among completed=0.1710; among financial stops=0.1285; N=3506
+diff=0.0048 se=0.0205 90% CI=(-0.0288, 0.0385) equivalent=False; share among completed=0.1710; among financial stops=0.1280; N=3508
 ====================================================================================================
 [trial, dated OT evidence] ... x small sponsor (<=20 trials)
 y ~ fin * small + C(phase) + C(yb) + C(area) + C(modality)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin       -0.2901    0.1803  0.1076 -0.6435  0.0633  0.7482  0.5254  1.0653
-small     -0.4308    0.1222  0.0004 -0.6703 -0.1912  0.6500  0.5115  0.8260
-fin:small  0.6028    0.3017  0.0457  0.0116  1.1941  1.8273  1.0117  3.3005
+fin       -0.2819    0.1778  0.1128 -0.6304  0.0665  0.7543  0.5324  1.0688
+small     -0.4306    0.1225  0.0004 -0.6706 -0.1905  0.6501  0.5114  0.8265
+fin:small  0.6197    0.2865  0.0305  0.0582  1.1812  1.8584  1.0599  3.2584
 ====================================================================================================
 [trial, dated OT evidence] Small sponsors only
 y ~ fin + C(phase) + C(yb) + C(area) + C(modality)
-N=3695; clusters (drugs)=1048
+N=3707; clusters (drugs)=1050
       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin  0.6205    0.3047  0.0417  0.0234  1.2177  1.8599  1.0237  3.3793
+fin  0.6494    0.2945  0.0274  0.0722  1.2266  1.9144  1.0749  3.4095
 ====================================================================================================
 Equivalence (TOST, margin +/- 0.02): [trial, dated OT evidence] all years
-diff=-0.0161 se=0.0160 90% CI=(-0.0424, 0.0102) equivalent=False; share among completed=0.1150; among financial stops=0.1103; N=20814
+diff=-0.0144 se=0.0159 90% CI=(-0.0405, 0.0118) equivalent=False; share among completed=0.1150; among financial stops=0.1104; N=20849
 ====================================================================================================
 [trial, dated OT evidence] robustness: start-year fixed effects
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.2237    0.2483  0.3675 -0.7103  0.2628  0.7995  0.4915  1.3006
-post22      0.1347    0.1455  0.3546 -0.1505  0.4199  1.1442  0.8603  1.5218
-fin:post22 -0.1131    0.3139  0.7185 -0.7283  0.5020  0.8930  0.4827  1.6521
+fin        -0.1764    0.2471  0.4752 -0.6606  0.3078  0.8383  0.5165  1.3604
+post22      0.1420    0.1460  0.3306 -0.1441  0.4282  1.1526  0.8658  1.5345
+fin:post22 -0.1635    0.3095  0.5974 -0.7701  0.4431  0.8492  0.4630  1.5576
 ====================================================================================================
 [trial, dated OT evidence] robustness: + years since the drug's first trial
 y ~ fin * post22 + C(phase) + C(start_year) + C(area) + C(modality) + C(group) + C(drug_age)
-N=20814; clusters (drugs)=2508
+N=20849; clusters (drugs)=2511
              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-fin        -0.2228    0.2488  0.3705 -0.7104  0.2648  0.8003  0.4915  1.3031
-post22      0.1368    0.1449  0.3453 -0.1472  0.4208  1.1466  0.8631  1.5231
-fin:post22 -0.1174    0.3146  0.7090 -0.7341  0.4993  0.8892  0.4799  1.6475
+fin        -0.1764    0.2471  0.4753 -0.6608  0.3080  0.8383  0.5164  1.3607
+post22      0.1442    0.1455  0.3216 -0.1410  0.4293  1.1551  0.8685  1.5362
+fin:post22 -0.1668    0.3104  0.5912 -0.7752  0.4417  0.8464  0.4606  1.5553
