@@ -72,7 +72,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   `results/stopreasons_support.txt`). Against the independent BERT classifier of Razuvayevskaya et al. (2024; Open Targets StopReasons predictions for 28,561 stopped
   trials, `factcheck/stopreasons_crosscheck.py`), our financial-or-strategic-or-sponsor-decision class and their
   "business or administrative" class agree with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the
-  H4 sample (each side recovers 87–88% of the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61
+  H4 sample (each side recovers 87–89% of the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61
   on that sample. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
   ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2); the coding sheet, codebook and scoring script
@@ -84,9 +84,14 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   projects", "withdrawal of support", wind-downs, expired grants). v4 adds patterns for them. Two of the patterns
   first written for v4 ("cessation of activities", "project adjustment") matched one held-out text each and nothing
   in the tuning texts or the StopReasons file, that is, they had been written with held-out texts in view; they were
-  removed the same day, before any number built on them was published, and a check that every pattern has support
-  outside the held-out texts was added (`factcheck/stopreasons_support.py`). The held-out score of v4 is therefore
-  the same as v3's (83.0%, κ 0.79). More pre-2022 stops are classed as financial or strategic with v4, so the post-2022
+  removed the same day, before any number built on them reached the paper, the README or the public repository, and
+  a check that every pattern has support outside the held-out texts was added (`factcheck/stopreasons_support.py`;
+  the StopReasons file is read without the 97 held-out trials it contains). Reading the texts that each pattern
+  matches in the StopReasons file (held-out trials excluded) then showed two v3 patterns firing on stops that are not
+  business decisions: "no longer required/needed/relevant" on regulatory stops ("FDA advised that study is no longer
+  required") and data-no-longer-needed stops, and "other studies" on stops explained by the results of other
+  studies; the first now needs a strategic or commercial context and the second is dropped. The held-out score of
+  v4 is the same as v3's (83.0%, κ 0.79; on the tuning texts 94.3% against 93.8%). More pre-2022 stops are classed as financial or strategic with v4, so the post-2022
   rate ratios fall a little: small sponsors 2.56 → 2.43 (financial or strategic) and 2.45 → 2.20 (lack of funding),
   mid-sized 2.09 → 1.97, top-20 2.22 → 2.17, large unchanged at 2.52; the difference-in-differences coefficients
   move from +0.30 (p = 0.04), +0.44 and +0.34 to +0.26 (p = 0.07), +0.38 and +0.36. The H4 financial-stop OR moves

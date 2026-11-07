@@ -7,8 +7,13 @@ bare decision or cancellation in the last class. v3 was revised after hand-label
 stopped industry drug trials, 2012-2026).
 Rule for every pattern: it must match at least one text outside the 200 held-out texts (in the 400 tuning texts or in
 the StopReasons file), so that the held-out score is not tuned to the held-out set. factcheck/stopreasons_support.py
-checks this; two v4 patterns that failed it ("cessation of activities", "project adjustment": one held-out text each,
-nothing else) were removed on 7 Nov 2026 before any result built on them was published.
+checks this (the StopReasons file is read without the 97 held-out trials it contains); two v4 patterns that failed it
+("cessation of activities", "project adjustment": one held-out text each, nothing else) were removed on 7 Nov 2026
+before any number built on them reached the paper, the README or the public repository. The same day two v3
+patterns were narrowed after reading the texts they matched in the StopReasons file (held-out trials excluded):
+"no longer required/needed/relevant" fired on regulatory or data-no-longer-needed stops and now needs a strategic or
+commercial context, and "other studies" fired on stops explained by the results of other studies and is dropped
+("other projects", "broader programme objectives" and "focus on other ..." remain).
 One label per text, first match in priority order. A scientific or operational reason stated alongside a business
 one wins, so a stop is called financial/strategic only when nothing scientific or operational is given.
 Negated or neutral mentions ("not due to safety", "no safety concerns", "the safety profile remained unchanged",
@@ -82,7 +87,7 @@ CLASSES = [
         r"development (plan|strategy|program|focus|goals)|realloc|realign|refocus|"
         r"market (conditions|dynamics|landscape|environment)|landscape|competitive|"
         r"(research|development) status|status of the same target|"
-        r"no longer (pursu|required|needed|relevant)|not required for development|"
+        r"no longer (pursu|of (strategic |commercial |business )?interest)|not required for development|"
         r"(stop|ceas|halt|end|discontinu|terminat)\w*\s+(\w+\s+){0,3}?(develop\w*|program(me)?)\b|"
         r"development discontinued|not (to )?pursue|did not continue with development|"
         # v4: programme or development stopped (noun first), no-go decisions, company focus or goals, resources
@@ -90,7 +95,7 @@ CLASSES = [
         r"(develop\w*|program(me)?s?|project)\s+(\w+\s+){0,2}?(halted|terminated|discontinued|cancell?ed|ceased|stopped|ended)|"
         r"no[- ]go\b|management decision|company (focus|policy|goals?|re-?evaluation|shifted|has decided|decided)|"
         r"(focus|redirect\w*|allocat\w*)\s+(\w+\s+){0,2}?(resources|on other|to other|other projects)|"
-        r"(other|broader) (projects?|program(me)? objectives|studies)|reassess\w* of the (medical|commercial|clinical) need|"
+        r"\b(other|broader) (projects?|program(me)? objectives)\b|reassess\w* of the (medical|commercial|clinical) need|"
         r"marketing of (this|the) product|scope of the program|development timelines?|"
         r"not (critical|needed|necessary) (to|for) (the )?(continued |further )?(evaluation|development)",
     ),

@@ -2,35 +2,36 @@ StopReasons predictions: 31867 rows, 28561 trials, 3201 with more than one predi
 Our class (rows) x their single prediction (columns; 'multi' = several predictions):
 preds                          Another_Study  Business_Administrative  Covid19  Insufficient_Data  Insufficient_Enrollment  Interim_Analysis  Invalid_Reason  Logistics_Resources  Negative  No_Context  Regulatory  Safety_Sideeffects  Study_Design  Study_Staff_Moved  multi
 ours                                                                                                                                                                                                                                                                           
-Business / strategic                      25                     1154        0                  0                        1                 0              21                   16         3           0          15                   2            66                  2    108
+Business / strategic                      14                     1152        0                  0                        1                 0              15                   15         3           0          13                   2            53                  2     95
 COVID-19                                   1                        0     1317                  0                        7                 0               0                    0         2           0           0                   2             0                  2      8
 Efficacy / futility                       46                        9        9                  8                       61                37               3                    4      1050           0           1                   6            10                  2    187
 Enrolment                                 34                      111        0                  0                     7916                 4             267                  164        28           0          35                   8            83                 69    878
 M&A / licensing                            2                       66        0                  0                        0                 0               4                    4         1           0           1                   0             4                 23     11
 No funding                                 4                     2425       59                  0                        8                 0               1                   47         3           0           2                   1             1                  5    460
-Other                                    444                      430        7                 17                      950                31             994                 1232       561         188         475                 160          1013               1199   1104
+Other                                    455                      431        7                 17                      950                31            1000                 1232       561         188         477                 160          1026               1199   1113
 Safety / benefit-risk                     20                       74       22                  0                       34                 4              16                   12        60           0          31                 481            15                  6    210
-Sponsor decision, unspecified             18                     1161        0                  0                       17                 0             256                   21        23           0          30                  11            51                 34    235
+Sponsor decision, unspecified             18                     1162        0                  0                       17                 0             256                   22        23           0          30                  11            51                 34    239
 ====================================================================================================
 All stopped trials in the StopReasons file: 28561 trials
-  financial or strategic                       ours=  4545 theirs=  6826 both=  4190 P(theirs|ours)=0.922 P(ours|theirs)=0.614 kappa=0.675
-  financial or strategic + sponsor decision    ours=  6402 theirs=  6826 both=  5556 P(theirs|ours)=0.868 P(ours|theirs)=0.814 kappa=0.792
+  financial or strategic                       ours=  4497 theirs=  6826 both=  4182 P(theirs|ours)=0.930 P(ours|theirs)=0.613 kappa=0.677
+  financial or strategic + sponsor decision    ours=  6360 theirs=  6826 both=  5552 P(theirs|ours)=0.873 P(ours|theirs)=0.813 kappa=0.795
   efficacy / futility                          ours=  1433 theirs=  2310 both=  1269 P(theirs|ours)=0.886 P(ours|theirs)=0.549 kappa=0.657
   safety / benefit-risk                        ours=   985 theirs=   977 both=   660 P(theirs|ours)=0.670 P(ours|theirs)=0.676 kappa=0.661
   enrolment                                    ours=  9597 theirs= 10473 both=  8710 P(theirs|ours)=0.908 P(ours|theirs)=0.832 kappa=0.797
   COVID-19                                     ours=  1339 theirs=  1421 both=  1324 P(theirs|ours)=0.989 P(ours|theirs)=0.932 kappa=0.957
 ====================================================================================================
 Industry Phase 1-3 drug trials of the H4 sample: 2345 trials
-  financial or strategic                       ours=   475 theirs=   801 both=   430 P(theirs|ours)=0.905 P(ours|theirs)=0.537 kappa=0.563
-  financial or strategic + sponsor decision    ours=   793 theirs=   801 both=   701 P(theirs|ours)=0.884 P(ours|theirs)=0.875 kappa=0.818
+  financial or strategic                       ours=   469 theirs=   801 both=   428 P(theirs|ours)=0.913 P(ours|theirs)=0.534 kappa=0.564
+  financial or strategic + sponsor decision    ours=   789 theirs=   801 both=   700 P(theirs|ours)=0.887 P(ours|theirs)=0.874 kappa=0.819
   efficacy / futility                          ours=   365 theirs=   489 both=   333 P(theirs|ours)=0.912 P(ours|theirs)=0.681 kappa=0.732
   safety / benefit-risk                        ours=   223 theirs=   158 both=   122 P(theirs|ours)=0.547 P(ours|theirs)=0.772 kappa=0.610
   enrolment                                    ours=   472 theirs=   441 both=   395 P(theirs|ours)=0.837 P(ours|theirs)=0.896 kappa=0.833
   COVID-19                                     ours=    28 theirs=    32 both=    28 P(theirs|ours)=1.000 P(ours|theirs)=0.875 kappa=0.932
 ====================================================================================================
-Our 'Other' that they call Business_Administrative: 852 trials; 25 examples:
+Our 'Other' that they call Business_Administrative: 856 trials; 25 examples:
   - Record is an ACRN grant summary & not reflective of an individual trial. All ACTs conducted by   ACRN were individually registered on the PR
   - IRB approval lapsed and PI has not responded to requests to submit CR.
+  - Scientific Director request to use resources for other studies
   - Withdrawal of pharmaceutical company support for the investigational drug
   - Drug sold to Sanofi-Aventis who sold it to GSK; OBS no longer owns study and does not have   data.
   - Per the Division of Project Management, Office of Regulatory Operations, Office of Generic   Drugs, FDA there is no regulatory requirement t
@@ -53,9 +54,8 @@ Our 'Other' that they call Business_Administrative: 852 trials; 25 examples:
   - Development of this compound was discontinued.
   - This project is no longer active with DVA.
   - Lundbeck withdrew committment - expiring patents and prolonged inactivity
-  - project withdrawn
 ====================================================================================================
-Our financial/strategic that they do not call Business_Administrative: 355 trials; 25 examples:
+Our financial/strategic that they do not call Business_Administrative: 315 trials; 25 examples:
   - [['Logistics_Resources']] The pharmaceutical company discontinued further development of SU5416.
   - [['Invalid_Reason']] Program terminated
   - [['Another_Study']] This protocol was created to support work as part of an NIH-funded study.
@@ -70,7 +70,6 @@ Our financial/strategic that they do not call Business_Administrative: 355 trial
   - [['Negative']] Insufficient financial support; lack of efficacy for primary endpoint
   - [['Logistics_Resources']] withdrawal of support for drug supply
   - [['Study_Staff_Moved']] Retirement of former Qualified Investigator and lack of resources to complete study.
-  - [['Another_Study', 'Safety_Sideeffects']] Increased risk of PML associated with raptiva in other studies
   - [['Another_Study']] The study was incorporated in another study.
   - [['Study_Staff_Moved']] PI no longer has an appointment and has seperated from Hines VAH and project was not   transferred to another PI?
   - [['Negative']] Terminated because preliminary data suggested no difference in the strategies.
@@ -81,3 +80,4 @@ Our financial/strategic that they do not call Business_Administrative: 355 trial
   - [['Another_Study']] Investigator initiated suspension to focus on other studies.
   - [['Logistics_Resources']] The study was stopped due to lack of resources of the study coordinator's time
   - [['Logistics_Resources']] Study was stopped due to lack of resources on part of investigators.
+  - [['Invalid_Reason']] The overall program was terminated
