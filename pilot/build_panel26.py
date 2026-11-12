@@ -227,7 +227,11 @@ def sponsor_tiers(tr, size):
     drugs the normalised sponsor name leads across all OT trial reports); academic/other; government."""
     tr = tr.copy()
     tr["sponsor_norm"] = tr.lead_sponsor.map(norm_sponsor)
-    tr["top20_parent"] = [sponsors.top20_parent(n, y) for n, y in zip(tr.lead_sponsor, tr.start_year)]
+    # the top-20 name rules apply to industry sponsors only ("shire" once typed an NHS trust in Warwickshire)
+    tr["top20_parent"] = [
+        sponsors.top20_parent(n, y) if c == "INDUSTRY" else None
+        for n, y, c in zip(tr.lead_sponsor, tr.start_year, tr.lead_class)
+    ]
     tr["sponsor_n_drugs"] = tr.sponsor_norm.map(size)
 
     def tier(r):
