@@ -31,6 +31,10 @@ import re
 
 # (regex, parent, first year counted as parent[, first year no longer counted (spin-off)])
 ENTRIES = [
+    # Upjohn (Pfizer's off-patent brands) left for Viatris in November 2020; the registry now shows its trials as
+    # "Pfizer's Upjohn has merged with Mylan to form Viatris Inc.". Listed before the Pfizer entry: both match at the
+    # start of that name, and the first entry of the list wins a tie.
+    (r"pfizer's upjohn", "Pfizer", 0, 2020),
     (r"pfizer|pharmacia|upjohn", "Pfizer", 0),
     (r"wyeth", "Pfizer", 2009),
     (r"hospira", "Pfizer", 2015),
@@ -40,7 +44,9 @@ ENTRIES = [
     (r"metsera", "Pfizer", 2025),
     (r"arena pharm", "Pfizer", 2022),
     (r"global blood", "Pfizer", 2022),
-    (r"biohaven", "Pfizer", 2022),
+    # No entry for Biohaven: Pfizer bought the migraine business on 3 October 2022 and the rest was spun off as the
+    # independent Biohaven Ltd. the next day. The Biohaven names left in the registry (Biohaven Pharmaceuticals, Inc.;
+    # Biohaven Therapeutics Ltd., 18 trials from 2024) are that company's, not Pfizer's.
     (r"seagen|seattle genetics", "Pfizer", 2023),
     (r"johnson\s*&\s*johnson|janssen|ortho[- ]mcneil|mcneil|tibotec", "Johnson & Johnson", 0),
     (r"centocor", "Johnson & Johnson", 1999),

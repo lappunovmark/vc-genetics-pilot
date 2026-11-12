@@ -72,6 +72,11 @@ CASES = [
     # spin-offs
     ("Organon and Co", 2015, "Merck & Co"),
     ("Organon and Co", 2022, None),
+    ("Biohaven Therapeutics Ltd.", 2024, None),  # the independent spin-off, not the business Pfizer bought
+    ("Biohaven Pharmaceuticals, Inc.", 2022, None),
+    ("Pfizer's Upjohn has merged with Mylan to form Viatris Inc.", 2015, "Pfizer"),
+    ("Pfizer's Upjohn has merged with Mylan to form Viatris Inc.", 2021, None),
+    ("Pfizer's Upjohn has merged with Mylan to form Viatris Inc.", None, "Pfizer"),
     ("Sandoz", 2022, "Novartis"),
     ("Sandoz", 2023, None),
     # a pattern inside another word is not a match
