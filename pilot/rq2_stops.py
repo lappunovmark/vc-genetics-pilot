@@ -68,6 +68,24 @@ def load(path):
     return ct
 
 
+def fit_or_none(f, d):
+    """HC1 logit, or None when it cannot be estimated: with a handful of events a year x group cell without events
+    separates, and the fit either fails to converge (quasi-separation) or stops on a singular Hessian (complete
+    separation). Which of the two happens depends on a few trials, so both are reported the same way."""
+    import statsmodels.formula.api as smf  # imported here: other steps use this module's helpers without statsmodels
+    from statsmodels.tools.sm_exceptions import PerfectSeparationError
+
+    try:
+        res = smf.logit(f, d).fit(disp=0, cov_type="HC1")
+    except (np.linalg.LinAlgError, PerfectSeparationError):
+        return None
+    return res if res.mle_retvals["converged"] else None
+
+
+def not_estimable(d):
+    return f"NOT ESTIMABLE (separation: a group-by-period cell without events; events={int(d.y.sum())})"
+
+
 def main(path, out):
     os.makedirs(out, exist_ok=True)
     ct = load(path)
@@ -116,8 +134,6 @@ def main(path, out):
 
     lines = []
     try:
-        import statsmodels.formula.api as smf
-
         d = r[r.stop_year.between(2016, today.year - 1)].copy()
         d["grp"] = pd.Categorical(d.group, categories=[g for g in GROUPS if g in set(d.group)])
         d["post"] = (d.stop_year >= 2022).astype(int)
@@ -131,19 +147,14 @@ def main(path, out):
         for y in ("fin", "nofund"):
             d["y"] = d[y].astype(int)
             f = "y ~ C(grp) + C(stop_year)" + "".join(f" + {c}" for c in inter)
-            try:
-                res = smf.logit(f, d).fit(disp=0, cov_type="HC1")
-                lines += [
-                    "=" * 90,
-                    f"outcome={y} among stops with a stated reason, 2016-{today.year - 1}",
-                    f,
-                    f"N={int(res.nobs)}",
-                    res.summary2().tables[1].to_string()
-                    if res.mle_retvals["converged"]
-                    else f"NOT CONVERGED (quasi-separation; events={int(d.y.sum())}): not estimable",
-                ]
-            except Exception as ex:
-                lines += ["=" * 90, f, f"failed: {ex!r}"]
+            res = fit_or_none(f, d)
+            lines += [
+                "=" * 90,
+                f"outcome={y} among stops with a stated reason, 2016-{today.year - 1}",
+                f,
+                f"N={len(d)}",
+                res.summary2().tables[1].to_string() if res is not None else not_estimable(d),
+            ]
             if GROUPS[3] not in present:
                 continue
             # event study: small vs top-20, year-specific gaps relative to 2021
@@ -152,19 +163,17 @@ def main(path, out):
                 if yr != 2021:
                     e[f"sm_{int(yr)}"] = ((e.stop_year == yr) & (e.small == 1)).astype(int)
             terms = " + ".join(c for c in e.columns if c.startswith("sm_"))
-            res = smf.logit(f"y ~ small + C(stop_year) + {terms}", e).fit(disp=0, cov_type="HC1")
-            es = res.summary2().tables[1].loc[[c for c in res.params.index if c.startswith("sm_")]]
+            res = fit_or_none(f"y ~ small + C(stop_year) + {terms}", e)
             lines += [
                 "=" * 90,
                 f"event study ({y}): small (<=20 trials) vs top-20, gap by year relative to 2021",
-                f"N={int(res.nobs)}",
+                f"N={len(e)}",
             ]
-            if res.mle_retvals["converged"]:
+            if res is not None:
+                es = res.summary2().tables[1].loc[[c for c in res.params.index if c.startswith("sm_")]]
                 lines.append(es.to_string())
             else:
-                # with a handful of events per year the year x group cells separate; the coefficients are not
-                # interpretable and are not printed
-                lines.append(f"NOT CONVERGED (quasi-separation; events={int(e.y.sum())}): not estimable")
+                lines.append(not_estimable(e))
     except Exception as ex:
         lines.append(f"models failed: {ex!r}")
     open(f"{out}/rq2_did.txt", "w").write("\n".join(lines))

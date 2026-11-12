@@ -29,6 +29,8 @@ git clone https://github.com/ericminikel/genetic_support /tmp/genetic_support   
 python pilot/build_panel26.py data/ot /tmp/genetic_support/data results
 python pilot/robust26.py results
 python pilot/gs_ot_dated.py results data/ot data/falaguera/evidence_dated /tmp/genetic_support/data
+python pilot/khb26.py results > results/khb.txt
+python pilot/khb26.py results gs_ot_ante gs_ot_entries.csv.gz >> results/khb.txt
 python pilot/rq2_stops.py data/ctgov_all.csv results
 python pilot/rq2_rr.py results
 python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data data/falaguera/evidence_dated

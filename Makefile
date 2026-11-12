@@ -28,7 +28,7 @@ $(DATA)/nih_sbir_sttr.csv:
 results:
 	$(PY) pilot/build_panel26.py $(DATA)/ot $(MINIKEL)/data $(RES)
 	$(PY) pilot/robust26.py $(RES)
-	$(PY) pilot/khb26.py $(RES)
+	$(PY) pilot/khb26.py $(RES) > $(RES)/khb.txt
 	$(PY) pilot/rq2_stops.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/rq2_rr.py $(RES)
 	$(PY) pilot/h4_biology.py $(DATA)/ot $(RES) $(DATA)/ctgov_all.csv $(MINIKEL)/data
@@ -37,6 +37,9 @@ results:
 
 dated:  # needs Falaguera et al. evidence (Zenodo 15922783) in $(DATA)/falaguera/evidence_dated
 	$(PY) pilot/gs_ot_dated.py $(RES) $(DATA)/ot $(DATA)/falaguera/evidence_dated $(MINIKEL)/data
+	$(PY) pilot/khb26.py $(RES) > $(RES)/khb.txt
+	$(PY) pilot/khb26.py $(RES) gs_ot_ante gs_ot_entries.csv.gz >> $(RES)/khb.txt
+	$(PY) pilot/sbir_models.py $(RES)  # again: adds the block with the dated measure
 	$(PY) pilot/h4_biology.py $(DATA)/ot $(RES) $(DATA)/ctgov_all.csv $(MINIKEL)/data $(DATA)/falaguera/evidence_dated
 
 approvals:  # approval dates from EMA/PMDA reports and ChEMBL; the ChEMBL extract used is kept in results/
