@@ -55,15 +55,15 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   programmes) while the log-linear trend among filers stays non-significant (0.81, 0.55–1.20); in 2024 dollars the
   top band gives 0.47 (0.23–0.96). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
-* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,243 active trial-years 2016–25):
+* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
-  (interactions 1.03, 1.24, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
+  (interactions 1.03, 1.25, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
   reasons more often throughout (OR 1.60, 1.20–2.14), but among sponsors classified as US-based the excess is small
   (1.26, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
   funding (113 in all) were somewhat more frequent among sponsors with under $50M raised (OR 2.31, 1.01–5.26 under
-  $10M and 2.47, 1.04–5.86 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.01; among US-based
-  sponsors 1.80, 0.72–4.49 and 2.00, 0.84–4.75), too few to make much of.
+  $10M and 2.45, 1.03–5.82 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.01; among US-based
+  sponsors 1.79, 0.72–4.48 and 1.98, 0.84–4.70), too few to make much of.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -88,6 +88,21 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
+* 12 Nov 2026 (third entry of the day): Biohaven and Upjohn. `sponsors.py` counted every sponsor name with
+  "Biohaven" as Pfizer from 2022. Pfizer bought Biohaven's migraine business on 3 October 2022; the rest of the
+  pipeline was spun off the next day as the independent Biohaven Ltd., and the Biohaven names left in the registry
+  (Biohaven Pharmaceuticals, Inc.; Biohaven Therapeutics Ltd.) are that company's. The entry is removed: 19 trials
+  that started in 2022 or later are no longer typed top-20. Upjohn, which left Pfizer for Viatris in November 2020,
+  now stops counting from 2020 like the other spun-off units (one trial, withdrawn in 2021 because "the project has
+  been transferred to Viatris"). No programme or phase entry of the panel changes, so Tables P1, P2 and P4 and all
+  selection, advancement, SBIR and Form D selection results are unchanged. The trial-stop tables move because one
+  pre-2022 stop goes from top-20 pharma to large sponsors and one post-2022 stop from top-20 to mid-sized
+  sponsors: large sponsors 9.1 → 22.2 per 1,000 trial-years, rate ratio 2.45 (1.66–3.61;
+  before: 2.51, 1.70–3.71); top-20 2.18 (1.83–2.60); mid-sized 2.01 (1.64–2.48) and 0.97 (0.87–1.09) for all stops;
+  difference-in-differences +0.29 (p = 0.05), +0.43 (p = 0.01) and +0.35 (p = 0.18; before: +0.38, p = 0.16); the
+  2016 gap in the event study +0.76 (p = 0.06; before: +0.78, p = 0.055). Form D stop analysis: 86,273 trial-years;
+  no-funding OR at $10–50M 2.45 (1.03–5.82; before: 2.47, 1.04–5.86), US-based 1.79 (0.72–4.48) and 1.98
+  (0.84–4.70). Conclusions unchanged.
 * 12 Nov 2026 (later the same day): the top-20 list and Sandoz. The methods called the top-20 group "the largest
   companies by 2023 pharmaceutical revenue". Checked against the Pharm Exec 50 of June 2024 (2023 prescription-drug
   sales), the list is the first 17 companies of that ranking plus Astellas (21st), Merck KGaA (24th) and Daiichi

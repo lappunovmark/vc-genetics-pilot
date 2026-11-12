@@ -286,6 +286,7 @@ stop_year,group,reason,n
 2021.0,"Industry, large (>200 trials)",COVID-19,1
 2021.0,"Industry, large (>200 trials)",Efficacy / futility,5
 2021.0,"Industry, large (>200 trials)",Enrolment,4
+2021.0,"Industry, large (>200 trials)",M&A / licensing,1
 2021.0,"Industry, large (>200 trials)",No reason,1
 2021.0,"Industry, large (>200 trials)",Other,1
 2021.0,"Industry, large (>200 trials)",Safety / benefit-risk,2
@@ -314,7 +315,7 @@ stop_year,group,reason,n
 2021.0,Top-20 pharma,COVID-19,6
 2021.0,Top-20 pharma,Efficacy / futility,23
 2021.0,Top-20 pharma,Enrolment,19
-2021.0,Top-20 pharma,M&A / licensing,2
+2021.0,Top-20 pharma,M&A / licensing,1
 2021.0,Top-20 pharma,No reason,9
 2021.0,Top-20 pharma,Other,19
 2021.0,Top-20 pharma,Safety / benefit-risk,13
@@ -424,7 +425,7 @@ stop_year,group,reason,n
 2025.0,"Industry, large (>200 trials)",No reason,2
 2025.0,"Industry, large (>200 trials)",Other,1
 2025.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",14
-2025.0,"Industry, mid (21-200)",Business / strategic,59
+2025.0,"Industry, mid (21-200)",Business / strategic,60
 2025.0,"Industry, mid (21-200)",Efficacy / futility,6
 2025.0,"Industry, mid (21-200)",Enrolment,7
 2025.0,"Industry, mid (21-200)",No funding,1
@@ -440,7 +441,7 @@ stop_year,group,reason,n
 2025.0,"Industry, small (<=20)",Other,51
 2025.0,"Industry, small (<=20)",Safety / benefit-risk,24
 2025.0,"Industry, small (<=20)","Sponsor decision, unspecified",88
-2025.0,Top-20 pharma,Business / strategic,68
+2025.0,Top-20 pharma,Business / strategic,67
 2025.0,Top-20 pharma,Efficacy / futility,24
 2025.0,Top-20 pharma,Enrolment,14
 2025.0,Top-20 pharma,No reason,10
@@ -457,7 +458,7 @@ stop_year,group,reason,n
 2026.0,"Industry, mid (21-200)",No funding,2
 2026.0,"Industry, mid (21-200)",Other,3
 2026.0,"Industry, mid (21-200)",Safety / benefit-risk,4
-2026.0,"Industry, mid (21-200)","Sponsor decision, unspecified",16
+2026.0,"Industry, mid (21-200)","Sponsor decision, unspecified",17
 2026.0,"Industry, small (<=20)",Business / strategic,47
 2026.0,"Industry, small (<=20)",COVID-19,1
 2026.0,"Industry, small (<=20)",Efficacy / futility,11
@@ -472,4 +473,4 @@ stop_year,group,reason,n
 2026.0,Top-20 pharma,Enrolment,6
 2026.0,Top-20 pharma,Other,10
 2026.0,Top-20 pharma,Safety / benefit-risk,7
-2026.0,Top-20 pharma,"Sponsor decision, unspecified",25
+2026.0,Top-20 pharma,"Sponsor decision, unspecified",24

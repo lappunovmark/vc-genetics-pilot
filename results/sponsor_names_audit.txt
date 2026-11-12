@@ -1,4 +1,4 @@
-industry trials: 113871; typed top-20: 35282; sponsor names with a top-20 entry: 266
+industry trials: 113871; typed top-20: 35262; sponsor names with a top-20 entry: 264
 ====================================================================================================
 Names whose top-20 match is not the leading name (all must be in sponsors.REVIEWED_NONLEADING):
                                                                              trials   first    last  top20                             entry
@@ -15,7 +15,7 @@ Vitae Pharmaceuticals Inc., an Allergan affiliate                               
 Not reviewed (must be empty):
   none
 ====================================================================================================
-Trials without a start date typed top-20 through an entry with a year window: 109
+Trials without a start date typed top-20 through an entry with a year window: 111
 lead_sponsor
 Wyeth is now a wholly owned subsidiary of Pfizer                                                             30
 Sandoz                                                                                                       11
@@ -33,6 +33,7 @@ Alcon Research                                                                  
 Alexion Pharmaceuticals, Inc.                                                                                 2
 Schering-Plough                                                                                               2
 Wyeth-Lederle Vaccines                                                                                        2
+Pfizer's Upjohn has merged with Mylan to form Viatris Inc.                                                    2
 Human Genome Sciences Inc.                                                                                    1
 ArQule, Inc., a subsidiary of Merck Sharp & Dohme LLC, a subsidiary of Merck & Co., Inc. (Rahway, NJ USA)     1
 Pharmasset                                                                                                    1

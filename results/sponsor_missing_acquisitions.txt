@@ -1,4 +1,4 @@
-deals checked: 187; industry trials typed top-20: 35282
+deals checked: 187; industry trials typed top-20: 35262
 trials started in or after the deal year under the acquired company's own name (typed non-top-20): 204 (0.58% of the top-20 trials); phase entries of the panel: 29
 ====================================================================================================
                     company             acquirer  year  trials_under_own_name  of_which_from_deal_year  panel_phase_entries_from_deal_year                                                       names
