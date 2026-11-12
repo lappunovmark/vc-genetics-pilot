@@ -1,8 +1,14 @@
 """Pilot sponsor typing.
 
-Top-20 pharma = the 20 largest companies by 2023 pharmaceutical revenue (fixed list). Acquired companies count
-as the parent only for trials that started in or after the acquisition (completion) year; before that they are
-typed like any other industry sponsor. Year 0 = long-standing subsidiary or legacy name.
+Top-20 pharma = a fixed list of 20 large research-based pharmaceutical companies: the 17 companies with the largest
+prescription-drug sales in 2023 (Pharm Exec 50, June 2024, Evaluate data: Johnson & Johnson, AbbVie, Novartis,
+Merck & Co, Roche, Pfizer, Bristol Myers Squibb, AstraZeneca, Sanofi, GSK, Novo Nordisk, Eli Lilly, Takeda, Amgen,
+Gilead, Boehringer Ingelheim, Bayer) and three further originator companies with broad pipelines, Astellas (21st),
+Merck KGaA (24th) and Daiichi Sankyo (25th). It is NOT the top 20 of that ranking: Viatris, CSL and Teva (18th to
+20th; generics and plasma products), Vertex (22nd) and Sandoz (23rd; part of Novartis until 2023) are not in the list. robust26.py repeats the
+selection model with the group cut to the first 17. Acquired companies count as the parent only for trials that
+started in or after the acquisition (completion) year; before that they are typed like any other industry sponsor.
+A spun-off unit stops counting from the year of the spin-off. Year 0 = long-standing subsidiary or legacy name.
 
 The registry shows a sponsor under its current name, and after an acquisition that name often carries the parent
 ("Karuna Therapeutics, Inc., a Bristol Myers Squibb company", "Wyeth is now a wholly owned subsidiary of Pfizer").
@@ -16,7 +22,8 @@ Every pattern must start at a word boundary ("shire" must not match "Warwickshir
 Limit that names cannot fix: when the registry record of an old trial was moved to the acquirer's name outright
 ("Pfizer" for a trial that Medivation started), the trial counts as the acquirer's.
 PILOT ASSUMPTIONS: the top-20 list itself is fixed over time; names matched by regular expression; the list of
-acquired companies covers the ones met in the data, not every deal.
+acquired companies covers the ones met in the data, not every deal (factcheck/sponsor_missing_acquisitions.py
+counts the trials that further deals would move).
 """
 
 import re
@@ -70,7 +77,7 @@ ENTRIES = [
     (r"cerevel", "AbbVie", 2024),
     (r"immunogen\b", "AbbVie", 2024),
     (r"novartis", "Novartis", 0),
-    (r"sandoz", "Novartis", 0, 2024),
+    (r"sandoz", "Novartis", 0, 2023),  # spun off on 4 October 2023
     (r"chiron", "Novartis", 2006),
     (r"alcon\b", "Novartis", 2011, 2019),
     (r"corthera", "Novartis", 2010),
@@ -146,6 +153,9 @@ ENTRIES = [
     (r"plexxikon", "Daiichi Sankyo", 2011),
     (r"ambit bio", "Daiichi Sankyo", 2014),
 ]
+# the three companies of the list that are not among the 17 largest by 2023 prescription sales
+TOP20_BEYOND_17 = ("Astellas", "Merck KGaA", "Daiichi Sankyo")
+
 # Names in which the top-20 match is not the leading name, read one by one (factcheck/sponsor_names_audit.py fails on
 # any other): start of the sponsor name -> why the typing is right.
 REVIEWED_NONLEADING = {
@@ -177,7 +187,7 @@ def leading_entry(name):
 
 def top20_parent(name, year=None):
     """Top-20 parent of a sponsor name, or None. With `year` (trial start year), an acquired company maps to the
-    parent only from its acquisition year onwards, and a spun-off unit (Organon 2021, Sandoz 2024, Alcon 2019, Abbott's
+    parent only from its acquisition year onwards, and a spun-off unit (Organon 2021, Sandoz 2023, Alcon 2019, Abbott's
     pharma business split off as AbbVie in 2013) stops counting from the spin-off year. Without a year (trial with
     no start date) the window is not applied."""
     if not isinstance(name, str):

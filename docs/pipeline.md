@@ -34,6 +34,7 @@ python pilot/khb26.py results gs_ot_ante gs_ot_entries.csv.gz >> results/khb.txt
 python pilot/rq2_stops.py data/ctgov_all.csv results
 python pilot/rq2_rr.py results
 python factcheck/sponsor_names_audit.py data/ctgov_all.csv results    # fails on an unreviewed renamed subsidiary
+python factcheck/sponsor_missing_acquisitions.py data/ctgov_all.csv results   # what unlisted deals would move
 python pilot/h4_biology.py data/ot results data/ctgov_all.csv /tmp/genetic_support/data data/falaguera/evidence_dated
 python pilot/fetch_reporter_sbir.py data/nih_sbir_sttr.csv 2000 2025
 python pilot/sbir_link.py data/nih_sbir_sttr.csv data/ctgov_all.csv results

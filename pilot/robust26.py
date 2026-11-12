@@ -4,11 +4,16 @@ Usage: python robust26.py RESULTS_DIR
 Writes RESULTS_DIR/robust.txt and RESULTS_DIR/robust_*.csv
 """
 
+import os
 import sys
 
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rq2_stops  # noqa: E402
+import sponsors  # noqa: E402
 
 R = sys.argv[1]
 P = pd.read_csv(f"{R}/programmes.csv.gz")
@@ -90,6 +95,56 @@ mix = H.groupby("tier", observed=True).agg(
     gs_ante=("y", "mean"),
 )
 out.extend(["=" * 100, "Composition of programmes by sponsor tier (shares):", mix.round(4).to_string()])
+# How much the small-sponsor gap leans on the way errors are clustered and on single companies. Selection is a
+# sponsor's decision, so errors are clustered by sponsor (the parent for top-20 pharma, else the normalised name);
+# each top-20 company is left out in turn; and the top-20 group is cut to the 17 companies that lead the 2023
+# prescription-sales ranking (sponsors.TOP20_BEYOND_17 names the other three).
+H1F = "y ~ C(tier) + C(yb) + C(area) + C(modality)"
+H["parent"] = [
+    sponsors.top20_parent(n, y) if c == "INDUSTRY" else None
+    for n, y, c in zip(H.first_sponsor, H.first_year, H.first_class)
+]
+H["sponsor_cluster"] = np.where(H.parent.notna(), H.parent, H.first_sponsor.map(rq2_stops.norm_sponsor).fillna("?"))
+out.append(
+    f"\nSponsor clusters: {H.sponsor_cluster.nunique()} "
+    f"({H[H.tier.eq('Top-20 pharma')].sponsor_cluster.nunique()} top-20 parents)"
+)
+logit(H1F, H, H.sponsor_cluster, "H1 gs_ante_first: + first-trial period, area, modality; clustered by sponsor")
+logit(
+    H1F,
+    H[~H.parent.isin(sponsors.TOP20_BEYOND_17)],
+    H[~H.parent.isin(sponsors.TOP20_BEYOND_17)].drug,
+    "H1 gs_ante_first: + first-trial period, area, modality; top-20 group cut to the 17 largest companies",
+)
+SMALL = "C(tier)[T.Industry, small (<=5 drugs)]"
+loo = []
+for parent in sorted(H.parent.dropna().unique()):
+    D = H[H.parent.ne(parent)]
+    r = smf.logit(H1F, D).fit(disp=0, cov_type="cluster", cov_kwds={"groups": pd.factorize(D.drug)[0]})
+    lo, hi = np.exp(r.conf_int().loc[SMALL])
+    own = H[H.parent.eq(parent)]
+    loo.append(
+        {
+            "left_out": parent,
+            "programmes": len(own),
+            "gs_ante": own.y.mean(),
+            "OR_small": np.exp(r.params[SMALL]),
+            "OR_lo": lo,
+            "OR_hi": hi,
+            "p": r.pvalues[SMALL],
+            "converged": r.mle_retvals["converged"],
+        }
+    )
+loo = pd.DataFrame(loo)
+out.extend(
+    [
+        "=" * 100,
+        "H1 gs_ante_first, small sponsors vs top-20 pharma with one top-20 company left out at a time:",
+        loo.round(4).to_string(index=False),
+        f"range of the small-sponsor OR: {loo.OR_small.min():.4f} to {loo.OR_small.max():.4f}; "
+        f"largest p: {loo.p.max():.4f}; all converged: {bool(loo.converged.all())}",
+    ]
+)
 # novel-drug programmes: the drug's first indication(s), first trial 2000+, sponsor of the drug's first trial
 N = H[H.is_drug_first_indication & H.first_year.ge(2000)].copy()
 out.append(f"\nNovel-drug programmes (drug first indication, first trial >= 2000): {len(N)}")

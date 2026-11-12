@@ -32,6 +32,7 @@ results:
 	$(PY) pilot/rq2_stops.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/rq2_rr.py $(RES)
 	$(PY) factcheck/sponsor_names_audit.py $(DATA)/ctgov_all.csv $(RES)
+	$(PY) factcheck/sponsor_missing_acquisitions.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/h4_biology.py $(DATA)/ot $(RES) $(DATA)/ctgov_all.csv $(MINIKEL)/data
 	$(PY) pilot/sbir_link.py $(DATA)/nih_sbir_sttr.csv $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/sbir_models.py $(RES)

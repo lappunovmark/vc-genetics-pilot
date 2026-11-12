@@ -72,7 +72,8 @@ CASES = [
     # spin-offs
     ("Organon and Co", 2015, "Merck & Co"),
     ("Organon and Co", 2022, None),
-    ("Sandoz", 2024, None),
+    ("Sandoz", 2022, "Novartis"),
+    ("Sandoz", 2023, None),
     # a pattern inside another word is not a match
     ("University Hospitals Coventry and Warwickshire NHS Trust", 2020, None),
     ("The Hillshire Brands Company", 2020, None),
