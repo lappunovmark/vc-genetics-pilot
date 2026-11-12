@@ -5,57 +5,60 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 
 ## Estimates
 * 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
-* Ex-ante genetic support at phase entry: OR 2.48 (2.10–2.93) for advancing a phase; no difference between small
-  industry sponsors and top-20 pharma (interaction OR 1.26, 0.75–2.12).
-* Small industry sponsors start fewer programmes with ex-ante support (adjusted OR 0.64, 0.46–0.88), not significant
-  for novel drugs (0.80, 0.50–1.29).
+* Ex-ante genetic support at phase entry: OR 2.48 (2.09–2.93) for advancing a phase; no difference between small
+  industry sponsors and top-20 pharma (interaction OR 1.29, 0.77–2.15).
+* Small industry sponsors start fewer programmes with ex-ante support once the period of the first trial, the
+  therapeutic area and the modality are held fixed (adjusted OR 0.68, 0.49–0.93); not significant for novel drugs
+  (0.83, 0.51–1.34). The unadjusted shares barely differ (4.3% of small sponsors' programmes against 4.5% for top-20
+  pharma; unadjusted OR 0.96, 0.70–1.32): small sponsors' programmes are more recent, and dated genetic support has
+  become more common over time, so the gap shows only within periods.
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
-  (2.10–2.98); trials only, 2.25 (1.87–2.69). The small-sponsor interaction stays non-significant (1.50, 0.89–2.54).
+  (2.10–2.98); trials only, 2.25 (1.87–2.69). The small-sponsor interaction stays non-significant (1.54, 0.92–2.59).
 * Financial or strategic trial stops per 1,000 active trial-years rose 2.0–2.5-fold from 2016–21 to 2022–25 in every
-  industry group. Among small sponsors, stops citing lack of funding rose 2.20-fold (1.44–3.35); in the other groups
+  industry group. Among small sponsors, stops citing lack of funding rose 2.21-fold (1.45–3.37); in the other groups
   such stops are rare.
 * Trials stopped for financial or strategic reasons carried no more ex-ante genetic support than completed trials
   (8.9% vs 10.4%; adjusted OR 0.75, 0.54–1.04, most clearly in trials that ended in 2022 or later). Whether they
   carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.88,
   0.62–1.24), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
-  there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.25; trials ending 2022 or later OR 1.02, 0.71–1.49).
-* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.72, 0.38–1.39; with the dated
-  Open Targets measure 0.82, 0.48–1.40).
+  there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.24; trials ending 2022 or later OR 1.02, 0.71–1.49).
+* Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.71, 0.37–1.34; with the dated
+  Open Targets measure 0.81, 0.48–1.37).
 * SEC Form D: 40,995 filings (33,956 offerings once amendments are folded into the offering they restate) by
-  biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of 2,964 non-top-20 industry sponsor names
+  biotech, pharma and other health care issuers (2009 Q1–2026 Q3); 801 of 2,999 non-top-20 industry sponsor names
   matched to an issuer (751 on identical names up to legal form, 50 accepted after hand review; 15 candidate matches
   not used). Among programmes first trialled in 2010 or later, sponsors with
-  a prior Form D started genetically supported programmes no more often (4.0% vs 5.7%; adjusted OR 0.74, 0.48–1.14)
+  a prior Form D started genetically supported programmes no more often (4.0% vs 5.8%; adjusted OR 0.71, 0.46–1.09)
   and advanced no more often (adjusted OR 0.88, 0.72–1.09). Genetic support predicted advancement in both groups and,
-  in this version of the linkage, more strongly among Form D filers (interaction OR 2.12, 1.10–4.10); the interaction
+  in this version of the linkage, more strongly among Form D filers (interaction OR 2.04, 1.05–3.94); the interaction
   was 1.58 (0.75–3.30) before the linkage fixes of 6 November 2026, so it should be read as fragile. Dating the first
-  Form D by own names only gives OR 0.77 (0.50–1.20) for selection and 0.91 (0.73–1.14) for advancement; the
+  Form D by own names only gives OR 0.74 (0.48–1.15) for selection and 0.91 (0.73–1.13) for advancement; the
   whole-CIK dating changes no flag in the analysis window. With the dated Open Targets measure the selection OR is
-  0.73 (0.46–1.17). Restricting both groups to sponsors classified as US-based (`pilot/sponsor_region.py`: US
-  financing records, else legal form and place names; 1,990 programmes, 47% with a prior Form D) gives OR 0.89
-  (0.51–1.56) for selection, 0.89 (0.69–1.17) for advancement and an interaction of 0.89 (0.37–2.12), so the
+  0.72 (0.45–1.14). Restricting both groups to sponsors classified as US-based (`pilot/sponsor_region.py`: US
+  financing records, else legal form and place names; 2,047 programmes, 46% with a prior Form D) gives OR 0.80
+  (0.47–1.35) for selection, 0.90 (0.69–1.17) for advancement and an interaction of 0.99 (0.43–2.29), so the
   significant interaction in the full sample reflects the mix of US and non-US sponsors among non-filers.
 * Amount raised: summing the amounts sold in the sponsor's Form D offerings before the first trial (3,060 offerings of
   the 801 linked sponsors, median $6.0M) shows no dose–response. Programmes of sponsors that had raised under $10M,
-  $10–50M and $50M or more had ex-ante support in 4.2%, 4.8% and 3.2% of cases against 5.7% without a prior Form D
-  (adjusted OR 0.75, 0.39–1.44; 1.11, 0.59–2.08; 0.51, 0.23–1.11); among filers, each tenfold increase in the amount
-  raised changes the odds of support by 0.85 (0.56–1.30). Advancement does not rise with the amount either (0.92,
+  $10–50M and $50M or more had ex-ante support in 4.2%, 4.7% and 3.2% of cases against 5.8% without a prior Form D
+  (adjusted OR 0.73, 0.38–1.39; 1.04, 0.55–1.94; 0.49, 0.23–1.06); among filers, each tenfold increase in the amount
+  raised changes the odds of support by 0.85 (0.56–1.30). Advancement does not rise with the amount either (0.93,
   0.72, 1.02 for the three bands; log-linear 1.12, 0.85–1.48 among filers). Counting only equity offerings outside
-  business combinations, the best-funded band is lower still (2.6% supported; OR 0.41, 0.19–0.85, on eight supported
+  business combinations, the best-funded band is lower still (2.6% supported; OR 0.40, 0.19–0.82, on eight supported
   programmes) while the log-linear trend among filers stays non-significant (0.81, 0.55–1.20); in 2024 dollars the
-  top band gives 0.49 (0.23–1.01). If anything, the sponsors with the most private capital behind them picked
+  top band gives 0.47 (0.23–0.96). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
-* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 85,300 active trial-years 2016–25):
+* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,242 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
   (interactions 1.03, 1.24, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
   reasons more often throughout (OR 1.60, 1.20–2.14), but among sponsors classified as US-based the excess is small
   (1.26, 0.88–1.79), so it partly reflects non-US sponsors among those without a Form D. Stops citing lack of
-  funding (113 in all) were somewhat more frequent among sponsors with under $50M raised (OR 2.28, 1.00–5.20 under
-  $10M and 2.43, 1.02–5.79 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.00; among US-based
-  sponsors 1.74, 0.70–4.34 and 1.93, 0.81–4.60), too few to make much of.
+  funding (113 in all) were somewhat more frequent among sponsors with under $50M raised (OR 2.31, 1.01–5.26 under
+  $10M and 2.47, 1.04–5.86 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.01; among US-based
+  sponsors 1.80, 0.72–4.49 and 2.00, 0.84–4.75), too few to make much of.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
@@ -80,6 +83,37 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
+* 12 Nov 2026: sponsor typing. The registry lists a sponsor under its current name, and after an acquisition that
+  name often carries the parent ("Karuna Therapeutics, Inc., a Bristol Myers Squibb company", "Wyeth is now a wholly
+  owned subsidiary of Pfizer"). `sponsors.py` let the first entry of its list that matched anywhere in the name
+  decide, so the parent's name typed every trial of such a sponsor as top-20 pharma, including the trials it ran as
+  an independent company, against the rule in the methods (an acquired company counts as the parent only from the
+  acquisition year). In the registry snapshot 1,031 of the 36,279 industry trials typed as top-20 were affected
+  (1,016 trials of 48 renamed subsidiaries, Wyeth with 356 and Genzyme with 206 the largest; 15 trials through
+  patterns matched inside other words: "alios" in Healios, "ardea" in Cardeas, "immunogen" in ImmunoGenesis, "loxo"
+  in Naloxone), and 36 AbbVie-named trials that started before 2013 were typed non-top-20 although Abbott's were
+  top-20. In the panel, 183 of 5,296 top-20 programmes in indications with genetic insight lose the label (77 become
+  large, 65 mid-sized and 39 small industry programmes; 2 belong to an NHS trust in Warwickshire that "shire" had
+  typed as Takeda) and 17 AbbVie-named programmes gain it; 300 of 47,917 phase entries change tier. The mistyped
+  programmes were better supported than other top-20 programmes (16 of 183 with ex-ante support, 8.7%, against
+  4.6%), so the error flattered top-20 pharma. Now the entry that matches earliest in the name decides, with its own
+  year window; 31 renamed subsidiaries have entries of their own with acquisition years checked against the
+  completion announcements; every pattern starts at a word boundary; the name rules apply to industry sponsors only.
+  `factcheck/sponsor_names_audit.py` lists the names whose top-20 match is not the leading name (eight remain, each
+  read by hand) and `tests/test_sponsors.py` holds the cases. The whole pipeline was re-run on the author's Mac.
+  Selection: the small-sponsor OR moves from 0.64 (0.46–0.88) to 0.68 (0.49–0.93), for novel drugs from 0.80
+  (0.50–1.29) to 0.83 (0.51–1.34), with the dated Open Targets measure from 0.63 (0.45–0.88) to 0.67 (0.48–0.94);
+  large non-top-20 sponsors no longer pick supported indications significantly more often among novel drugs (1.63,
+  1.02–2.58 → 1.55, 0.97–2.46). Advancement: the genetic premium is 2.48 as before and its small-sponsor interaction
+  moves from 1.26 (0.75–2.12) to 1.29 (0.77–2.15); small sponsors' lower advancement overall is no longer
+  significant (0.85, 0.73–1.00 → 0.87, 0.75–1.02). Stops: the rate ratios of Table P3 move by at most 0.03 (small
+  sponsors' no-funding ratio 2.20 → 2.21) and the cells of Table P4 by at most 0.01; the 2016 gap in the event study
+  shrinks from +0.88 (p = 0.03) to +0.78 (p = 0.055). Form D: selection 0.74 (0.48–1.14) → 0.71 (0.46–1.09), the
+  support × Form D interaction 2.12 (1.10–4.10) → 2.04 (1.05–3.94), US sponsors only 0.89 (0.51–1.56) → 0.80
+  (0.47–1.35) for selection, the top band of capital in 2024 dollars 0.49 (0.23–1.01) → 0.47 (0.23–0.96). The two
+  no-funding difference-in-differences fits, which had failed to converge, now stop on a singular Hessian (a
+  group-by-period cell without events); both cases are reported as not estimable. The direction of every result is
+  unchanged; the small-sponsor gap in selection is somewhat smaller than reported before.
 * 7 Nov 2026: stop-reason classifier v4. A cross-check of v3 against the Open Targets StopReasons predictions showed
   business stops that v3 left in "Other" ("Management decision", "Program discontinued", "company focus on other
   projects", "withdrawal of support", wind-downs, expired grants). v4 adds patterns for them. Two of the patterns

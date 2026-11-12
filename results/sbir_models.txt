@@ -1,40 +1,40 @@
 Programmes (insight indications, first trial by non-top-20 industry):                                 n    sbir  gs_ante
 tier                                              
-Industry, large (>30)        1696  0.0183   0.0537
-Industry, mid (6-30)         2294  0.1251   0.0480
-Industry, small (<=5 drugs)  1867  0.0868   0.0418
+Industry, large (>30)        1756  0.0177   0.0535
+Industry, mid (6-30)         2359  0.1217   0.0500
+Industry, small (<=5 drugs)  1906  0.0850   0.0430
          n  gs_ante  gs_post
 sbir                        
-0     5377   0.0474   0.0993
+0     5541   0.0487   0.1005
 1      480   0.0500   0.0833
 ====================================================================================================
 H1: ex-ante support at first trial ~ prior SBIR/STTR
 y ~ sbir + C(tier) + C(yb) + C(area) + C(modality)
-N=5857; clusters (drugs)=1847; sbir share=0.0820
-       Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-sbir -0.3218    0.3324  0.333 -0.9733  0.3297  0.7249  0.3779  1.3905
+N=6021; clusters (drugs)=1902; sbir share=0.0797
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+sbir -0.3455    0.3263  0.2897 -0.9849   0.294  0.7079  0.3735  1.3418
 ====================================================================================================
 H1 [dated OT evidence]: ex-ante support ~ prior SBIR/STTR
 y ~ sbir + C(tier) + C(yb) + C(area) + C(modality)
-N=5857; clusters (drugs)=1847; sbir share=0.0820
-       Coef.  Std.Err.  P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
-sbir -0.2009    0.2731  0.462 -0.7362  0.3344  0.818  0.4789  1.3971
+N=6021; clusters (drugs)=1902; sbir share=0.0797
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+sbir -0.2062    0.2667  0.4393 -0.7289  0.3164  0.8136  0.4824  1.3722
          n     adv      gs
 sbir                      
-0     5430  0.3260  0.0534
+0     5608  0.3258  0.0549
 1      517  0.2631  0.0484
 ====================================================================================================
 Advancement ~ prior SBIR/STTR + ex-ante support
 adv ~ sbir + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
-N=5947; clusters (drugs)=1761; sbir share=0.0869
+N=6125; clusters (drugs)=1815; sbir share=0.0844
        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-sbir -0.2599    0.1285  0.0431 -0.5117 -0.0080  0.7712  0.5995  0.9920
-gs    0.9658    0.1306  0.0000  0.7097  1.2218  2.6268  2.0335  3.3933
+sbir -0.2626    0.1278  0.0398 -0.5130 -0.0122  0.7690  0.5987  0.9879
+gs    0.9396    0.1272  0.0000  0.6902  1.1889  2.5589  1.9942  3.2835
 ====================================================================================================
 Advancement ~ prior SBIR/STTR x ex-ante support
 adv ~ sbir * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
-N=5947; clusters (drugs)=1761; sbir share=0.0869
+N=6125; clusters (drugs)=1815; sbir share=0.0844
           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
-sbir    -0.2748    0.1338  0.0400 -0.5371 -0.0125  0.7597  0.5845  0.9876
-gs       0.9463    0.1351  0.0000  0.6815  1.2112  2.5763  1.9769  3.3575
-sbir:gs  0.2462    0.4524  0.5863 -0.6404  1.1329  1.2792  0.5271  3.1045
+sbir    -0.2788    0.1331  0.0362 -0.5397 -0.0179  0.7567  0.5829  0.9822
+gs       0.9198    0.1313  0.0000  0.6624  1.1772  2.5088  1.9395  3.2452
+sbir:gs  0.2656    0.4513  0.5562 -0.6189  1.1501  1.3042  0.5385  3.1585

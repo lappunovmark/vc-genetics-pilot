@@ -3,7 +3,6 @@ norm,lead_sponsor,issuer_name,CIK,tier,formd_first_year,formd_first_year_own,for
 7 hills,"7 Hills Pharma, LLC",7 Hills Pharma Inc.,2030700,"Industry, small (<=5 drugs)",2024,2024,2024,1,1000000
 9 meters,"9 Meters Biopharma, Inc.","9 METERS BIOPHARMA, INC.",1551986,"Industry, small (<=5 drugs)",2018,2020,2018,8,92751768
 aadi,"Aadi Bioscience, Inc.","Aadi Bioscience, Inc.",1422142,"Industry, mid (6-30)",2017,2021,2017,5,154999876
-abbvie,AbbVie,AbbVie Inc.,1551152,"Industry, large (>30)",2016,2016,2016,1,3800000000
 abide,Abide Therapeutics,"Abide Therapeutics, Inc.",1535138,"Industry, small (<=5 drugs)",2011,2011,2011,1,2199999
 acadia,ACADIA Pharmaceuticals Inc.,ACADIA PHARMACEUTICALS INC,1070494,"Industry, small (<=5 drugs)",2011,2011,2011,2,86385000
 access,"Access Pharmaceuticals, Inc.",ACCESS PHARMACEUTICALS INC,318306,"Industry, small (<=5 drugs)",2011,2011,2011,4,13664509
@@ -575,6 +574,7 @@ plethora solutions,Plethora Solutions Ltd,Plethora Solutions Holdings plc,161987
 plx,PLx Pharma,PLX PHARMA INC,1291520;1497504,"Industry, small (<=5 drugs)",2009,2009,2009,10,18191869
 pmv,"PMV Pharmaceuticals, Inc","PMV Pharmaceuticals, Inc.",1699382,"Industry, mid (6-30)",2017,2017,2017,1,73728198
 pneuma respiratory,"Pneuma Respiratory, Inc","Pneuma Respiratory, Inc.",1701794,"Industry, small (<=5 drugs)",2018,2018,2018,21,8106688
+pocket naloxone,Pocket Naloxone Corp,Pocket Naloxone Corp.,1847131,"Industry, small (<=5 drugs)",2021,2021,2021,2,6163967
 point,Point Therapeutics,POINT THERAPEUTICS INC,919745,"Industry, mid (6-30)",2009,2009,2009,3,1716500
 polarean,"Polarean, Inc.","Polarean, Inc.",1543089,"Industry, small (<=5 drugs)",2015,2015,2015,1,1929213
 portola,Portola Pharmaceuticals,PORTOLA PHARMACEUTICALS INC,1269021,"Industry, mid (6-30)",2009,2009,2009,3,88961766

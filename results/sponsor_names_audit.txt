@@ -1,0 +1,39 @@
+industry trials: 113871; typed top-20: 35284; sponsor names with a top-20 entry: 266
+====================================================================================================
+Names whose top-20 match is not the leading name (all must be in sponsors.REVIEWED_NONLEADING):
+                                                                             trials   first    last  top20                             entry
+lead_sponsor                                                                                                                                
+Xian-Janssen Pharmaceutical Ltd.                                                 31  2004.0  2025.0     31   (5, Johnson & Johnson, 0, 9999)
+Naurex, Inc, an affiliate of Allergan plc                                        20  2009.0  2019.0      0          (29, AbbVie, 2020, 9999)
+Rempex Pharmaceuticals (a wholly owned subsidiary of The Medicines Company)       7  2012.0  2018.0      0        (53, Novartis, 2020, 9999)
+Durata Therapeutics Inc., an affiliate of Allergan plc                            6  2011.0  2016.0      0          (42, AbbVie, 2020, 9999)
+Chase Pharmaceuticals Corporation, an affiliate of Allergan plc                   4  2014.0  2016.0      0          (51, AbbVie, 2020, 9999)
+PriCara, Unit of Ortho-McNeil, Inc.                                               4  2002.0  2007.0      4  (17, Johnson & Johnson, 0, 9999)
+Opella Healthcare Group SAS, a Sanofi Company                                     3  2023.0  2024.0      3             (31, Sanofi, 0, 9999)
+Vitae Pharmaceuticals Inc., an Allergan affiliate                                 2  2015.0  2015.0      0          (31, AbbVie, 2020, 9999)
+====================================================================================================
+Not reviewed (must be empty):
+  none
+====================================================================================================
+Trials without a start date typed top-20 through an entry with a year window: 109
+lead_sponsor
+Wyeth is now a wholly owned subsidiary of Pfizer                                                             30
+Sandoz                                                                                                       11
+Pharmacyclics LLC.                                                                                           10
+Abbott                                                                                                       10
+Genentech, Inc.                                                                                               7
+Chiron Corporation                                                                                            7
+Millennium Pharmaceuticals, Inc.                                                                              5
+Centocor, Inc.                                                                                                4
+Genzyme, a Sanofi Company                                                                                     4
+Chugai Pharma USA                                                                                             3
+Seagen Inc.                                                                                                   3
+Celgene Corporation                                                                                           3
+Alcon Research                                                                                                2
+Alexion Pharmaceuticals, Inc.                                                                                 2
+Schering-Plough                                                                                               2
+Wyeth-Lederle Vaccines                                                                                        2
+Human Genome Sciences Inc.                                                                                    1
+ArQule, Inc., a subsidiary of Merck Sharp & Dohme LLC, a subsidiary of Merck & Co., Inc. (Rahway, NJ USA)     1
+Pharmasset                                                                                                    1
+Cubist Pharmaceuticals LLC, a subsidiary of Merck & Co., Inc. (Rahway, New Jersey USA)                        1

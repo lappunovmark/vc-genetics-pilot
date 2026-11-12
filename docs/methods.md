@@ -44,7 +44,7 @@ headline models with it when the dated evidence (or `gs_ot_programmes.csv.gz`) i
 
 | Where | Groups | Rule |
 |---|---|---|
-| Programme panel (`build_panel26.py`, `sponsors.py`) | Top-20 pharma; industry small (≤ 5 drugs), mid (6–30), large (> 30); academic/other; government | Top-20 = largest companies by 2023 pharmaceutical revenue, matched by regular expression; an acquired company counts as the parent only for trials that started in or after the acquisition year. Other industry sponsors are sized by the number of distinct parent drugs their normalised name leads across all Open Targets trial records. |
+| Programme panel (`build_panel26.py`, `sponsors.py`) | Top-20 pharma; industry small (≤ 5 drugs), mid (6–30), large (> 30); academic/other; government | Top-20 = largest companies by 2023 pharmaceutical revenue, matched by regular expression on industry sponsors' names; an acquired company counts as the parent only for trials that started in or after the acquisition year. The registry shows each sponsor under its current name, which after an acquisition often carries the parent ("X, Inc., a subsidiary of Merck & Co., Inc."); the sponsor's own name comes first in these forms, so the entry that matches earliest in the name decides, and renamed subsidiaries have entries with their acquisition years (`factcheck/sponsor_names_audit.py` lists every name whose match is not the leading name). Other industry sponsors are sized by the number of distinct parent drugs their normalised name leads across all Open Targets trial records. |
 | Trial stops (`rq2_stops.py`) | Top-20 pharma; industry small (≤ 20 trials), mid (21–200), large (> 200) | Size = number of interventional drug trials the normalised lead-sponsor name has ever led on ClinicalTrials.gov. |
 
 Sponsor size is the main grouping. SEC Form D private placements add a direct, dated signal of private financing
@@ -158,5 +158,11 @@ calendar advances (91 reports between 17 October and 6 November 2026).
   a parallel measure from Open Targets evidence dated by Falaguera et al. (2026), reported for every model. Where the
   two measures disagree (H4), the paper reports both.
 * The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.
+* Sponsor names are those in the registry on the snapshot date. A renamed subsidiary is typed by its own name and
+  acquisition year, but when the record of an old trial was moved to the acquirer's name outright the trial counts
+  as the acquirer's; the list of acquired companies covers those met in the data, not every deal; and a trial
+  without a start date (109 industry trials typed through an entry with a year window) is typed without the window.
+  Licensing and co-development between a small sponsor and a large company are not observed at all: a programme is
+  typed by the lead sponsor of its first trial.
 * A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
   shell's earlier placements; the own-names-only bound shows how much this can matter.

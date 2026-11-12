@@ -20,8 +20,8 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 
 1. **Genetic evidence works for everyone.** Drug projects with it had about 2.5 times higher odds of moving on to
    the next trial phase, and this was true for small biotechs as much as for big pharma.
-2. **Small biotechs use it less.** They start fewer projects with genetic evidence than the 20 largest drug
-   companies.
+2. **Small biotechs use it somewhat less.** Among projects started in the same years, in the same disease area and
+   with the same type of drug, they start fewer projects with genetic evidence than the 20 largest drug companies.
 3. **Investor money did not lead to better choices.** Companies that had raised private investment did not pick
    drugs with more genetic evidence, and neither did companies with US government small-business grants.
 4. **After 2022, small biotechs stopped more trials because they ran out of money**, more than twice as often as in
@@ -35,12 +35,12 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 
 | Finding | Estimate (95% CI) |
 |---|---|
-| 1. Genetic evidence → moving to the next phase | odds ratio 2.48 (2.10–2.93) |
-| 1. Difference between small biotechs and top-20 pharma in that effect | odds ratio 1.26 (0.75–2.12), not significant |
-| 2. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.64 (0.46–0.88) |
-| 3. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.74 (0.48–1.14) |
-| 3. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.72 (0.38–1.39) |
-| 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.20 (1.44–3.35) |
+| 1. Genetic evidence → moving to the next phase | odds ratio 2.48 (2.09–2.93) |
+| 1. Difference between small biotechs and top-20 pharma in that effect | odds ratio 1.29 (0.77–2.15), not significant |
+| 2. Small biotechs starting projects with genetic evidence, vs top-20 pharma (same period, disease area and drug type) | odds ratio 0.68 (0.49–0.93) |
+| 3. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.71 (0.46–1.09) |
+| 3. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.71 (0.37–1.34) |
+| 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
 | 4. Genetic evidence of trials stopped for financial or business reasons, vs completed trials | odds ratio 0.75 (0.54–1.04) |
 
 Above 1 means more likely, below 1 less likely; if the range includes 1, the difference is not statistically

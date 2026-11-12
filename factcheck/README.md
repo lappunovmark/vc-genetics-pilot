@@ -12,6 +12,7 @@ the pipeline and expect to be run from this folder, with downloaded texts and da
 | `sbir_review.py` | Sorts NIH SBIR/STTR-to-sponsor matches into confidence buckets for hand review |
 | `convergence_audit.py` | Runs a pipeline script with `Logit.fit` wrapped and lists every fit that did not converge (quasi-separation) |
 | `stopreasons_crosscheck.py` | Agreement of the stop-reason classifier with the Open Targets StopReasons predictions (Razuvayevskaya et al., 2024), by class; output in `../results/stopreasons_crosscheck.txt` |
+| `sponsor_names_audit.py` | Sponsor typing: lists every industry sponsor name whose top-20 match is not the leading name (a renamed subsidiary needs its own entry with an acquisition year); fails on a name that has not been reviewed; output in `../results/sponsor_names_audit.txt` |
 | `stopreasons_support.py` | Every pattern of the stop-reason classifier must match a text outside the held-out set (tuning texts or the StopReasons file); output in `../results/stopreasons_support.txt` |
 | `double_coding/` | Blind double-coding of the 200 held-out stop-reason texts ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)): `codebook.md`, `make_sheet.py` (builds `coding_sheet.xlsx` and `key.csv`), `double_coding_eval.py` (agreement, κ, financial-class precision and recall, disagreements) |
 

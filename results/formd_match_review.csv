@@ -18,7 +18,6 @@ exact,100.0,4D Molecular Therapeutics,4d molecular,"Industry, small (<=5 drugs)"
 exact,100.0,"7 Hills Pharma, LLC",7 hills,"Industry, small (<=5 drugs)",1,7 Hills Pharma Inc.,7 hills,2030700,True,,True,1,1,1,1,2024,2024,1,1000000,2024,2024,Pharmaceuticals,TX,2024.0,1
 exact,100.0,"9 Meters Biopharma, Inc.",9 meters,"Industry, small (<=5 drugs)",4,"9 METERS BIOPHARMA, INC.",9 meters,1551986,True,,True,1,1,1,2,2018,2020,8,92751768,2020,2018,Pharmaceuticals,NC,2020.0,1
 exact,100.0,"Aadi Bioscience, Inc.",aadi,"Industry, mid (6-30)",8,"Aadi Bioscience, Inc.",aadi,1422142,True,,True,1,1,1,2,2017,2025,5,154999876,2021,2017,Biotechnology,CA,2021.0,4
-exact,100.0,AbbVie,abbvie,"Industry, large (>30)",28,AbbVie Inc.,abbvie,1551152,True,,True,1,1,1,1,2016,2016,1,3800000000,2016,2016,Pharmaceuticals,IL,2016.0,1
 exact,100.0,Abide Therapeutics,abide,"Industry, small (<=5 drugs)",3,"Abide Therapeutics, Inc.",abide,1535138,True,,True,1,1,1,1,2011,2011,1,2199999,2011,2011,Pharmaceuticals,NJ,2011.0,1
 exact,100.0,ACADIA Pharmaceuticals Inc.,acadia,"Industry, small (<=5 drugs)",24,ACADIA PHARMACEUTICALS INC,acadia,1070494,True,,True,1,1,1,1,2011,2013,2,86385000,2011,2011,Pharmaceuticals,CA,2011.0,2
 exact,100.0,"Access Pharmaceuticals, Inc.",access,"Industry, small (<=5 drugs)",1,ACCESS PHARMACEUTICALS INC,access,318306,True,,True,1,1,1,2,2011,2015,4,13664509,2011,2011,Pharmaceuticals,TX,2011.0,2
@@ -372,7 +371,7 @@ exact,100.0,Immunic AG,immunic,"Industry, small (<=5 drugs)",6,"IMMUNIC, INC.",i
 exact,100.0,Immunitas Therapeutics,immunitas,"Industry, small (<=5 drugs)",1,"Immunitas Therapeutics, Inc.",immunitas,1879910,True,,True,1,1,1,1,2021,2021,1,29080112,2021,2021,Biotechnology,MA,2021.0,1
 exact,100.0,"ImmunityBio, Inc.",immunitybio,"Industry, large (>30)",46,"ImmunityBio, Inc.",immunitybio,1326110,True,,True,1,1,1,4,2009,2023,9,469986600,2022,2009,Biotechnology,CA,2022.0,2
 exact,100.0,Immunocore Ltd,immunocore,"Industry, mid (6-30)",8,Immunocore Ltd,immunocore,1671927,True,,True,2,1,2,1,2022,2022,1,139999988,2022,2022,,,,0
-exact,100.0,ImmunoGenesis,immunogenesis,"Industry, mid (6-30)",5,"ImmunoGenesis, Inc.",immunogenesis,2018057,True,,True,1,1,1,1,2024,2025,2,44426112,2024,2024,Biotechnology,TX,2024.0,2
+exact,100.0,ImmunoGenesis,immunogenesis,"Industry, mid (6-30)",6,"ImmunoGenesis, Inc.",immunogenesis,2018057,True,,True,1,1,1,1,2024,2025,2,44426112,2024,2024,Biotechnology,TX,2024.0,2
 exact,100.0,Implicit Bioscience,implicit,"Industry, small (<=5 drugs)",8,Implicit Bioscience Ltd,implicit,1594821;1684309,True,,True,2,2,2,2,2013,2020,6,367227,2013,2013,Biotechnology,C3,2016.0,4
 exact,100.0,"Imprimis Pharmaceuticals, Inc.",imprimis,"Industry, small (<=5 drugs)",1,"Imprimis Pharmaceuticals, Inc.",imprimis,1360214,True,,True,1,1,1,2,2012,2021,4,10670000,2012,2012,Pharmaceuticals,CA,2012.0,3
 exact,100.0,Imunon,imunon,"Industry, small (<=5 drugs)",12,"Imunon, Inc.",imunon,749647,True,,True,1,1,1,2,2010,2025,6,10000000,2024,2010,Biotechnology,NJ,2024.0,2
@@ -589,6 +588,7 @@ exact,100.0,Plethora Solutions Ltd,plethora solutions,"Industry, small (<=5 drug
 exact,100.0,PLx Pharma,plx,"Industry, small (<=5 drugs)",2,PLX PHARMA INC,plx,1291520;1497504,True,,True,2,2,2,2,2009,2020,10,18191869,2009,2009,Pharmaceuticals,TX,2009.0,6
 exact,100.0,"PMV Pharmaceuticals, Inc",pmv,"Industry, mid (6-30)",1,"PMV Pharmaceuticals, Inc.",pmv,1699382,True,,True,1,1,1,1,2017,2017,1,73728198,2017,2017,Pharmaceuticals,NJ,2017.0,1
 exact,100.0,"Pneuma Respiratory, Inc",pneuma respiratory,"Industry, small (<=5 drugs)",1,"Pneuma Respiratory, Inc.",pneuma respiratory,1701794,True,,True,1,1,1,1,2018,2026,21,8106688,2018,2018,Pharmaceuticals,NC,2018.0,21
+exact,100.0,Pocket Naloxone Corp,pocket naloxone,"Industry, small (<=5 drugs)",1,Pocket Naloxone Corp.,pocket naloxone,1847131,True,,True,1,1,1,1,2021,2021,2,6163967,2021,2021,Pharmaceuticals,MD,2021.0,2
 exact,100.0,Point Therapeutics,point,"Industry, mid (6-30)",1,POINT THERAPEUTICS INC,point,919745,True,,True,1,1,1,1,2009,2012,3,1716500,2009,2009,,,,0
 exact,100.0,"Polarean, Inc.",polarean,"Industry, small (<=5 drugs)",1,"Polarean, Inc.",polarean,1543089,True,,True,1,1,1,1,2015,2015,1,1929213,2015,2015,Other Health Care,NC,2015.0,1
 exact,100.0,Portola Pharmaceuticals,portola,"Industry, mid (6-30)",2,PORTOLA PHARMACEUTICALS INC,portola,1269021,True,,True,1,1,1,1,2009,2011,3,88961766,2009,2009,Pharmaceuticals,CA,2009.0,3
