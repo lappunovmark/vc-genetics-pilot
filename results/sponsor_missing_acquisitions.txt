@@ -1,0 +1,55 @@
+deals checked: 187; industry trials typed top-20: 35282
+trials started in or after the deal year under the acquired company's own name (typed non-top-20): 204 (0.58% of the top-20 trials); phase entries of the panel: 29
+====================================================================================================
+                    company             acquirer  year  trials_under_own_name  of_which_from_deal_year  panel_phase_entries_from_deal_year                                                       names
+                 avid radio            Eli Lilly  2010                     53                       42                                   0                                   Avid Radiopharmaceuticals
+                    ranbaxy       Daiichi Sankyo  2008                    102                       18                                   0                                Ranbaxy Laboratories Limited
+               aragon pharm    Johnson & Johnson  2013                     15                       14                                   2                                Aragon Pharmaceuticals, Inc.
+                  alza corp    Johnson & Johnson  2001                     36                       11                                   7                                   Alza Corporation, DE, USA
+                      scios    Johnson & Johnson  2003                     18                        9                                   4                                                 Scios, Inc.
+                     eyebio           Merck & Co  2024                      9                        7                                   0                          EyeBiotech Ltd.; EyebioKorea, Inc.
+                     askbio                Bayer  2020                      8                        6                                   0 AskBio France, SAS, a subsidiary of AskBio Inc.; AskBio Inc
+                  asklepios                Bayer  2020                     12                        6                                   0                                       Asklepios proresearch
+                 cougar bio    Johnson & Johnson  2009                     12                        6                                   0                                  Cougar Biotechnology, Inc.
+                    fougera             Novartis  2012                     12                        5                                   0                                Fougera Pharmaceuticals Inc.
+                   vividion                Bayer  2021                      5                        5                                   0                                 Vividion Therapeutics, Inc.
+        blueprint medicines               Sanofi  2025                     22                        4                                   0                             Blueprint Medicines Corporation
+               forma therap         Novo Nordisk  2022                     10                        4                                   3                                    Forma Therapeutics, Inc.
+                      fovea               Sanofi  2009                      4                        4                                   4                                    Fovea Pharmaceuticals SA
+             intra-cellular    Johnson & Johnson  2025                     41                        4                                   0                              Intra-Cellular Therapies, Inc.
+                    shantha               Sanofi  2009                      7                        4                                   0                                 Shantha Biotechnics Limited
+                    adverum            Eli Lilly  2025                      8                        3                                   0                               Adverum Biotechnologies, Inc.
+                    agouron               Pfizer  2000                     14                        3                                   0                                     Agouron Pharmaceuticals
+                   bluerock                Bayer  2019                      3                        3                                   1                                       BlueRock Therapeutics
+                      omrix    Johnson & Johnson  2008                      3                        3                                   0                                    OMRIX Biopharmaceuticals
+                  osi pharm             Astellas  2010                     16                        3                                   1                                         OSI Pharmaceuticals
+                    zentiva               Sanofi  2009                      3                        3                                   0                                               Zentiva, k.s.
+                    agensys             Astellas  2007                      2                        2                                   1                                               Agensys, Inc.
+applied molecular evolution            Eli Lilly  2004                      2                        2                                   3                                 Applied Molecular Evolution
+                     carmot                Roche  2024                      8                        2                                   0                                   Carmot Therapeutics, Inc.
+               fusion pharm          AstraZeneca  2024                      6                        2                                   0                                 Fusion Pharmaceuticals Inc.
+                    gracell          AstraZeneca  2024                      3                        2                                   0                Gracell Biotechnologies (Shanghai) Co., Ltd.
+              id biomedical                  GSK  2005                      2                        2                                   0                           ID Biomedical Corporation, Quebec
+                  sgx pharm            Eli Lilly  2008                      5                        2                                   1                                   SGX Pharmaceuticals, Inc.
+               solvay pharm               AbbVie  2010                     85                        2                                   0                                      Solvay Pharmaceuticals
+                amal therap Boehringer Ingelheim  2019                      1                        1                                   0                                           Amal Therapeutics
+                    avidity             Novartis  2026                     10                        1                                   0                                   Avidity Biosciences, Inc.
+                     biovex                Amgen  2011                      6                        1                                   0                                              BioVex Limited
+             capstan therap               AbbVie  2025                      1                        1                                   0                                        Capstan Therapeutics
+              cardior pharm         Novo Nordisk  2024                      3                        1                                   0                                Cardior Pharmaceuticals GmbH
+                  gyroscope             Novartis  2022                      4                        1                                   0                              Gyroscope Therapeutics Limited
+                   icosavax          AstraZeneca  2024                      3                        1                                   0                                              Icosavax, Inc.
+                  inflazome                Roche  2020                      3                        1                                   0                                            Inflazome UK Ltd
+                    inhibrx               Sanofi  2024                      6                        1                                   0                                    Inhibrx Biosciences, Inc
+                  inversago         Novo Nordisk  2023                      4                        1                                   0                                       Inversago Pharma Inc.
+                  kai pharm                Amgen  2012                     10                        1                                   0                                         KAI Pharmaceuticals
+                      kymab               Sanofi  2021                      5                        1                                   0                                               Kymab Limited
+                 nbe-therap Boehringer Ingelheim  2020                      1                        1                                   0                                         NBE-Therapeutics AG
+                     novira    Johnson & Johnson  2015                      2                        1                                   1                                   Novira Therapeutics, Inc.
+                    nycomed               Takeda  2011                     17                        1                                   0                                                     Nycomed
+                   telavant                Roche  2023                      4                        1                                   0                                              Telavant, Inc.
+                 themis bio           Merck & Co  2020                      8                        1                                   0                                      Themis Bioscience GmbH
+                  u3 pharma       Daiichi Sankyo  2008                      1                        1                                   0                                              U3 Pharma GmbH
+               verve therap            Eli Lilly  2025                      4                        1                                   0                                    Verve Therapeutics, Inc.
+                 viralytics           Merck & Co  2018                     11                        1                                   0                                                  Viralytics
+               zymogenetics Bristol Myers Squibb  2010                     10                        1                                   1                                                ZymoGenetics

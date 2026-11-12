@@ -21,7 +21,7 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 1. **Genetic evidence works for everyone.** Drug projects with it had about 2.5 times higher odds of moving on to
    the next trial phase, and this was true for small biotechs as much as for big pharma.
 2. **Small biotechs use it somewhat less.** Among projects started in the same years, in the same disease area and
-   with the same type of drug, they start fewer projects with genetic evidence than the 20 largest drug companies.
+   with the same type of drug, they start fewer projects with genetic evidence than 20 of the largest drug companies.
 3. **Investor money did not lead to better choices.** Companies that had raised private investment did not pick
    drugs with more genetic evidence, and neither did companies with US government small-business grants.
 4. **After 2022, small biotechs stopped more trials because they ran out of money**, more than twice as often as in

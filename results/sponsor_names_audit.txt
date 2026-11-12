@@ -1,4 +1,4 @@
-industry trials: 113871; typed top-20: 35284; sponsor names with a top-20 entry: 266
+industry trials: 113871; typed top-20: 35282; sponsor names with a top-20 entry: 266
 ====================================================================================================
 Names whose top-20 match is not the leading name (all must be in sponsors.REVIEWED_NONLEADING):
                                                                              trials   first    last  top20                             entry

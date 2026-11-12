@@ -5,10 +5,11 @@ prescription-drug sales in 2023 (Pharm Exec 50, June 2024, Evaluate data: Johnso
 Merck & Co, Roche, Pfizer, Bristol Myers Squibb, AstraZeneca, Sanofi, GSK, Novo Nordisk, Eli Lilly, Takeda, Amgen,
 Gilead, Boehringer Ingelheim, Bayer) and three further originator companies with broad pipelines, Astellas (21st),
 Merck KGaA (24th) and Daiichi Sankyo (25th). It is NOT the top 20 of that ranking: Viatris, CSL and Teva (18th to
-20th; generics and plasma products), Vertex (22nd) and Sandoz (23rd; part of Novartis until 2023) are not in the list. robust26.py repeats the
-selection model with the group cut to the first 17. Acquired companies count as the parent only for trials that
-started in or after the acquisition (completion) year; before that they are typed like any other industry sponsor.
-A spun-off unit stops counting from the year of the spin-off. Year 0 = long-standing subsidiary or legacy name.
+20th; generics and plasma products), Vertex (22nd) and Sandoz (23rd; part of Novartis until 2023) are not in the
+list. robust26.py repeats the selection model with the group cut to the first 17. Acquired companies count as the
+parent only for trials that started in or after the acquisition (completion) year; before that they are typed like
+any other industry sponsor. A spun-off unit stops counting from the year of the spin-off. Year 0 = long-standing
+subsidiary or legacy name.
 
 The registry shows a sponsor under its current name, and after an acquisition that name often carries the parent
 ("Karuna Therapeutics, Inc., a Bristol Myers Squibb company", "Wyeth is now a wholly owned subsidiary of Pfizer").

@@ -13,7 +13,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   pharma; unadjusted OR 0.96, 0.70–1.32; 0.79 with the period alone, 0.71 with period and area). The gap opens within
   periods and areas because small sponsors' programmes are more recent (52% first trialled in 2015 or later, against
   29% for top-20 pharma), when dated genetic support is more common, and less often in oncology (31% against 46%),
-  where it is rare.
+  where it is rare. The adjusted estimate does not depend on how the errors are clustered or on any one company:
+  clustered by sponsor instead of drug it is 0.68 (0.48–0.95); leaving out each top-20 company in turn gives 0.65
+  to 0.71 (p ≤ 0.04 every time); cutting the top-20 group to the 17 companies with the largest 2023 sales gives
+  0.65 (0.47–0.90).
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
@@ -25,7 +28,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (8.9% vs 10.4%; adjusted OR 0.75, 0.54–1.04, most clearly in trials that ended in 2022 or later). Whether they
   carried less depends on the measure: without undated OMIM evidence the overall gap is not significant (OR 0.88,
   0.62–1.24), and with the independent measure built from Open Targets germline evidence dated by Falaguera et al.
-  there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.24; trials ending 2022 or later OR 1.02, 0.71–1.49).
+  there is no gap at all (11.1% vs 11.5%; OR 0.90, 0.65–1.24; trials ending 2022 or later OR 1.03, 0.71–1.49).
 * Prior NIH SBIR/STTR funding of the sponsor is not linked to ex-ante support (OR 0.71, 0.37–1.34; with the dated
   Open Targets measure 0.81, 0.48–1.37).
 * SEC Form D: 40,995 filings (33,956 offerings once amendments are folded into the offering they restate) by
@@ -52,7 +55,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   programmes) while the log-linear trend among filers stays non-significant (0.81, 0.55–1.20); in 2024 dollars the
   top band gives 0.47 (0.23–0.96). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
-* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,242 active trial-years 2016–25):
+* Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,243 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
   (interactions 1.03, 1.24, 0.73). Sponsors with $50M or more behind them stopped trials for financial or strategic
@@ -85,6 +88,21 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections
+* 12 Nov 2026 (later the same day): the top-20 list and Sandoz. The methods called the top-20 group "the largest
+  companies by 2023 pharmaceutical revenue". Checked against the Pharm Exec 50 of June 2024 (2023 prescription-drug
+  sales), the list is the first 17 companies of that ranking plus Astellas (21st), Merck KGaA (24th) and Daiichi
+  Sankyo (25th); Viatris, CSL and Teva (18th to 20th), Vertex (22nd) and Sandoz (23rd) are not in it. The list is
+  unchanged and now described as it is, and the selection model is also run with the group cut to the 17 (0.65,
+  0.47–0.90, against 0.68, 0.49–0.93). Sandoz was counted as Novartis for trials that started up to 2023; the
+  spin-off was completed on 4 October 2023, and under the rule used for Organon and Alcon (a spun-off unit stops
+  counting from the year of the spin-off) 2023 is the first year outside Novartis. Two registry trials and one phase
+  entry change group, no programme does, and Tables P1, P2 and the selection results are unchanged. One of the two
+  trials was a financial or strategic stop, so the stop tables move in the second decimal: top-20 pharma 8.8 → 19.1
+  per 1,000 trial-years (before: 19.2), rate ratio 2.18 (1.82–2.59); mid-sized sponsors 2.01 (1.64–2.47; before:
+  2.00, 1.63–2.46) and 0.98 (0.87–1.09) for all stops (before: 0.97); the difference-in-differences coefficients are
+  +0.29 (p = 0.04; before: 0.05), +0.42 and +0.38 (before: +0.37); in Table P4's robustness, the no-OMIM post-2022
+  OR is 0.74 (0.49–1.11; before: 0.73, 0.49–1.10) and the dated-measure post-2022 OR 1.03 (before: 1.02); the Form D
+  stop analysis has 86,243 trial-years instead of 86,242. Conclusions unchanged.
 * 12 Nov 2026: sponsor typing. The registry lists a sponsor under its current name, and after an acquisition that
   name often carries the parent ("Karuna Therapeutics, Inc., a Bristol Myers Squibb company", "Wyeth is now a wholly
   owned subsidiary of Pfizer"). `sponsors.py` let the first entry of its list that matched anywhere in the name

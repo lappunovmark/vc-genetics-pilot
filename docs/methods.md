@@ -44,7 +44,7 @@ headline models with it when the dated evidence (or `gs_ot_programmes.csv.gz`) i
 
 | Where | Groups | Rule |
 |---|---|---|
-| Programme panel (`build_panel26.py`, `sponsors.py`) | Top-20 pharma; industry small (≤ 5 drugs), mid (6–30), large (> 30); academic/other; government | Top-20 = largest companies by 2023 pharmaceutical revenue, matched by regular expression on industry sponsors' names; an acquired company counts as the parent only for trials that started in or after the acquisition year. The registry shows each sponsor under its current name, which after an acquisition often carries the parent ("X, Inc., a subsidiary of Merck & Co., Inc."); the sponsor's own name comes first in these forms, so the entry that matches earliest in the name decides, and renamed subsidiaries have entries with their acquisition years (`factcheck/sponsor_names_audit.py` lists every name whose match is not the leading name). Other industry sponsors are sized by the number of distinct parent drugs their normalised name leads across all Open Targets trial records. |
+| Programme panel (`build_panel26.py`, `sponsors.py`) | Top-20 pharma; industry small (≤ 5 drugs), mid (6–30), large (> 30); academic/other; government | Top-20 = a fixed list of 20 large research-based companies: the 17 with the largest prescription-drug sales in 2023 (Pharm Exec 50, June 2024) plus Astellas, Merck KGaA and Daiichi Sankyo (21st, 24th and 25th in that ranking; Viatris, CSL, Teva, Vertex and Sandoz rank above one or more of them and are not in the list), matched by regular expression on industry sponsors' names; an acquired company counts as the parent only for trials that started in or after the acquisition year, and a spun-off unit (Organon, Sandoz, Alcon, Abbott before AbbVie) stops counting from the year of the spin-off. The registry shows each sponsor under its current name, which after an acquisition often carries the parent ("X, Inc., a subsidiary of Merck & Co., Inc."); the sponsor's own name comes first in these forms, so the entry that matches earliest in the name decides, and renamed subsidiaries have entries with their acquisition years (`factcheck/sponsor_names_audit.py` lists every name whose match is not the leading name). Other industry sponsors are sized by the number of distinct parent drugs their normalised name leads across all Open Targets trial records. |
 | Trial stops (`rq2_stops.py`) | Top-20 pharma; industry small (≤ 20 trials), mid (21–200), large (> 200) | Size = number of interventional drug trials the normalised lead-sponsor name has ever led on ClinicalTrials.gov. |
 
 Sponsor size is the main grouping. SEC Form D private placements add a direct, dated signal of private financing
@@ -56,7 +56,9 @@ Logistic regressions with standard errors clustered by drug (`robust26.py`), on 
 indications with genetic insight.
 
 * **Selection (H1).** Programme level: ex-ante genetic support at the first trial ~ sponsor tier + first-trial
-  period + therapeutic area + modality.
+  period + therapeutic area + modality. `robust26.py` repeats the model with standard errors clustered by sponsor
+  instead of drug, with each top-20 company left out in turn, and with the top-20 group cut to the 17 companies
+  with the largest 2023 sales.
 * **Advancement (H3).** Phase-entry level: advanced ~ ex-ante support + sponsor tier + phase + entry period + area +
   modality, then with a support × tier interaction.
 * **Mediation (H2).** Karlson–Holm–Breen decomposition of the tier gap in advancement through ex-ante support
@@ -160,9 +162,13 @@ calendar advances (91 reports between 17 October and 6 November 2026).
 * The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.
 * Sponsor names are those in the registry on the snapshot date. A renamed subsidiary is typed by its own name and
   acquisition year, but when the record of an old trial was moved to the acquirer's name outright the trial counts
-  as the acquirer's; the list of acquired companies covers those met in the data, not every deal; and a trial
+  as the acquirer's; the list of acquired companies covers those met in the data, not every deal (a longer,
+  unverified list of 187 deals in `factcheck/sponsor_missing_acquisitions.py` would move 204 registry trials, 0.6%
+  of those typed top-20, and 29 phase entries of the panel); and a trial
   without a start date (109 industry trials typed through an entry with a year window) is typed without the window.
   Licensing and co-development between a small sponsor and a large company are not observed at all: a programme is
-  typed by the lead sponsor of its first trial.
+  typed by the lead sponsor of its first trial. This matters for reading the top-20 group: of the 138 new drugs
+  that the 20 largest companies brought to FDA approval in 2015–2021, 65% came from acquisitions or in-licensing
+  and 28% were invented in-house (Schuhmacher et al., Nat Rev Drug Discov 2023;22:781–782).
 * A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
   shell's earlier placements; the own-names-only bound shows how much this can matter.

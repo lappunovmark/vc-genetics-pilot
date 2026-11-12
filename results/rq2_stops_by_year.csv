@@ -358,7 +358,7 @@ stop_year,group,reason,n
 2023.0,"Industry, large (>200 trials)",Other,6
 2023.0,"Industry, large (>200 trials)",Safety / benefit-risk,1
 2023.0,"Industry, large (>200 trials)","Sponsor decision, unspecified",9
-2023.0,"Industry, mid (21-200)",Business / strategic,66
+2023.0,"Industry, mid (21-200)",Business / strategic,67
 2023.0,"Industry, mid (21-200)",COVID-19,3
 2023.0,"Industry, mid (21-200)",Efficacy / futility,17
 2023.0,"Industry, mid (21-200)",Enrolment,27
@@ -377,7 +377,7 @@ stop_year,group,reason,n
 2023.0,"Industry, small (<=20)",Other,54
 2023.0,"Industry, small (<=20)",Safety / benefit-risk,17
 2023.0,"Industry, small (<=20)","Sponsor decision, unspecified",60
-2023.0,Top-20 pharma,Business / strategic,74
+2023.0,Top-20 pharma,Business / strategic,73
 2023.0,Top-20 pharma,COVID-19,4
 2023.0,Top-20 pharma,Efficacy / futility,40
 2023.0,Top-20 pharma,Enrolment,22

@@ -45,6 +45,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `rq2_rr.csv` | Pooled rates 2016–21 vs 2022–25 and rate ratios with 95% intervals; `stops` = `all`, `fin` or `nofund` |
 | `rq2_shares.csv` | Share of stops with a stated reason that are financial or no-funding, by year × group |
 | `rq2_did.txt` | Difference-in-differences and event-study logits (the no-funding fits separate, a group-by-period cell having no events, and are flagged as not estimable) |
+| `sponsor_missing_acquisitions.txt` | How many registry trials and panel phase entries a longer, unverified list of top-20 acquisitions would move to top-20 (a bound on the omission; not used for typing) |
 | `sponsor_names_audit.txt` | Industry sponsor names whose top-20 match is not the leading name (each reviewed in `pilot/sponsors.py`), and trials without a start date typed through an entry with a year window |
 | `rq2_label_sample.csv` | Stratified sample of `why_stopped` texts drawn for hand coding |
 | `rq2_hand_labels.csv` | Hand labels for the tuning and held-out sets, with classifier v1, v3 and v4 output |
