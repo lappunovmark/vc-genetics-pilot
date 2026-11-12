@@ -77,6 +77,19 @@ for y in ("gs_post", "gs_ante_first", "gs_post_noomim"):
     H["y"] = H[y].fillna(False).astype(int)
     logit("y ~ C(tier)", H, H.drug, f"H1 {y}: unadjusted")
     logit("y ~ C(tier) + C(yb) + C(area) + C(modality)", H, H.drug, f"H1 {y}: + first-trial period, area, modality")
+# Where the adjusted gap in ex-ante support comes from: the controls added one at a time, and the composition of each
+# tier's programmes. The unadjusted shares of small sponsors and top-20 pharma barely differ; the gap opens within
+# periods and areas because small sponsors' programmes are more recent and less often in oncology.
+H["y"] = H.gs_ante_first.fillna(False).astype(int)
+logit("y ~ C(tier) + C(yb)", H, H.drug, "H1 gs_ante_first: + first-trial period only")
+logit("y ~ C(tier) + C(yb) + C(area)", H, H.drug, "H1 gs_ante_first: + first-trial period, area")
+mix = H.groupby("tier", observed=True).agg(
+    programmes=("drug", "size"),
+    first_trial_2015_or_later=("first_year", lambda s: s.ge(2015).mean()),
+    oncology=("area", lambda s: s.eq("oncology").mean()),
+    gs_ante=("y", "mean"),
+)
+out.extend(["=" * 100, "Composition of programmes by sponsor tier (shares):", mix.round(4).to_string()])
 # novel-drug programmes: the drug's first indication(s), first trial 2000+, sponsor of the drug's first trial
 N = H[H.is_drug_first_indication & H.first_year.ge(2000)].copy()
 out.append(f"\nNovel-drug programmes (drug first indication, first trial >= 2000): {len(N)}")

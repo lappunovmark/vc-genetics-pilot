@@ -10,8 +10,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
 * Small industry sponsors start fewer programmes with ex-ante support once the period of the first trial, the
   therapeutic area and the modality are held fixed (adjusted OR 0.68, 0.49–0.93); not significant for novel drugs
   (0.83, 0.51–1.34). The unadjusted shares barely differ (4.3% of small sponsors' programmes against 4.5% for top-20
-  pharma; unadjusted OR 0.96, 0.70–1.32): small sponsors' programmes are more recent, and dated genetic support has
-  become more common over time, so the gap shows only within periods.
+  pharma; unadjusted OR 0.96, 0.70–1.32; 0.79 with the period alone, 0.71 with period and area). The gap opens within
+  periods and areas because small sponsors' programmes are more recent (52% first trialled in 2015 or later, against
+  29% for top-20 pharma), when dated genetic support is more common, and less often in oncology (31% against 46%),
+  where it is rare.
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
