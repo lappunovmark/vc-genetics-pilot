@@ -69,10 +69,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   sponsors that never registered; adjusted OR 0.76, 0.52–1.13; among public sponsors only 0.95, 0.57–1.57). The
   answer does not depend on how the marker is drawn: a venture owner already there when the sponsor went public
   0.94 (0.60–1.47); a venture filing dated by the year of the first trial 0.67 (0.42–1.08); a venture or crossover
-  owner 0.80 (0.57–1.13); with the dated Open Targets measure 0.98 (0.67–1.42). They advanced somewhat more often
-  (OR 1.19, 1.00–1.42), and genetic support predicted advancement to the same degree (interaction 1.09,
-  0.60–1.97). Ownership is seen only for sponsors that became public and only for holders above 5%, at or after
-  the filing, so the main marker is a property of the sponsor, not dated to the trial.
+  owner 0.80 (0.57–1.13); with the dated Open Targets measure 0.98 (0.67–1.42). Their phase entries advanced
+  slightly more often, a borderline difference (OR 1.19, 1.00–1.42, p = 0.05; among public sponsors only 1.16,
+  0.91–1.47), and genetic support predicted advancement to the same degree (interaction 1.09, 0.60–1.97).
+  Ownership is seen only for sponsors that became public and only for holders above 5%, at or after the filing, so
+  the main marker is a property of the sponsor, not dated to the trial.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
