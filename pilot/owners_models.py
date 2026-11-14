@@ -44,6 +44,24 @@ PUBLIC_YEAR = dict(zip(ow.norm, pd.to_numeric(ow.registrant_first_year, errors="
 VC = dict(zip(ow.norm, ow.vc_backed.astype(bool)))
 CROSS = dict(zip(ow.norm, ow.get("n_life_science_crossover", pd.Series(0, index=ow.index)).fillna(0).gt(0)))
 ANY = dict(zip(ow.norm, ow.n_owners.fillna(0).gt(0)))
+# Stricter marker: the venture fund was already an owner when the sponsor went public (its first filing about the
+# sponsor is dated no later than the year after the sponsor's first registration), so it is not a later purchase.
+_vcy = pd.to_numeric(ow.first_vc_year, errors="coerce")
+VC_IPO = dict(
+    zip(ow.norm, ow.vc_backed.astype(bool) & (_vcy <= pd.to_numeric(ow.registrant_first_year, errors="coerce") + 1))
+)
+VC_YEAR = dict(zip(ow.norm, _vcy))
+# Specialist life-science investors: venture funds plus crossover funds. Several firms (OrbiMed, RA Capital, Deerfield)
+# file for their venture and their public funds under one name and are classed as crossover, so the venture marker
+# alone misses the companies they backed before the IPO.
+SPEC, SPEC_IPO = {}, {}
+if os.path.exists(f"{R}/owners_pairs.csv.gz"):
+    op = pd.read_csv(f"{R}/owners_pairs.csv.gz", dtype={"norm": str})
+    op = op[op.owner_class.isin(["venture capital", "life-science crossover"])]
+    first = pd.to_datetime(op.first_date, errors="coerce").dt.year.groupby(op.norm).min()
+    SPEC = {n: True for n in first.index}
+    ry = dict(zip(ow.norm, pd.to_numeric(ow.registrant_first_year, errors="coerce")))
+    SPEC_IPO = {n: bool(y <= ry.get(n, np.nan) + 1) for n, y in first.items()}
 
 
 def mark(names, table, default=False):
@@ -74,8 +92,18 @@ def fit(f, d, title, keep):
 
 P = pd.read_csv(f"{R}/programmes.csv.gz")
 P = P[P.insight & P.first_sponsor_tier.isin(IND) & P.first_year.ge(FIRST_YEAR)].copy()
-for col, table in (("public", PUBLIC), ("vc", VC), ("crossover", CROSS), ("any_owner", ANY)):
+for col, table in (
+    ("public", PUBLIC),
+    ("vc", VC),
+    ("crossover", CROSS),
+    ("any_owner", ANY),
+    ("vc_ipo", VC_IPO),
+    ("spec", SPEC),
+    ("spec_ipo", SPEC_IPO),
+):
     P[col] = mark(P.first_sponsor, table)
+# dated marker: a venture fund had filed about the sponsor by the year of the programme's first trial
+P["vc_by_trial"] = (P.first_sponsor.map(rq2_stops.norm_sponsor).map(VC_YEAR) <= P.first_year).fillna(False).astype(int)
 P["public_at_trial"] = (
     (P.first_sponsor.map(rq2_stops.norm_sponsor).map(PUBLIC_YEAR) <= P.first_year).fillna(False).astype(int)
 )
@@ -119,6 +147,40 @@ fit(
     P,
     "H1: ex-ante support ~ public at the time of the first trial",
     ("public_at_trial",),
+)
+out.append(
+    f"\nprogrammes of sponsors with a venture owner: {int(P.vc.sum())}; venture owner already at the time of going "
+    f"public: {int(P.vc_ipo.sum())}; venture filing dated by the year of the first trial: {int(P.vc_by_trial.sum())}"
+)
+fit(f"y ~ vc_ipo + {base_p}", P, "H1: ex-ante support ~ venture owner at the time of going public", ("vc_ipo",))
+fit(
+    f"y ~ vc_ipo + {base_p}",
+    PP.assign(vc_ipo=P.vc_ipo[PP.index]),
+    "H1, public sponsors only: ~ venture owner at the time of going public",
+    ("vc_ipo",),
+)
+fit(
+    f"y ~ vc_by_trial + {base_p}",
+    P,
+    "H1: ex-ante support ~ venture filing dated by the year of the first trial",
+    ("vc_by_trial",),
+)
+out.append(
+    f"\nprogrammes of sponsors with a venture or crossover owner: {int(P.spec.sum())}; already at the time of going "
+    f"public: {int(P.spec_ipo.sum())}"
+)
+fit(f"y ~ spec + {base_p}", P, "H1: ex-ante support ~ venture or crossover owner", ("spec",))
+fit(
+    f"y ~ spec_ipo + {base_p}",
+    P,
+    "H1: ex-ante support ~ venture or crossover owner at the time of going public",
+    ("spec_ipo",),
+)
+fit(
+    f"y ~ spec_ipo + {base_p}",
+    P[P.public.eq(1)].copy(),
+    "H1, public sponsors only: ~ venture or crossover owner at the time of going public",
+    ("spec_ipo",),
 )
 if os.path.exists(f"{R}/gs_ot_programmes.csv.gz"):
     G = pd.read_csv(f"{R}/gs_ot_programmes.csv.gz", usecols=["drug", "indication_mesh_id", "gs_ot_ante_first"])
