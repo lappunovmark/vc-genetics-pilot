@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners figure check lint test clean-data
 
 all: data results figure check
 
@@ -54,8 +54,14 @@ formd:  # SEC asks for a contact: SEC_USER_AGENT="Your Name you@example.org" mak
 	$(PY) pilot/formd_models.py $(RES)
 	$(PY) pilot/formd_stops.py $(DATA)/ctgov_all.csv $(RES)
 
+owners:  # SEC asks for a contact: SEC_USER_AGENT="Your Name you@example.org" make owners
+	$(PY) pilot/fetch_edgar_owners.py $(DATA)/edgar 2001 2026
+	$(PY) pilot/owners_link.py $(DATA)/edgar $(RES)
+	$(PY) pilot/owners_models.py $(RES)
+
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png
+	$(PY) pilot/figure_main.py $(RES) figures/main_results.png
 
 check: lint test
 

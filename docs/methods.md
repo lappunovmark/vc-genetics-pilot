@@ -57,8 +57,11 @@ indications with genetic insight.
 
 * **Selection (H1).** Programme level: ex-ante genetic support at the first trial ~ sponsor tier + first-trial
   period + therapeutic area + modality. `robust26.py` repeats the model with standard errors clustered by sponsor
-  instead of drug, with each top-20 company left out in turn, and with the top-20 group cut to the 17 companies
-  with the largest 2023 sales.
+  instead of drug, with each top-20 company left out in turn, with the top-20 group cut to the 17 companies
+  with the largest 2023 sales, within one disease (indication fixed effects on the indications where support
+  varies; a conditional logit gives the same comparison without estimating the indication effects), and without a
+  model, within cells of period × area × modality (Mantel–Haenszel). `gs_ot_dated.py` repeats it with support on
+  either or on both of the two evidence measures as the outcome.
 * **Advancement (H3).** Phase-entry level: advanced ~ ex-ante support + sponsor tier + phase + entry period + area +
   modality, then with a support × tier interaction.
 * **Mediation (H2).** Karlson–Holm–Breen decomposition of the tier gap in advancement through ex-ante support
@@ -136,6 +139,32 @@ sensitivities repeat the band models with equity offerings only (no debt-only of
 and with amounts in 2024 dollars (CPI-U, `results/cpi_u_annual.csv`).
 
 The extract used for the published results is on the `formd-data` branch (`data_formd/`), with the fetch log.
+
+## Owners of the sponsor (Schedules 13D and 13G)
+Form D says that a sponsor raised private money, not from whom. A holder of more than 5% of a public company's
+shares must file a Schedule 13D or 13G, and the EDGAR quarterly index lists every such filing under the company and
+under each filer with the same accession number, so company–owner pairs can be read from the index alone
+(`fetch_edgar_owners.py`, 2001–2026; from December 2024 the forms are indexed as SCHEDULE 13D/13G). A sponsor's
+legal entities are the CIKs of its accepted Form D issuers and the EDGAR registrants (filers of S-1, F-1, 424B4,
+10-K, 20-F or 40-F) with the same name once legal forms are removed, or accepted in `pilot/owners_decisions.csv`
+after hand review (holding companies and earlier names accepted, namesakes rejected). The other parties of every
+accession that names a sponsor entity are taken as its owners (`owners_link.py`). The index does not say which
+party is the company and which the holder, so a sponsor that itself reports a stake in another company picks up
+that company as an "owner"; no party classified as a venture fund is an operating registrant, so the venture
+marker is not affected. Filer names are classified with the regular expressions in `pilot/investor_classes.tsv`
+(first match wins), written after reading the names by frequency: venture capital; life-science crossover (funds
+that hold public stock, including the public funds of venture firms and firms such as OrbiMed, RA Capital and
+Deerfield that file for their venture and public funds under one name); hedge fund or PIPE investor; asset manager;
+private equity or holding; corporate; credit and secondaries. A private fund vehicle with a series number
+("Partners VII, L.P.") that no named rule covers is taken as a venture or growth fund. Individuals and companies
+not named in the file stay unclassified.
+
+`owners_models.py` repeats the selection and advancement models among non-top-20 industry sponsors (first trial in
+2001 or later) with the marker "a venture-capital fund among the owners", alone, among public sponsors only, and in
+three stricter or wider forms: the venture fund's first filing is dated no later than the year after the sponsor's
+first registration (an owner at the time of going public, not a later purchase); a venture filing dated by the year
+of the programme's first trial; a venture or crossover owner. Ownership is observed only for sponsors that became
+public, only above 5%, and only at or after the filing.
 
 ## Reference date
 

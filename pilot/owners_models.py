@@ -83,7 +83,7 @@ def fit(f, d, title, keep):
                 title,
                 f,
                 f"N={int(r.nobs)}; clusters (drugs)={d.drug.nunique()}; converged={r.mle_retvals['converged']}",
-                t.round(4).to_string(),
+                t.round(5).to_string(),  # five decimals: two estimates sit on a rounding boundary at four
             ]
         )
     except Exception as e:

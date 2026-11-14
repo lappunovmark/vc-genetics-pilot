@@ -15,8 +15,8 @@
 | Sponsor typing (acquisition- and spin-off-dated top-20) | `pilot/sponsors.py` | — |
 | SEC Form D private placements (biotech, pharma, other health care; no pooled funds), sponsor linkage (hand-review decisions in `pilot/formd_decisions.csv`) with offerings and amounts, models incl. the amount raised before the trial and the US-only comparison (`pilot/sponsor_region.py`) | `pilot/fetch_formd.py`, `pilot/formd_link.py`, `pilot/formd_models.py`, `pilot/formd_stops.py` | SEC Form D data sets 2009 Q1–2026 Q3 (public domain) |
 | Approval dates: EMA/PMDA report years and ChEMBL first-approval years, advancement variants that drop approvals preceding the phase entry | `pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py` | ChEMBL web service, release 37 (CC BY-SA 3.0) |
-| Beneficial owners of public sponsors from the EDGAR master index (Schedule 13D/13G filers; registrants S-1/F-1/424B4/10-K/20-F/40-F); owner classes in `pilot/investor_classes.tsv`, hand-review decisions in `pilot/owners_decisions.csv` — *in preparation, not yet run* | `pilot/fetch_edgar_owners.py`, `pilot/owners_link.py`, `pilot/owners_models.py` | EDGAR full index (public domain) |
-| Results-at-a-glance figure | `pilot/figure_glance.py` | — |
+| Beneficial owners of public sponsors from the EDGAR master index (Schedule 13D/13G filers; registrants S-1/F-1/424B4/10-K/20-F/40-F); owner classes in `pilot/investor_classes.tsv`, hand-review decisions in `pilot/owners_decisions.csv` | `pilot/fetch_edgar_owners.py`, `pilot/owners_link.py`, `pilot/owners_models.py` | EDGAR full index (public domain) |
+| Results-at-a-glance figure (README) and the main figure with every specification of the selection model | `pilot/figure_glance.py`, `pilot/figure_main.py` | — |
 
 ## Running it
 `make all` downloads the core sources, rebuilds the core tables, redraws the figure and runs the checks; the dated
@@ -45,10 +45,11 @@ python pilot/formd_models.py results
 python pilot/formd_stops.py data/ctgov_all.csv results
 python pilot/fetch_chembl_approval.py data/chembl_first_approval.csv
 python pilot/approval_dates.py data/ot results data/chembl_first_approval.csv
-SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_edgar_owners.py data/edgar 2001 2026   # in preparation
-python pilot/owners_link.py data/edgar results                                                         # in preparation
-python pilot/owners_models.py results                                                                  # in preparation
+SEC_USER_AGENT="Your Name you@example.org" python pilot/fetch_edgar_owners.py data/edgar 2001 2026
+python pilot/owners_link.py data/edgar results
+python pilot/owners_models.py results
 python pilot/figure_glance.py results figures/results_glance.png
+python pilot/figure_main.py results figures/main_results.png
 ```
 On GitHub, **Actions → pilot → Run workflow** downloads the sources and rebuilds the core tables.
 

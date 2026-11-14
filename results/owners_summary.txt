@@ -1,13 +1,13 @@
 registrant names: 54268; sponsor names: 2999; sponsors with at least one CIK: 1077 (from Form D: 801; registrants: 782)
 registrant name matches: 983 (accepted 893: strict 784, hand-accepted 109; not used 90)
 13D/13G accessions naming a sponsor CIK: 44242; with no other party in the index: 119
-sponsor x owner pairs: 13333; owner classes: {'asset manager or index fund': 3399, 'unclassified': 3239, 'life-science crossover': 2877, 'hedge fund or PIPE investor': 2007, 'venture capital': 1233, 'corporate': 364, 'private equity or holding': 187, 'credit, secondaries or other': 27}
-sponsors with any owner filing: 745; VC-backed (a venture-capital filer): 423
+sponsor x owner pairs: 13333; owner classes: {'asset manager or index fund': 3399, 'unclassified': 3235, 'life-science crossover': 2877, 'hedge fund or PIPE investor': 2007, 'venture capital': 1237, 'corporate': 364, 'private equity or holding': 187, 'credit, secondaries or other': 27}
+sponsors with any owner filing: 745; VC-backed (a venture-capital filer): 425
 
 By tier:
                             is_registrant           vc_backed          
                                      mean  sum size      mean  sum size
 tier                                                                   
 Industry, large (>30)              1.0000   29   29    0.2069    6   29
-Industry, mid (6-30)               0.8997  260  289    0.5294  153  289
-Industry, small (<=5 drugs)        0.6495  493  759    0.3478  264  759
+Industry, mid (6-30)               0.8997  260  289    0.5329  154  289
+Industry, small (<=5 drugs)        0.6495  493  759    0.3491  265  759

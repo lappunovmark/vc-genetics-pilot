@@ -99,7 +99,7 @@ anaptysbio,"AnaptysBio, Inc.","Industry, small (<=5 drugs)",3,1370053,True,2015,
 anelixis,"Anelixis Therapeutics, LLC","Industry, small (<=5 drugs)",2,1704400,False,,0,0,0,0,0,0,0,0,0,False,,
 anesiva,"Anesiva, Inc.","Industry, small (<=5 drugs)",3,1131517,True,2003,18,5,1,0,0,3,2,1,6,True,2005.0,"ALTA CALIFORNIA PARTNERS III LP; ALTA PARTNERS II INC; Alta Partners VIII, L.P.; HBM BIOVENTURES CAYMAN LTD; INTERWEST PARTNERS VIII LP; SOFINNOVA VENTURE PARTNERS V LP"
 angiodynamics,"Angiodynamics, Inc.","Industry, small (<=5 drugs)",1,1275187,True,2004,34,13,0,0,5,2,1,13,0,False,,
-angion biomedica,Angion Biomedica Corp,"Industry, small (<=5 drugs)",2,1601485,True,2014,10,0,1,0,1,0,0,8,0,False,,
+angion biomedica,Angion Biomedica Corp,"Industry, small (<=5 drugs)",2,1601485,True,2014,10,0,1,0,1,0,0,7,1,True,2023.0,Clal Biotechnology Industries Ltd.
 angiotech,Angiotech Pharmaceuticals,"Industry, small (<=5 drugs)",1,1096481,True,2003,21,5,0,0,1,0,0,14,1,True,2009.0,"K-Bunny Ventures, Ltd."
 ankyra,"Ankyra Therapeutics, Inc","Industry, small (<=5 drugs)",2,1811511,False,,0,0,0,0,0,0,0,0,0,False,,
 antares,Antares Pharma Inc.,"Industry, small (<=5 drugs)",6,1016169,True,2001,19,4,0,0,5,5,0,5,0,False,,
@@ -347,7 +347,7 @@ definium,"Definium Therapeutics US, Inc.","Industry, small (<=5 drugs)",1,181381
 delcath systems,Delcath Systems Inc.,"Industry, mid (6-30)",4,872912,True,2007,28,5,0,0,9,7,0,7,0,False,,
 delpor,"Delpor, Inc.","Industry, small (<=5 drugs)",1,1494224,False,,0,0,0,0,0,0,0,0,0,False,,
 dendreon,Dendreon,"Industry, small (<=5 drugs)",14,1107332,True,2001,17,9,0,0,3,2,0,2,1,True,2001.0,HEALTHCARE VENTURES III L P
-depomed,Depomed,"Industry, mid (6-30)",10,1005201,True,2001,42,11,2,0,9,8,0,11,1,True,2003.0,HBM BIOVENTURES CAYMAN LTD
+depomed,Depomed,"Industry, mid (6-30)",10,1005201,True,2001,42,11,2,0,9,8,0,10,2,True,2002.0,EASTON HUNT CAPITAL PARTNERS LP; HBM BIOVENTURES CAYMAN LTD
 dermavant sciences,Dermavant Sciences GmbH,"Industry, small (<=5 drugs)",4,1753483,True,2019,0,0,0,0,0,0,0,0,0,False,,
 dermira,"Dermira, Inc.","Industry, small (<=5 drugs)",5,1557883,True,2014,18,9,2,0,1,2,0,0,4,True,2014.0,"Apple Tree Partners IV, L.P.; BAY CITY CAPITAL LLC; Canaan VIII LP; NEW ENTERPRISE ASSOCIATES 13 LP"
 diasome,Diasome Pharmaceuticals,"Industry, small (<=5 drugs)",6,1411617,False,,0,0,0,0,0,0,0,0,0,False,,
@@ -411,7 +411,7 @@ eye therapies,"Eye Therapies, LLC","Industry, small (<=5 drugs)",2,1564439,False
 eyebiotech,EyeBiotech Ltd.,"Industry, small (<=5 drugs)",5,1878733,False,,0,0,0,0,0,0,0,0,0,False,,
 eyegate,"Eyegate Pharmaceuticals, Inc.","Industry, small (<=5 drugs)",6,1372514,True,2014,23,1,0,0,10,6,0,5,1,True,2015.0,Ventech Capital II
 eyenovia,Eyenovia Inc.,"Industry, small (<=5 drugs)",4,1682639,True,2017,8,1,0,1,1,0,0,5,0,False,,
-eyepoint,"EyePoint Pharmaceuticals, Inc.","Industry, mid (6-30)",11,1314102,True,2006,27,9,1,0,0,12,0,5,0,False,,
+eyepoint,"EyePoint Pharmaceuticals, Inc.","Industry, mid (6-30)",11,1314102,True,2006,27,9,1,0,0,12,0,4,1,True,2018.0,"EW Healthcare Partners, L.P."
 eyetech,Eyetech Pharmaceuticals,"Industry, small (<=5 drugs)",7,1115285;1445503,True,2003,7,2,1,0,1,1,1,0,1,True,2005.0,MPM BIOVENTURES II LP
 facet,Facet Biotech,"Industry, mid (6-30)",14,1441848,True,2009,11,4,1,0,2,2,0,2,0,False,,
 faeth,Faeth Therapeutics,"Industry, small (<=5 drugs)",3,2100543,False,,0,0,0,0,0,0,0,0,0,False,,
@@ -617,7 +617,7 @@ medimmune,MedImmune LLC,"Industry, large (>30)",20,873591,True,2001,10,5,1,0,0,1
 mediquest,MediQuest Therapeutics,"Industry, small (<=5 drugs)",2,1263358;1487666,False,,0,0,0,0,0,0,0,0,0,False,,
 medivation,"Medivation, Inc.","Industry, small (<=5 drugs)",2,1011835,True,2005,32,6,0,0,9,6,0,11,0,False,,
 medlab clinical,Medlab Clinical,"Industry, small (<=5 drugs)",1,1940322,True,2022,0,0,0,0,0,0,0,0,0,False,,
-mei,"MEI Pharma, Inc.","Industry, mid (6-30)",9,1262104,True,2003,32,7,0,0,8,10,0,4,3,True,2012.0,"Growth Equity Opportunities V, LLC; New Leaf Ventures II, L.P.; VIVO VENTURES VII, LLC"
+mei,"MEI Pharma, Inc.","Industry, mid (6-30)",9,1262104,True,2003,32,7,0,0,8,10,0,3,4,True,2012.0,"Growth Equity Opportunities V, LLC; Helsinn Investment Fund S.A. SICAR; New Leaf Ventures II, L.P.; VIVO VENTURES VII, LLC"
 melt,Melt Pharmaceuticals,"Industry, small (<=5 drugs)",1,1767398,True,2022,0,0,0,0,0,0,0,0,0,False,,
 memgen,"Memgen, Inc.","Industry, small (<=5 drugs)",1,1760644,False,,0,0,0,0,0,0,0,0,0,False,,
 memory,Memory Pharmaceuticals,"Industry, small (<=5 drugs)",3,1062216,True,2003,16,2,1,0,1,2,0,3,7,True,2005.0,ALTA CALIFORNIA PARTNERS II LP; ALTA PARTNERS; MPM BioVentures IV LP; MPM BioVentures IV QP LP; OXFORD BIOSCIENCE PARTNERS II L P; OXFORD BIOSCIENCE PARTNERS IV LP; VENROCK ASSOCIATES
