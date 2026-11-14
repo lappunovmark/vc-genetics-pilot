@@ -74,7 +74,11 @@ def panel(ax, rows, xlim, ticks, xtext, value_header):
 
 
 fig, (ax_a, ax_b) = plt.subplots(
-    2, 1, figsize=(9.6, 10.2), dpi=200, gridspec_kw={"height_ratios": [len(rows_a) * 1.12, len(rows_b)], "hspace": 0.36}
+    2,
+    1,
+    figsize=(9.6, 2.4 + 0.5 * (len(rows_a) * 1.12 + len(rows_b))),
+    dpi=200,
+    gridspec_kw={"height_ratios": [len(rows_a) * 1.12, len(rows_b)], "hspace": 0.36},
 )
 fig.patch.set_facecolor(SURFACE)
 panel(ax_a, rows_a, (0.3, 5.5), [0.33, 0.5, 1, 2, 4], 5.7, "Ratio (95% CI)")

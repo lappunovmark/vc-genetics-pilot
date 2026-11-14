@@ -16,7 +16,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   where it is rare. The adjusted estimate does not depend on how the errors are clustered or on any one company:
   clustered by sponsor instead of drug it is 0.68 (0.48–0.95); leaving out each top-20 company in turn gives 0.65
   to 0.71 (p ≤ 0.04 every time); cutting the top-20 group to the 17 companies with the largest 2023 sales gives
-  0.65 (0.47–0.90).
+  0.65 (0.47–0.90). Within one disease (indication fixed effects, 248 indications where support varies) it is 0.69
+  (0.48–1.00; conditional logit 0.70, 0.51–0.95), and within cells of period × area × modality (Mantel–Haenszel)
+  0.67 (0.50–0.91). Counting support on either of the two evidence measures (1,464 supported programmes instead
+  of 959) gives 0.62 (0.47–0.82); requiring both (443 programmes) gives 0.82 (0.54–1.26).
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50
