@@ -23,7 +23,8 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 2. **Small biotechs use it somewhat less.** Among projects started in the same years, in the same disease area and
    with the same type of drug, they start fewer projects with genetic evidence than 20 of the largest drug companies.
 3. **Investor money did not lead to better choices.** Companies that had raised private investment did not pick
-   drugs with more genetic evidence, and neither did companies with US government small-business grants.
+   drugs with more genetic evidence, and neither did companies with US government small-business grants or
+   companies with venture-capital funds among their owners.
 4. **After 2022, small biotechs stopped more trials because they ran out of money**, more than twice as often as in
    2016–21. Trials stopped for financial or business reasons did not have stronger genetic evidence than
    trials that were completed.

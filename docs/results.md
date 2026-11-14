@@ -3,6 +3,8 @@
 Open Targets Platform 26.09 and ClinicalTrials.gov snapshot of 17 October 2026. Pilot results, not peer-reviewed.
 Model output is in `results/` ([data dictionary](data_dictionary.md)); definitions are in [methods](methods.md).
 
+![Headline estimates and the selection gap under each specification](../figures/main_results.png)
+
 ## Estimates
 * 35,887 drug × MeSH-indication programmes; 29,199 in indications with genetic insight.
 * Ex-ante genetic support at phase entry: OR 2.48 (2.09–2.93) for advancing a phase; no difference between small
