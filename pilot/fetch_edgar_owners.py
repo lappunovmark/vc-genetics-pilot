@@ -9,7 +9,7 @@ investor) and under the subject company (the issuer), with the same accession nu
 companies that are or became public, and when.
 SEC asks automated clients to identify themselves; set SEC_USER_AGENT="Name email" in the environment.
 
-Writes OUT_DIR/edgar_ownership.csv.gz (SC 13D, SC 13D/A, SC 13G, SC 13G/A lines), OUT_DIR/edgar_registrants.csv.gz
+Writes OUT_DIR/edgar_ownership.csv.gz (SC 13D, SC 13D/A, SC 13G, SC 13G/A and, from 2025, SCHEDULE 13D/13G lines), OUT_DIR/edgar_registrants.csv.gz
 (S-1, S-1/A, F-1, 424B4, 10-K, 10-K405, 20-F, 40-F lines) and OUT_DIR/edgar_index_log.txt.
 """
 
@@ -22,7 +22,17 @@ import time
 import requests
 
 URL = "https://www.sec.gov/Archives/edgar/full-index/{y}/QTR{q}/master.gz"
-OWNERSHIP = {"SC 13D", "SC 13D/A", "SC 13G", "SC 13G/A"}
+# From 18 December 2024 the schedules are filed as structured data under new form names.
+OWNERSHIP = {
+    "SC 13D",
+    "SC 13D/A",
+    "SC 13G",
+    "SC 13G/A",
+    "SCHEDULE 13D",
+    "SCHEDULE 13D/A",
+    "SCHEDULE 13G",
+    "SCHEDULE 13G/A",
+}
 REGISTRANT = {"S-1", "S-1/A", "F-1", "F-1/A", "424B4", "10-K", "10-K405", "20-F", "40-F"}
 FIELDS = ["cik", "name", "form", "date", "filename"]
 
