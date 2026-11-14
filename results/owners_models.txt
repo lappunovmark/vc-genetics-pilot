@@ -1,0 +1,81 @@
+Programmes (insight indications, first trial 2001+ by non-top-20 industry): sponsor markers by tier
+                                n  public  public_at_trial      vc  crossover  any_owner
+tier                                                                                    
+Industry, large (>30)        1707  0.4622           0.4411  0.0662     0.2162     0.4622
+Industry, mid (6-30)         2313  0.5145           0.3943  0.3614     0.4591     0.5011
+Industry, small (<=5 drugs)  1886  0.3526           0.2545  0.2020     0.2593     0.3362
+ex-ante support by public x VC-backed:
+              n  gs_ante  gs_post
+public vc                        
+0      0   3262   0.0546   0.1036
+1      0   1314   0.0487   0.1027
+       1   1330   0.0383   0.0820
+====================================================================================================
+H1: ex-ante support at first trial ~ VC-backed (all non-top-20 industry)
+y ~ vc + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; clusters (drugs)=1886; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc -0.2652    0.2012  0.1875 -0.6595  0.1291  0.7671  0.5171  1.1378
+====================================================================================================
+H1: ex-ante support ~ VC-backed + public
+y ~ vc + public + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; clusters (drugs)=1886; converged=True
+         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc     -0.0515    0.2509  0.8374 -0.5431  0.4402  0.9498  0.5809  1.5530
+public -0.2829    0.1982  0.1535 -0.6713  0.1056  0.7536  0.5110  1.1114
+====================================================================================================
+H1, public sponsors only: ex-ante support ~ VC-backed
+y ~ vc + C(tier) + C(yb) + C(area) + C(modality)
+N=2644; clusters (drugs)=928; converged=True
+     Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc -0.0468    0.2561  0.855 -0.5488  0.4552  0.9543  0.5776  1.5765
+====================================================================================================
+H1, public sponsors only: ~ VC-backed + crossover-backed
+y ~ vc + crossover + C(tier) + C(yb) + C(area) + C(modality)
+N=2644; clusters (drugs)=928; converged=True
+            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc        -0.1296    0.2774  0.6404 -0.6733  0.4141  0.8785  0.5100  1.5130
+crossover  0.2688    0.3006  0.3712 -0.3204  0.8580  1.3084  0.7259  2.3583
+====================================================================================================
+H1: ex-ante support ~ public at the time of the first trial
+y ~ public_at_trial + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; clusters (drugs)=1886; converged=True
+                  Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+public_at_trial -0.2783     0.166  0.0937 -0.6036  0.0471  0.7571  0.5468  1.0482
+====================================================================================================
+Phase entries 2001-2020 (non-top-20 industry): advancement by public x VC-backed
+              n     adv      gs
+public vc                      
+0      0   3217  0.3090  0.0581
+1      0   1432  0.3359  0.0545
+       1   1434  0.3264  0.0474
+====================================================================================================
+Advancement ~ VC-backed + ex-ante support
+adv ~ vc + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=6083; clusters (drugs)=1811; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  0.1788    0.0896  0.0459  0.0032  0.3544  1.1958  1.0032  1.4253
+gs  0.9560    0.1273  0.0000  0.7064  1.2055  2.6012  2.0267  3.3386
+====================================================================================================
+Advancement ~ VC-backed x ex-ante support
+adv ~ vc * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=6083; clusters (drugs)=1811; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc     0.1745    0.0921  0.0582 -0.0061  0.3551  1.1907  0.9940  1.4263
+gs     0.9398    0.1391  0.0000  0.6672  1.2124  2.5595  1.9488  3.3616
+vc:gs  0.0785    0.3044  0.7966 -0.5182  0.6751  1.0816  0.5956  1.9642
+====================================================================================================
+Advancement, public sponsors only ~ VC-backed + ex-ante support
+adv ~ vc + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2866; clusters (drugs)=918; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  0.1557    0.1224  0.2034 -0.0842  0.3955  1.1684  0.9192  1.4852
+gs  1.1435    0.2109  0.0000  0.7301  1.5569  3.1377  2.0752  4.7441
+====================================================================================================
+Advancement, public sponsors only ~ VC-backed x ex-ante support
+adv ~ vc * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2866; clusters (drugs)=918; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc     0.1747    0.1244  0.1602 -0.0691  0.4186  1.1909  0.9332  1.5199
+gs     1.3290    0.3006  0.0000  0.7399  1.9181  3.7773  2.0957  6.8082
+vc:gs -0.3816    0.4028  0.3434 -1.1711  0.4079  0.6828  0.3100  1.5037

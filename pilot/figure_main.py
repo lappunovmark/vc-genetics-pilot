@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FixedLocator, NullLocator
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from headline import headline, selection_checks  # noqa: E402
+from headline import from_txt, headline, selection_checks  # noqa: E402
 
 RES, OUT = sys.argv[1], sys.argv[2]
 INK, INK2, MUTED, GRID, SERIES, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1", "#2a78d6", "#ffffff"
@@ -28,6 +28,13 @@ GROUPS = [
     ("WHO STARTS PROGRAMMES THAT HAVE IT?", [keys[2], keys[6], keys[5]]),
     ("WHEN MONEY GOT TIGHT (2022–25)", [keys[3], keys[4]]),
 ]
+# sponsors with a venture-capital fund among the owners named in Schedule 13D/13G filings (owners_models.py)
+OWNERS = "Venture-capital fund among the owners (SEC)\n→ genetic support of programmes"
+if os.path.exists(os.path.join(RES, "owners_models.txt")):
+    H[OWNERS] = from_txt(
+        RES, "owners_models.txt", "H1: ex-ante support at first trial ~ VC-backed (all non-top-20 industry)", "vc "
+    )
+    GROUPS[1][1].insert(1, OWNERS)
 rows_a = []  # (kind, label, values)
 for q, ks in GROUPS:
     rows_a.append(("head", q, None))
@@ -97,7 +104,7 @@ fig.text(0.02, pos_b.y1 + 0.036, "B   The small-sponsor gap in selection under e
 fig.text(0.02, pos_b.y1 + 0.018, "Odds that a programme has genetic support at its first trial, small industry "
          "sponsors against top-20 pharma", ha="left", color=INK2, fontsize=8.5)  # fmt: skip
 fig.text(0.02, 0.012, "Filled marker: the 95% interval excludes 1. 35,887 drug × indication programmes; Open Targets "
-         "26.09, ClinicalTrials.gov snapshot of 17 October 2026,\nSEC Form D 2009–2026, NIH RePORTER. Pilot on open "
+         "26.09, ClinicalTrials.gov snapshot of 17 October 2026,\nSEC Form D 2009–2026 and Schedules 13D/13G 2001–2026, NIH RePORTER. Pilot on open "
          "data, not peer-reviewed.", ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
 fig.savefig(OUT, facecolor=SURFACE)
 for kind, label, v in rows_a + rows_b:

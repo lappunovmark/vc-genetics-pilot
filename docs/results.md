@@ -58,6 +58,16 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   programmes) while the log-linear trend among filers stays non-significant (0.81, 0.55–1.20); in 2024 dollars the
   top band gives 0.47 (0.23–0.96). If anything, the sponsors with the most private capital behind them picked
   less-supported targets.
+* Who owns the sponsor (`owners_link.py`, `owners_models.py`; local, first version): 1,077 of the 2,999 non-top-20
+  industry sponsor names have a legal entity on EDGAR (801 through Form D, 782 as registrants; 109 name matches
+  accepted and 90 rejected by hand), 745 are the subject of a Schedule 13D or 13G (2001–2026), and for 423 one of
+  the filers is a venture-capital fund (filer names classified by `pilot/investor_classes.tsv`, read by hand; 24% of
+  sponsor–owner pairs, mostly individuals, stay unclassified). Programmes of sponsors with a venture-capital owner
+  had ex-ante support no more often (3.8% against 4.9% for other public sponsors and 5.5% for sponsors that never
+  registered; adjusted OR 0.77, 0.52–1.14; among public sponsors only 0.95, 0.58–1.58). They advanced somewhat more
+  often (OR 1.20, 1.00–1.43), and genetic support predicted advancement to the same degree (interaction 1.08,
+  0.60–1.96). Ownership is seen only for sponsors that became public and only for holders above 5%, at or after
+  the filing, so the marker is a property of the sponsor, not dated to the trial.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors
