@@ -71,3 +71,37 @@ def headline(res="results"):
             from_txt(res, "formd_models.txt", "H1: ex-ante support at first trial ~ prior Form D", "formd "),
         ),
     ]
+
+
+def selection_checks(res="results"):
+    """The small-sponsor odds ratio of the selection model (H1) under each specification reported in robust.txt:
+    list of (label, (estimate, lo, hi), kind); kind is "step", "main", "check" or "range" (lo, hi = the range of the
+    point estimate when each top-20 company is left out in turn; no confidence interval)."""
+    tier_small = "C(tier)[T.Industry, small (<=5 drugs)]"
+    base = "H1 gs_ante_first: + first-trial period, area, modality"
+
+    def h1(section, fname="robust.txt"):
+        return from_txt(res, fname, section, tier_small)
+
+    with open(os.path.join(res, "robust.txt"), encoding="utf-8") as fh:
+        m = re.search(r"range of the small-sponsor OR: (\d\.\d+) to (\d\.\d+)", fh.read())
+    lo, hi = float(m.group(1)), float(m.group(2))
+    return [
+        ("No controls", h1("H1 gs_ante_first: unadjusted"), "step"),
+        ("+ period of the first trial", h1("H1 gs_ante_first: + first-trial period only"), "step"),
+        ("+ therapeutic area", h1("H1 gs_ante_first: + first-trial period, area"), "step"),
+        ("+ type of drug  (main model)", h1(base), "main"),
+        ("Errors clustered by sponsor", h1(base + "; clustered by sponsor"), "check"),
+        (
+            "Top-20 group cut to 17 companies",
+            h1(base + "; top-20 group cut to the 17 largest companies"),
+            "check",
+        ),
+        ("Each top-20 company left out in turn", ((lo + hi) / 2, lo, hi), "range"),
+        (
+            "Independent, dated genetic evidence",
+            h1("H1 with dated OT evidence: ex-ante support at first trial", "gs_ot_models.txt"),
+            "check",
+        ),
+        ("New drugs only (first indication)", h1("H1 gs_ante_first, novel-drug programmes only"), "check"),
+    ]
