@@ -199,5 +199,10 @@ calendar advances (91 reports between 17 October and 6 November 2026).
   typed by the lead sponsor of its first trial. This matters for reading the top-20 group: of the 138 new drugs
   that the 20 largest companies brought to FDA approval in 2015–2021, 65% came from acquisitions or in-licensing
   and 28% were invented in-house (Schuhmacher et al., Nat Rev Drug Discov 2023;22:781–782).
+* The eight headline estimates (the rows of panel A of `figures/main_results.png`) are reported without adjustment
+  for multiple testing. The genetic premium and the rise in funding-related stops would pass any correction; the
+  small-sponsor gap in selection (p = 0.017) would not pass a Holm correction across the eight, although with
+  support counted on either evidence measure it would (p = 0.0008). It should be read as suggestive until the full
+  design tests it.
 * A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
   shell's earlier placements; the own-names-only bound shows how much this can matter.
