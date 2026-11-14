@@ -84,8 +84,12 @@ def selection_checks(res="results"):
         return from_txt(res, fname, section, tier_small)
 
     with open(os.path.join(res, "robust.txt"), encoding="utf-8") as fh:
-        m = re.search(r"range of the small-sponsor OR: (\d\.\d+) to (\d\.\d+)", fh.read())
+        txt = fh.read()
+    m = re.search(r"range of the small-sponsor OR: (\d\.\d+) to (\d\.\d+)", txt)
     lo, hi = float(m.group(1)), float(m.group(2))
+    mh = re.search(r"Mantel-Haenszel.*\n.*?OR (\d\.\d+) \((\d\.\d+)-(\d\.\d+)\)", txt)
+    mantel_haenszel = tuple(float(x) for x in mh.groups())
+    both = "(Minikel-based, dated OT): ex-ante support at first trial"
     return [
         ("No controls", h1("H1 gs_ante_first: unadjusted"), "step"),
         ("+ period of the first trial", h1("H1 gs_ante_first: + first-trial period only"), "step"),
@@ -99,8 +103,24 @@ def selection_checks(res="results"):
         ),
         ("Each top-20 company left out in turn", ((lo + hi) / 2, lo, hi), "range"),
         (
+            "Within the same disease (indication fixed effects)",
+            h1("H1 gs_ante_first: + first-trial period, modality, indication fixed effects"),
+            "check",
+        ),
+        ("Like with like: period × area × drug type cells", mantel_haenszel, "check"),
+        (
             "Independent, dated genetic evidence",
             h1("H1 with dated OT evidence: ex-ante support at first trial", "gs_ot_models.txt"),
+            "check",
+        ),
+        (
+            "Support on either evidence measure",
+            h1(f"H1 with support on either measure {both}", "gs_ot_models.txt"),
+            "check",
+        ),
+        (
+            "Support on both evidence measures",
+            h1(f"H1 with support on both measures {both}", "gs_ot_models.txt"),
             "check",
         ),
         ("New drugs only (first indication)", h1("H1 gs_ante_first, novel-drug programmes only"), "check"),

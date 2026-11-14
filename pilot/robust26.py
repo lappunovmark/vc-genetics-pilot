@@ -10,6 +10,8 @@ import sys
 import numpy as np
 import pandas as pd
 import statsmodels.formula.api as smf
+from statsmodels.discrete.conditional_models import ConditionalLogit
+from statsmodels.stats.contingency_tables import StratifiedTable
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rq2_stops  # noqa: E402
@@ -143,6 +145,59 @@ out.extend(
         loo.round(4).to_string(index=False),
         f"range of the small-sponsor OR: {loo.OR_small.min():.4f} to {loo.OR_small.max():.4f}; "
         f"largest p: {loo.p.max():.4f}; all converged: {bool(loo.converged.all())}",
+    ]
+)
+# The same comparison within one disease: indication fixed effects instead of the therapeutic area, on the
+# indications where support varies (the others carry no information on the tier coefficients); the conditional
+# logit gives the same estimate without estimating the indication effects (model-based errors, not clustered).
+V = H[H.groupby("indication_mesh_id").y.transform(lambda s: 0 < s.sum() < len(s)).astype(bool)]
+out.append(
+    f"\nIndications where ex-ante support varies: {V.indication_mesh_id.nunique()}; programmes: {len(V)}; "
+    f"supported: {int(V.y.sum())} of {int(H.y.sum())}"
+)
+logit(
+    "y ~ C(tier) + C(yb) + C(modality) + C(indication_mesh_id)",
+    V,
+    V.drug,
+    "H1 gs_ante_first: + first-trial period, modality, indication fixed effects",
+)
+XV = pd.get_dummies(V[["tier", "yb", "modality"]].astype(str)).astype(float)
+XV = XV.drop(
+    columns=["tier_Top-20 pharma", f"yb_{sorted(V.yb.unique())[0]}", f"modality_{sorted(V.modality.unique())[0]}"]
+)
+cl = ConditionalLogit(V.y.values, XV.values, groups=pd.factorize(V.indication_mesh_id)[0]).fit(
+    disp=0, method="newton", maxiter=200
+)  # the default BFGS stops short of the maximum here
+i = list(XV.columns).index("tier_Industry, small (<=5 drugs)")
+out.extend(
+    [
+        "=" * 100,
+        "H1 gs_ante_first: conditional logit within indication (period, modality; model-based errors)",
+        f"small sponsors vs top-20 pharma: OR {np.exp(cl.params[i]):.4f} "
+        f"({np.exp(cl.params[i] - 1.96 * cl.bse[i]):.4f}-{np.exp(cl.params[i] + 1.96 * cl.bse[i]):.4f}), "
+        f"p={cl.pvalues[i]:.4f}",
+    ]
+)
+# Without a model: small sponsors against top-20 pharma within cells of period x area x modality (Mantel-Haenszel).
+S2 = H[H.first_sponsor_tier.isin(["Top-20 pharma", "Industry, small (<=5 drugs)"])]
+tabs = []
+for _, d in S2.groupby(["yb", "area", "modality"]):
+    t = (
+        pd.crosstab(d.first_sponsor_tier.ne("Top-20 pharma").astype(int), d.y)
+        .reindex(index=[1, 0], columns=[1, 0], fill_value=0)
+        .values
+    )
+    if t.sum(1).min() > 0:
+        tabs.append(t)
+mh = StratifiedTable(tabs)
+lo, hi = mh.oddsratio_pooled_confint()
+out.extend(
+    [
+        "=" * 100,
+        "H1 gs_ante_first: Mantel-Haenszel, small sponsors vs top-20 pharma within period x area x modality cells",
+        f"small sponsors vs top-20 pharma: OR {mh.oddsratio_pooled:.4f} ({lo:.4f}-{hi:.4f}), "
+        f"p={mh.test_null_odds().pvalue:.4f}; cells with both groups: {len(tabs)}; "
+        f"programmes: {int(sum(t.sum() for t in tabs))}",
     ]
 )
 # novel-drug programmes: the drug's first indication(s), first trial 2000+, sponsor of the drug's first trial

@@ -152,6 +152,23 @@ def main(R, ot, fal, mdir):
         "H1 with dated OT evidence: ex-ante support at first trial",
         out,
     )
+    # The two measures agree on about half of the supported programmes, so each misses support the other sees.
+    # Support on either measure is the most sensitive outcome (most events), support on both the most specific.
+    mk = H.gs_ante_first.fillna(False).astype(bool)
+    for nm, yy in (("either measure", mk | H.gs_ot_ante_first), ("both measures", mk & H.gs_ot_ante_first)):
+        H["y"] = yy.astype(int)
+        cnt = H.groupby("tier", observed=True).y.sum()
+        out.append(
+            f"supported on {nm}: {int(H.y.sum())} programmes (top-20 pharma {int(cnt['Top-20 pharma'])}, "
+            f"small sponsors {int(cnt['Industry, small (<=5 drugs)'])})"
+        )
+        logit(
+            "y ~ C(tier) + C(yb) + C(area) + C(modality)",
+            H,
+            H.drug,
+            f"H1 with support on {nm} (Minikel-based, dated OT): ex-ante support at first trial",
+            out,
+        )
     end_year = int(E.entry_year.max())
     T = E[E.insight & ~E.prior_higher & E.sponsor_tier.isin(TIERS) & E.entry_year.between(2000, end_year - 6)].copy()
     T["tier"] = pd.Categorical(T.sponsor_tier, categories=TIERS)
