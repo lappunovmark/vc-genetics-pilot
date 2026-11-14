@@ -3,7 +3,7 @@
 ## Steps
 | Step | Script | Source (licence) |
 |---|---|---|
-| Open Targets clinical reports, evidence, targets, diseases, molecules | `pilot/fetch_opentargets.py` | Open Targets Platform ≥ 26.03 (CC0) |
+| Open Targets clinical reports, evidence, targets, diseases, molecules | `pilot/fetch_opentargets.py` | Open Targets Platform ≥ 26.09 (CC0); the trial sponsor field was added in 26.09 |
 | All interventional studies (sponsor, phase, dates, status, why_stopped) | `pilot/fetch_ctgov.py all` | ClinicalTrials.gov API v2 (public domain) |
 | Genetic-support labels (Minikel et al. 2024 definition) | `pilot/gensup.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | Programme panel, H1 selection, phase transitions, logits | `pilot/build_panel26.py` | — |

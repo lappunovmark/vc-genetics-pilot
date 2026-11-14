@@ -3,8 +3,9 @@ genetic-support labels re-implemented from Minikel et al. (2024).
 
 Usage: python build_panel26.py OT_DIR MINIKEL_DATA_DIR OUT_DIR
 
-Since release 25.x/26.x Open Targets ships trial-level records (from AACT) with lead sponsor, phase, start date,
-overall status and why_stopped, linked to drug, target and disease. One evidence row = target x disease x drug x
+Since release 26.03 Open Targets ships report-level clinical records, the trials among them from ClinicalTrials.gov
+(via AACT) with phase, start date, overall status and why_stopped, linked to drug, target and disease; release 26.09
+added the lead sponsor and its class, which this script needs. One evidence row = target x disease x drug x
 clinical report (a trial or a regulatory/label record).
 
 Outputs (OUT_DIR): coverage.json, programmes.csv.gz, phase_entries.csv.gz, sponsors.csv.gz,
