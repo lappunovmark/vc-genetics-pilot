@@ -65,7 +65,7 @@ fund holds more than 5%.
 
 * [Detailed results](docs/results.md) · [Methods and limitations](docs/methods.md) ·
   [Pipeline and how to run it](docs/pipeline.md) · [Data dictionary](docs/data_dictionary.md)
-* [Open issues and next steps](https://github.com/lappunovmark/vc-genetics-pilot/issues)
+* [Roadmap and next steps](docs/roadmap.md)
 
 ## Author
 

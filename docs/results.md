@@ -103,7 +103,7 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   with κ 0.79 over all trials and 0.82 on the 2,345 industry trials of the H4 sample (each side recovers 87–89% of
   the other); enrolment κ 0.83, COVID-19 0.93, efficacy 0.73, safety 0.61 on that sample. The reference labels in
   `results/rq2_hand_labels.csv` are an LLM-assisted first pass that has not yet been blind double-coded by the author
-  ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2); the coding sheet, codebook and scoring script
+  ([roadmap](roadmap.md); the coding sheet, codebook and scoring script
   are in `factcheck/double_coding/`), so these figures may change.
 
 ## Corrections

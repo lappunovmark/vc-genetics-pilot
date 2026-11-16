@@ -1,9 +1,8 @@
 # Codebook for the blind double-coding of stop reasons
 
 Why this exists: the 200 held-out `why_stopped` texts that validate the stop-reason classifier (83.0% agreement,
-κ 0.79) were first labelled by an AI research assistant. Issue
-[#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2) asks the author to code the same texts blind, so
-that the validation rests on human labels. This folder holds the sheet to fill in and the script that scores it.
+κ 0.79) were first labelled by an AI research assistant. The author codes the same texts blind
+([roadmap](../../docs/roadmap.md)), so that the validation rests on human labels. This folder holds the sheet to fill in and the script that scores it.
 
 ## How to code
 

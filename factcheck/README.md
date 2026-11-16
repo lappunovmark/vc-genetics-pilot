@@ -15,6 +15,6 @@ the pipeline and expect to be run from this folder, with downloaded texts and da
 | `sponsor_missing_acquisitions.py` | Sponsor typing: counts the trials that a longer list of top-20 acquisitions (deal years as remembered, not verified one by one) would move to top-20; a bound, not used for typing; output in `../results/sponsor_missing_acquisitions.txt` |
 | `sponsor_names_audit.py` | Sponsor typing: lists every industry sponsor name whose top-20 match is not the leading name (a renamed subsidiary needs its own entry with an acquisition year); fails on a name that has not been reviewed; output in `../results/sponsor_names_audit.txt` |
 | `stopreasons_support.py` | Every pattern of the stop-reason classifier must match a text outside the held-out set (tuning texts or the StopReasons file); output in `../results/stopreasons_support.txt` |
-| `double_coding/` | Blind double-coding of the 200 held-out stop-reason texts ([#2](https://github.com/lappunovmark/vc-genetics-pilot/issues/2)): `codebook.md`, `make_sheet.py` (builds `coding_sheet.xlsx` and `key.csv`), `double_coding_eval.py` (agreement, κ, financial-class precision and recall, disagreements) |
+| `double_coding/` | Blind double-coding of the 200 held-out stop-reason texts ([roadmap](../docs/roadmap.md)): `codebook.md`, `make_sheet.py` (builds `coding_sheet.xlsx` and `key.csv`), `double_coding_eval.py` (agreement, κ, financial-class precision and recall, disagreements) |
 
 Full texts are fetched for personal checking only and are not redistributed here.
