@@ -41,6 +41,7 @@ biotech funding dried up in 2022, did companies drop their best projects for lac
 | 2. Small biotechs starting projects with genetic evidence, vs top-20 pharma (same period, disease area and drug type) | odds ratio 0.68 (0.49–0.93) |
 | 3. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.71 (0.46–1.09) |
 | 3. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.71 (0.37–1.34) |
+| 3. Venture-capital fund among the company's owners (SEC Schedules 13D and 13G) → projects with genetic evidence | odds ratio 0.76 (0.52–1.13) |
 | 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
 | 4. Genetic evidence of trials stopped for financial or business reasons, vs completed trials | odds ratio 0.75 (0.54–1.04) |
 
@@ -52,11 +53,13 @@ significant. Small biotechs are companies with at most 5 drugs (or at most 20 tr
 ## Data
 
 35,887 drug–disease projects (29,199 of them in diseases where human genetic data exist) from Open Targets Platform
-26.09 and ClinicalTrials.gov, US government grant records (NIH RePORTER) and SEC Form D filings on private
-fundraising. Everything can be rebuilt with `make` ([how to run it](docs/pipeline.md)).
+26.09 and ClinicalTrials.gov, US government grant records (NIH RePORTER), SEC Form D filings on private
+fundraising and SEC ownership filings (Schedules 13D and 13G). Everything can be rebuilt with `make`
+([how to run it](docs/pipeline.md)).
 
 **Limits.** This is a pilot and has not been peer-reviewed. Company size and Form D filings stand in for venture
-capital, which is not measured directly yet.
+capital. Venture-capital owners are seen directly only for companies that later became public, and only when a
+fund holds more than 5%.
 
 ## More
 
