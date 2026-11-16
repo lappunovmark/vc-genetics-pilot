@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd owners figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners mechanisms figure check lint test clean-data
 
 all: data results figure check
 
@@ -58,6 +58,11 @@ owners:  # SEC asks for a contact: SEC_USER_AGENT="Your Name you@example.org" ma
 	$(PY) pilot/fetch_edgar_owners.py $(DATA)/edgar 2001 2026
 	$(PY) pilot/owners_link.py $(DATA)/edgar $(RES)
 	$(PY) pilot/owners_models.py $(RES)
+
+mechanisms:  # exploratory checks behind the selection gap; needs the Form D results (make formd)
+	$(PY) pilot/fetch_ctgov_enrollment.py $(DATA)/ctgov_enrollment.csv
+	$(PY) pilot/extract_molecule_synonyms.py $(DATA)/ot $(DATA)/ot_molecule_synonyms.csv.gz
+	$(PY) pilot/h1_mechanisms.py $(RES) $(DATA)/ctgov_all.csv $(DATA)/ctgov_enrollment.csv $(DATA)/ot_molecule_synonyms.csv.gz
 
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png

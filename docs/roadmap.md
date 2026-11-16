@@ -23,5 +23,7 @@
   (`pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py`).
 * **Owners of public sponsors** from SEC Schedules 13D and 13G, with hand-reviewed name matches and investor classes
   (`pilot/fetch_edgar_owners.py`, `pilot/owners_link.py`, `pilot/owners_models.py`).
+* **Exploratory checks behind the small-sponsor gap in selection** (`pilot/h1_mechanisms.py`): type of evidence,
+  novel and follow-on indications, partnerships, trial size, capital and acquisitions.
 
 Corrections to earlier results are listed at the end of [results](results.md).

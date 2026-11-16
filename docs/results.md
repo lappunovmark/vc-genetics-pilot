@@ -22,6 +22,24 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (0.48–1.00; conditional logit 0.70, 0.51–0.95), and within cells of period × area × modality (Mantel–Haenszel)
   0.67 (0.50–0.91). Counting support on either of the two evidence measures (1,464 supported programmes instead
   of 959) gives 0.62 (0.47–0.82); requiring both (443 programmes) gives 0.82 (0.54–1.26).
+* What lies behind that gap (`h1_mechanisms.py`; exploratory: the splits were chosen after the result was known, so
+  the p-values are descriptive; this script pools sparse control categories and gives 0.67 for the main model).
+  *Type of evidence:* the gap is in support from dated population genetics (OTG, PICCOLO, Genebass; OR 0.52,
+  0.34–0.78) and absent for support from OMIM only (0.95, 0.61–1.50); a multinomial model puts the difference
+  between the two at p = 0.06. *Novel and follow-on:* for a drug's first indication there is no clear gap (0.83,
+  0.51–1.34); it comes from new indications of drugs already in trials (0.57, 0.38–0.86). *Partnerships:* without the
+  non-top-20 programmes that have a top-20 collaborator on the first trial it is 0.66 (0.48–0.92), without those with
+  any industry collaborator 0.67 (0.48–0.94). *Trial size:* on the 71% of programmes whose indication has a typical
+  Phase 3 size (median enrolment of other drugs' Phase 3 trials), the gap is 0.62 (0.43–0.88) without and 0.61
+  (0.43–0.87) with that size as a control, and does not vary with it (interaction 1.00, 0.32–3.10). *Capital:*
+  sponsors that had raised at least the cost of one typical Phase 3 in Form D offerings before the first trial did
+  not start better-supported programmes than sponsors without a Form D (0.64, 0.34–1.22; less than that cost 0.74,
+  0.36–1.52; among filers, at least one Phase 3 against less 1.01, 0.41–2.48). *Acquisitions:* 154 top-20 programmes
+  of 60 drugs carry the research code of a company that the same parent acquired only after the programme's first
+  trial, so the registry moved them to the acquirer; dropping or re-typing them leaves 0.67–0.69. Sponsors that a
+  top-20 company later acquired did not start clearly better-supported programmes (1.21, 0.74–1.97). Partnerships,
+  trial size, capital and acquisitions do not account for the gap; the first two splits narrow it down to dated
+  population evidence in follow-on indications (0.47, 0.29–0.75).
 * Approval dates: 1,205 of 26,542 phase entries advance through an approval alone; 619 of these approvals can be dated
   (EMA or PMDA report, else ChEMBL first approval) before the entry year and are probably approvals that preceded the
   trial. Removing them leaves the genetic premium at OR 2.53 (2.12–3.01); counting only dated approvals gives 2.50

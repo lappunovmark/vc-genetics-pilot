@@ -1,0 +1,356 @@
+Mechanisms behind the small-sponsor gap in selection (exploratory; see the module docstring)
+programmes in indications with genetic insight, six sponsor tiers: 29191; with ex-ante support: 959
+registry snapshot: 463466 studies; enrolment file: 466681 studies, 99.99% of the snapshot covered
+
+####################################################################################################
+A. TYPE OF EVIDENCE
+####################################################################################################
+Ex-ante support at the first trial, % of programmes (dated population evidence = OTG (GWAS), PICCOLO or Genebass association dated before the year of the first trial; OMIM only = Mendelian evidence alone, undated):
+                             programmes  any_support  dated_population  omim_only
+tier                                                                             
+Top-20 pharma                      5130         4.46              2.63       1.77
+Industry, large (>30)              1756         5.35              2.56       2.79
+Industry, mid (6-30)               2359         5.00              1.95       2.97
+Industry, small (<=5 drugs)        1906         4.30              2.31       1.99
+Academic/other                    15095         2.54              1.56       0.93
+Government                         2945         1.80              0.65       1.15
+split unknown for 12 supported programmes (no phase entry, or dated evidence first seen at a phase entry in a later year than the first trial); they are left out of A1-A3
+====================================================================================================
+A0. any ex-ante support (the H1 model, sparse controls pooled)
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=959; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.1739  0.8558  1.6102  0.3200
+C(tier)[T.Industry, mid (6-30)]         0.9446  0.7079  1.2603  0.6983
+C(tier)[T.Industry, small (<=5 drugs)]  0.6748  0.4882  0.9327  0.0172
+C(tier)[T.Academic/other]               0.4591  0.3633  0.5801  0.0000
+C(tier)[T.Government]                   0.4577  0.3104  0.6748  0.0001
+====================================================================================================
+A1. ex-ante support from dated population evidence
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29179; events=525; clusters (drugs)=3237
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        0.8807  0.5633  1.3769  0.5775
+C(tier)[T.Industry, mid (6-30)]         0.5819  0.3832  0.8837  0.0111
+C(tier)[T.Industry, small (<=5 drugs)]  0.5195  0.3442  0.7839  0.0018
+C(tier)[T.Academic/other]               0.4089  0.3010  0.5554  0.0000
+C(tier)[T.Government]                   0.3708  0.2031  0.6769  0.0012
+====================================================================================================
+A2. ex-ante support from OMIM only
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29179; events=422; clusters (drugs)=3237
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.5742  1.0115  2.4499  0.0443
+C(tier)[T.Industry, mid (6-30)]         1.5054  1.0171  2.2280  0.0409
+C(tier)[T.Industry, small (<=5 drugs)]  0.9523  0.6054  1.4980  0.8326
+C(tier)[T.Academic/other]               0.5270  0.3731  0.7446  0.0003
+C(tier)[T.Government]                   0.5631  0.3271  0.9696  0.0383
+====================================================================================================
+A3. multinomial logit (none / OMIM only / dated), small sponsors vs top-20 pharma, same controls
+N=29179; converged=True
+  OMIM only vs none: RRR 0.911 (0.577-1.438)
+  dated vs none:     RRR 0.509 (0.337-0.767)
+  difference of the two log ratios: -0.582 (SE 0.304), ratio 0.559, Wald p=0.0557
+====================================================================================================
+A4. where the adjusted gap comes from (small sponsors vs top-20 pharma)
+programmes by period of the first trial; ex-ante support, % of the tier's programmes of that period:
+                                          programmes  share_of_tier  any_support  dated_population  n_dated  omim_only
+tier                        yb                                                                                        
+Top-20 pharma               (0, 2004]            848           16.5          2.9               0.0      0.0        2.9
+                            (2004, 2009]        1436           28.0          2.2               0.1      1.0        2.1
+                            (2009, 2014]        1347           26.3          4.3               3.0     40.0        1.3
+                            (2014, 2019]        1002           19.5          7.4               5.9     59.0        1.5
+                            (2019, 2100]         497            9.7          8.0               7.1     35.0        0.8
+Industry, small (<=5 drugs) (0, 2004]            122            6.4          4.1               0.0      0.0        4.1
+                            (2004, 2009]         369           19.4          3.8               0.0      0.0        3.8
+                            (2009, 2014]         426           22.4          3.3               1.9      8.0        1.4
+                            (2014, 2019]         529           27.8          4.3               3.2     17.0        1.1
+                            (2019, 2100]         460           24.1          5.7               4.1     19.0        1.5
+
+small-sponsor OR as controls are added (all six tiers in the model):
+  any:
+      sponsor tier only                0.96 (0.70-1.32), p=0.812
+      + period                         0.79 (0.57-1.09), p=0.157
+      + period, area                   0.71 (0.51-0.98), p=0.040
+      + period, area, modality (H1)    0.67 (0.49-0.93), p=0.017
+      area and modality, no period     0.86 (0.62-1.18), p=0.338
+      start year instead of period     0.66 (0.48-0.91), p=0.013
+  dated population:
+      sponsor tier only                0.87 (0.58-1.33), p=0.527
+      + period                         0.54 (0.35-0.82), p=0.004
+      + period, area                   0.50 (0.32-0.75), p=0.001
+      + period, area, modality (H1)    0.52 (0.34-0.78), p=0.002
+      area and modality, no period     0.92 (0.60-1.40), p=0.690
+      start year instead of period     0.50 (0.33-0.76), p=0.001
+  OMIM only:
+      sponsor tier only                1.13 (0.71-1.79), p=0.616
+      + period                         1.32 (0.84-2.10), p=0.233
+      + period, area                   1.11 (0.70-1.77), p=0.664
+      + period, area, modality (H1)    0.95 (0.61-1.50), p=0.833
+      area and modality, no period     0.83 (0.53-1.32), p=0.435
+      start year instead of period     0.94 (0.60-1.49), p=0.805
+====================================================================================================
+A5. the same split with ex-post support (every source without its date; H1 controls)
+  any ex-post support:               0.69 (0.55-0.88), p=0.002
+  OTG, PICCOLO or Genebass, ex post: 0.70 (0.54-0.90), p=0.005
+  OMIM only, ex post:                0.82 (0.44-1.51), p=0.524
+====================================================================================================
+A6. novel drugs (the drug's first indication) and follow-on indications, first trial 2000 or later
+    (follow-on = a new indication for a drug already in trials; H1 controls)
+  novel: 3925 programmes, 2687 drugs
+      any              small 6.4% (36/562) vs top-20 5.4% (82/1532) | OR 0.83 (0.51-1.34), p=0.453
+      dated population small 2.5% (14/562) vs top-20 2.4% (36/1531) | OR 0.81 (0.40-1.64), p=0.566; groups without events left out: Government
+      OMIM only        small 3.9% (22/562) vs top-20 2.9% (45/1531) | OR 0.93 (0.51-1.70), p=0.814
+  follow-on: 23417 programmes, 2374 drugs
+      any              small 3.5% (46/1330) vs top-20 4.0% (139/3464) | OR 0.57 (0.38-0.86), p=0.007
+      dated population small 2.3% (30/1330) vs top-20 2.9% (99/3462) | OR 0.47 (0.29-0.75), p=0.002
+      OMIM only        small 1.2% (16/1330) vs top-20 1.1% (38/3462) | OR 0.94 (0.48-1.84), p=0.861
+
+####################################################################################################
+B. PARTNERSHIPS WITH LARGE COMPANIES
+####################################################################################################
+First trial of the programme: collaborators in the registry, and the drug's history, % of programmes:
+                             programmes  any_collaborator  industry_collaborator  top20_collaborator  n_top20_collaborator  drug_led_by_top20_before  drug_led_by_top20_only_later
+tier                                                                                                                                                                              
+Top-20 pharma                      5130              13.3                   11.5                 6.6                   337                      99.6                           0.3
+Industry, large (>30)              1756              14.0                   11.6                 5.0                    87                      20.2                          17.5
+Industry, mid (6-30)               2359              17.2                   11.5                 4.5                   107                      21.4                          12.7
+Industry, small (<=5 drugs)        1906              22.7                   13.7                 3.0                    58                      23.5                           7.2
+Academic/other                    15095              54.3                   22.0                13.8                  2087                      59.6                          11.0
+Government                         2945              17.0                    4.2                 2.5                    74                      53.2                          21.9
+====================================================================================================
+B1. without non-top-20 industry programmes that have a top-20 collaborator: gs_ante_first
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=28939; events=946; clusters (drugs)=3228
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.1704  0.8492  1.6130  0.3363
+C(tier)[T.Industry, mid (6-30)]         0.9279  0.6918  1.2446  0.6174
+C(tier)[T.Industry, small (<=5 drugs)]  0.6600  0.4752  0.9166  0.0132
+C(tier)[T.Academic/other]               0.4583  0.3628  0.5789  0.0000
+C(tier)[T.Government]                   0.4566  0.3097  0.6730  0.0001
+====================================================================================================
+B1. without non-top-20 industry programmes that have a top-20 collaborator: ante_dated
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=28927; events=516; clusters (drugs)=3225
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        0.8470  0.5334  1.3451  0.4817
+C(tier)[T.Industry, mid (6-30)]         0.5639  0.3681  0.8637  0.0085
+C(tier)[T.Industry, small (<=5 drugs)]  0.5029  0.3309  0.7644  0.0013
+C(tier)[T.Academic/other]               0.4052  0.2987  0.5498  0.0000
+C(tier)[T.Government]                   0.3658  0.2003  0.6681  0.0011
+====================================================================================================
+B2. without non-top-20 industry programmes that have any industry collaborator: gs_ante_first
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=28454; events=921; clusters (drugs)=3177
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.2346  0.8907  1.7114  0.2058
+C(tier)[T.Industry, mid (6-30)]         0.9307  0.6884  1.2582  0.6405
+C(tier)[T.Industry, small (<=5 drugs)]  0.6743  0.4825  0.9423  0.0210
+C(tier)[T.Academic/other]               0.4582  0.3626  0.5791  0.0000
+C(tier)[T.Government]                   0.4546  0.3085  0.6701  0.0001
+====================================================================================================
+B2. without non-top-20 industry programmes that have any industry collaborator: ante_dated
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=28442; events=506; clusters (drugs)=3174
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        0.8501  0.5268  1.3718  0.5059
+C(tier)[T.Industry, mid (6-30)]         0.5802  0.3729  0.9028  0.0158
+C(tier)[T.Industry, small (<=5 drugs)]  0.5322  0.3465  0.8175  0.0040
+C(tier)[T.Academic/other]               0.4090  0.3014  0.5550  0.0000
+C(tier)[T.Government]                   0.3691  0.2020  0.6745  0.0012
+
+Small-sponsor programmes by the drug's link to top-20 pharma:
+                                      programmes  drugs  supported
+tier2                                                             
+Small, drug never led by top-20             1321    563         59
+Small, drug already led by top-20            448    231         14
+Small, drug led by top-20 only later         137     70          9
+====================================================================================================
+B3. small sponsors split by the drug's link to top-20 pharma: gs_ante_first
+y ~ C(tier2) + C(yb) + C(area) + C(modality)
+N=29191; events=959; clusters (drugs)=3240
+                                                      OR   OR_lo   OR_hi   P>|z|
+C(tier2)[T.Small, drug never led by top-20]       0.6928  0.4801  0.9997  0.0498
+C(tier2)[T.Small, drug already led by top-20]     0.4804  0.2513  0.9184  0.0266
+C(tier2)[T.Small, drug led by top-20 only later]  1.2237  0.5002  2.9938  0.6583
+====================================================================================================
+B3. small sponsors split by the drug's link to top-20 pharma: ante_dated
+y ~ C(tier2) + C(yb) + C(area) + C(modality)
+N=29179; events=525; clusters (drugs)=3237
+                                                      OR   OR_lo   OR_hi   P>|z|
+C(tier2)[T.Small, drug never led by top-20]       0.5110  0.3146  0.8299  0.0067
+C(tier2)[T.Small, drug already led by top-20]     0.3111  0.1454  0.6655  0.0026
+C(tier2)[T.Small, drug led by top-20 only later]  1.8161  0.6863  4.8061  0.2295
+
+####################################################################################################
+C. SIZE OF PHASE 3 TRIALS IN THE INDICATION
+####################################################################################################
+industry-led Phase 3 entry trials with enrolment, not stopped early: 3308 trials, 3730 trial-indication pairs in 700 indications; median enrolment 343
+median enrolment by therapeutic area (trial-indication pairs):
+                 size  median
+area                         
+endocrine          33    96.0
+hematology        124   136.5
+immune             29   225.0
+infection         106   259.0
+other             210   259.5
+ophthalmology     143   261.0
+neurology         384   268.5
+musculoskeletal   261   279.0
+congenital        112   284.0
+signs/symptoms    224   313.5
+dermatology       145   336.0
+digestive         155   337.0
+respiratory       188   347.5
+metabolic         228   358.5
+psychiatry        206   381.0
+oncology          934   450.0
+cardiovascular    248   468.0
+programmes with a typical Phase 3 size (at least 3 trials of other drugs): 20706 of 29191 (70.9%); using only trials that started before the programme: 13837 (47.4%)
+
+C1. typical Phase 3 enrolment of the indication, by ex-ante support of the programme:
+                             count    25%    50%    75%
+support                                                
+OMIM only                    280.0  168.0  264.0  420.0
+dated population evidence    415.0  328.0  439.0  600.0
+none                       20011.0  294.0  428.0  563.0
+
+C2. typical Phase 3 enrolment of the indication, by sponsor tier of the first trial:
+                              count    25%    50%    75%
+tier                                                    
+Top-20 pharma                4470.0  346.0  455.0  566.0
+Industry, large (>30)        1430.0  300.0  422.0  550.0
+Industry, mid (6-30)         1915.0  319.0  428.0  550.0
+Industry, small (<=5 drugs)  1464.0  276.0  410.0  563.0
+Academic/other               9542.0  268.0  410.0  564.0
+Government                   1885.0  280.0  422.0  556.0
+
+C3. small sponsors vs top-20 pharma, without and with log10(typical Phase 3 size) as a control:
+  gs_ante_first   N=20706; events=706; clusters (drugs)=3132
+      without: 0.62 (0.43-0.88), p=0.008 | with: 0.61 (0.43-0.87), p=0.006 | size, per tenfold: 0.46 (0.33-0.66), p=0.000
+  ante_dated      N=20695; events=415; clusters (drugs)=3129
+      without: 0.55 (0.34-0.87), p=0.010 | with: 0.55 (0.35-0.88), p=0.012 | size, per tenfold: 1.48 (0.95-2.31), p=0.081
+  ante_omim_only  N=20695; events=280; clusters (drugs)=3129
+      without: 0.79 (0.48-1.29), p=0.345 | with: 0.77 (0.46-1.27), p=0.303 | size, per tenfold: 0.14 (0.09-0.22), p=0.000
+  gs_ante_first   size from earlier trials only; N=13837; events=546; clusters (drugs)=2900
+      without: 0.52 (0.35-0.78), p=0.001 | with: 0.52 (0.35-0.78), p=0.001
+  ante_dated      size from earlier trials only; N=13826; events=378; clusters (drugs)=2897
+      without: 0.56 (0.34-0.90), p=0.017 | with: 0.56 (0.35-0.90), p=0.018
+
+C4. the gap by tertile of the indication's typical Phase 3 size:
+                 min      max
+tertile                      
+small trials    38.0    344.5
+medium trials  345.0    534.0
+large trials   536.0  13220.0
+  gs_ante_first  small trials   small 5.1% (27/526) vs top-20 6.3% (70/1115) | OR 0.70 (0.42-1.16), p=0.162 | N=6914; events=296; clusters (drugs)=1970
+  gs_ante_first  medium trials  small 3.6% (17/478) vs top-20 3.7% (60/1620) | OR 0.54 (0.29-1.03), p=0.060 | N=6893; events=190; clusters (drugs)=2153
+  gs_ante_first  large trials   small 3.7% (17/460) vs top-20 4.4% (76/1735) | OR 0.58 (0.32-1.08), p=0.084 | N=6899; events=220; clusters (drugs)=2057
+  ante_dated     small trials   small 2.5% (13/526) vs top-20 2.8% (31/1115) | OR 0.69 (0.34-1.43), p=0.325 | N=6908; events=120; clusters (drugs)=1968
+  ante_dated     medium trials  small 2.3% (11/478) vs top-20 2.3% (37/1620) | OR 0.48 (0.22-1.04), p=0.064 | N=6889; events=123; clusters (drugs)=2152
+  ante_dated     large trials   small 2.8% (13/460) vs top-20 3.3% (58/1735) | OR 0.58 (0.28-1.19), p=0.138 | N=6898; events=172; clusters (drugs)=2057
+====================================================================================================
+C5. small sponsor x log10(typical Phase 3 size), small and top-20 only: gs_ante_first
+y ~ small * lsize_c + C(yb) + C(area) + C(modality)
+N=5934; events=267; clusters (drugs)=2000
+                   OR   OR_lo   OR_hi   P>|z|
+small          0.5614  0.3785  0.8326  0.0041
+lsize_c        0.6152  0.3600  1.0512  0.0755
+small:lsize_c  0.9994  0.3222  3.0998  0.9992
+====================================================================================================
+C5. small sponsor x log10(typical Phase 3 size), small and top-20 only: ante_dated
+y ~ small * lsize_c + C(yb) + C(area) + C(modality)
+N=5931; events=163; clusters (drugs)=1999
+                   OR   OR_lo   OR_hi   P>|z|
+small          0.5622  0.3456  0.9145  0.0203
+lsize_c        1.2728  0.6387  2.5363  0.4929
+small:lsize_c  1.1468  0.3018  4.3585  0.8406
+
+####################################################################################################
+D. CAPITAL RAISED BEFORE THE FIRST TRIAL VS THE COST OF ONE TYPICAL PHASE 3
+####################################################################################################
+check against formd_models.txt (0.71, 0.46-1.09): prior Form D OR 0.71 (0.46-1.09), p=0.115; N=4089; events=220; clusters (drugs)=1411
+programmes of non-top-20 industry sponsors, first trial 2010+, with a typical Phase 3 size: 3169
+cost of one typical Phase 3 at USD 41,117 per patient: median USD 17M (IQR 12-23M)
+                                      programmes  raised_median_musd  p3_cost_median_musd  supported  supported_share  dated_share
+funds                                                                                                                             
+no prior Form D                             2412               0.000               17.146      140.0            0.058        0.040
+raised less than one typical Phase 3         302               4.475               18.770       11.0            0.036        0.020
+raised at least one typical Phase 3          455              63.873               16.858       16.0            0.035        0.022
+====================================================================================================
+D1. ex-ante support ~ funds relative to one typical Phase 3: gs_ante_first
+y ~ C(funds) + C(tier) + C(yb) + C(area) + C(modality)
+N=3169; events=167; clusters (drugs)=1258
+                                                      OR   OR_lo   OR_hi   P>|z|
+C(funds)[T.raised less than one typical Phase 3]  0.7426  0.3630  1.5194  0.4153
+C(funds)[T.raised at least one typical Phase 3]   0.6417  0.3389  1.2150  0.1732
+====================================================================================================
+D1. ex-ante support ~ funds relative to one typical Phase 3: ante_dated
+y ~ C(funds) + C(tier) + C(yb) + C(area) + C(modality)
+N=3167; events=113; clusters (drugs)=1257
+                                                      OR   OR_lo   OR_hi   P>|z|
+C(funds)[T.raised less than one typical Phase 3]  0.5867  0.2044  1.6845  0.3217
+C(funds)[T.raised at least one typical Phase 3]   0.5582  0.2457  1.2681  0.1637
+
+D2. sponsors with a prior Form D only (757 programmes; 724 with a positive amount sold, used for the continuous ratio):
+  gs_ante_first  raised at least one typical Phase 3 vs less: OR 1.01 (0.41-2.48), p=0.982 | N=757; events=27; clusters (drugs)=355
+                 per tenfold of raised/cost: OR 0.98 (0.60-1.58), p=0.921 | N=724; events=27; clusters (drugs)=343
+  ante_dated     raised at least one typical Phase 3 vs less: OR 0.87 (0.24-3.11), p=0.828 | N=757; events=16; clusters (drugs)=355
+                 per tenfold of raised/cost: OR 0.80 (0.42-1.53), p=0.501 | N=724; events=16; clusters (drugs)=343
+
+small sponsors only (counts too small for a model):
+                                      programmes  supported  share
+funds                                                             
+no prior Form D                              738       34.0  0.046
+raised less than one typical Phase 3         141        2.0  0.014
+raised at least one typical Phase 3          172        9.0  0.052
+small sponsors, raised at least one typical Phase 3 vs less: 9/172 vs 2/141, Fisher exact p=0.120 (unadjusted)
+
+####################################################################################################
+E. ACQUISITIONS: RECORDS MOVED TO THE ACQUIRER, AND SPONSORS ACQUIRED LATER
+####################################################################################################
+E1. top-20 programmes: 5130 (1500 drugs, 1427 with a research code in ChEMBL); with the code of a company the same parent acquired after the programme's first trial: 154 programmes of 60 drugs, 6 with ex-ante support (3.9%; other top-20 programmes 4.5%)
+                 programmes  drugs  supported  first  last                                                                            examples
+moved_from                                                                                                                                    
+Immunomedics             25      6          0   2004  2016  CLIVATUZUMAB TETRAXETAN, LABETUZUMAB GOVITECAN, MILATUZUMAB, SACITUZUMAB GOVITECAN
+Schering-Plough          25     10          0   1997  2008                     DINACICLIB, INTERFERON ALFA-2B, LONAFARNIB, NAVARIXIN ANHYDROUS
+Array                    15      3          0   2007  2014                                                    ARRY-797, BINIMETINIB, FILANESIB
+ChemoCentryx             13      4          0   2004  2018                                              AVACOPAN, CCX354, ILACIRNON, VERCIRNON
+Wyeth                    13      8          1   1997  2006                                   BAZEDOXIFENE, BOSUTINIB, DESVENLAFAXINE, DIAZEPAM
+Horizon                  10      2          0   2013  2022                                                            DAXDILIMAB, TEPROTUMUMAB
+ImClone                   9      3          0   2000  2007                                                 CETUXIMAB, NECITUMUMAB, RAMUCIRUMAB
+Onyx                      7      2          0   2005  2011                                                              CARFILZOMIB, OPROZOMIB
+Acceleron                 5      1          0   2009  2012                                                                         SOTATERCEPT
+Arena                     4      2          1   2004  2020                                                                BUSPIRONE, ETRASIMOD
+Biohaven                  4      2          0   2011  2021                                                              RIMEGEPANT, ZAVEGEPANT
+Ambit                     3      2          0   2007  2010                                                                 AC-480, QUIZARTINIB
+Medivation                3      1          0   2007  2013                                                                        ENZALUTAMIDE
+Organon                   3      2          0   2006  2008                                                              ESMIRTAZAPINE, MK-8777
+Anacor                    2      1          0   2007  2011                                                                         CRISABOROLE
+AveXis                    2      1          2   2014  2017                                                            ONASEMNOGENE ABEPARVOVEC
+Cerevel                   2      1          1   2020  2023                                                                           DARIGABAT
+Ariad                     1      1          0   2016  2016                                                                        MOBOCERTINIB
+Celgene                   1      1          0   2012  2012                                                                        POMALIDOMIDE
+Chiron                    1      1          0   2004  2004                                                                           DOVITINIB
+Global Blood              1      1          1   2018  2018                                                                           VOXELOTOR
+ImmunoGen                 1      1          0   2018  2018                                                                  PIVEKIMAB SUNIRINE
+Loxo                      1      1          0   2017  2017                                                                       SELPERCATINIB
+MyoKardia                 1      1          0   2018  2018                                                                          DANICAMTIV
+Peloton                   1      1          0   2016  2016                                                                          BELZUTIFAN
+Principia                 1      1          0   2019  2019                                                                        TOLEBRUTINIB
+
+small-sponsor OR (H1 model) when these programmes are taken out of the top-20 group:
+      as typed                                0.67 (0.49-0.93), p=0.017
+      dropped                                 0.68 (0.49-0.94), p=0.020
+      counted as Industry, small (<=5 drugs)  0.69 (0.50-0.95), p=0.021
+      counted as Industry, mid (6-30)         0.67 (0.49-0.93), p=0.018
+      counted as Industry, large (>30)        0.67 (0.49-0.93), p=0.018
+
+E2. programmes of non-top-20 industry sponsors, by whether a top-20 company acquired the sponsor later (sponsor names in the acquisition list of sponsors.py, first trial before the acquisition year):
+       programmes  sponsors  any_support  dated_population  ex_post
+later                                                              
+0            5269      1397       0.0476            0.0222   0.0953
+1             752        74       0.0572            0.0239   0.1263
+  any ex-ante        acquired later vs not: OR 1.21 (0.74-1.97), p=0.441 | N=6021; events=294; clusters (drugs)=1902
+  dated population   acquired later vs not: OR 1.54 (0.79-3.02), p=0.206 | N=6019; events=135; clusters (drugs)=1901
+  ex post            acquired later vs not: OR 0.95 (0.67-1.34), p=0.757 | N=6021; events=597; clusters (drugs)=1902

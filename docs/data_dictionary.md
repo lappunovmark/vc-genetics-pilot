@@ -80,6 +80,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `owners_pairs.csv.gz` | Sponsor × owner pairs: owner CIK, name and class, first and last filing date, number of filings, `ambiguous` (two sponsor entities in one filing) |
 | `owners_review.csv`, `owners_registrant_review.csv` | Owner names by the number of sponsors they hold, with their class (the list read to write `pilot/investor_classes.tsv`); sponsor–registrant name matches with the hand decision |
 | `formd_stops.txt`, `formd_stops_rates.csv` | Trial stops by the capital the sponsor had raised in Form D offerings before the trial: stops per 1,000 active trial-years 2016–21 vs 2022–25 by band with Poisson rate ratios, and trial-year logits (`formd_stops.py`) |
+| `h1_mechanisms.txt` | Exploratory checks behind the small-sponsor gap in selection: support by type of evidence, novel and follow-on indications, partnerships, typical Phase 3 size of the indication, capital raised against the cost of one Phase 3, acquisitions |
 | `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the amount raised before the trial (bands and log-linear among filers), the dating sensitivities, the dated Open Targets measure and the US-only comparison |
 
 ## Other

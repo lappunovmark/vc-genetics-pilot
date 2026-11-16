@@ -166,6 +166,38 @@ first registration (an owner at the time of going public, not a later purchase);
 of the programme's first trial; a venture or crossover owner. Ownership is observed only for sponsors that became
 public, only above 5%, and only at or after the filing.
 
+## Exploratory checks behind the selection gap (`h1_mechanisms.py`)
+These checks test alternative explanations of the small-sponsor gap in selection. None was pre-specified: the splits
+were chosen after the result was known, so their p-values are descriptive. The models are the H1 logit with sparse
+control categories pooled (`pooling.py`), because the split outcomes are rarer than the H1 outcome.
+
+**Type of evidence.** Ex-ante support is split into support from dated population genetics (OTG, PICCOLO, Genebass:
+an association dated before the year of the first trial) and support from OMIM only. OMIM carries no dates in this
+pipeline and always counts as ex ante, so "OMIM only" is not a dated measure. The split is read from the programme's
+first phase entry; 12 supported programmes whose type at the first trial is unknown are left out.
+
+**Novel and follow-on.** A programme is novel when it is the drug's first indication, follow-on when the drug was
+already in trials for another indication (first trial in 2000 or later).
+
+**Partnerships.** Registry proxies only: a top-20 or any industry collaborator on the programme's first trial.
+Licensing and co-development deals are not in the registry.
+
+**Typical Phase 3 size.** For each indication, the median enrolment of the industry-led Phase 3 entry trials of other
+drugs: at least three distinct trials, none of them of the programme's own drug, trials stopped early excluded.
+Enrolment is the registry field (`fetch_ctgov_enrollment.py`: actual for completed trials, anticipated for ongoing
+ones), downloaded on 12 November 2026 and joined to the 17 October snapshot by trial number.
+
+**Capital against the cost of a Phase 3.** Form D capital raised before the year of the first trial (nominal USD)
+against the typical Phase 3 size times USD 41,117 per patient, the median over 138 pivotal trials of 59 drugs
+approved by the FDA in 2015–2016 (Moore et al., *JAMA Intern Med* 2018;178(11):1451–1457). A crude yardstick: it
+ignores Phase 1–2 costs, later rounds and public financing.
+
+**Acquisitions.** `sponsors.py` types a renamed subsidiary by its own name, but the registry moved some old records
+to the acquirer's name outright. They are found through research codes (`extract_molecule_synonyms.py`): a programme
+typed top-20 whose drug carries the code of a company that the same parent acquired only after the programme's first
+trial. This is a lower bound: only the acquisitions listed in `sponsors.py`, only drugs with a research code in
+ChEMBL.
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download
