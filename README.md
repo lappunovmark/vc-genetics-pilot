@@ -50,6 +50,12 @@ significant. Small biotechs are companies with at most 5 drugs (or at most 20 tr
 
 </details>
 
+**Further exploratory checks.** Other ways of marking venture backing (funding rounds, venture-backed IPOs,
+venture investors on the board), corporate against independent investors, trial stops by venture backing, the gap
+by type of drug, whether the drug acts in the direction the genetics points to, and what happens when genetic
+evidence is published are reported in [docs/results.md](docs/results.md). None of them changes the four findings
+above, and none was planned in advance.
+
 ## Data
 
 35,887 drug–disease projects (29,199 of them in diseases where human genetic data exist) from Open Targets Platform

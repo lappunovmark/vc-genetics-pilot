@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd owners mechanisms figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners mechanisms venture biology figure check lint test clean-data
 
 all: data results figure check
 
@@ -63,6 +63,22 @@ mechanisms:  # exploratory checks behind the selection gap; needs the Form D res
 	$(PY) pilot/fetch_ctgov_enrollment.py $(DATA)/ctgov_enrollment.csv
 	$(PY) pilot/extract_molecule_synonyms.py $(DATA)/ot $(DATA)/ot_molecule_synonyms.csv.gz
 	$(PY) pilot/h1_mechanisms.py $(RES) $(DATA)/ctgov_all.csv $(DATA)/ctgov_enrollment.csv $(DATA)/ot_molecule_synonyms.csv.gz
+
+venture:  # exploratory venture markers (SEC_USER_AGENT="Your Name you@example.org" make venture); needs make formd and make owners, the Crunchbase export of December 2015 in $(DATA)/crunchbase/cb2015 and Jay Ritter's IPO-age.xlsx in $(DATA)/ritter (neither is redistributed here)
+	$(PY) pilot/cb_models.py $(RES) $(DATA)/crunchbase/cb2015
+	$(PY) pilot/ritter_models.py $(RES) $(DATA)/ritter/IPO-age.xlsx $(RES)
+	$(PY) pilot/fetch_formd_people.py $(DATA)/formd
+	$(PY) pilot/formd_directors.py $(RES) $(DATA)/formd $(RES)
+	$(PY) pilot/vc_combined.py $(RES)
+	$(PY) pilot/cvc_models.py $(RES) $(DATA)/crunchbase/cb2015
+	$(PY) pilot/vc_stops.py $(DATA)/ctgov_all.csv $(RES) $(DATA)/crunchbase/cb2015 $(DATA)/ritter/IPO-age.xlsx $(DATA)/formd
+
+biology:  # exploratory: the gap by type of drug, direction of effect, arrival of genetic evidence (the last needs pyfixest and Python >= 3.10)
+	$(PY) pilot/h1_by_modality.py $(RES)
+	OT_DATASETS=evidence_gene_burden,evidence_eva,evidence_orphanet,evidence_gene2phenotype $(PY) pilot/fetch_opentargets.py $(DATA)/ot_gen
+	$(PY) pilot/extract_ot_direction.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction
+	$(PY) pilot/direction_models.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction
+	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data
 
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png

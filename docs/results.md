@@ -92,6 +92,102 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   0.91–1.47), and genetic support predicted advancement to the same degree (interaction 1.09, 0.60–1.97).
   Ownership is seen only for sponsors that became public and only for holders above 5%, at or after the filing, so
   the main marker is a property of the sponsor, not dated to the trial.
+* Venture rounds with named investors (`cb_models.py`; exploratory, Crunchbase export of December 2015, first
+  trials 2001–2016): 354 of 992 non-top-20 industry sponsor names are found in Crunchbase (396 candidate name
+  matches, 40 rejected, 10 of them by hand), 302 have a round of type "venture" and 189 a venture round that names a
+  venture or crossover fund. Programmes of sponsors with a venture round before the year of the first trial had
+  ex-ante support no more often (OR 0.74, 0.44–1.26; among sponsors found in Crunchbase 1.00, 0.47–2.15; with a named
+  fund 0.56, 0.29–1.08; with the dated Open Targets measure 0.73, 0.43–1.26), and their phase entries advanced no
+  more often (1.02, 0.83–1.27). Crunchbase coverage is incomplete and ends in 2015, so sponsors not found are not
+  known to be without venture money.
+* Venture backing at the IPO as an outside check (`ritter_models.py`; exploratory; Jay Ritter's list of US IPOs
+  1975–2025, version of 19 January 2026): 275 non-top-20 industry sponsors have a US IPO in the list and 232 of them
+  were venture-backed at the IPO. Against this flag the pilot's markers are precise but incomplete. The venture-owner
+  marker from Schedules 13D/13G finds 77% of Ritter's venture-backed IPOs, and Ritter confirms 94% of the sponsors it
+  marks (269 sponsors; dated at the IPO, for IPOs of 2001 or later: 82% found, 97% confirmed, 210 sponsors). A
+  Crunchbase venture round by the IPO year finds 91%, with 97% confirmed (98 sponsors). Nearly all sponsors that went
+  public were venture-backed, so the comparison among them rests on 43 sponsors without venture backing, many of
+  them specialty-pharma companies and subsidiaries: venture-backed sponsors had ex-ante support more often there (OR
+  2.10, 0.66–6.65; with the dated Open Targets measure 2.85, 1.15–7.06).
+* Venture investors on the board (`formd_directors.py`; exploratory): Form D names the issuer's directors, and
+  venture funds file Form D too and name their managers (13,868 distinct names). Of 50,312 outside directors of
+  biopharma issuers 11.5% carry the name of a venture-fund manager, against 2.7% of executive officers who are not
+  directors. Of the 801 sponsors whose Form D filings name people, 356 have a venture investor on the board (347 by
+  the name of a director, the others by a "care of" address of a venture firm). Where an outside flag exists the
+  marker is precise and incomplete: it finds 79% of Ritter's venture-backed IPOs and Ritter confirms 97% of the
+  sponsors it marks (124 sponsors), and it finds 58% of the sponsors with a Crunchbase venture round, 93% confirmed
+  (214 sponsors). Programmes of sponsors with a venture investor on the board before the first trial had ex-ante
+  support no more often (OR 0.74, 0.43–1.25; against other sponsors with a prior Form D 1.04, 0.48–2.24; dated Open
+  Targets measure 0.85, 0.45–1.60 and 1.57, 0.67–3.69), and their phase entries advanced no more often (0.92,
+  0.71–1.20).
+* The four venture markers together (`vc_combined.py`; exploratory): 506 of 1,436 non-top-20 industry sponsors are
+  venture-backed by at least one source (owners in Schedules 13D/13G, Ritter's IPO flag, a Crunchbase venture round,
+  a venture investor on the board in Form D), 274 by at least two, and 689 are seen in at least one source. The
+  selection estimate is 0.75 (0.54–1.03) against all other sponsors and 1.20 (0.72–1.99) among the sponsors seen
+  (two sources or more: 1.12, 0.71–1.79; dated Open Targets measure: 0.72, 0.53–0.98 and 1.01, 0.65–1.58). The sign
+  depends on the comparison group: venture-backed sponsors do no better than sponsors about whose financing nothing
+  is known, and no worse than the other sponsors that are seen. No comparison shows that they pick better-supported
+  targets.
+* Selection by type of drug (`h1_by_modality.py`; exploratory): the small-sponsor gap is not the same for every
+  type of drug. Among small molecules the programmes of small sponsors are supported about as often as those of
+  top-20 pharma (54 of 1,256, 4.3%, against 119 of 3,181, 3.7%; adjusted OR 0.85, 0.56–1.29). Among antibodies they
+  are supported less often (5 of 235, 2.1%, against 70 of 1,398, 5.0%; OR 0.23, 0.08–0.62; mid-size sponsors 2 of
+  416, OR 0.18, 0.04–0.77); for proteins the estimate is 0.55 (0.22–1.38), and for nucleic acid, gene and cell
+  therapies the shares are 5 of 48 against 11 of 39 (the model does not converge). The difference between types is
+  not established: small sponsor × biologic 0.61 (0.30–1.26), small sponsor × antibody 0.38 (0.13–1.08, p = 0.07),
+  and the antibody estimate rests on five supported programmes of small sponsors.
+* Direction of effect (`extract_ot_direction.py`, `direction_models.py`; exploratory): the support flag does not
+  say whether the drug moves the target the way the genetics suggests. Open Targets 26.09 assesses a direction for
+  gene burden, ClinVar, Orphanet and Gene2Phenotype evidence (not for GWAS) and for the drug's action. Of 29,191
+  programmes with insight, 1,177 have such evidence on a target and 370 are concordant (the drug's direction is the
+  one the genetics asks for). Concordant support is no rarer among small sponsors than at top-20 pharma: 42 of 1,906
+  programmes (2.2%) against 83 of 5,130 (1.6%), adjusted OR 1.25 (0.78–2.02); with evidence dated before the first
+  trial 14 against 27 programmes, 0.96 (0.47–1.97); without gene burden evidence 1.40 (0.81–2.44) and 1.04
+  (0.50–2.15). Large and mid-size sponsors outside the top 20 have it more often (1.97, 1.21–3.19, and 1.42,
+  0.93–2.18). These sources are rare-variant evidence, for which the main analysis found no gap either (support from
+  OMIM only: 0.95, 0.61–1.50); the gap sits in dated population genetics, which carries no direction assessment.
+  The 686 programmes with only discordant evidence are not interpreted: Open Targets assesses ClinVar for
+  loss-of-function variants only, and the genes most often discordant are oncogenes and ion channels whose diseases
+  come from gain of function.
+* Programme starts around the publication of genetic evidence (`evidence_arrival.py`; exploratory): of 53,064
+  target × indication pairs with a programme started in 2000–2025, 822 gained their first dated supporting
+  association in 2007–2022 and 52,012 were never supported (230 pairs with OMIM support are left out). Starts on a
+  pair decline over its life whether or not evidence arrives (a placebo evidence year five years early gives rate
+  ratio 0.71, 0.59–0.85), so the before-after change (0.81, 0.66–1.00) is not an effect of the evidence. The contrast
+  between sponsor groups removes that common decline: after the evidence year other industry sponsors start
+  programmes on the pair at 0.60 (0.37–0.95) of the rate of top-20 pharma, each measured against its own calendar
+  trend (0.61, 0.40–0.95 with area × year effects; 0.60, 0.38–0.95 with errors clustered by gene). The groups did not
+  diverge before the evidence year (leads 1.14 and 1.06; placebo of the contrast 0.94, 0.56–1.56). The result is
+  fragile: on pairs where both groups started programmes it is 0.70 (0.38–1.28), and for novel programmes (a drug's
+  first indication) there is no difference (0.97, 0.41–2.27). The raw rates on pairs with evidence fall by a similar
+  proportion in both groups; they differ because other industry sponsors started more programmes over time
+  elsewhere and top-20 pharma fewer.
+* Corporate and independent venture investors (`cvc_models.py`; exploratory): the venture markers do not separate
+  venture arms of drug companies from independent funds. *Private rounds* (Crunchbase, first trials 2001–2016): of
+  302 sponsors with a venture round, 83 have a corporate investor (70 a drug or medical-technology company or its
+  venture arm) and 186 an independent fund. Programmes with a corporate investor before the first trial were
+  supported in 5 of 218 cases (2.3%), those with independent funds only in 11 of 336 (3.3%) and those without a
+  venture round in 140 of 3,060 (4.6%). Corporate against independent backing: OR 0.53 (0.16–1.80) on 16 supported
+  programmes (drug and medical-technology companies only 0.55, 0.14–2.26). Against programmes without a venture
+  round the corporate group is lower (0.29, 0.10–0.86; with foundation-owned investors counted as corporate 0.27,
+  0.09–0.80), but not on the dated Open Targets measure (0.97, 0.43–2.17). Their phase entries advanced no more
+  often (0.83, 0.51–1.35, against independent funds). *Owners of public sponsors* (Schedules 13D/13G): of 782
+  registrants, 224 have a large drug company or its venture arm among the owners and 420 a venture fund (161
+  both). Corporate against venture-fund owners only: 0.94 (0.47–1.88; dated Open Targets measure 0.91, 0.48–1.71;
+  with owners dated by the year of the first trial 1.25, 0.56–2.81); advancement 0.87 (0.67–1.14). No comparison
+  shows that sponsors with corporate backing choose better-supported targets than sponsors backed by independent
+  funds, and every direct comparison is imprecise. One side result: entries of sponsors that had venture-fund owners
+  and no corporate owner by the year of the entry advanced more often than those of public sponsors without either
+  (1.60, 1.20–2.15); it was not looked for and is reported as found.
+* Venture backing and trial stops (`vc_stops.py`; exploratory; the same 86,273 trial-years): of 7,783 non-top-20
+  industry trial sponsors, 2,423 are seen in at least one of the four sources and 1,779 are venture-backed.
+  Financial or strategic stops per 1,000 active trial-years rose from 11.0 in 2016–21 to 27.7 in 2022–25 for
+  venture-backed sponsors (rate ratio 2.52, 2.09–3.03), from 10.4 to 22.5 for sponsors seen without a venture marker
+  (2.17, 1.49–3.17) and from 6.5 to 15.6 for sponsors not seen (2.40, 2.00–2.88). The rise is not larger for
+  venture-backed sponsors: the interaction is 1.17 (0.65–2.11) against the sponsors seen without a marker (1.18,
+  0.65–2.14 among seen sponsors only; 0.62, 0.31–1.25 among small sponsors; stops citing lack of funding 0.56,
+  0.16–1.96, on 113 events; any stop 1.12, 0.85–1.47). The stops rose for every kind of sponsor; the data do not
+  show that venture-backed sponsors were hit harder.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

@@ -1,6 +1,6 @@
 """Download the Open Targets Platform datasets the pilot needs (layout output/<dataset>/*.parquet, in use since
 release 26.03). The panel needs release 26.09 or later: the trial sponsor field of clinical_report was added in 26.09.
-Usage: python fetch_opentargets.py OUT_DIR   (env OT_RELEASE, default = latest)"""
+Usage: python fetch_opentargets.py OUT_DIR   (env OT_RELEASE, default = latest; env OT_DATASETS = other datasets)"""
 
 import os
 import re
@@ -20,6 +20,8 @@ DATASETS = [
     "target",
     "disease",
 ]
+if os.environ.get("OT_DATASETS"):  # other datasets of the same release, comma-separated
+    DATASETS = os.environ["OT_DATASETS"].split(",")
 S = requests.Session()
 
 

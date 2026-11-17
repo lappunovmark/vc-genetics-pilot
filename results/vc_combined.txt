@@ -1,0 +1,52 @@
+One venture flag from four sources (exploratory; see the module docstring)
+sponsors (non-top-20 industry, first trial 2001+): 1436; seen in at least one source: 689; venture-backed by at least one: 506; by at least two: 274
+by source (sponsors seen / venture-backed): owners 474 / 273; ipo 262 / 224; round 339 / 289; board 441 / 205
+
+Programmes (insight indications, first trial 2001+): 5906
+                n  sponsors  supported  gs_ante  gs_post
+seen vc_any                                             
+0    0       2619       747        158   0.0603   0.1142
+1    0        719       183         30   0.0417   0.0918
+     1       2568       506        105   0.0409   0.0845
+====================================================================================================
+H1: ex-ante support ~ venture-backed by any source (all non-top-20 industry)
+y ~ vc_any + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; events=293; clusters (drugs)=1886; converged=True
+          Coef.  Std.Err.    P>|z|   [0.025  0.975]     OR    OR_lo    OR_hi
+vc_any -0.29036   0.16172  0.07258 -0.60732  0.0266  0.748  0.54481  1.02696
+====================================================================================================
+H1, sponsors seen in at least one source: ~ venture-backed by any source
+y ~ vc_any + C(tier) + C(yb) + C(area) + C(modality)
+N=3287; events=135; clusters (drugs)=1131; converged=True
+        Coef.  Std.Err.    P>|z|   [0.025   0.975]       OR   OR_lo    OR_hi
+vc_any  0.179   0.26028  0.49163 -0.33114  0.68914  1.19602  0.7181  1.99201
+====================================================================================================
+H1, sponsors seen in at least one source: ~ venture-backed by at least two sources
+y ~ vc_two + C(tier) + C(yb) + C(area) + C(modality)
+N=3287; events=135; clusters (drugs)=1131; converged=True
+         Coef.  Std.Err.    P>|z|   [0.025   0.975]       OR    OR_lo    OR_hi
+vc_two  0.1164   0.23637  0.62241 -0.34688  0.57967  1.12344  0.70689  1.78545
+====================================================================================================
+H1, small sponsors only: ~ venture-backed by any source
+y ~ vc_any + C(yb) + C(area) + C(modality)
+N=1886; events=82; clusters (drugs)=837; converged=True
+          Coef.  Std.Err.    P>|z|  [0.025   0.975]       OR   OR_lo    OR_hi
+vc_any -0.34834   0.28698  0.22482 -0.9108  0.21412  0.70586  0.4022  1.23878
+====================================================================================================
+H1, small sponsors seen in at least one source
+y ~ vc_any + C(yb) + C(area) + C(modality)
+N=1051; events=40; clusters (drugs)=471; converged=True
+          Coef.  Std.Err.    P>|z|   [0.025   0.975]       OR    OR_lo    OR_hi
+vc_any -0.40675   0.43813  0.35321 -1.26546  0.45196  0.66581  0.28211  1.57139
+====================================================================================================
+H1 [dated OT evidence]: ~ venture-backed by any source (all non-top-20 industry)
+y ~ vc_any + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; events=290; clusters (drugs)=1886; converged=True
+          Coef.  Std.Err.    P>|z|   [0.025   0.975]       OR    OR_lo    OR_hi
+vc_any -0.33232   0.15918  0.03682 -0.64431 -0.02034  0.71726  0.52503  0.97987
+====================================================================================================
+H1 [dated OT evidence], sponsors seen in at least one source
+y ~ vc_any + C(tier) + C(yb) + C(area) + C(modality)
+N=3287; events=136; clusters (drugs)=1131; converged=True
+          Coef.  Std.Err.    P>|z|   [0.025   0.975]       OR    OR_lo    OR_hi
+vc_any  0.00879   0.22738  0.96916 -0.43687  0.45446  1.00883  0.64605  1.57532

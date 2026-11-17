@@ -1,0 +1,16 @@
+first_sponsor,name,date,decision,reason
+"Adlai Nortye Biopharma Co., Ltd.",Adlai Nortye Ltd.,20230929,accept,same company
+Alcon Research,Alcon Inc,20020320,accept,same group
+BeyondSpring Pharmaceuticals Inc.,Beyondspring Inc,20170309,accept,same company
+Galecto Biotech AB,Galecto Inc,20201029,accept,same group (holding company)
+I-Mab Biopharma US Limited,I-MAB,20200117,accept,same group
+"Kadmon Corporation, LLC",Kadmon Holdings LLC,20160727,accept,same group (holding company)
+Optinose US Inc.,Optinose Inc,20171013,accept,same group
+"Scholar Rock, Inc.",Scholar Rock Holding Corp,20180524,accept,same group (holding company)
+Stryker Biotech,STRYKER,19790502,accept,same group (subsidiary)
+Warner Chilcott,Warner Chilcott Holdings Co,20060920,accept,same group (holding company)
+XOMA (US) LLC,XOMA,19860606,accept,same group
+Io Therapeutics,IO Biotech Inc,20211105,reject,different company
+Voyager Pharmaceutical Corporation,Voyager Therapeutics Inc,20151111,reject,different company
+"Telios Pharma, Inc.",Telios Pharmaceuticals,19920319,reject,different company (the sponsor was founded in 2016)
+"Apimeds, Inc.",Apimeds Pharmaceuticals US,20250509,reject,US subsidiary of the sponsor; relation at the time of the trial not verified

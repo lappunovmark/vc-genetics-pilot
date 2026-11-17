@@ -1,0 +1,103 @@
+Trial stops of venture-backed sponsors around 2022 (exploratory; see the module docstring)
+non-top-20 industry sponsors: 7783; seen in at least one source: 2423; venture-backed: 1779 (round 1190 / 1033; ipo 629 / 526; board 1726 / 896; owners 776 / 423)
+                                                       trials  sponsors
+vcg                     group                                          
+seen, no venture marker Industry, large (>200 trials)     500         3
+                        Industry, mid (21-200)           1007        37
+                        Industry, small (<=20)           2008       555
+venture-backed          Industry, large (>200 trials)    1323         6
+                        Industry, mid (21-200)           3983       135
+                        Industry, small (<=20)           6418      1442
+not seen                Industry, large (>200 trials)    1776        10
+                        Industry, mid (21-200)          10466       237
+                        Industry, small (<=20)          14345      4626
+
+Stops per 1,000 active trial-years, 2016-2021 vs 2022-2025:
+                  group  pre_trial_years  post_trial_years  fin_t_pre  fin_t_post  fin_t_rate_pre  fin_t_rate_post  fin_t_rr  fin_t_rr_lo  fin_t_rr_hi  nofund_t_pre  nofund_t_post  nofund_t_rate_pre  nofund_t_rate_post  nofund_t_rr  nofund_t_rr_lo  nofund_t_rr_hi  any_t_pre  any_t_post  any_t_rate_pre  any_t_rate_post  any_t_rr  any_t_rr_lo  any_t_rr_hi
+seen, no venture marker             4246              3108         44          70          10.363           22.523     2.173        1.491        3.169             4             12              0.942               3.861        4.098           1.322          12.708        230         216          54.169           69.498     1.283        1.066        1.545
+         venture-backed            15658             11139        172         308          10.985           27.651     2.517        2.089        3.033            17             28              1.086               2.514        2.315           1.267           4.230        881         884          56.265           79.361     1.410        1.285        1.548
+               not seen            24931             27191        162         424           6.498           15.593     2.400        2.002        2.876            14             38              0.562               1.398        2.489           1.348           4.593        903        1147          36.220           42.183     1.165        1.067        1.271
+====================================================================================================
+financial or strategic stop per trial-year ~ venture group x post-2022 (reference: seen, no venture marker; pre-2022)
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=86273 trial-years; clusters (sponsors)=6176; events=1180
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.0426    0.2690  0.8742 -0.4847  0.5698  1.0435  0.6159  1.7679
+C(vcg)[T.not seen]            -0.4666    0.2657  0.0791 -0.9874  0.0542  0.6271  0.3725  1.0557
+post                           0.9331    0.2723  0.0006  0.3994  1.4667  2.5423  1.4909  4.3350
+C(vcg)[T.venture-backed]:post  0.1564    0.3015  0.6039 -0.4345  0.7473  1.1693  0.6476  2.1113
+C(vcg)[T.not seen]:post        0.0835    0.2982  0.7796 -0.5010  0.6679  1.0870  0.6059  1.9501
+====================================================================================================
+financial or strategic stop, sponsors seen in a source only
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=34151 trial-years; clusters (sponsors)=1961; events=594
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.0462    0.2693  0.8638 -0.4816  0.5740  1.0473  0.6178  1.7753
+post                           0.9329    0.2784  0.0008  0.3872  1.4785  2.5418  1.4729  4.3864
+C(vcg)[T.venture-backed]:post  0.1685    0.3021  0.5769 -0.4235  0.7606  1.1836  0.6548  2.1395
+====================================================================================================
+financial or strategic stop, small sponsors (up to 20 trials) only
+y ~ C(vcg) * post + C(phase) + C(yb)
+N=49418 trial-years; clusters (sponsors)=5756; events=683
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.5837    0.3089  0.0588 -0.0217  1.1891  1.7927  0.9785  3.2841
+C(vcg)[T.not seen]            -0.0553    0.3139  0.8602 -0.6706  0.5600  0.9462  0.5114  1.7507
+post                           1.4587    0.3228  0.0000  0.8261  2.0913  4.3003  2.2843  8.0955
+C(vcg)[T.venture-backed]:post -0.4819    0.3596  0.1802 -1.1867  0.2229  0.6176  0.3052  1.2497
+C(vcg)[T.not seen]:post       -0.4525    0.3621  0.2115 -1.1622  0.2572  0.6360  0.3128  1.2934
+====================================================================================================
+stop citing lack of funding per trial-year ~ venture group x post-2022 (reference: seen, no venture marker; pre-2022)
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=86273 trial-years; clusters (sponsors)=6176; events=113
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+C(vcg)[T.venture-backed]       0.2158    0.5672  0.7036 -0.8959  1.3275  1.2409  0.4082   3.7718
+C(vcg)[T.not seen]            -0.4001    0.6134  0.5142 -1.6024  0.8022  0.6703  0.2014   2.2304
+post                           1.6451    0.5445  0.0025  0.5779  2.7123  5.1816  1.7823  15.0640
+C(vcg)[T.venture-backed]:post -0.5856    0.6416  0.3613 -1.8431  0.6718  0.5568  0.1583   1.9578
+C(vcg)[T.not seen]:post       -0.4564    0.6697  0.4955 -1.7691  0.8562  0.6335  0.1705   2.3542
+====================================================================================================
+stop citing lack of funding, sponsors seen in a source only
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=34151 trial-years; clusters (sponsors)=1961; events=61
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+C(vcg)[T.venture-backed]       0.1847    0.5677  0.7450 -0.9280  1.2974  1.2028  0.3953   3.6597
+post                           1.4481    0.5401  0.0073  0.3896  2.5066  4.2549  1.4764  12.2628
+C(vcg)[T.venture-backed]:post -0.5744    0.6421  0.3711 -1.8329  0.6842  0.5631  0.1600   1.9821
+====================================================================================================
+stop citing lack of funding, small sponsors (up to 20 trials) only
+y ~ C(vcg) * post + C(phase) + C(yb)
+N=49418 trial-years; clusters (sponsors)=5756; events=101
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+C(vcg)[T.venture-backed]       0.1626    0.5615  0.7721 -0.9379  1.2632  1.1766  0.3914   3.5365
+C(vcg)[T.not seen]            -0.5527    0.6257  0.3771 -1.7790  0.6737  0.5754  0.1688   1.9614
+post                           1.5138    0.5385  0.0049  0.4584  2.5692  4.5440  1.5815  13.0557
+C(vcg)[T.venture-backed]:post -0.6264    0.6477  0.3335 -1.8959  0.6431  0.5345  0.1502   1.9024
+C(vcg)[T.not seen]:post       -0.2679    0.6884  0.6971 -1.6171  1.0813  0.7650  0.1985   2.9484
+====================================================================================================
+any stop per trial-year ~ venture group x post-2022 (reference: seen, no venture marker; pre-2022)
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=86273 trial-years; clusters (sponsors)=6176; events=4261
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.0589    0.1160  0.6113 -0.1684  0.2863  1.0607  0.8450  1.3315
+C(vcg)[T.not seen]            -0.3721    0.1118  0.0009 -0.5912 -0.1530  0.6893  0.5536  0.8581
+post                           0.4993    0.1216  0.0000  0.2610  0.7376  1.6476  1.2982  2.0910
+C(vcg)[T.venture-backed]:post  0.1108    0.1395  0.4269 -0.1626  0.3842  1.1172  0.8500  1.4685
+C(vcg)[T.not seen]:post       -0.1011    0.1349  0.4537 -0.3656  0.1634  0.9038  0.6938  1.1775
+====================================================================================================
+any stop, sponsors seen in a source only
+y ~ C(vcg) * post + C(group) + C(phase) + C(yb)
+N=34151 trial-years; clusters (sponsors)=1961; events=2211
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.0498    0.1174  0.6714 -0.1803  0.2799  1.0511  0.835  1.3230
+post                           0.4001    0.1240  0.0013  0.1570  0.6431  1.4919  1.170  1.9024
+C(vcg)[T.venture-backed]:post  0.1126    0.1409  0.4244 -0.1637  0.3888  1.1192  0.849  1.4753
+====================================================================================================
+any stop, small sponsors (up to 20 trials) only
+y ~ C(vcg) * post + C(phase) + C(yb)
+N=49418 trial-years; clusters (sponsors)=5756; events=2592
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(vcg)[T.venture-backed]       0.1158    0.1244  0.3519 -0.1280  0.3595  1.1227  0.8799  1.4326
+C(vcg)[T.not seen]            -0.2840    0.1216  0.0195 -0.5223 -0.0458  0.7527  0.5931  0.9553
+post                           0.5729    0.1485  0.0001  0.2819  0.8638  1.7733  1.3256  2.3723
+C(vcg)[T.venture-backed]:post  0.1083    0.1674  0.5177 -0.2198  0.4364  1.1144  0.8027  1.5472
+C(vcg)[T.not seen]:post       -0.1073    0.1623  0.5087 -0.4254  0.2109  0.8983  0.6535  1.2348

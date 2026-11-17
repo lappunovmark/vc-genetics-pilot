@@ -1,0 +1,13 @@
+source,lead_sponsor,name,decision,reason
+round,"BioLite, Inc.",BioLite,reject,namesake: the Crunchbase company makes camp stoves
+round,NuvOx LLC,NuVox,reject,namesake: the Crunchbase company is a public-relations firm
+round,"Glia, LLC",Glia,reject,namesake: the Crunchbase company is a consumer-internet firm
+round,Excelsior,Excelsior,reject,generic name; the Crunchbase record has no details
+round,Biomedica Management Corporation,Biomedica Management,reject,not verified (the Crunchbase record is filed under education)
+round,Synthonics Inc,Synthonics,reject,namesake: the Crunchbase company is a software firm founded in 1993
+round,Novavax,Novavax AB,reject,"subsidiary acquired in 2013 (formerly Isconova); the parent is matched under its own name"
+ipo,Axogen Corporation,Axogen Limited,reject,different company (IPO of 1996)
+ipo,"GeneMedicine Co., Ltd.",GeneMedicine,reject,different company (US IPO of 1994; the sponsor's first trial is in 2024)
+ipo,Remedy,Remedy,reject,namesake (IPO of 1995; the sponsor's first trial is in 2021)
+ipo,Transcend Therapeutics,Transcend Therapeutics Inc,reject,namesake (IPO of 1997; the sponsor's first trial is in 2023)
+ipo,Atlantic Pharmaceuticals Ltd,Atlantic Pharmaceuticals,reject,different company (US IPO of 1995); not verified

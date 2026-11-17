@@ -1,0 +1,133 @@
+Direction of effect: does the drug act the way the genetics points? (exploratory; see the module docstring)
+evidence rows with a direction and a MeSH indication: 20445 (of 28729 gene x disease x source x direction rows; 87.4% mapped)
+programmes with insight: 29191; with directional evidence on a target: 1177; concordant 370; discordant 686; drug direction unknown 121
+
+programme x target x evidence rows: what the genetics asks for (need) against what the drug does:
+does                 GoF  LoF  unknown
+source         need                   
+eva            GoF   267  942      206
+gene2phenotype GoF    45   43       19
+gene_burden    GoF   116  232       43
+               LoF     2   81        3
+orphanet       GoF    16   39        4
+               LoF     3  107        2
+
+overlap with the pilot's support flag (ever supported, gs_post):
+conc_post  False       True 
+disc_post  False True  False
+gs_post                     
+False      26452   490   101
+True        1683   196   269
+
+by sponsor tier:
+                             programmes  directional  concordant  discordant  directional_ante  concordant_ante  discordant_ante  concordant_%  discordant_%  concordant_of_known_%
+tier                                                                                                                                                                               
+Top-20 pharma                      5130          276          83         159                66               27               20          1.62          3.10                   34.3
+Industry, large (>30)              1756          110          50          57                35               17               15          2.85          3.25                   46.7
+Industry, mid (6-30)               2359          157          52          77                72               31               21          2.20          3.26                   40.3
+Industry, small (<=5 drugs)        1906          109          42          52                33               14               14          2.20          2.73                   44.7
+Academic/other                    15095          459         116         307               152               49               76          0.77          2.03                   27.4
+Government                         2945           66          27          34                 7                4                2          0.92          1.15                   44.3
+====================================================================================================
+concordant support, evidence of any date
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=370; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.9673  1.2135  3.1891  0.0060
+C(tier)[T.Industry, mid (6-30)]         1.4222  0.9286  2.1781  0.1054
+C(tier)[T.Industry, small (<=5 drugs)]  1.2537  0.7766  2.0238  0.3548
+C(tier)[T.Academic/other]               0.5511  0.3812  0.7965  0.0015
+C(tier)[T.Government]                   0.6681  0.4141  1.0778  0.0983
+====================================================================================================
+discordant evidence only, any date
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=686; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.0919  0.7354  1.6213  0.6627
+C(tier)[T.Industry, mid (6-30)]         0.9764  0.6750  1.4123  0.8989
+C(tier)[T.Industry, small (<=5 drugs)]  1.0588  0.7060  1.5877  0.7824
+C(tier)[T.Academic/other]               0.5944  0.4568  0.7735  0.0001
+C(tier)[T.Government]                   0.2968  0.1898  0.4641  0.0000
+====================================================================================================
+concordant support before the first trial
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=142; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.9017  1.0219  3.5391  0.0425
+C(tier)[T.Industry, mid (6-30)]         2.0163  1.1327  3.5895  0.0172
+C(tier)[T.Industry, small (<=5 drugs)]  0.9594  0.4667  1.9724  0.9103
+C(tier)[T.Academic/other]               0.5345  0.3151  0.9065  0.0201
+C(tier)[T.Government]                   0.3593  0.1217  1.0608  0.0639
+====================================================================================================
+concordant rather than discordant, programmes with a known direction
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=1056; events=370; clusters (drugs)=491; NOT CONVERGED
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.0809  0.4967  2.3523  0.8445
+C(tier)[T.Industry, mid (6-30)]         1.2642  0.5964  2.6800  0.5408
+C(tier)[T.Industry, small (<=5 drugs)]  0.8190  0.3948  1.6988  0.5917
+C(tier)[T.Academic/other]               0.6013  0.3542  1.0205  0.0595
+C(tier)[T.Government]                   1.5987  0.7649  3.3414  0.2123
+
+####################################################################################################
+WITHOUT GENE BURDEN EVIDENCE (ClinVar, Orphanet, Gene2Phenotype only)
+####################################################################################################
+                             programmes  directional  concordant  discordant  directional_ante  concordant_ante  discordant_ante  concordant_%  discordant_%  concordant_of_known_%
+tier                                                                                                                                                                               
+Top-20 pharma                      5130          246          57         155                65               26               20          1.11          3.02                   26.9
+Industry, large (>30)              1756           93          35          55                34               16               15          1.99          3.13                   38.9
+Industry, mid (6-30)               2359          132          40          65                70               30               20          1.70          2.76                   38.1
+Industry, small (<=5 drugs)        1906           92          31          48                33               14               14          1.63          2.52                   39.2
+Academic/other                    15095          392          91         267               147               49               71          0.60          1.77                   25.4
+Government                         2945           62          26          31                 7                4                2          0.88          1.05                   45.6
+====================================================================================================
+no gene burden: concordant support, evidence of any date
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=280; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.9036  1.1223  3.2289  0.0169
+C(tier)[T.Industry, mid (6-30)]         1.7329  1.0820  2.7754  0.0221
+C(tier)[T.Industry, small (<=5 drugs)]  1.4033  0.8058  2.4440  0.2313
+C(tier)[T.Academic/other]               0.5906  0.3914  0.8913  0.0121
+C(tier)[T.Government]                   0.8237  0.5003  1.3559  0.4456
+====================================================================================================
+no gene burden: discordant evidence only, any date
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=621; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.1042  0.7394  1.6490  0.6281
+C(tier)[T.Industry, mid (6-30)]         0.8887  0.6201  1.2736  0.5203
+C(tier)[T.Industry, small (<=5 drugs)]  0.9950  0.6487  1.5263  0.9817
+C(tier)[T.Academic/other]               0.5868  0.4542  0.7580  0.0000
+C(tier)[T.Government]                   0.3115  0.2023  0.4798  0.0000
+====================================================================================================
+no gene burden: concordant support before the first trial
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; events=139; clusters (drugs)=3240
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        1.8810  0.9917  3.5678  0.0531
+C(tier)[T.Industry, mid (6-30)]         2.0919  1.1645  3.7580  0.0135
+C(tier)[T.Industry, small (<=5 drugs)]  1.0388  0.5026  2.1473  0.9181
+C(tier)[T.Academic/other]               0.5623  0.3284  0.9627  0.0359
+C(tier)[T.Government]                   0.3701  0.1248  1.0977  0.0732
+====================================================================================================
+no gene burden: concordant rather than discordant, programmes with a known direction
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=901; events=280; clusters (drugs)=450; NOT CONVERGED
+                                            OR   OR_lo   OR_hi   P>|z|
+C(tier)[T.Industry, large (>30)]        0.7964  0.3795  1.6712  0.5472
+C(tier)[T.Industry, mid (6-30)]         1.8307  0.8786  3.8148  0.1065
+C(tier)[T.Industry, small (<=5 drugs)]  1.0483  0.4935  2.2265  0.9024
+C(tier)[T.Academic/other]               0.9489  0.5362  1.6793  0.8572
+C(tier)[T.Government]                   2.1370  1.0137  4.5051  0.0460
+
+small sponsors vs top-20 pharma (adjusted odds ratios):
+  concordant support, evidence of any date: small sponsors vs top-20 pharma 1.25 (0.78-2.02), p=0.355
+  discordant evidence only, any date: small sponsors vs top-20 pharma 1.06 (0.71-1.59), p=0.782
+  concordant support before the first trial: small sponsors vs top-20 pharma 0.96 (0.47-1.97), p=0.910
+  concordant rather than discordant (known direction): small vs top-20 0.82 (0.39-1.70), p=0.592 (the model did not converge)
+without gene burden evidence:
+  concordant support, evidence of any date: small sponsors vs top-20 pharma 1.40 (0.81-2.44), p=0.231
+  discordant evidence only, any date: small sponsors vs top-20 pharma 1.00 (0.65-1.53), p=0.982
+  concordant support before the first trial: small sponsors vs top-20 pharma 1.04 (0.50-2.15), p=0.918
+  concordant rather than discordant (known direction): small vs top-20 1.05 (0.49-2.23), p=0.902 (the model did not converge)

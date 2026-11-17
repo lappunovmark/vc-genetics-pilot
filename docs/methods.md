@@ -198,6 +198,108 @@ typed top-20 whose drug carries the code of a company that the same parent acqui
 trial. This is a lower bound: only the acquisitions listed in `sponsors.py`, only drugs with a research code in
 ChEMBL.
 
+## Venture rounds from Crunchbase (`cb_models.py`, exploratory)
+Form D does not name investors and Schedules 13D/13G cover only public companies. The Crunchbase data export of
+4 December 2015 (CSV copy at github.com/notpeter/crunchbase-data; Crunchbase data under CC BY-NC, not redistributed
+here) lists funding rounds by type with dates and investors. Sponsor names are matched to Crunchbase company names
+on the normalised name; a candidate is accepted when the names are also equal once only legal forms are removed or
+when the company is in a life-science or health category, and the candidates were then read by hand
+(`pilot/cb_decisions.csv`; every candidate with its decision in `results/cb_link_review.csv`). A sponsor has a
+venture round when a round of type "venture" is dated before the year of the programme's first trial; "named fund"
+requires an investor that is an organisation classified as venture capital or life-science crossover by
+`pilot/investor_classes.tsv`. Rounds are observed to December 2015, so the sample is first trials in 2001–2016.
+Coverage is incomplete: a sponsor that is not found is not known to be without venture money, which is why the
+comparison among sponsors found in Crunchbase is reported next to the comparison with all other sponsors.
+
+## Venture backing at the IPO (`ritter_models.py`, exploratory)
+Jay R. Ritter's file "Founding dates for IPOs from 1975–2025" (University of Florida, version of 19 January 2026)
+lists US IPOs with a flag for venture-capital backing (1; 2 for the subset he calls growth capital), compiled from
+prospectuses and commercial sources. Sponsor names are matched to IPO names on the normalised name; a candidate is
+accepted when the names are also equal once legal forms are removed or when the IPO name has a life-science word,
+of several IPOs under one name the one closest in time to the sponsor's first trial is kept, and the candidates were
+read by hand (`pilot/ritter_decisions.csv`; every candidate in `results/ritter_link_review.csv`). The flag exists
+only for sponsors that went public in the US. It is used to check the pilot's own venture markers (share of
+Ritter's venture-backed IPOs that a marker finds; share of a marker's sponsors that Ritter confirms) and, combined
+with them, as a sponsor-level flag "venture-backed by any source". That flag is not dated to the trial.
+
+## Venture investors on the board (`fetch_formd_people.py`, `formd_directors.py`, exploratory)
+Form D names the issuer's executive officers, directors and promoters. Venture-capital funds file Form D as pooled
+investment funds of type venture capital and name the people who manage them. A sponsor's filing has a venture
+investor on the board when a director who is not an executive officer carries the name (first word of the first
+name and last name) of a person named in a venture fund's filing, or when a related person's address is "care of"
+an investor classified as venture capital or life-science crossover by `pilot/investor_classes.tsv`. A sponsor's
+filings are those of its Form D issuers (`formd_link.py`). Two people can share a name: the share of executive
+officers who are not directors and still match (2.7%, against 11.5% of outside directors) is a rough bound on chance
+matches, and the marker is checked against Ritter's flag and Crunchbase. The marker is dated: a programme counts
+when such a filing precedes the year of its first trial (first trials after 2009, as for the other Form D models).
+
+## One venture flag from four sources (`vc_combined.py`, exploratory)
+A sponsor is venture-backed if at least one of the four markers says so (owners in Schedules 13D/13G, Ritter's
+IPO flag, a Crunchbase venture round, a venture investor on the board in Form D) and is "seen" if at least one
+source could have shown it. The flag is a property of the sponsor, not dated to the trial. Sponsors that are not
+seen are not known to be without venture money, so the comparison among seen sponsors is reported next to the
+comparison with all other sponsors.
+
+## Corporate and independent venture investors (`cvc_models.py`, exploratory)
+Corporate investors are named by `pilot/corporate_investors.tsv` (regular expressions written after reading the
+investor names by frequency; first match wins): venture arms and direct investments of large drug and
+medical-technology companies, other drug companies, corporations outside drug development, and the investment arms
+of foundations that own drug companies (Novo Holdings, Lundbeckfonden, Wellcome Trust), which are kept apart and
+counted as corporate only in a sensitivity run. Independent funds are investors classified as venture capital or
+life-science crossover by `pilot/investor_classes.tsv` that no corporate rule names. In private rounds a programme
+has a corporate investor when a Crunchbase venture round dated before the year of its first trial names one, and
+independent funds only when such a round names an independent fund and no corporate investor. For public sponsors
+the corporate owner is a large drug company or its venture arm named with the sponsor in a Schedule 13D/13G; only
+large companies count, because the index does not say which party of a filing is the owner. A large company also
+files when it buys the sponsor, so the undated marker mixes minority stakes with later acquisitions, and a dated
+variant keeps owners whose first filing is no later than the year of the programme's first trial, for sponsors
+public by then. Models are the selection and advancement logits of `cb_models.py` and `owners_models.py`.
+
+## Venture backing and trial stops (`vc_stops.py`, exploratory)
+The trial-year panel of `formd_stops.py` (industry Phase 1–3 drug trials of non-top-20 sponsors at risk in
+2016–2025) with the sponsor marked as venture-backed by any of the four sources. The programme panel covers about
+three fifths of these trials, so every trial sponsor is matched again by name to Crunchbase, Ritter's list and the
+Form D issuers: a match needs the same name once legal forms are removed; the links and hand rejections of the
+programme panel are kept, and the new links are listed in `vc_stops_link_review.csv` with hand rejections in
+`pilot/vc_stops_decisions.csv`. Owners in Schedules 13D/13G are known for sponsors of the programme panel only. The
+flag is a property of the sponsor and is not dated to the trial. Models: logit on trial-years of venture group ×
+post-2022 with sponsor size band, phase and start period, errors clustered by sponsor; reference group: sponsors
+seen in a source without a venture marker.
+
+## Selection by type of drug (`h1_by_modality.py`, exploratory)
+The selection logit of `h1_mechanisms.py` (first-trial period and therapeutic area as controls, errors clustered by
+drug, sparse categories pooled) fitted within each type of drug: small molecule; antibody, with antibody-drug
+conjugates; protein, with enzymes; nucleic acid, gene and cell therapies. One model with all types tests whether
+the gap differs between small molecules and biologics (sponsor tier × biologic), and one with small molecules and
+antibodies only (sponsor tier × antibody). The split was chosen after the H1 result was known.
+
+## Direction of effect (`extract_ot_direction.py`, `direction_models.py`, exploratory)
+Open Targets gives evidence a direction on the target (loss or gain of function) and on the trait (risk or
+protective). It does so for gene burden (taken as loss of function; trait direction from the sign of the effect),
+ClinVar (loss-of-function variants only), Orphanet and Gene2Phenotype (taken as risk), and for drugs in the clinic
+(inhibitors loss of function, activators gain of function); GWAS evidence has no assessment. Evidence is taken
+from release 26.09 with the score floors of `gs_ot_dated.py` and mapped to MeSH with the panel's disease map. The
+genetics asks for a drug that lowers the target's function when loss of function protects or gain of function is
+a risk, and for one that raises it otherwise. A programme is concordant when, for a target and an indication with
+MeSH similarity ≥ 0.8, the drug's direction is the one asked for; ex ante uses the Open Targets evidence date
+(for ClinVar the date of the record), so ex-ante counts are conservative. "Discordant" is printed but not
+interpreted: a disease caused by gain of function is invisible to an assessment of loss-of-function variants.
+Models are the selection logit with concordant support as the outcome, with and without gene burden evidence.
+
+## Programme starts around the publication of genetic evidence (`evidence_arrival.py`, exploratory)
+Unit: a target × indication pair (the gene a drug acts on × the MeSH indication) with at least one programme started
+in 2000–2025 in an indication with genetic insight. Evidence year: the earliest year of a supporting association
+from a dated source (Open Targets Genetics with L2G share ≥ 0.5, PICCOLO, Genebass), support defined as in
+`gensup.py`; pairs with OMIM support are left out because OMIM carries no dates here; pairs never supported are the
+comparison group. Outcome: programmes whose first trial started in the year, by the tier of the first sponsor (a
+drug with several targets counts once per pair). Model: Poisson with pair and year fixed effects, errors clustered
+by indication; `post` = year after the evidence year. Because starts on a pair decline over its life, the
+before-after change of one group is not an effect of the evidence (placebo with the evidence year moved five years
+earlier). The contrast between sponsor groups uses two outcomes per pair-year with pair × group and year × group
+effects, so it is measured against each group's own calendar trend; it rests on the groups following the same path
+without the evidence (checked by the leads and by the placebo of the contrast). None of this was pre-specified.
+Run under Python 3.13 with pyfixest; the library does not run under the Python 3.9 of the author's Mac.
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download

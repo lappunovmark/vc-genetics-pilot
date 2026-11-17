@@ -1,0 +1,106 @@
+Crunchbase export of 4 December 2015: venture rounds of trial sponsors (exploratory; see the module docstring)
+sponsor names (non-top-20 industry, first trial or phase entry 2001-2016): 992; candidate name matches: 396; accepted: 356 (same name 331, life-science category 25); rejected: 40 (by hand 10)
+sponsors found in Crunchbase: 354; with a venture round: 302; with a venture round that names a venture or crossover fund: 189; with any equity round: 323
+
+Programmes (insight indications, first trial 2001-2016, non-top-20 industry): 3809
+                                n  in_crunchbase  vc_round  vc_named  any_round  gs_ante
+tier                                                                                    
+Industry, large (>30)        1206         0.1177    0.0390    0.0290     0.0464   0.0489
+Industry, mid (6-30)         1492         0.4605    0.2755    0.1957     0.2976   0.0436
+Industry, small (<=5 drugs)  1111         0.4329    0.2619    0.1818     0.2754   0.0387
+ex-ante support by Crunchbase x venture round before the first trial:
+                n  supported  gs_ante  gs_post
+cb vc_round                                   
+0  0         2499        120   0.0480   0.1224
+1  0          561         20   0.0357   0.1230
+   1          749         27   0.0360   0.0654
+====================================================================================================
+H1: ex-ante support at first trial ~ venture round before the first trial
+y ~ vc_round + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round -0.2944    0.2688  0.2734 -0.8213  0.2324  0.7449  0.4398  1.2617
+====================================================================================================
+H1: ~ venture round + found in Crunchbase
+y ~ vc_round + cb + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round -0.1021    0.3651  0.7797 -0.8177  0.6134  0.9029  0.4414  1.8467
+cb       -0.2376    0.3308  0.4726 -0.8860  0.4107  0.7885  0.4123  1.5079
+====================================================================================================
+H1, sponsors found in Crunchbase only: ~ venture round
+y ~ vc_round + C(tier) + C(yb) + C(area) + C(modality)
+N=1310; events=47; clusters (drugs)=566; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round  0.0013    0.3906  0.9974 -0.7643  0.7669  1.0013  0.4656  2.1531
+====================================================================================================
+H1: ~ venture round that names a venture or crossover fund
+y ~ vc_named + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+vc_named -0.5869    0.3366  0.0812 -1.2467  0.0728  0.556  0.2875  1.0755
+====================================================================================================
+H1, sponsors found in Crunchbase only: ~ venture round with a named fund
+y ~ vc_named + C(tier) + C(yb) + C(area) + C(modality)
+N=1310; events=47; clusters (drugs)=566; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_named -0.4546    0.4262  0.2861   -1.29  0.3808  0.6347  0.2753  1.4634
+====================================================================================================
+H1: ~ any equity round before the first trial
+y ~ any_round + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
+any_round -0.3753    0.2697  0.1641  -0.904  0.1533  0.6871  0.405  1.1657
+====================================================================================================
+H1, small sponsors only: ~ venture round
+y ~ vc_round + C(yb) + C(area) + C(modality)
+N=1111; events=43; clusters (drugs)=584; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+vc_round -0.0242    0.3701  0.9478 -0.7496  0.7011  0.976  0.4725  2.0161
+====================================================================================================
+H1, first trial 2006-2016 (better Crunchbase coverage): ~ venture round
+y ~ vc_round + C(tier) + C(yb) + C(area) + C(modality)
+N=3116; events=145; clusters (drugs)=1349; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round -0.2005    0.2737  0.4639  -0.737   0.336  0.8183  0.4785  1.3994
+====================================================================================================
+H1 [dated OT evidence]: ~ venture round before the first trial
+y ~ vc_round + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=165; clusters (drugs)=1525; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+vc_round -0.3105    0.2743  0.2577 -0.8482  0.2272  0.7331  0.4282  1.255
+====================================================================================================
+H1 [dated OT evidence], sponsors found in Crunchbase only
+y ~ vc_round + C(tier) + C(yb) + C(area) + C(modality)
+N=1310; events=53; clusters (drugs)=566; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round -0.2994    0.4194  0.4752 -1.1214  0.5225  0.7412  0.3258  1.6862
+====================================================================================================
+Phase entries 2001-2016 (non-top-20 industry): 4405
+                n     adv      gs
+cb vc_round                      
+0  0         2880  0.3500  0.0528
+1  0          640  0.3312  0.0484
+   1          885  0.2983  0.0407
+====================================================================================================
+Advancement ~ venture round before the entry + ex-ante support
+adv ~ vc_round + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4405; events=1484; clusters (drugs)=1540; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round  0.0240    0.1081  0.8239 -0.1878  0.2359  1.0243  0.8288  1.2660
+gs        1.0467    0.1606  0.0000  0.7319  1.3616  2.8484  2.0790  3.9025
+====================================================================================================
+Advancement ~ venture round x ex-ante support
+adv ~ vc_round * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4405; events=1484; clusters (drugs)=1540; converged=True
+              Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round     0.0071    0.1120  0.9497 -0.2124  0.2265  1.0071  0.8086  1.2542
+gs           0.9877    0.1729  0.0000  0.6489  1.3266  2.6852  1.9134  3.7682
+vc_round:gs  0.3353    0.4038  0.4064 -0.4562  1.1267  1.3983  0.6337  3.0855
+====================================================================================================
+Advancement, sponsors found in Crunchbase only
+adv ~ vc_round + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=1525; events=476; clusters (drugs)=582; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc_round  0.0571    0.1553  0.7132 -0.2472  0.3614  1.0587  0.7810  1.4353
+gs        1.5205    0.3004  0.0000  0.9318  2.1092  4.5745  2.5391  8.2415

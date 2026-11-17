@@ -1,0 +1,220 @@
+Corporate and independent venture investors (exploratory; see the module docstring)
+
+A. PRIVATE ROUNDS. Sponsors with a venture round: 302; with a corporate investor: 83 (a drug or medical-technology company: 70); with an independent fund: 186; with a foundation-owned investor: 20
+corporate and foundation-owned investors named in the venture rounds (sponsors backed):
+                   kind                                investor_name  sponsors
+       foundation-owned                                     Novo A/S         9
+       foundation-owned                               Wellcome Trust         6
+       foundation-owned                                Novo Ventures         5
+       foundation-owned                        Lundbeckfond Ventures         1
+        other corporate Mitsubishi Corporation Life Sciences Venture         4
+        other corporate               Mitsui & Co. Global Investment         4
+        other corporate                                  Mitsui & Co         2
+        other corporate                            POSCO BioVentures         2
+        other corporate                           Alexandria Venture         1
+        other corporate                                DSM Venturing         1
+        other corporate                         Itochu International         1
+        other corporate                             KT Venture Group         1
+        other corporate                          MItsubishi Electric         1
+        other corporate                       Mitsubishi Corporation         1
+        other corporate                            Mitsubishi Motors         1
+        other corporate                           Oracle Corporation         1
+        other corporate                 Unilever Technology Ventures         1
+pharma corporate, large                        Novartis Venture Fund        13
+pharma corporate, large                                        Amgen         7
+pharma corporate, large                     Novartis Bioventure Fund         5
+pharma corporate, large                           Roche Venture Fund         5
+pharma corporate, large                                       SR One         5
+pharma corporate, large                  Astellas Venture Management         4
+pharma corporate, large                   Pfizer Venture Investments         4
+pharma corporate, large                                      Celgene         3
+pharma corporate, large                              GlaxoSmithKline         3
+pharma corporate, large                               Lilly Ventures         3
+pharma corporate, large                           MedImmune Ventures         3
+pharma corporate, large                                 Novo Nordisk         3
+pharma corporate, large                               Amgen Ventures         2
+pharma corporate, large                         Baxter International         2
+pharma corporate, large                              Baxter Ventures         2
+pharma corporate, large    Johnson & Johnson Development Corporation         2
+pharma corporate, large                MPM Bio IV NVS Strategic Fund         2
+pharma corporate, large                                   UCB Pharma         2
+pharma corporate, large                      Abbott Biotech Ventures         1
+pharma corporate, large                                  AstraZeneca         1
+pharma corporate, large                     Biogen Idec New Ventures         1
+pharma corporate, large                                    Eli Lilly         1
+pharma corporate, large                                    Genentech         1
+pharma corporate, large                             Genzyme Ventures         1
+pharma corporate, large             MP Healthcare Venture Management         1
+pharma corporate, large                                 MRL Ventures         1
+pharma corporate, large                                    Medtronic         1
+pharma corporate, large                                  Merck & Co.         1
+pharma corporate, large                                   Merck KGaA         1
+pharma corporate, large                                     Novartis         1
+pharma corporate, large                           S.R. One , Limited         1
+pharma corporate, large                               Sanofi Aventis         1
+pharma corporate, large                   Sanofi-Genzyme BioVentures         1
+pharma corporate, large                        Takeda Pharmaceutical         1
+pharma corporate, large            WuXi PharmaTech Corporate Venture         1
+pharma corporate, other                                 Brace Pharma         2
+pharma corporate, other                                    BridgeBio         1
+pharma corporate, other                          CFR Pharmaceuticals         1
+pharma corporate, other                             Debiopharm Group         1
+pharma corporate, other                          Forest Laboratories         1
+pharma corporate, other                          GTC Biotherapeutics         1
+pharma corporate, other                                  Green Cross         1
+pharma corporate, other                                   HRA Pharma         1
+pharma corporate, other                                       Maruho         1
+pharma corporate, other                       Medicis Pharmaceutical         1
+pharma corporate, other                                    NantWorks         1
+pharma corporate, other                                   Pendopharm         1
+pharma corporate, other                                Pharmstandard         1
+pharma corporate, other                        Purdue Pharmaceutical         1
+pharma corporate, other                         Tasly Pharmaceutical         1
+
+programmes (insight indications, first trial 2001-2016, non-top-20 industry): 3809
+                                         programmes  sponsors  supported  share
+fin                                                                            
+no venture round                               3060       777        140   4.58
+venture round, investors not classified         195        71         11   5.64
+independent funds only                          336       108         11   3.27
+corporate investor                              218        63          5   2.29
+====================================================================================================
+A1. H1: ex-ante support ~ investors before the first trial (reference: no venture round)
+y ~ C(fin) + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+                                                    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(fin)[T.venture round, investors not classified]  0.3821    0.3746  0.3078 -0.3522  1.1163  1.4653  0.7032  3.0536
+C(fin)[T.independent funds only]                  -0.2566    0.4030  0.5243 -1.0464  0.5332  0.7737  0.3512  1.7044
+C(fin)[T.corporate investor]                      -1.2320    0.5506  0.0252 -2.3111 -0.1529  0.2917  0.0992  0.8582
+====================================================================================================
+A2. H1, programmes with a named investor: corporate investor against independent funds only
+y ~ corp_inv + C(tier) + C(yb) + C(area) + C(modality)
+N=554; events=16; clusters (drugs)=278; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp_inv -0.6359    0.6245  0.3085 -1.8599  0.5881  0.5295  0.1557  1.8005
+====================================================================================================
+A3. as A2, drug and medical-technology companies only
+y ~ pharma_inv + C(tier) + C(yb) + C(area) + C(modality)
+N=554; events=16; clusters (drugs)=278; converged=True
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+pharma_inv -0.5935    0.7187  0.4089  -2.002  0.8151  0.5524  0.1351  2.2593
+====================================================================================================
+A4. as A1, foundation-owned investors counted as corporate
+y ~ C(fin) + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=167; clusters (drugs)=1525; converged=True
+                                                    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(fin)[T.venture round, investors not classified]  0.3813    0.3746  0.3087 -0.3529  1.1155  1.4642  0.7027  3.0510
+C(fin)[T.independent funds only]                  -0.1879    0.4045  0.6423 -0.9806  0.6049  0.8287  0.3751  1.8310
+C(fin)[T.corporate investor]                      -1.2982    0.5467  0.0176 -2.3696 -0.2268  0.2730  0.0935  0.7971
+====================================================================================================
+A5. as A1 [dated OT evidence]
+y ~ C(fin) + C(tier) + C(yb) + C(area) + C(modality)
+N=3809; events=165; clusters (drugs)=1525; converged=True
+                                                    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(fin)[T.venture round, investors not classified] -0.6620    0.5159  0.1994 -1.6730  0.3491  0.5158  0.1877  1.4178
+C(fin)[T.independent funds only]                  -0.3678    0.3666  0.3157 -1.0863  0.3507  0.6922  0.3375  1.4200
+C(fin)[T.corporate investor]                      -0.0309    0.4113  0.9401 -0.8371  0.7753  0.9696  0.4330  2.1712
+====================================================================================================
+phase entries 2001-2016 (non-top-20 industry): 4405
+                                         entries  advanced      gs
+fin                                                               
+no venture round                            3520    0.3466  0.0520
+venture round, investors not classified      233    0.3176  0.0687
+independent funds only                       393    0.3104  0.0305
+corporate investor                           259    0.2625  0.0309
+====================================================================================================
+A6. advancement ~ investors before the entry + ex-ante support
+adv ~ C(fin) + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=4405; events=1484; clusters (drugs)=1540; converged=True
+                                                    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(fin)[T.venture round, investors not classified]  0.1115    0.1796  0.5348 -0.2406  0.4636  1.1180  0.7862  1.5898
+C(fin)[T.independent funds only]                   0.0836    0.1392  0.5479 -0.1892  0.3565  1.0872  0.8276  1.4283
+C(fin)[T.corporate investor]                      -0.1596    0.1982  0.4206 -0.5481  0.2288  0.8525  0.5781  1.2571
+gs                                                 1.0407    0.1611  0.0000  0.7249  1.3565  2.8313  2.0646  3.8827
+====================================================================================================
+A7. advancement, entries with a named investor: corporate investor against independent funds only
+adv ~ corp_inv + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=652; events=190; clusters (drugs)=293; converged=True
+           Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+corp_inv -0.1886    0.2484  0.4478 -0.6755  0.2983  0.8281  0.5089   1.3476
+gs        1.7167    0.5386  0.0014  0.6611  2.7723  5.5661  1.9369  15.9955
+
+B. OWNERS OF PUBLIC SPONSORS. Registrants: 782; with a large drug company or its venture arm among the owners: 224; with a venture fund: 420; with both: 161; with a foundation-owned investor: 33
+corporate owners named with the most sponsors: PFIZER INC (31); JOHNSON & JOHNSON (22); GLAXOSMITHKLINE PLC (16); BRISTOL MYERS SQUIBB CO (14); AMGEN INC (12); ASTRAZENECA PLC (12); Novartis Bioventures Ltd (12); Sanofi (11); TAKEDA PHARMACEUTICAL CO LTD (11); NOVARTIS AG (10); ELAN CORP PLC (9); ELI LILLY & Co (8); TEVA PHARMACEUTICAL INDUSTRIES LTD (8); ABBOTT LABORATORIES (7); CELGENE CORP (7)
+
+programmes (insight indications, first trial 2001+, non-top-20 industry): 5906; of public sponsors: 2644
+programmes of public sponsors:
+                               programmes  sponsors  supported  share
+own                                                                  
+no venture or corporate owner         848       159         40   4.72
+venture funds only                    736       164         29   3.94
+corporate owner                      1060       151         46   4.34
+====================================================================================================
+B1. H1, public sponsors: ex-ante support ~ owners (reference: no venture or corporate owner)
+y ~ C(own) + C(tier) + C(yb) + C(area) + C(modality)
+N=2644; events=115; clusters (drugs)=928; converged=True
+                               Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(own)[T.venture funds only] -0.1725    0.3131  0.5818 -0.7861  0.4412  0.8416  0.4556  1.5546
+C(own)[T.corporate owner]    -0.2058    0.2800  0.4625 -0.7546  0.3431  0.8140  0.4702  1.4093
+====================================================================================================
+B2. H1, sponsors with a venture or corporate owner: corporate owner against venture funds only
+y ~ corp_owner + C(tier) + C(yb) + C(area) + C(modality)
+N=1796; events=75; clusters (drugs)=671; converged=True
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp_owner -0.0654    0.3546  0.8537 -0.7603  0.6296  0.9367  0.4675  1.8768
+====================================================================================================
+B3. as B2 [dated OT evidence]
+y ~ corp_owner + C(tier) + C(yb) + C(area) + C(modality)
+N=1796; events=92; clusters (drugs)=671; converged=True
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp_owner -0.0972    0.3241  0.7643 -0.7323   0.538  0.9074  0.4808  1.7126
+====================================================================================================
+phase entries of public sponsors: 2866
+                               entries  advanced      gs
+own                                                     
+no venture or corporate owner      922    0.2993  0.0488
+venture funds only                 779    0.3415  0.0475
+corporate owner                   1165    0.3494  0.0549
+====================================================================================================
+B4. advancement, public sponsors ~ owners + ex-ante support
+adv ~ C(own) + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2866; events=949; clusters (drugs)=918; converged=True
+                               Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(own)[T.venture funds only]  0.2754    0.1458  0.0590 -0.0104  0.5612  1.3171  0.9896  1.7528
+C(own)[T.corporate owner]     0.1811    0.1409  0.1987 -0.0951  0.4573  1.1985  0.9093  1.5797
+gs                            1.1476    0.2119  0.0000  0.7322  1.5629  3.1505  2.0796  4.7727
+====================================================================================================
+B5. advancement, sponsors with a venture or corporate owner: corporate owner against venture funds only
+adv ~ corp_owner + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=1944; events=673; clusters (drugs)=653; converged=True
+             Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp_owner -0.1357    0.1359  0.3180 -0.4020  0.1306  0.8731  0.6690  1.1395
+gs          0.9513    0.2404  0.0001  0.4801  1.4226  2.5892  1.6162  4.1478
+====================================================================================================
+programmes of sponsors public by the year of the first trial, owners dated by that year: 2145
+                               programmes  sponsors  supported  share
+own                                                                  
+no venture or corporate owner         870       196         43   4.94
+venture funds only                    546       142         18   3.30
+corporate owner                       729       111         39   5.35
+====================================================================================================
+B6. H1, sponsors public by the first trial: ex-ante support ~ owners by that year
+y ~ C(own) + C(tier) + C(yb) + C(area) + C(modality)
+N=2145; events=100; clusters (drugs)=814; converged=True
+                               Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(own)[T.venture funds only] -0.5000    0.3655  0.1713 -1.2164  0.2164  0.6065  0.2963  1.2416
+C(own)[T.corporate owner]    -0.2014    0.2850  0.4797 -0.7600  0.3571  0.8176  0.4677  1.4292
+====================================================================================================
+B7. as B6, corporate owner against venture funds only
+y ~ corp_owner + C(tier) + C(yb) + C(area) + C(modality)
+N=1275; events=57; clusters (drugs)=514; converged=True
+            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
+corp_owner  0.224     0.412  0.5867 -0.5835  1.0314  1.2511  0.558  2.8051
+====================================================================================================
+B8. advancement, sponsors public by the entry ~ owners by that year + ex-ante support
+adv ~ C(own) + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=2332; events=752; clusters (drugs)=811; converged=True
+                               Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(own)[T.venture funds only]  0.4726    0.1483  0.0014  0.1819  0.7633  1.6041  1.1994  2.1453
+C(own)[T.corporate owner]     0.0817    0.1497  0.5855 -0.2118  0.3752  1.0851  0.8091  1.4552
+gs                            1.1266    0.2292  0.0000  0.6774  1.5757  3.0851  1.9688  4.8342

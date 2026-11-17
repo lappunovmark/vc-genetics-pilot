@@ -1,0 +1,11 @@
+first_sponsor,name,decision,reason
+AB Science,Science,reject,namesake: "AB" is read as a legal form; the Crunchbase company is a US finance firm
+"ORA, Inc.",ORA,reject,namesake: the Crunchbase company is a data-analytics firm
+"Catalyst Pharmaceuticals, Inc.",Catalyst Biosciences,reject,different company
+Critical Therapeutics,Critical Pharmaceuticals,reject,different company (UK); the US company is matched under its own name
+Harbor Therapeutics,Harbor BioSciences,reject,related company under another name; relation not verified
+"Sirion Therapeutics, Inc.",SIRION BIOTECH,reject,different company (Germany)
+"Sirion Therapeutics, Inc.",Sirion Holdings,reject,possibly the holding company; not verified
+Voyager Pharmaceutical Corporation,Voyager Therapeutics,reject,different company
+"Prism Pharma Co., Ltd.",Prism Pharmaceuticals,reject,different company (US)
+Theravance Biopharma,Theravance,reject,"former parent; Theravance Biopharma was spun off in 2014 and is matched under its own name"

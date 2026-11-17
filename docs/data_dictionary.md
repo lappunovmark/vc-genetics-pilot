@@ -81,9 +81,24 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `owners_review.csv`, `owners_registrant_review.csv` | Owner names by the number of sponsors they hold, with their class (the list read to write `pilot/investor_classes.tsv`); sponsor–registrant name matches with the hand decision |
 | `formd_stops.txt`, `formd_stops_rates.csv` | Trial stops by the capital the sponsor had raised in Form D offerings before the trial: stops per 1,000 active trial-years 2016–21 vs 2022–25 by band with Poisson rate ratios, and trial-year logits (`formd_stops.py`) |
 | `h1_mechanisms.txt` | Exploratory checks behind the small-sponsor gap in selection: support by type of evidence, novel and follow-on indications, partnerships, typical Phase 3 size of the indication, capital raised against the cost of one Phase 3, acquisitions |
+| `cb_models.txt`, `cb_link_review.csv`, `cb_sponsors.csv` | Exploratory: venture rounds from the Crunchbase export of December 2015: every candidate name match with its decision, the sponsors found with the year of their first venture round and the venture funds named, selection and advancement models |
+| `ritter_models.txt`, `ritter_link_review.csv`, `ritter_sponsors.csv` | Exploratory: sponsors matched to Jay Ritter's list of US IPOs (every candidate with its decision; the IPO date and venture flag of the accepted ones), agreement of the pilot's venture markers with that flag, selection and advancement models, combined venture flag |
+| `formd_directors.txt`, `formd_directors_sponsors.csv` | Exploratory: venture investors on the board from the people named in Form D filings (per sponsor: years of the first filing with a venture director or a venture address, the directors matched), checks against Ritter's flag and Crunchbase, selection and advancement models |
+| `vc_combined.txt` | Exploratory: one venture flag from four sources (13D/13G owners, Ritter's IPO flag, Crunchbase venture rounds, Form D boards) and the selection model with it |
+| `cvc_models.txt`, `cvc_sponsors.csv` | Exploratory: selection and advancement models that separate corporate investors from independent venture funds, in Crunchbase venture rounds and among the owners of public sponsors; per sponsor: years of the first venture round with an independent fund, a corporate investor, a drug-company investor and a foundation-owned investor, and the corporate investors named |
+| `vc_stops.txt`, `vc_stops_rates.csv`, `vc_stops_link_review.csv` | Exploratory: trial stops per 1,000 active trial-years in 2016–21 and 2022–25 by venture backing of the sponsor, with rate ratios and trial-year logits; every name link made for it, with hand rejections marked |
+| `h1_by_modality.txt` | Exploratory: the selection model within each type of drug and the test of whether the small-sponsor gap differs between small molecules and biologics |
+| `direction_models.txt`, `direction_programmes.csv.gz` | Exploratory: programmes whose drug acts in the direction the genetic evidence asks for (Open Targets direction of effect), by sponsor tier, with selection models; per programme: directional evidence, concordant, discordant, ever and before the first trial |
+| `evidence_arrival.txt` | Exploratory: programme starts on target × indication pairs before and after the first dated genetic association, by sponsor group (fixed-effects Poisson, event study, contrast between groups, placebo) |
 | `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the amount raised before the trial (bands and log-linear among filers), the dating sensitivities, the dated Open Targets measure and the US-only comparison |
 
 ## Other
 
 `coverage.json` (row counts at each pipeline step and the reference date `asof`), `disease_mesh.csv.gz` (disease → MeSH map), `robust_*.csv`
 (benchmark and novel-drug tables behind `robust.txt`).
+
+The sponsor-level and link-review tables of the exploratory venture markers (`cb_link_review.csv`, `cb_sponsors.csv`,
+`ritter_link_review.csv`, `ritter_sponsors.csv`, `formd_directors_sponsors.csv`, `cvc_sponsors.csv`,
+`vc_stops_link_review.csv`) are not in the repository: they derive from data that is not redistributed (the
+Crunchbase export, Jay Ritter's IPO list) or name individual people (directors in Form D filings). The scripts
+write them next to the model output.

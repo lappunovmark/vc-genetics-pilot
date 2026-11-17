@@ -4,3 +4,12 @@ __pycache__/
 factcheck/texts/
 .pytest_cache/
 results/h4_trials.csv.gz
+# tables derived from data that is not redistributed (Crunchbase export, Jay Ritter's IPO list) or that name
+# individual people (Form D directors); the scripts write them
+results/cb_link_review.csv
+results/cb_sponsors.csv
+results/ritter_link_review.csv
+results/ritter_sponsors.csv
+results/vc_stops_link_review.csv
+results/cvc_sponsors.csv
+results/formd_directors_sponsors.csv

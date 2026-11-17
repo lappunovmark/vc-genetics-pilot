@@ -17,6 +17,14 @@
 | Approval dates: EMA/PMDA report years and ChEMBL first-approval years, advancement variants that drop approvals preceding the phase entry | `pilot/fetch_chembl_approval.py`, `pilot/approval_dates.py` | ChEMBL web service, release 37 (CC BY-SA 3.0) |
 | Beneficial owners of public sponsors from the EDGAR master index (Schedule 13D/13G filers; registrants S-1/F-1/424B4/10-K/20-F/40-F); owner classes in `pilot/investor_classes.tsv`, hand-review decisions in `pilot/owners_decisions.csv` | `pilot/fetch_edgar_owners.py`, `pilot/owners_link.py`, `pilot/owners_models.py` | EDGAR full index (public domain) |
 | Exploratory checks behind the small-sponsor gap in selection: type of evidence, novel and follow-on indications, partnerships, typical Phase 3 size, capital, acquisitions | `pilot/fetch_ctgov_enrollment.py`, `pilot/extract_molecule_synonyms.py`, `pilot/h1_mechanisms.py` | ClinicalTrials.gov API v2 (public domain); Open Targets (CC0) |
+| Exploratory: venture rounds with named investors (Crunchbase export of December 2015; CC BY-NC, not redistributed) | `pilot/cb_models.py`, `pilot/cb_decisions.csv` | github.com/notpeter/crunchbase-data |
+| Exploratory: venture backing at the IPO from Jay Ritter's list of US IPOs 1975–2025 (file not redistributed); check of the pilot's venture markers; combined venture flag | `pilot/ritter_models.py`, `pilot/ritter_decisions.csv` | site.warrington.ufl.edu/ritter/ipo-data (IPO-age.xlsx, 19 January 2026) |
+| Exploratory: venture investors on the board (directors in Form D filings who also manage venture funds), and one venture flag from the four sources | `pilot/fetch_formd_people.py`, `pilot/formd_directors.py`, `pilot/vc_combined.py` | SEC Form D data sets (public domain) |
+| Exploratory: corporate against independent venture investors (private rounds and owners of public sponsors) | `pilot/cvc_models.py`, `pilot/corporate_investors.tsv` | as above |
+| Exploratory: trial stops around 2022 by venture backing of the sponsor (the four sources, matched again for every trial sponsor) | `pilot/vc_stops.py`, `pilot/vc_stops_decisions.csv`, `pilot/formd_directors_lib.py` | as above |
+| Exploratory: the selection gap by type of drug | `pilot/h1_by_modality.py` | — |
+| Exploratory: direction of effect (does the drug act the way the genetics points?) | `pilot/extract_ot_direction.py`, `pilot/direction_models.py` | Open Targets 26.09: `evidence_gene_burden`, `evidence_eva`, `evidence_orphanet`, `evidence_gene2phenotype`, `evidence_clinical_precedence` |
+| Exploratory: programme starts around the publication of genetic evidence (needs pyfixest, Python ≥ 3.10) | `pilot/evidence_arrival.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | Results-at-a-glance figure (README) and the main figure with every specification of the selection model | `pilot/figure_glance.py`, `pilot/figure_main.py` | — |
 
 ## Running it

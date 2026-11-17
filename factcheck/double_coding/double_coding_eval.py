@@ -1,6 +1,6 @@
 """Score the author's blind coding of the 200 held-out stop-reason texts.
 
-Usage (from the repository root): python factcheck/double_coding/double_coding_eval.py [coding_sheet.xlsx]
+Usage (from the repository root): python factcheck/double_coding/double_coding_eval.py [coding_sheet.xlsx | coding_answers.csv]
 Joins the filled sheet to results/rq2_hand_labels.csv through key.csv and reports, for the author's labels against
 (a) the first-pass labels, (b) classifier v3 and (c) classifier v4: agreement, Cohen's kappa, the confusion table, precision and recall
 of the financial-or-strategic class, and every disagreement for adjudication. Writes results/double_coding.txt and
@@ -34,7 +34,10 @@ def fin_scores(truth, pred):
 
 
 def main(sheet=os.path.join(HERE, "coding_sheet.xlsx")):
-    s = pd.read_excel(sheet, sheet_name="Coding").rename(columns={"label": "author_label"})
+    if sheet.lower().endswith(".csv"):  # answers exported by coding_page.html
+        s = pd.read_csv(sheet).rename(columns={"label": "author_label"})
+    else:
+        s = pd.read_excel(sheet, sheet_name="Coding").rename(columns={"label": "author_label"})
     s = s[["id", "author_label", "confidence", "note"]]
     key = pd.read_csv(os.path.join(HERE, "key.csv"))
     d = pd.read_csv(os.path.join(ROOT, "results", "rq2_hand_labels.csv"))

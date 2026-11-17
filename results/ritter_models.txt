@@ -1,0 +1,77 @@
+Venture backing at the IPO from Jay Ritter's list of US IPOs 1975-2025 (exploratory; see the module docstring)
+IPOs in the file with a venture flag: 16002 (venture-backed 3779, growth capital 509); sponsor names (non-top-20 industry, first trial 2001+): 1509; candidate name matches: 302; accepted: 275 (same name 245, life-science word 19, by hand 11); rejected: 27
+sponsors with a US IPO in the list: 275; venture-backed at the IPO: 232 (of them growth capital 2); IPO years 1979-2025
+
+1. The pilot's venture markers against Ritter's flag (sponsors where both are defined)
+  sponsors with a Ritter IPO that are also EDGAR registrants: 269
+  venture owner in Schedules 13D/13G, any time: sponsors 269; both 175, marker only 11, Ritter only 51, neither 32; agreement 0.770, kappa 0.377; of Ritter's venture-backed IPOs the marker finds 0.774; of the marker's sponsors Ritter confirms 0.941
+  venture owner in Schedules 13D/13G by the year after the IPO: sponsors 269; both 156, marker only 5, Ritter only 70, neither 38; agreement 0.721, kappa 0.356; of Ritter's venture-backed IPOs the marker finds 0.690; of the marker's sponsors Ritter confirms 0.969
+  the same, IPOs of 2001 or later (the window of the EDGAR index): sponsors 210; both 146, marker only 5, Ritter only 33, neither 26; agreement 0.819, kappa 0.476; of Ritter's venture-backed IPOs the marker finds 0.816; of the marker's sponsors Ritter confirms 0.967
+  sponsors with a Ritter IPO in 2001-2015 that are also found in Crunchbase: 98
+  Crunchbase venture round dated no later than the IPO year: sponsors 98; both 84, marker only 3, Ritter only 8, neither 3; agreement 0.888, kappa 0.297; of Ritter's venture-backed IPOs the marker finds 0.913; of the marker's sponsors Ritter confirms 0.966
+
+2. Programmes (insight indications, first trial 2001+, non-top-20 industry): 5906
+ex-ante support by US IPO x venture-backed at the IPO:
+            n  sponsors  supported  gs_ante  gs_post
+ipo rvc                                             
+0   0    4307      1191        224   0.0520   0.1010
+1   0     202        39          5   0.0248   0.0446
+    1    1397       227         64   0.0458   0.0988
+====================================================================================================
+H1, sponsors with a US IPO: ex-ante support ~ venture-backed at the IPO
+y ~ rvc + C(tier) + C(yb) + C(area) + C(modality)
+N=1599; events=69; clusters (drugs)=571; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+rvc  0.7425    0.5877  0.2064 -0.4094  1.8945  2.1013  0.6641  6.649
+====================================================================================================
+H1, sponsors with a US IPO: ~ venture-backed, growth capital not counted
+y ~ rvc1 + C(tier) + C(yb) + C(area) + C(modality)
+N=1599; events=69; clusters (drugs)=571; converged=True
+       Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR  OR_lo  OR_hi
+rvc1  0.7565     0.585  0.196 -0.3902  1.9032  2.1308  0.677  6.707
+====================================================================================================
+H1, programmes started no later than the IPO year
+y ~ rvc + C(tier) + C(yb) + C(area) + C(modality)
+N=420; events=19; clusters (drugs)=207; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+rvc  0.944    0.9476  0.3192 -0.9133  2.8013  2.5702  0.4012  16.4655
+====================================================================================================
+H1, programmes started after the IPO year
+y ~ rvc + C(tier) + C(yb) + C(area) + C(modality)
+N=1179; events=50; clusters (drugs)=454; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+rvc  0.3664    0.5901  0.5347 -0.7902   1.523  1.4425  0.4537  4.5857
+====================================================================================================
+H1, all non-top-20 industry: ~ venture-backed at the IPO + US IPO
+y ~ rvc + ipo + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; events=293; clusters (drugs)=1886; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+rvc  0.6852    0.5405  0.2049 -0.3742  1.7446  1.9842  0.6878  5.7236
+ipo -0.9463    0.5368  0.0780 -1.9984  0.1059  0.3882  0.1355  1.1117
+====================================================================================================
+H1 [dated OT evidence], sponsors with a US IPO: ~ venture-backed at the IPO
+y ~ rvc + C(tier) + C(yb) + C(area) + C(modality)
+N=1599; events=68; clusters (drugs)=571; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+rvc  1.0481    0.4627  0.0235  0.1413  1.9549  2.8522  1.1518  7.0631
+====================================================================================================
+Phase entries 2001-2020 of sponsors with a US IPO: 1767
+        n     adv      gs
+rvc                      
+0     215  0.3860  0.0186
+1    1552  0.3434  0.0567
+====================================================================================================
+Advancement, sponsors with a US IPO ~ venture-backed at the IPO + ex-ante support
+adv ~ rvc + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=1767; events=616; clusters (drugs)=574; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+rvc -0.1499    0.2455  0.5415 -0.6312  0.3313  0.8608  0.5320  1.3928
+gs   1.2932    0.2663  0.0000  0.7712  1.8151  3.6443  2.1624  6.1419
+====================================================================================================
+Advancement ~ venture-backed at the IPO x ex-ante support
+adv ~ rvc * gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=1767; events=616; clusters (drugs)=574; converged=True
+         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+rvc    -0.1393    0.2490  0.5760 -0.6274  0.3488  0.8700  0.5340   1.4174
+gs      1.8387    1.0754  0.0873 -0.2690  3.9465  6.2885  0.7641  51.7539
+rvc:gs -0.5639    1.1110  0.6118 -2.7415  1.6138  0.5690  0.0645   5.0216
