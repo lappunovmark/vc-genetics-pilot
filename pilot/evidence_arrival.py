@@ -1,7 +1,11 @@
 """When genetic evidence about a target-indication pair is published, who starts programmes on it? Exploratory.
 
-Usage: python pilot/evidence_arrival.py RESULTS_DIR MINIKEL_DATA_DIR
+Usage: python pilot/evidence_arrival.py RESULTS_DIR MINIKEL_DATA_DIR [OT_DATED_CSV gwas|all]
 (RESULTS_DIR after build_panel26.py; MINIKEL_DATA_DIR = data/ of ericminikel/genetic_support @ b84cf05.)
+With OT_DATED_CSV (the file of extract_ot_dated.py) the evidence years come from that Open Targets release instead of
+the Minikel associations ("gwas": GWAS credible sets only; "all": every germline source), pairs whose supporting
+evidence carries no date are left out in place of the OMIM pairs, and the output is evidence_arrival_ot_<set>.txt
+(plan written before the run: docs/plan_evidence_arrival_ot.md).
 
 Why: the selection models compare sponsors at one point in time and are descriptive. This script uses the timing of
 the evidence instead. For a target-indication pair (the gene a drug acts on x the MeSH indication), the year in which
@@ -25,7 +29,7 @@ contrast and the leads of D6 check. The contrast is measured against each group'
 pairs (year x group effects): the raw rates on pairs with evidence fall by a similar proportion in both groups, and
 the groups differ because other industry sponsors started more programmes over time elsewhere and top-20 pharma
 fewer. Nothing here was pre-specified.
-Writes RESULTS_DIR/evidence_arrival.txt.
+Writes RESULTS_DIR/evidence_arrival.txt (or evidence_arrival_ot_<set>.txt).
 """
 
 import os
@@ -39,6 +43,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gensup
 
 R, MIN = sys.argv[1], sys.argv[2]
+OT_CSV, OT_SET = (sys.argv[3], sys.argv[4]) if len(sys.argv) > 4 else (None, None)
 Y0, Y1 = 2000, 2025
 TOP, SMALL = "Top-20 pharma", "Industry, small (<=5 drugs)"
 MIDLARGE = ["Industry, large (>30)", "Industry, mid (6-30)"]
@@ -62,6 +67,15 @@ def evidence_years(pairs):
     assoc = pd.read_csv(f"{MIN}/assoc.tsv.gz", sep="\t", low_memory=False)
     sim = pd.read_csv(f"{MIN}/sim.tsv.gz", sep="\t")
     a = gensup.filter_assoc(assoc)
+    dated = DATED
+    if OT_CSV:  # evidence of one Open Targets release, mapped to MeSH with the panel's disease map
+        dm = pd.read_csv(f"{R}/disease_mesh.csv.gz")[["diseaseId", "indication_mesh_id"]]
+        a = pd.read_csv(OT_CSV).merge(dm.rename(columns={"indication_mesh_id": "mesh_id"}), on="diseaseId")
+        if OT_SET == "gwas":
+            a = a[a.source.eq("gwas_credible_sets")]
+        a = a.groupby(["gene", "mesh_id", "source"]).year.min().reset_index()
+        dated = tuple(a.source.unique())
+        a.loc[a.year.isna(), "source"] = "OMIM"  # undated evidence is handled as OMIM is: the pair is left out
     sp = gensup.similar_pairs(sim)
     u = pairs.indication_mesh_id.unique()
     sp = pd.concat([sp, pd.DataFrame({"meshcode_a": u, "meshcode_b": u})]).drop_duplicates()
@@ -69,7 +83,7 @@ def evidence_years(pairs):
         a, left_on=["gene", "meshcode_b"], right_on=["gene", "mesh_id"]
     )
     key = ["gene", "indication_mesh_id"]
-    e = m[m.source.isin(DATED)].groupby(key).year.min().rename("E").reset_index()
+    e = m[m.source.isin(dated)].groupby(key).year.min().rename("E").reset_index()
     o = m[m.source.eq("OMIM")][key].drop_duplicates().assign(omim=True)
     r = pairs.merge(e, on=key, how="left").merge(o, on=key, how="left")
     r["omim"] = r.omim.eq(True)
@@ -222,5 +236,7 @@ for g in ("all sponsors", "top-20 pharma", "other industry"):
     fit(pl, YC[g], f"E. placebo, {g}: evidence year moved five years earlier, years before the true evidence year only")
 stacked(pl, "other industry", "E. placebo of the contrast D1: other industry against top-20 pharma")
 
-open(f"{R}/evidence_arrival.txt", "w").write("\n".join(out) + "\n")
+open(f"{R}/evidence_arrival_ot_{OT_SET}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
+    "\n".join(out) + "\n"
+)
 print("\n".join(out))
