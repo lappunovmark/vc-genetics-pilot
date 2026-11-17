@@ -201,6 +201,17 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   the contrast is 0.57 (0.39–0.83; area × year 0.67, 0.46–0.99; small sponsors 0.56, 0.32–0.98), with a borderline
   placebo (0.75, 0.55–1.03). By the reading rule fixed in advance the first result is repeated. The two evidence
   sets overlap, so this is a repetition on a larger and partly newer set, not an independent sample.
+* Venture-backed sponsors and the publication of genetic evidence (section F of `evidence_arrival.py`; plan written
+  before the run: `docs/plan_evidence_arrival_venture.md`). Of 1,446 non-top-20 industry sponsors with a programme
+  on these pairs, 513 are venture-backed by the combined flag. On GWAS evidence, venture-backed sponsors did not start
+  more programmes after the evidence year (0.84, 0.52–1.36; sponsors without a venture marker 0.79, 0.54–1.16) and
+  did not respond more than industry sponsors without a marker (1.06, 0.58–1.95). The primary contrast, against
+  top-20 pharma, is 0.53 (0.28–1.00, p = 0.05): by the rule fixed in advance the interval includes 1, so the primary
+  evidence does not separate the two, although the contrast is separated with area × year effects (0.46, 0.24–0.87)
+  and on all germline sources (0.58, 0.36–0.94; against sponsors without a marker there 1.10, 0.67–1.80). Sponsors
+  without a marker are separated from top-20 pharma (0.50, 0.31–0.80). Placebo of the primary contrast 1.13
+  (0.69–1.83); the placebo of the comparison between venture-backed and other sponsors is borderline (1.56,
+  0.96–2.54), which makes that comparison the weakest part.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

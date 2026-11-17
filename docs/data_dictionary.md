@@ -90,6 +90,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `h1_by_modality.txt` | Exploratory: the selection model within each type of drug and the test of whether the small-sponsor gap differs between small molecules and biologics |
 | `direction_models.txt`, `direction_programmes.csv.gz` | Exploratory: programmes whose drug acts in the direction the genetic evidence asks for (Open Targets direction of effect), by sponsor tier, with selection models; per programme: directional evidence, concordant, discordant, ever and before the first trial |
 | `evidence_arrival_ot_gwas.txt`, `evidence_arrival_ot_all.txt` | The evidence-arrival models repeated on Open Targets 26.09 evidence (GWAS credible sets; all germline sources), under the plan in `docs/plan_evidence_arrival_ot.md` |
+| `evidence_arrival_ot_gwas_venture.txt`, `evidence_arrival_ot_all_venture.txt` | The evidence-arrival contrasts with non-top-20 industry sponsors split by the combined venture flag, under the plan in `docs/plan_evidence_arrival_venture.md` |
 | `evidence_arrival.txt` | Exploratory: programme starts on target × indication pairs before and after the first dated genetic association, by sponsor group (fixed-effects Poisson, event study, contrast between groups, placebo) |
 | `formd_summary.txt`, `formd_models.txt` | Linkage coverage by sponsor tier; selection and advancement models with the Form D flag, the amount raised before the trial (bands and log-linear among filers), the dating sensitivities, the dated Open Targets measure and the US-only comparison |
 
