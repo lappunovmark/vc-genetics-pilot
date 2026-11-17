@@ -188,6 +188,19 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   0.65–2.14 among seen sponsors only; 0.62, 0.31–1.25 among small sponsors; stops citing lack of funding 0.56,
   0.16–1.96, on 113 events; any stop 1.12, 0.85–1.47). The stops rose for every kind of sponsor; the data do not
   show that venture-backed sponsors were hit harder.
+* Evidence arrival repeated on Open Targets 26.09 evidence (`extract_ot_dated.py`, `evidence_arrival.py` with the
+  evidence file; plan written before the run: `docs/plan_evidence_arrival_ot.md`). Primary evidence: GWAS credible
+  sets with L2G ≥ 0.5, dated by Open Targets; 1,393 of the 53,064 pairs gained such evidence. After the evidence
+  year top-20 pharma started more programmes on the pair (rate ratio 1.58, 1.03–2.41; placebo 0.95, 0.70–1.30) and
+  other industry sponsors did not (0.85, 0.62–1.16; small 0.92, 0.57–1.48; mid-sized and large 0.85, 0.57–1.27;
+  academic and government 0.96, 0.77–1.20). The contrast of other industry against top-20 pharma is 0.54
+  (0.34–0.84); with area × year effects 0.54 (0.36–0.83); clustered by gene 0.54 (0.36–0.81); leads 1.11 and 0.93;
+  placebo of the contrast 0.87 (0.60–1.25). Mid-sized and large sponsors 0.54 (0.34–0.87), academic and government
+  0.61 (0.38–0.97), small sponsors 0.58 (0.30–1.11), pairs where both groups started programmes 0.61 (0.32–1.17),
+  novel programmes 0.73 (0.24–2.22). With all germline sources (2,069 pairs; 102 with undated evidence left out)
+  the contrast is 0.57 (0.39–0.83; area × year 0.67, 0.46–0.99; small sponsors 0.56, 0.32–0.98), with a borderline
+  placebo (0.75, 0.55–1.03). By the reading rule fixed in advance the first result is repeated. The two evidence
+  sets overlap, so this is a repetition on a larger and partly newer set, not an independent sample.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

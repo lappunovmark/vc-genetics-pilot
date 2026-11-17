@@ -25,6 +25,7 @@
 | Exploratory: the selection gap by type of drug | `pilot/h1_by_modality.py` | — |
 | Exploratory: direction of effect (does the drug act the way the genetics points?) | `pilot/extract_ot_direction.py`, `pilot/direction_models.py` | Open Targets 26.09: `evidence_gene_burden`, `evidence_eva`, `evidence_orphanet`, `evidence_gene2phenotype`, `evidence_clinical_precedence` |
 | Exploratory: programme starts around the publication of genetic evidence (needs pyfixest, Python ≥ 3.10) | `pilot/evidence_arrival.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
+| The same on Open Targets 26.09 evidence, planned before the run | `pilot/extract_ot_dated.py`, `pilot/evidence_arrival.py`, `docs/plan_evidence_arrival_ot.md` | Open Targets 26.09 genetic evidence datasets |
 | Results-at-a-glance figure (README) and the main figure with every specification of the selection model | `pilot/figure_glance.py`, `pilot/figure_main.py` | — |
 
 ## Running it

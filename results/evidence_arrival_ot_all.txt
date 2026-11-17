@@ -1,0 +1,216 @@
+Programme starts around the publication of genetic evidence (exploratory; see the module docstring)
+pairs with a programme started 2000-2025 in an indication with genetic insight: 53064; with OMIM support (left out): 102; with dated evidence and no OMIM: 2069; never supported: 50893
+evidence year of the pairs with dated evidence: {1948: 1, 1951: 1, 1956: 7, 1957: 2, 1959: 3, 1961: 2, 1963: 2, 1967: 1, 1969: 1, 1971: 2, 1972: 3, 1973: 2, 1974: 4, 1975: 1, 1976: 1, 1977: 2, 1978: 1, 1979: 2, 1980: 7, 1981: 2, 1982: 4, 1983: 1, 1984: 2, 1985: 1, 1986: 12, 1987: 2, 1988: 15, 1989: 3, 1990: 16, 1991: 6, 1992: 21, 1993: 10, 1994: 1, 1995: 21, 1996: 13, 1997: 3, 1998: 7, 1999: 9, 2000: 15, 2001: 13, 2002: 20, 2003: 5, 2004: 38, 2005: 21, 2006: 16, 2007: 8, 2008: 24, 2009: 9, 2010: 35, 2011: 29, 2012: 36, 2013: 36, 2014: 38, 2015: 44, 2016: 84, 2017: 65, 2018: 126, 2019: 120, 2020: 90, 2021: 161, 2022: 100, 2023: 234, 2024: 285, 2025: 191, 2026: 32}
+
+programme starts on pairs with dated evidence, by years since the evidence year (all sponsors / top-20 / other industry / academic and government):
+        pair_years   all  top20  other_industry  public  all_per_1000  top20_per_1000  other_industry_per_1000  public_per_1000
+k                                                                                                                              
+<=-6         26578  2447    653             600    1190         92.07           24.57                    22.58            44.77
+-5..-3        5433   458     94             111     253         84.30           17.30                    20.43            46.57
+-2..-1        3707   272     49              67     156         73.37           13.22                    18.07            42.08
+0             1843   139     33              36      70         75.42           17.91                    19.53            37.98
+1..2          3044   257     47              70     140         84.43           15.44                    23.00            45.99
+3..5          3142   250     71              65     114         79.57           22.60                    20.69            36.28
+>=6          10047   946    244             299     403         94.16           24.29                    29.76            40.11
+====================================================================================================
+A. all sponsors: programme starts after the evidence year (pair and year fixed effects)
+y0 ~ post + e0 | pid + year; pairs=52962 (with dated evidence 2069); programme starts=88879 (on pairs with evidence 4769, after it 1453)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0755      0.0767    0.3246 -0.2259  0.0748  0.9272  0.7978  1.0776
+e0            -0.0980      0.1101    0.3733 -0.3138  0.1177  0.9066  0.7307  1.1250
+====================================================================================================
+A. top-20 pharma: programme starts after the evidence year (pair and year fixed effects)
+y1 ~ post + e0 | pid + year; pairs=8438 (with dated evidence 610); programme starts=13217 (on pairs with evidence 1191, after it 362)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377      0.1610    0.0066  0.1221  0.7533  1.5491  1.1299  2.1239
+e0             0.3518      0.2087    0.0918 -0.0572  0.7609  1.4217  0.9444  2.1402
+====================================================================================================
+A. other industry: programme starts after the evidence year (pair and year fixed effects)
+y2 ~ post + e0 | pid + year; pairs=12558 (with dated evidence 714); programme starts=17264 (on pairs with evidence 1248, after it 434)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1229      0.1354    0.3640 -0.3883  0.1425  0.8843  0.6782  1.1531
+e0            -0.0320      0.2363    0.8921 -0.4952  0.4311  0.9685  0.6094  1.5390
+====================================================================================================
+A. industry, small: programme starts after the evidence year (pair and year fixed effects)
+y3 ~ post + e0 | pid + year; pairs=4830 (with dated evidence 284); programme starts=5402 (on pairs with evidence 358, after it 135)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR  RR_lo   RR_hi
+Coefficient                                                                       
+post          -0.1429      0.2330    0.5395 -0.5996  0.3137  0.8668  0.549  1.3685
+e0             0.1144      0.3139    0.7156 -0.5009  0.7297  1.1212  0.606  2.0744
+====================================================================================================
+A. industry, mid and large: programme starts after the evidence year (pair and year fixed effects)
+y4 ~ post + e0 | pid + year; pairs=8846 (with dated evidence 547); programme starts=11862 (on pairs with evidence 890, after it 299)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1108      0.1600    0.4887 -0.4244  0.2028  0.8951  0.6542  1.2248
+e0            -0.1121      0.2751    0.6837 -0.6512  0.4271  0.8940  0.5214  1.5328
+====================================================================================================
+A. academic and government: programme starts after the evidence year (pair and year fixed effects)
+y5 ~ post + e0 | pid + year; pairs=41729 (with dated evidence 1421); programme starts=58367 (on pairs with evidence 2326, after it 657)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.0022      0.0893    0.9804 -0.1728  0.1772  1.0022  0.8413  1.1939
+e0            -0.1510      0.1297    0.2444 -0.4052  0.1033  0.8599  0.6668  1.1088
+====================================================================================================
+B. all sponsors: with therapeutic area x year fixed effects
+y0 ~ post + e0 | pid + ay; pairs=52962 (with dated evidence 2069); programme starts=88879 (on pairs with evidence 4769, after it 1453)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0922      0.0791    0.2438 -0.2472  0.0628  0.9119  0.7810  1.0648
+e0            -0.1102      0.1021    0.2804 -0.3103  0.0899  0.8957  0.7332  1.0941
+====================================================================================================
+B. top-20 pharma: with therapeutic area x year fixed effects
+y1 ~ post + e0 | pid + ay; pairs=8438 (with dated evidence 610); programme starts=13217 (on pairs with evidence 1191, after it 362)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3442      0.1625    0.0342  0.0256  0.6627  1.4108  1.0259  1.9401
+e0             0.4363      0.2155    0.0429  0.0140  0.8586  1.5470  1.0141  2.3599
+====================================================================================================
+B. other industry: with therapeutic area x year fixed effects
+y2 ~ post + e0 | pid + ay; pairs=12558 (with dated evidence 714); programme starts=17264 (on pairs with evidence 1248, after it 434)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0498      0.1288    0.6989 -0.3023  0.2026  0.9514  0.7391  1.2246
+e0             0.1014      0.2233    0.6499 -0.3363  0.5391  1.1067  0.7144  1.7144
+====================================================================================================
+C. all sponsors: event study, reference = the two years before the evidence year
+y0 ~ m6plus + m5_3 + e0 + p1_2 + p3_5 + p6plus | pid + year; pairs=52962 (with dated evidence 2069); programme starts=88879 (on pairs with evidence 4769, after it 1453)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+m6plus         0.2368      0.0952    0.0129  0.0502  0.4234  1.2672  1.0515  1.5271
+m5_3           0.0562      0.0833    0.5001 -0.1070  0.2194  1.0578  0.8985  1.2453
+e0             0.0748      0.1132    0.5086 -0.1470  0.2966  1.0777  0.8633  1.3453
+p1_2           0.1233      0.0971    0.2044 -0.0671  0.3137  1.1312  0.9351  1.3685
+p3_5           0.0056      0.1099    0.9591 -0.2097  0.2209  1.0057  0.8109  1.2473
+p6plus         0.0974      0.1215    0.4230 -0.1408  0.3355  1.1023  0.8687  1.3987
+====================================================================================================
+C. top-20 pharma: event study, reference = the two years before the evidence year
+y1 ~ m6plus + m5_3 + e0 + p1_2 + p3_5 + p6plus | pid + year; pairs=8438 (with dated evidence 610); programme starts=13217 (on pairs with evidence 1191, after it 362)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+m6plus         0.1057      0.1727    0.5403 -0.2327  0.4441  1.1115  0.7924  1.5591
+m5_3           0.0292      0.1677    0.8616 -0.2994  0.3579  1.0297  0.7413  1.4303
+e0             0.4595      0.2323    0.0480  0.0041  0.9149  1.5833  1.0041  2.4965
+p1_2           0.2478      0.2226    0.2656 -0.1884  0.6840  1.2812  0.8283  1.9818
+p3_5           0.5307      0.2199    0.0158  0.0997  0.9617  1.7001  1.1048  2.6162
+p6plus         0.7643      0.2573    0.0030  0.2599  1.2687  2.1475  1.2968  3.5561
+====================================================================================================
+C. other industry: event study, reference = the two years before the evidence year
+y2 ~ m6plus + m5_3 + e0 + p1_2 + p3_5 + p6plus | pid + year; pairs=12558 (with dated evidence 714); programme starts=17264 (on pairs with evidence 1248, after it 434)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+m6plus         0.3291      0.1674    0.0493  0.0010  0.6572  1.3897  1.0010  1.9294
+m5_3          -0.0095      0.1638    0.9537 -0.3306  0.3116  0.9905  0.7185  1.3657
+e0             0.1723      0.2376    0.4684 -0.2935  0.6381  1.1880  0.7457  1.8928
+p1_2           0.1767      0.1789    0.3232 -0.1739  0.5272  1.1933  0.8404  1.6942
+p3_5          -0.0658      0.2061    0.7497 -0.4697  0.3382  0.9364  0.6252  1.4024
+p6plus         0.0341      0.2108    0.8716 -0.3790  0.4471  1.0346  0.6845  1.5638
+====================================================================================================
+C. academic and government: event study, reference = the two years before the evidence year
+y5 ~ m6plus + m5_3 + e0 + p1_2 + p3_5 + p6plus | pid + year; pairs=41729 (with dated evidence 1421); programme starts=58367 (on pairs with evidence 2326, after it 657)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+m6plus         0.1052      0.1172    0.3693 -0.1245  0.3349  1.1109  0.8829  1.3978
+m5_3           0.0491      0.1176    0.6764 -0.1815  0.2797  1.0503  0.8340  1.3227
+e0            -0.0643      0.1534    0.6751 -0.3651  0.2364  0.9377  0.6941  1.2667
+p1_2           0.1145      0.1310    0.3823 -0.1423  0.3712  1.1213  0.8673  1.4495
+p3_5          -0.0633      0.1460    0.6644 -0.3494  0.2228  0.9386  0.7051  1.2495
+p6plus         0.1703      0.1559    0.2745 -0.1352  0.4758  1.1857  0.8736  1.6093
+====================================================================================================
+D1. other industry against top-20 pharma (post_other = ratio of the two responses)
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20996
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377      0.1610    0.0065  0.1222  0.7531  1.5491  1.1300  2.1237
+post_other    -0.5606      0.1885    0.0029 -0.9300 -0.1912  0.5709  0.3946  0.8260
+====================================================================================================
+D2. the same with therapeutic area x year x group fixed effects
+y ~ post + e0 + post_other + e0_other | pair x group + area x year x group; pair-groups=20996
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3442      0.1624    0.0341  0.0258  0.6625  1.4108  1.0261  1.9397
+post_other    -0.3940      0.1937    0.0420 -0.7737 -0.0143  0.6744  0.4613  0.9858
+====================================================================================================
+D3. small industry sponsors against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=13268
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377      0.1610    0.0066  0.1222  0.7532  1.5491  1.1299  2.1238
+post_other    -0.5806      0.2884    0.0441 -1.1458 -0.0155  0.5595  0.3180  0.9847
+====================================================================================================
+D4. mid-sized and large industry sponsors against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=17284
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377       0.161    0.0065  0.1222  0.7532  1.5491  1.1300  2.1237
+post_other    -0.5485       0.195    0.0049 -0.9306 -0.1663  0.5778  0.3943  0.8468
+====================================================================================================
+D5. academic and government sponsors against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=50167
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377      0.1609    0.0065  0.1223  0.7531  1.5491  1.1301  2.1235
+post_other    -0.4355      0.1777    0.0143 -0.7839 -0.0871  0.6470  0.4566  0.9166
+====================================================================================================
+D9. D1 with standard errors clustered by gene
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20996
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4377      0.1905    0.0216  0.0643  0.8110  1.5491  1.0664  2.2502
+post_other    -0.5606      0.2186    0.0103 -0.9891 -0.1321  0.5709  0.3719  0.8763
+====================================================================================================
+D7. D1 on pairs where both groups started at least one programme
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=5564
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3384      0.2220    0.1275 -0.0968  0.7735  1.4026  0.9078  2.1673
+post_other    -0.2355      0.2365    0.3195 -0.6991  0.2281  0.7902  0.4971  1.2562
+====================================================================================================
+D8. D1 for novel programmes only (the drug's first indication)
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=6600
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.6641      0.3425    0.0525 -0.0071  1.3353  1.9427  0.9929  3.8011
+post_other    -0.5393      0.3806    0.1565 -1.2852  0.2067  0.5832  0.2766  1.2296
+====================================================================================================
+D6. event study of the contrast (reference = the two years before the evidence year; *_other = ratio to top-20)
+y ~ m6plus + m5_3 + e0 + p1_2 + p3_5 + p6plus + m6plus_other + m5_3_other + e0_other + p1_2_other + p3_5_other + p6plus_other | pair x group + year x group; pair-groups=20996
+              Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                         
+m6plus_other    0.2234      0.2080    0.2828 -0.1843  0.6311  1.2503  0.8317  1.8797
+m5_3_other     -0.0387      0.2195    0.8599 -0.4690  0.3916  0.9620  0.6256  1.4793
+e0_other       -0.2872      0.3376    0.3949 -0.9489  0.3744  0.7504  0.3872  1.4542
+p1_2_other     -0.0711      0.2844    0.8026 -0.6285  0.4863  0.9314  0.5334  1.6263
+p3_5_other     -0.5964      0.2711    0.0278 -1.1279 -0.0650  0.5508  0.3237  0.9370
+p6plus_other   -0.7302      0.2997    0.0148 -1.3177 -0.1428  0.4818  0.2678  0.8669
+====================================================================================================
+E. placebo, all sponsors: evidence year moved five years earlier, years before the true evidence year only
+y0 ~ post + e0 | pid + year; pairs=52377 (with dated evidence 1484); programme starts=87287 (on pairs with evidence 3177, after it 586)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1689      0.0747    0.0237 -0.3153 -0.0226  0.8446  0.7296  0.9777
+e0            -0.2191      0.0966    0.0233 -0.4084 -0.0299  0.8032  0.6647  0.9706
+====================================================================================================
+E. placebo, top-20 pharma: evidence year moved five years earlier, years before the true evidence year only
+y1 ~ post + e0 | pid + year; pairs=8284 (with dated evidence 456); programme starts=12822 (on pairs with evidence 796, after it 118)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0092      0.1301    0.9438 -0.2641  0.2458  0.9909  0.7679  1.2786
+e0            -0.3695      0.1995    0.0641 -0.7605  0.0216  0.6911  0.4674  1.0218
+====================================================================================================
+E. placebo, other industry: evidence year moved five years earlier, years before the true evidence year only
+y2 ~ post + e0 | pid + year; pairs=12318 (with dated evidence 474); programme starts=16794 (on pairs with evidence 778, after it 145)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.2910      0.1271    0.0221 -0.5402 -0.0418  0.7475  0.5826  0.9591
+e0            -0.4965      0.1808    0.0060 -0.8509 -0.1422  0.6086  0.4271  0.8674
+====================================================================================================
+E. placebo of the contrast D1: other industry against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20602
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0092      0.1300    0.9438 -0.2640  0.2457  0.9909  0.7680  1.2785
+post_other    -0.2818      0.1612    0.0804 -0.5977  0.0341  0.7544  0.5501  1.0347

@@ -299,6 +299,10 @@ earlier). The contrast between sponsor groups uses two outcomes per pair-year wi
 effects, so it is measured against each group's own calendar trend; it rests on the groups following the same path
 without the evidence (checked by the leads and by the placebo of the contrast). None of this was pre-specified.
 Run under Python 3.13 with pyfixest; the library does not run under the Python 3.9 of the author's Mac.
+A second run uses the evidence of Open Targets 26.09 instead of the Minikel associations (`extract_ot_dated.py`:
+gene × disease × source with the earliest evidence date, the score floors of `gs_ot_dated.py`). Its plan
+(`docs/plan_evidence_arrival_ot.md`) was committed before the run and fixes the primary evidence (GWAS credible sets),
+the primary estimate (the contrast of other industry against top-20 pharma) and the rule for reading it.
 
 ## Reference date
 
