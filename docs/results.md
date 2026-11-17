@@ -227,6 +227,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   checks could not be made. After the first run the start-period control was redefined relative to the cohort year,
   because calendar-year periods identified the cohort in the pooled model; the single-cohort estimates did not
   change.
+* Robustness of the evidence-arrival result, added after it was known (`EA_LAST_EVIDENCE_YEAR=2022`): 692 of the
+  1,393 pairs gained their GWAS evidence after 2022 and have little or no follow-up. Without them, top-20 pharma
+  1.63 (1.05–2.52), other industry 0.81 (0.58–1.11), contrast 0.49 (0.32–0.77; area × year 0.50, 0.32–0.77;
+  clustered by gene 0.49, 0.32–0.76; placebo 0.91, 0.58–1.43). Venture-backed sponsors against top-20 pharma 0.51
+  (0.27–0.93), against industry sponsors without a marker 1.11 (0.60–2.06).
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

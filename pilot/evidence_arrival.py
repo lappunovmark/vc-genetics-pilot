@@ -44,6 +44,7 @@ import gensup
 
 R, MIN = sys.argv[1], sys.argv[2]
 OT_CSV, OT_SET = (sys.argv[3], sys.argv[4]) if len(sys.argv) > 4 else (None, None)
+SUF = f"_to{os.environ['EA_LAST_EVIDENCE_YEAR']}" if os.environ.get("EA_LAST_EVIDENCE_YEAR") else ""
 Y0, Y1 = 2000, 2025
 TOP, SMALL = "Top-20 pharma", "Industry, small (<=5 drugs)"
 MIDLARGE = ["Industry, large (>30)", "Industry, mid (6-30)"]
@@ -129,6 +130,13 @@ out.append(
     f"never supported: {int((pairs.E.isna() & ~pairs.omim).sum())}"
 )
 pairs = pairs[~pairs.omim].copy()
+LAST_E = os.environ.get("EA_LAST_EVIDENCE_YEAR")  # robustness: leave out pairs whose evidence year is later
+if LAST_E:
+    n0 = len(pairs)
+    pairs = pairs[pairs.E.isna() | (pairs.E <= int(LAST_E))].copy()
+    out.append(
+        f"robustness run: {n0 - len(pairs)} pairs with an evidence year after {LAST_E} left out (too little follow-up)"
+    )
 pairs["pid"] = np.arange(len(pairs))
 area = P.groupby("indication_mesh_id").area.agg(lambda x: x.fillna("other").mode().iat[0])
 pairs["area"] = pairs.indication_mesh_id.map(area).fillna("other")
@@ -294,11 +302,11 @@ if VC is not None:
         "F8. placebo of F3: evidence year moved five years earlier, years before the true evidence year only",
     )
     stacked(pl, "v_yes", "F9. placebo of F5", top="v_no")
-    open(f"{R}/evidence_arrival_ot_{OT_SET}_venture.txt", "w").write("\n".join(out) + "\n")
+    open(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}_venture.txt", "w").write("\n".join(out) + "\n")
     print("\n".join(out))
     out = main_out
 
-open(f"{R}/evidence_arrival_ot_{OT_SET}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
+open(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
     "\n".join(out) + "\n"
 )
 print("\n".join(out))
