@@ -236,6 +236,68 @@ for g in ("all sponsors", "top-20 pharma", "other industry"):
     fit(pl, YC[g], f"E. placebo, {g}: evidence year moved five years earlier, years before the true evidence year only")
 stacked(pl, "other industry", "E. placebo of the contrast D1: other industry against top-20 pharma")
 
+
+# F. venture-backed sponsors (plan written before the run: docs/plan_evidence_arrival_venture.md). Needs the sponsor
+# tables of owners_link.py, ritter_models.py, cb_models.py and formd_directors.py; written to a file of its own.
+def venture_norms():
+    import rq2_stops
+
+    vc = set()
+    for name, col, flag in (
+        ("owners_sponsors.csv", "norm", lambda d: d.vc_backed.astype(bool)),
+        ("ritter_sponsors.csv", "first_sponsor", lambda d: d.ritter_vc.astype(bool)),
+        ("cb_sponsors.csv", "first_sponsor", lambda d: d.first_vc_round_year.notna()),
+        ("formd_directors_sponsors.csv", "norm", lambda d: d.first_vc_board_year.notna()),
+    ):
+        path = f"{R}/{name}"
+        if not os.path.exists(path):
+            return None
+        d = pd.read_csv(path, dtype={"norm": str})
+        n = d[col] if col == "norm" else d[col].map(rq2_stops.norm_sponsor)
+        vc |= set(n[flag(d)].dropna())
+    return vc
+
+
+VC = venture_norms() if OT_CSV else None
+if VC is not None:
+    import rq2_stops
+
+    main_out, out = out, []
+    ind = D[D.first_sponsor_tier.isin([SMALL] + MIDLARGE)].copy()
+    ind["vc"] = ind.first_sponsor.map(rq2_stops.norm_sponsor).isin(VC)
+    for col, d in (("v_yes", ind[ind.vc]), ("v_no", ind[~ind.vc])):
+        n = d.groupby(["pid", "first_year"]).size().rename(col).reset_index().rename(columns={"first_year": "year"})
+        grid = grid.merge(n, on=["pid", "year"], how="left")
+        grid[col] = grid[col].fillna(0).astype(int)
+    pl = grid[grid.E.isna() | (grid.year < grid.E)].copy()
+    pl["post"] = ((pl.year - (pl.E - 5)) > 0).astype(int)
+    pl["e0"] = ((pl.year - (pl.E - 5)) == 0).astype(int)
+    sp = ind.drop_duplicates("first_sponsor")
+    out.append(
+        "Venture-backed sponsors and the publication of genetic evidence (plan: docs/plan_evidence_arrival_venture.md)"
+    )
+    out.append(
+        f"evidence set: {OT_SET}; non-top-20 industry sponsors with a programme on these pairs: {len(sp)}; venture-backed "
+        f"by at least one source: {int(sp.vc.sum())}; programme starts: venture-backed {int(grid.v_yes.sum())}, "
+        f"no venture marker {int(grid.v_no.sum())}, top-20 pharma {int(grid[YC['top-20 pharma']].sum())}"
+    )
+    fit(grid, "v_yes", "F1. venture-backed industry sponsors: programme starts after the evidence year")
+    fit(grid, "v_no", "F2. industry sponsors without a venture marker: programme starts after the evidence year")
+    stacked(grid, "v_yes", "F3 (primary). venture-backed industry sponsors against top-20 pharma")
+    stacked(grid, "v_no", "F4. industry sponsors without a venture marker against top-20 pharma")
+    stacked(grid, "v_yes", "F5. venture-backed against industry sponsors without a venture marker", top="v_no")
+    stacked(grid, "v_yes", "F6. F3 with therapeutic area x year x group fixed effects", by_area=True)
+    stacked(grid, "v_yes", "F7. F3 with standard errors clustered by gene", cl="gene")
+    stacked(
+        pl,
+        "v_yes",
+        "F8. placebo of F3: evidence year moved five years earlier, years before the true evidence year only",
+    )
+    stacked(pl, "v_yes", "F9. placebo of F5", top="v_no")
+    open(f"{R}/evidence_arrival_ot_{OT_SET}_venture.txt", "w").write("\n".join(out) + "\n")
+    print("\n".join(out))
+    out = main_out
+
 open(f"{R}/evidence_arrival_ot_{OT_SET}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
     "\n".join(out) + "\n"
 )
