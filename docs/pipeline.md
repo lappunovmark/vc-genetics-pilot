@@ -24,6 +24,7 @@
 | Exploratory: trial stops around 2022 by venture backing of the sponsor (the four sources, matched again for every trial sponsor) | `pilot/vc_stops.py`, `pilot/vc_stops_decisions.csv`, `pilot/formd_directors_lib.py` | as above |
 | Exploratory: the selection gap by type of drug | `pilot/h1_by_modality.py` | — |
 | Exploratory: direction of effect (does the drug act the way the genetics points?) | `pilot/extract_ot_direction.py`, `pilot/direction_models.py` | Open Targets 26.09: `evidence_gene_burden`, `evidence_eva`, `evidence_orphanet`, `evidence_gene2phenotype`, `evidence_clinical_precedence` |
+| Cash runway of public sponsors and trial stops, planned before the download (SEC_USER_AGENT needed) | `pilot/fetch_sec_frames.py`, `pilot/cash_runway.py`, `docs/plan_cash_runway.md` | SEC XBRL frames API (public domain) |
 | Exploratory: programme starts around the publication of genetic evidence (needs pyfixest, Python ≥ 3.10) | `pilot/evidence_arrival.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | The same on Open Targets 26.09 evidence, planned before the run | `pilot/extract_ot_dated.py`, `pilot/evidence_arrival.py`, `docs/plan_evidence_arrival_ot.md` | Open Targets 26.09 genetic evidence datasets |
 | Results-at-a-glance figure (README) and the main figure with every specification of the selection model | `pilot/figure_glance.py`, `pilot/figure_main.py` | — |

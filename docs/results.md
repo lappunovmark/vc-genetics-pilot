@@ -212,6 +212,21 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   without a marker are separated from top-20 pharma (0.50, 0.31–0.80). Placebo of the primary contrast 1.13
   (0.69–1.83); the placebo of the comparison between venture-backed and other sponsors is borderline (1.56,
   0.96–2.54), which makes that comparison the weakest part.
+* Cash runway and trial stops (`fetch_sec_frames.py`, `cash_runway.py`; plan written before the data were
+  downloaded: `docs/plan_cash_runway.md`). Of 1,077 non-top-20 industry sponsors with an EDGAR registrant, 332 have
+  cash figures for 2021 and a trial active on 1 January 2022 (1,366 trials): 78 with a runway below 1.5 years, 217
+  with a longer one, 37 with positive operating cash flow. Trials of short-runway sponsors were stopped for
+  financial or strategic reasons in 2022–2023 in 16 of 241 cases (6.6%), those of sponsors with a longer runway in
+  35 of 748 (4.7%). The primary estimate is 1.58 (0.68–3.66; 989 trials, 295 sponsors, 51 stops); in the ordinary
+  years 2018–2019 it is 0.55 (0.09–3.54; 4 of 287 against 12 of 481), and the interaction of short runway with the
+  downturn is 2.67 (0.35–20.27). Runway as a continuous variable: 0.72 per log-year (0.50–1.04); shortest third
+  against longest 1.33 (0.51–3.50); any stop 1.24 (0.76–2.04); small sponsors only 1.09 (0.39–3.04). By the rule
+  fixed in advance the data do not show that sponsors short of cash stopped more trials in the downturn: the
+  direction agrees with the hypothesis and the estimates are imprecise. Only one stop in the cohort cites lack of
+  funding and only ten stopped trials of short-runway sponsors carry a genetic-support label, so those two planned
+  checks could not be made. After the first run the start-period control was redefined relative to the cohort year,
+  because calendar-year periods identified the cohort in the pooled model; the single-cohort estimates did not
+  change.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

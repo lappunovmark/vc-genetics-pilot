@@ -1,0 +1,88 @@
+Cash runway and trial stops (plan: docs/plan_cash_runway.md)
+non-top-20 industry sponsors with an EDGAR registrant: 1077; with cash figures for 2021 and a trial active on 1 January 2022: 332 (1366 trials); for 2017 and 1 January 2018: 267 (1203 trials)
+
+Cohort 2022 (runway at the end of 2021; stops in 2022-2023):
+                    sponsors  trials  financial_stops  any_stop  lack_of_funding  median_runway  financial_per_100  any_per_100
+cash                                                                                                                           
+longer runway            217     748               35       141                1           3.58               4.68        18.85
+positive cash flow        37     377               12        47                0            NaN               3.18        12.47
+short runway              78     241               16        53                0           0.86               6.64        21.99
+
+Cohort 2018 (runway at the end of 2017; stops in 2018-2019):
+                    sponsors  trials  financial_stops  any_stop  lack_of_funding  median_runway  financial_per_100  any_per_100
+cash                                                                                                                           
+longer runway            122     481               12        61                0           3.28               2.49        12.68
+positive cash flow        48     435                7        42                0            NaN               1.61         9.66
+short runway              97     287                4        48                0           0.89               1.39        16.72
+====================================================================================================
+1 (primary). Cohort 2022, sponsors with a runway: financial or strategic stop ~ short runway
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=989 trials; sponsors=295; events=51; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short  0.4585    0.4275  0.2835 -0.3794  1.2964  1.5817  0.6843  3.6559
+====================================================================================================
+2. Cohort 2018, the same model in ordinary years
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=768 trials; sponsors=219; events=16; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short -0.599    0.9513  0.5289 -2.4634  1.2655  0.5494  0.0851  3.5448
+====================================================================================================
+3 (second estimate). Both cohorts: short runway x downturn
+fin_y ~ short * downturn + C(phase) + C(yb) + C(group)
+N=1757 trials; sponsors=378; events=67; converged=True
+                 Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+short          -0.5572    0.8081  0.4905 -2.1410  1.0266  0.5728  0.1175   2.7916
+downturn        0.6382    0.3950  0.1062 -0.1361  1.4124  1.8930  0.8728   4.1059
+short:downturn  0.9834    1.0336  0.3413 -1.0423  3.0092  2.6737  0.3526  20.2713
+====================================================================================================
+4. Cohort 2022: any stop ~ short runway
+any_y ~ short + C(phase) + C(yb) + C(group)
+N=989 trials; sponsors=295; events=194; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+short  0.2185    0.2533  0.3882 -0.2778  0.7149  1.2442  0.7574  2.044
+====================================================================================================
+5. Both cohorts: any stop ~ short runway x downturn
+any_y ~ short * downturn + C(phase) + C(yb) + C(group)
+N=1757 trials; sponsors=378; events=303; converged=True
+                 Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short           0.4005    0.2731  0.1425 -0.1348  0.9358  1.4926  0.8739  2.5494
+downturn        0.5206    0.2439  0.0328  0.0426  0.9985  1.6830  1.0435  2.7143
+short:downturn -0.1909    0.3956  0.6293 -0.9662  0.5843  0.8262  0.3805  1.7938
+====================================================================================================
+6. Cohort 2022: stop citing lack of funding ~ short runway
+nofund_y ~ short + C(phase) + C(yb) + C(group)
+not estimated: 1 events
+====================================================================================================
+7. Cohort 2022: financial or strategic stop ~ log runway (years)
+fin_y ~ lrun + C(phase) + C(yb) + C(group)
+N=989 trials; sponsors=295; events=51; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+lrun -0.3229    0.1863  0.0831 -0.6881  0.0423  0.7241  0.5025  1.0432
+
+thirds of sponsors by runway at the end of 2021: up to 1.69 years, up to 3.36 years, longer
+====================================================================================================
+8. Cohort 2022: financial or strategic stop ~ thirds of runway (reference: longest)
+fin_y ~ C(third) + C(phase) + C(yb) + C(group)
+N=989 trials; sponsors=295; events=51; converged=True
+                       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(third)[T.middle]    0.0469    0.5297  0.9294 -0.9913  1.0852  1.0480  0.3711  2.9599
+C(third)[T.shortest]  0.2862    0.4929  0.5615 -0.6799  1.2524  1.3314  0.5067  3.4986
+====================================================================================================
+9. Cohort 2022, all sponsors with cash figures: three groups (reference: longer runway)
+fin_y ~ C(cash) + C(phase) + C(yb) + C(group)
+N=1366 trials; sponsors=332; events=63; converged=True
+                                Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(cash)[T.short runway]        0.4339    0.4268  0.3094 -0.4027  1.2704  1.5432  0.6685  3.5622
+C(cash)[T.positive cash flow] -0.0517    0.5949  0.9308 -1.2177  1.1143  0.9496  0.2959  3.0476
+====================================================================================================
+10. Cohort 2022, small sponsors (up to 20 trials) only
+fin_y ~ short + C(phase) + C(yb)
+N=563 trials; sponsors=233; events=30; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+short  0.0871    0.5229  0.8677 -0.9378   1.112  1.091  0.3915  3.0406
+
+11. Trials of short-runway sponsors with a genetic-support label (h4_biology.py), cohort 2022:
+                                   trials  gs_ante  gs_ot_ante
+state                                                         
+not stopped for financial reasons      99   0.1414      0.1313
+stopped for financial reasons          10   0.1000      0.4000
