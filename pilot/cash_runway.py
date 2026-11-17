@@ -143,10 +143,15 @@ def main(ctgov, R, frames, h4=None):
     fit(f"nofund_y ~ short + {ctrl}", neg22, "6. Cohort 2022: stop citing lack of funding ~ short runway", is_short)
     neg22["lrun"] = np.log(neg22.runway.clip(lower=0.05))
     fit(f"fin_y ~ lrun + {ctrl}", neg22, "7. Cohort 2022: financial or strategic stop ~ log runway (years)", lambda i: i == "lrun")  # fmt: skip
-    q = neg22.drop_duplicates("sponsor_norm").runway.quantile([1 / 3, 2 / 3]).tolist()
-    neg22["third"] = pd.Categorical(np.select([neg22.runway <= q[0], neg22.runway <= q[1]], ["shortest", "middle"], "longest"), categories=["longest", "middle", "shortest"])  # fmt: skip
+    # thirds of sponsors by rank (a cut at a quantile value puts a sponsor that sits exactly on it into different
+    # thirds under different library versions)
+    sp = neg22.drop_duplicates("sponsor_norm").sort_values(["runway", "sponsor_norm"])
+    idx = dict(zip(sp.sponsor_norm, (np.arange(len(sp)) * 3) // len(sp)))
+    names = ["shortest", "middle", "longest"]
+    neg22["third"] = pd.Categorical([names[idx[n]] for n in neg22.sponsor_norm], categories=["longest", "middle", "shortest"])  # fmt: skip
+    cut = sp.groupby([names[idx[n]] for n in sp.sponsor_norm]).runway.max()
     out.append(
-        f"\nthirds of sponsors by runway at the end of 2021: up to {q[0]:.2f} years, up to {q[1]:.2f} years, longer"
+        f"\nthirds of sponsors by runway at the end of 2021: up to {cut['shortest']:.2f} years, up to {cut['middle']:.2f} years, longer"
     )
     fit(f"fin_y ~ C(third) + {ctrl}", neg22, "8. Cohort 2022: financial or strategic stop ~ thirds of runway (reference: longest)", lambda i: i.startswith("C(third)"))  # fmt: skip
     c22["cash"] = pd.Categorical(c22.cash, categories=["longer runway", "short runway", "positive cash flow"])
