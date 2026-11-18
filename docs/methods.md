@@ -311,8 +311,14 @@ Section F splits non-top-20 industry sponsors by the combined venture flag of `v
 (`docs/plan_evidence_arrival_venture.md`, written before any model with these groups); the flag describes the
 sponsor and is not dated. Two checks were added after the results were known and are labelled so in the output:
 `EA_LAST_EVIDENCE_YEAR=2022` leaves out pairs that gained their evidence after 2022 and have little follow-up, and
-section G counts the genes behind the post-evidence starts of top-20 pharma and repeats the contrast without the
-three leading genes.
+section G counts the genes behind the post-evidence starts of top-20 pharma, repeats the contrast without the
+three leading genes, classes each start as a drug's first indication or a further indication (of a drug first
+tried before or after the evidence year), lists the starts (`evidence_arrival_ot_<set>_top20_starts.csv`) and
+repeats the models with gene × year effects, where the comparison is the other indications of the same target in
+the same year. Section H repeats the design with the target as the unit: programme starts on a gene in all its
+indications, the evidence year being the first year in which one of its pairs gained evidence, with gene and year
+effects and errors clustered by gene. `figure_evidence_arrival.py` draws the event study and the contrast under
+each specification from these files (`figures/evidence_arrival.png`).
 
 ## Cash runway and trial stops (`fetch_sec_frames.py`, `cash_runway.py`)
 The plan (`docs/plan_cash_runway.md`) was committed before the SEC data were downloaded. `fetch_sec_frames.py` reads

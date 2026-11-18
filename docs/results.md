@@ -227,6 +227,34 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   1, so on GWAS evidence the response of top-20 pharma leans on these targets. On all germline sources the three
   leading genes are others (PIK3CA 38, EGFR 24, TYK2 23 of 362 starts), and without them the contrast is 0.57
   (0.39–0.82) and the response of top-20 pharma 1.41 (1.04–1.91).
+  *What the starts on the three genes are* (`evidence_arrival_ot_gwas_top20_starts.csv` lists all 121). The 50
+  starts are 43 programmes of 15 drugs: nine small-molecule inhibitors of JAK kinases or TYK2 (among them
+  tofacitinib, baricitinib, upadacitinib and filgotinib) and six antibodies against interleukin-23 or
+  interleukin-12/23 (ustekinumab, guselkumab, risankizumab, tildrakizumab, mirikizumab, brazikumab), in ulcerative
+  colitis (14), Crohn disease (8), psoriasis (7), psoriatic arthritis (7), systemic lupus erythematosus (6) and six
+  other indications (8). Seven of the 50 are a drug's first indication, 26 a further indication of a drug first
+  tried after the evidence year and 17 a further indication of a drug already in trials by then. Of all 121 starts
+  26 are a first indication, 36 and 59 the two kinds of further indication (other industry sponsors: 29, 14 and 60
+  of 103). The response is therefore mostly one class of drugs moving through related immune-mediated diseases.
+  *Is the response specific to the indication? Checked after the result was known.* With gene × year effects the
+  comparison is the other indications of the same target in the same year. There top-20 pharma do not start more
+  programmes on the pair with evidence (0.73, 0.43–1.25), other industry sponsors start fewer (0.63, 0.43–0.93) and
+  the contrast is 0.85 (0.46–1.58); on all germline sources 0.83 (0.54–1.26), 0.76 (0.56–1.03) and 0.92
+  (0.55–1.52). Starts on a pair decline over its life (the placebo above) and these models do not hold the age
+  of a pair fixed, so the single-group estimates here are not effects of the evidence; the contrast between the
+  groups is the usable number, and it is no longer separated from 1. The difference between top-20 pharma and other sponsors is thus
+  between targets, not between the indications of a target.
+  *The target as the unit* (section H; all indications of a gene together, evidence year = the first year in which
+  one of its pairs gained evidence; 389 of 1,473 genes; errors clustered by gene). Top-20 pharma 1.33 (0.98–1.81),
+  other industry 0.96 (0.81–1.15), contrast 0.72 (0.53–0.99); without the three leading genes 0.79 (0.57–1.11);
+  placebo of the contrast 1.20 (0.95–1.51), so before the evidence the groups were moving the other way. On all
+  germline sources (510 genes with evidence) top-20 pharma 1.08 (0.82–1.43) and the contrast 0.88 (0.67–1.15).
+  *Reading.* The planned contrast is repeated by its own rule, but the checks added afterwards limit what it means:
+  on GWAS evidence two fifths of the response is one pathway, the difference is not specific to the indication that
+  gained the evidence, and at the level of the target it is weaker and does not survive leaving out the three genes
+  or widening the evidence to all germline sources. The pilot shows that top-20 pharma ran more of the programmes
+  on targets that gained GWAS evidence, largely follow-on indications of JAK, TYK2 and interleukin-12/23 drugs; it
+  does not show that they did so because of the evidence.
 * Venture-backed sponsors and the publication of genetic evidence (section F of `evidence_arrival.py`; plan written
   before the run: `docs/plan_evidence_arrival_venture.md`). Of 1,425 non-top-20 industry sponsors with a programme
   on these pairs, 504 are venture-backed by the combined flag (sponsors counted by normalised name; the first run
@@ -268,7 +296,9 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   1.63 (1.05–2.52), other industry 0.81 (0.58–1.11), contrast 0.49 (0.32–0.77; area × year 0.50, 0.32–0.77;
   clustered by gene 0.49, 0.32–0.76; placebo 0.91, 0.58–1.43). Venture-backed sponsors against top-20 pharma 0.51
   (0.27–0.93), against industry sponsors without a marker 1.11 (0.60–2.06). Without the pairs of TYK2, IL12B and
-  JAK2 the contrast in this run is 0.58 (0.34–0.99) and the response of top-20 pharma 1.25 (0.73–2.12).
+  JAK2 the contrast in this run is 0.58 (0.34–0.99) and the response of top-20 pharma 1.25 (0.73–2.12); with gene ×
+  year effects the contrast is 0.83 (0.44–1.55), and with the target as the unit 0.68 (0.49–0.95; without the three
+  genes 0.74, 0.52–1.06).
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

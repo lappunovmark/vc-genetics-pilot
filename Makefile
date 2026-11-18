@@ -83,6 +83,7 @@ biology:  # exploratory: the gap by type of drug, direction of effect, arrival o
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png
 	$(PY) pilot/figure_main.py $(RES) figures/main_results.png
+	$(PY) pilot/figure_evidence_arrival.py $(RES) figures/evidence_arrival.png
 
 check: lint test
 

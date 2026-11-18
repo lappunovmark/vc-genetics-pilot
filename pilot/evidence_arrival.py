@@ -113,10 +113,10 @@ def tidy(m, keep):
     return t.round(4).to_string()
 
 
-def fit(d, ycol, title, fe="pid + year", terms=("post", "e0")):
+def fit(d, ycol, title, fe="pid + year", terms=("post", "e0"), cl=CL):
     d = d[d.groupby("pid")[ycol].transform("sum") > 0]  # pairs without a start add nothing to a fixed-effects Poisson
     try:
-        m = pf.fepois(f"{ycol} ~ {' + '.join(terms)} | {fe}", data=d, vcov={"CRV1": "indication_mesh_id"})
+        m = pf.fepois(f"{ycol} ~ {' + '.join(terms)} | {fe}", data=d, vcov={"CRV1": cl})
         tr = d[d.E.notna()]
         out.extend(
             [
@@ -184,6 +184,7 @@ for lo, hi, name in BINS:
     grid[name.replace("+", "plus")] = rel.between(lo, hi).astype(int)
 ES = [n.replace("+", "plus") for _, _, n in BINS]
 grid["ay"] = pd.factorize(grid.area + "_" + grid.year.astype(str))[0]
+grid["gy"] = pd.factorize(grid.gene + "_" + grid.year.astype(str))[0]
 
 tr = grid[grid.E.notna()]
 out.append(
@@ -211,7 +212,16 @@ for g in ("all sponsors", "top-20 pharma", "other industry", "academic and gover
 # and year x group fixed effects, so the coefficient on post_other is the ratio of the two responses. The decline of
 # starts over a pair's life (the placebo in E) is common to the groups and drops out of this contrast.
 def stacked(
-    d, other, title, by_area=False, terms=("post", "e0"), show=("post", "post_other"), top=None, both=False, cl=CL
+    d,
+    other,
+    title,
+    by_area=False,
+    terms=("post", "e0"),
+    show=("post", "post_other"),
+    top=None,
+    both=False,
+    cl=CL,
+    tfe=None,
 ):
     c0, c1 = top or YC["top-20 pharma"], YC.get(other, other)
     if both:  # only pairs on which each of the two groups started at least one programme
@@ -219,7 +229,8 @@ def stacked(
         d = d[ok]
     s2 = pd.concat([d.assign(y=d[c0], grp=0), d.assign(y=d[c1], grp=1)])
     s2["pg"] = s2.pid * 2 + s2.grp
-    s2["yg"] = (s2.ay if by_area else s2.year) * 2 + s2.grp
+    tcol = tfe or ("ay" if by_area else "year")  # the time effect: year, area x year or gene x year
+    s2["yg"] = s2[tcol] * 2 + s2.grp
     rhs = list(terms)
     for t in terms:
         s2[f"{t}_other"] = s2[t] * s2.grp
@@ -227,7 +238,9 @@ def stacked(
     s2 = s2[s2.groupby("pg").y.transform("sum") > 0]
     try:
         m = pf.fepois(f"y ~ {' + '.join(rhs)} | pg + yg", data=s2, vcov={"CRV1": cl})
-        fe = "pair x group + " + ("area x year x group" if by_area else "year x group")
+        fe = (
+            "pair x group + " + {"year": "year x group", "ay": "area x year x group", "gy": "gene x year x group"}[tcol]
+        )
         out.extend(
             ["=" * 100, title, f"y ~ {' + '.join(rhs)} | {fe}; pair-groups={s2.pg.nunique()}", tidy(m, list(show))]
         )
@@ -342,6 +355,65 @@ if OT_CSV:
         stacked(grid[grid.gene.ne(g)], "other industry", f"G. D1 without the pairs of {g}")
     stacked(grid[~grid.gene.isin(lead)], "other industry", "G. D1 without the pairs of these three genes")
     fit(grid[~grid.gene.isin(lead)], YC["top-20 pharma"], "G. top-20 pharma without the pairs of these three genes")
+
+    # what the starts are: new drugs or new indications of drugs already in trials
+    def kind(t, label):
+        first = int(t.is_drug_first_indication.eq(True).sum())
+        before = int((t.drug_first_year <= t.E).sum())
+        return (
+            f"{label}: {len(t)} starts; the drug's first indication {first}; a further indication of a drug first tried "
+            f"after the evidence year {len(t) - first - int((~t.is_drug_first_indication.eq(True) & (t.drug_first_year <= t.E)).sum())}; "
+            f"a further indication of a drug already in trials by the evidence year "
+            f"{int((~t.is_drug_first_indication.eq(True) & (t.drug_first_year <= t.E)).sum())} "
+            f"(drug in trials by the evidence year, either kind: {before})"
+        )
+
+    ot = D[D.first_sponsor_tier.isin([SMALL] + MIDLARGE)].merge(pairs[["pid", "E"]], on="pid")
+    ot = ot[ot.first_year > ot.E]
+    out.extend(
+        [
+            "",
+            "what the programme starts after the evidence year are (added after the results were known):",
+            kind(tp, "top-20 pharma, all genes"),
+            kind(tp[tp.gene.isin(lead)], "top-20 pharma, the three leading genes"),
+            kind(tp[~tp.gene.isin(lead)], "top-20 pharma, other genes"),
+            kind(ot, "other industry, all genes"),
+        ]
+    )
+    cols = ["gene", "indication_mesh_id", "area", "drug", "drugType", "first_sponsor", "first_year", "E", "drug_first_year", "is_drug_first_indication"]  # fmt: skip
+    tp.assign(E=tp.E.astype(int))[cols].sort_values(["gene", "drug", "first_year", "indication_mesh_id"]).rename(
+        columns={"E": "evidence_year"}
+    ).to_csv(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}_top20_starts.csv", index=False)
+    # within one target and year: pairs with evidence against the other indications of the same gene
+    fit(grid, YC["top-20 pharma"], "G. top-20 pharma with gene x year fixed effects (other indications of the same target as the comparison)", fe="pid + gy")  # fmt: skip
+    fit(grid, YC["other industry"], "G. other industry with gene x year fixed effects", fe="pid + gy")
+    stacked(grid, "other industry", "G. D1 with gene x year x group fixed effects", tfe="gy")
+
+    # H. the same design with the target as the unit: all indications of a gene together, evidence year = the first
+    # year in which one of its pairs gained evidence. Added after G showed that the response is not specific to the
+    # indication.
+    yc = [YC["top-20 pharma"], YC["other industry"]]
+    gg = grid.groupby(["gene", "year"])[yc].sum().reset_index()
+    gg["E"] = gg.gene.map(pairs.groupby("gene").E.min())
+    gg["pid"] = pd.factorize(gg.gene)[0]
+    gg["post"] = (gg.year > gg.E).astype(int)
+    gg["e0"] = (gg.year == gg.E).astype(int)
+    gp = gg[gg.E.isna() | (gg.year < gg.E)].copy()
+    gp["post"] = ((gp.year - (gp.E - 5)) > 0).astype(int)
+    gp["e0"] = ((gp.year - (gp.E - 5)) == 0).astype(int)
+    out.extend(
+        [
+            "=" * 100,
+            "H. the target as the unit (added after G): programme starts on a gene in all its indications, before and "
+            "after the first year in which one of its pairs gained evidence; errors clustered by gene",
+            f"genes: {gg.gene.nunique()}; with evidence: {gg[gg.E.notna()].gene.nunique()}",
+        ]
+    )
+    fit(gg, yc[0], "H1. top-20 pharma, target level", cl="gene")
+    fit(gg, yc[1], "H2. other industry, target level", cl="gene")
+    stacked(gg, yc[1], "H3. other industry against top-20 pharma, target level", cl="gene")
+    stacked(gg[~gg.gene.isin(lead)], yc[1], "H4. H3 without the three leading genes", cl="gene")
+    stacked(gp, yc[1], "H5. placebo of H3: evidence year moved five years earlier", cl="gene")
 
 open(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
     "\n".join(out) + "\n"

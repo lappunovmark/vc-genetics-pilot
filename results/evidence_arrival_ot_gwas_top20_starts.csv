@@ -1,0 +1,122 @@
+gene,indication_mesh_id,area,drug,drugType,first_sponsor,first_year,evidence_year,drug_first_year,is_drug_first_indication
+AKT3,D016543,oncology,CHEMBL2177390,Small molecule,Hoffmann-La Roche,2021,2017,2011,False
+AR,D011471,oncology,CHEMBL254328,Small molecule,"Genentech, Inc.",2012,2011,2012,True
+BCL2,D054198,oncology,CHEMBL443684,Small molecule,AbbVie,2017,2013,2006,False
+CD40,D001172,musculoskeletal,CHEMBL4298210,Antibody,Novartis Pharmaceuticals,2013,2008,2013,True
+CD40,D012859,musculoskeletal,CHEMBL4298210,Antibody,Novartis Pharmaceuticals,2014,2008,2013,False
+CD40,D008180,dermatology,CHEMBL4298210,Antibody,Novartis Pharmaceuticals,2018,2017,2013,False
+CD40,D008181,dermatology,CHEMBL4298210,Antibody,Novartis Pharmaceuticals,2018,2017,2013,False
+CHEK2,D015179,oncology,CHEMBL3544911,Small molecule,Eli Lilly and Company,2014,2010,2010,False
+CHEK2,D055752,oncology,CHEMBL3544911,Small molecule,Eli Lilly and Company,2016,2014,2010,False
+DRD2,D002659,psychiatry,CHEMBL2028019,Small molecule,AbbVie,2020,2017,2006,False
+DRD2,D001008,psychiatry,CHEMBL2028019,Small molecule,AbbVie,2021,2018,2006,False
+ESR1,D001943,oncology,CHEMBL3581693,Small molecule,"Genentech, Inc.",2014,2012,2014,True
+ESR1,D001943,oncology,CHEMBL4475463,Small molecule,Sanofi,2017,2012,2017,True
+ESR1,D001943,oncology,CHEMBL4650316,Small molecule,"Genentech, Inc.",2017,2012,2017,True
+ESR1,D001943,oncology,CHEMBL4650365,Small molecule,AstraZeneca,2018,2012,2018,True
+FGFR2,D001943,oncology,CHEMBL1946170,Small molecule,Bayer,2014,2007,2008,False
+FGFR2,D002289,oncology,CHEMBL2220486,Small molecule,Bristol-Myers Squibb,2021,2016,2013,False
+FGFR2,D001943,oncology,CHEMBL3348846,Small molecule,AstraZeneca,2010,2007,2010,True
+FGFR2,D014565,oncology,CHEMBL3545376,Small molecule,"Janssen Research & Development, LLC",2018,2016,2012,False
+FGFR2,D001943,oncology,CHEMBL3963485,Small molecule,Bayer,2019,2007,2013,False
+FGFR2,D055752,oncology,CHEMBL3963485,Small molecule,Bayer,2019,2016,2013,False
+FGFR2,D001943,oncology,CHEMBL4650293,Antibody drug conjugate,Bayer,2015,2007,2015,True
+FGFR2,D002289,oncology,CHEMBL4802165,Antibody,Amgen,2022,2016,2014,False
+FGFR2,D009369,oncology,CHEMBL4802165,Antibody,Amgen,2022,2020,2014,False
+FRK,D008268,ophthalmology,CHEMBL1946170,Small molecule,Bayer,2014,2011,2008,False
+GIPR,D003924,metabolic,CHEMBL5095485,Protein,Eli Lilly and Company,2019,2017,2019,True
+GLP1R,D003924,metabolic,CHEMBL5314776,Protein,Boehringer Ingelheim,2020,2019,2018,False
+GUCY1A1,D002318,cardiovascular,CHEMBL4650322,Small molecule,Bayer,2020,2018,2020,True
+GUCY1A1,D006973,cardiovascular,CHEMBL4650322,Small molecule,Bayer,2020,2018,2020,True
+GUCY1A2,D002318,cardiovascular,CHEMBL4650322,Small molecule,Bayer,2020,2018,2020,True
+ICOS,D001172,musculoskeletal,CHEMBL4650245,Protein,Amgen,2017,2012,2017,True
+IL12A,D008105,digestive,CHEMBL1201835,Antibody,"Janssen Research & Development, LLC",2011,2009,2003,False
+IL12B,D003093,digestive,CHEMBL1201835,Antibody,"Janssen Research & Development, LLC",2015,2008,2003,False
+IL12B,D013625,cardiovascular,CHEMBL1201835,Antibody,Janssen Pharmaceutical K.K.,2021,2020,2003,False
+IL12B,D011565,dermatology,CHEMBL2108681,Antibody,Merck Sharp & Dohme LLC,2010,2009,2010,True
+IL12B,D015535,musculoskeletal,CHEMBL2364648,Antibody,"Janssen Research & Development, LLC",2015,2009,2009,False
+IL12B,D003093,digestive,CHEMBL2364648,Antibody,"Janssen Research & Development, LLC",2018,2008,2009,False
+IL12B,D003424,digestive,CHEMBL2364648,Antibody,"Janssen Research & Development, LLC",2018,2008,2009,False
+IL12B,D011565,dermatology,CHEMBL3833372,Antibody,AstraZeneca,2010,2009,2010,True
+IL12B,D003424,digestive,CHEMBL3833372,Antibody,AstraZeneca,2011,2008,2010,False
+IL12B,D003093,digestive,CHEMBL3833372,Antibody,AstraZeneca,2018,2008,2010,False
+IL12B,D003093,digestive,CHEMBL3990014,Antibody,Eli Lilly and Company,2015,2008,2015,True
+IL12B,D003424,digestive,CHEMBL3990014,Antibody,Eli Lilly and Company,2016,2008,2015,False
+IL12B,D011565,dermatology,CHEMBL3990014,Antibody,Eli Lilly and Company,2016,2009,2015,False
+IL12B,D011565,dermatology,CHEMBL3990029,Antibody,AbbVie,2012,2009,2012,True
+IL12B,D003424,digestive,CHEMBL3990029,Antibody,AbbVie,2014,2008,2012,False
+IL12B,D013167,musculoskeletal,CHEMBL3990029,Antibody,AbbVie,2014,2010,2012,False
+IL12B,D015535,musculoskeletal,CHEMBL3990029,Antibody,AbbVie,2016,2009,2012,False
+IL12B,D003093,digestive,CHEMBL3990029,Antibody,AbbVie,2018,2008,2012,False
+IL13,D003876,congenital,CHEMBL1743035,Antibody,Hoffmann-La Roche,2015,2013,2006,False
+IL13,D012221,respiratory,CHEMBL1743035,Antibody,Eli Lilly and Company,2024,2019,2006,False
+IL13,D003876,congenital,CHEMBL1743081,Antibody,MedImmune LLC,2015,2013,2006,False
+IL13,D003876,congenital,CHEMBL4297864,Antibody,Celgene,2021,2013,2009,False
+IL1B,D003876,congenital,CHEMBL4594518,Antibody,AbbVie,2024,2019,2012,False
+IL33,D029424,respiratory,CHEMBL4594594,Antibody,Sanofi,2018,2010,2017,False
+IL33,D012852,infection,CHEMBL4594594,Antibody,Sanofi,2024,2021,2017,False
+IL33,D003876,congenital,CHEMBL4650487,Antibody,Eli Lilly and Company,2019,2018,2019,True
+IL33R,D001249,respiratory,CHEMBL4594385,Antibody,Hoffmann-La Roche,2016,2011,2016,True
+IL33R,D003876,congenital,CHEMBL4594385,Antibody,"Genentech, Inc.",2019,2018,2016,False
+IL4R,D029424,respiratory,CHEMBL2108675,Antibody,Sanofi,2019,2018,2010,False
+IL5,D003876,congenital,CHEMBL2108429,Antibody,GlaxoSmithKline,2017,2015,2001,False
+IL5,D001249,respiratory,CHEMBL4650469,Antibody,GlaxoSmithKline,2017,2016,2017,True
+IL5,D029424,respiratory,CHEMBL4650469,Antibody,GlaxoSmithKline,2025,2016,2017,False
+IL6,D003324,cardiovascular,CHEMBL4297732,Antibody,Novo Nordisk A/S,2025,2023,2012,False
+JAK1,D003876,congenital,CHEMBL4297477,Small molecule,Pfizer,2019,2018,2014,False
+JAK2,D019337,oncology,CHEMBL1078178,Small molecule,GlaxoSmithKline,2025,2021,2009,False
+JAK2,D008105,digestive,CHEMBL2105759,Small molecule,Eli Lilly and Company,2019,2016,2007,False
+JAK2,D003093,digestive,CHEMBL3137308,Small molecule,"Janssen Research & Development, LLC",2013,2008,2010,False
+JAK2,D003093,digestive,CHEMBL3301607,Small molecule,Gilead Sciences,2016,2008,2011,False
+JAK2,D008180,dermatology,CHEMBL3301607,Small molecule,Gilead Sciences,2017,2016,2011,False
+JAK2,D003424,digestive,CHEMBL3622821,Small molecule,AbbVie,2015,2008,2012,False
+JAK2,D003093,digestive,CHEMBL3622821,Small molecule,AbbVie,2016,2008,2012,False
+JAK2,D013167,musculoskeletal,CHEMBL3622821,Small molecule,AbbVie,2017,2016,2012,False
+JAK2,D015535,musculoskeletal,CHEMBL3622821,Small molecule,AbbVie,2017,2016,2012,False
+JAK2,D008180,dermatology,CHEMBL3622821,Small molecule,AbbVie,2019,2016,2012,False
+LPA,D006951,metabolic,CHEMBL4298202,Oligonucleotide,Novartis Pharmaceuticals,2022,2018,2015,False
+MAP3K8,D003093,digestive,CHEMBL4802154,Small molecule,Gilead Sciences,2019,2012,2019,True
+NR3C2,D011507,signs/symptoms,CHEMBL2181927,Small molecule,Bayer,2022,2018,2010,False
+NR3C2,D000419,signs/symptoms,CHEMBL3916929,Small molecule,AstraZeneca,2024,2018,2021,False
+OSMR,D008010,dermatology,CHEMBL4594341,Antibody,"Genentech, Inc.",2019,2016,2019,True
+OSMR,D011565,dermatology,CHEMBL4594341,Antibody,"Genentech, Inc.",2019,2016,2019,True
+OSMR,D003093,digestive,CHEMBL4594341,Antibody,"Genentech, Inc.",2024,2016,2019,False
+PCSK9,D003324,cardiovascular,CHEMBL3990033,Oligonucleotide,Novartis Pharmaceuticals,2021,2017,2016,False
+PCSK9,D006937,metabolic,CHEMBL3990033,Oligonucleotide,Novartis Pharmaceuticals,2021,2018,2016,False
+PCSK9,D050197,cardiovascular,CHEMBL3990033,Oligonucleotide,Novartis Pharmaceuticals,2021,2017,2016,False
+PCSK9,D002318,cardiovascular,CHEMBL5095052,Oligonucleotide,Novartis Pharmaceuticals,2021,2018,2017,False
+PCSK9,D050197,cardiovascular,CHEMBL5095052,Oligonucleotide,Novartis Pharmaceuticals,2021,2017,2017,False
+PCSK9,D003324,cardiovascular,CHEMBL5095052,Oligonucleotide,Novartis Pharmaceuticals,2022,2017,2017,False
+PCSK9,D006937,metabolic,CHEMBL5095052,Oligonucleotide,Novartis Pharmaceuticals,2024,2018,2017,False
+TGFA,D010003,musculoskeletal,CHEMBL4594573,Antibody,Eli Lilly and Company,2020,2018,2013,False
+TIGIT,D015179,oncology,CHEMBL4297785,Antibody,Merck Sharp & Dohme LLC,2021,2011,2016,False
+TIGIT,D013274,oncology,CHEMBL4298050,Antibody,Hoffmann-La Roche,2017,2011,2016,False
+TIGIT,D015179,oncology,CHEMBL4298050,Antibody,Hoffmann-La Roche,2021,2011,2016,False
+TNFSF13,D005922,immune,CHEMBL1742986,Protein,"EMD Serono Research & Development Institute, Inc.",2017,2011,2006,False
+TNFSF4,D001249,respiratory,CHEMBL4594569,Antibody,Sanofi,2022,2019,2018,False
+TP53,D009447,oncology,CHEMBL2402737,Small molecule,Hoffmann-La Roche,2020,2017,2013,False
+TSLP,D029424,respiratory,CHEMBL3707229,Antibody,AstraZeneca,2019,2011,2008,False
+TSLP,D057765,digestive,CHEMBL3707229,Antibody,AstraZeneca,2022,2010,2008,False
+TYK2,D015535,musculoskeletal,CHEMBL221959,Small molecule,Pfizer,2012,2010,2002,False
+TYK2,D003093,digestive,CHEMBL3137308,Small molecule,"Janssen Research & Development, LLC",2013,2010,2010,False
+TYK2,D003093,digestive,CHEMBL3301607,Small molecule,Gilead Sciences,2016,2010,2011,False
+TYK2,D008180,dermatology,CHEMBL3301607,Small molecule,Gilead Sciences,2017,2015,2011,False
+TYK2,D012859,musculoskeletal,CHEMBL3301607,Small molecule,Gilead Sciences,2017,2012,2011,False
+TYK2,D003424,digestive,CHEMBL3622821,Small molecule,AbbVie,2015,2010,2012,False
+TYK2,D003093,digestive,CHEMBL3622821,Small molecule,AbbVie,2016,2010,2012,False
+TYK2,D015535,musculoskeletal,CHEMBL3622821,Small molecule,AbbVie,2017,2010,2012,False
+TYK2,D008180,dermatology,CHEMBL3622821,Small molecule,AbbVie,2019,2015,2012,False
+TYK2,D011565,dermatology,CHEMBL4297477,Small molecule,Pfizer,2014,2010,2014,True
+TYK2,D003093,digestive,CHEMBL4297477,Small molecule,Pfizer,2017,2010,2014,False
+TYK2,D003424,digestive,CHEMBL4297477,Small molecule,Pfizer,2018,2010,2014,False
+TYK2,D008180,dermatology,CHEMBL4297477,Small molecule,Pfizer,2019,2015,2014,False
+TYK2,D015535,musculoskeletal,CHEMBL4297477,Small molecule,Pfizer,2019,2010,2014,False
+TYK2,D011565,dermatology,CHEMBL4459585,Small molecule,Pfizer,2017,2010,2017,True
+TYK2,D003093,digestive,CHEMBL4459585,Small molecule,Pfizer,2020,2010,2017,False
+TYK2,D011565,dermatology,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2015,2010,2015,True
+TYK2,D008180,dermatology,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2017,2015,2015,False
+TYK2,D003424,digestive,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2018,2010,2015,False
+TYK2,D003093,digestive,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2019,2010,2015,False
+TYK2,D008181,dermatology,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2019,2015,2015,False
+TYK2,D015535,musculoskeletal,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2019,2010,2015,False
+TYK2,D012859,musculoskeletal,CHEMBL4596392,Small molecule,Bristol-Myers Squibb,2023,2012,2015,False
