@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd owners mechanisms venture biology figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners mechanisms venture biology runway figure check lint test clean-data
 
 all: data results figure check
 
@@ -79,6 +79,16 @@ biology:  # exploratory: the gap by type of drug, direction of effect, arrival o
 	$(PY) pilot/extract_ot_direction.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction
 	$(PY) pilot/direction_models.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data
+	OT_DATASETS=evidence_gwas_credible_sets,evidence_clingen,evidence_genomics_england,evidence_uniprot_variants $(PY) pilot/fetch_opentargets.py $(DATA)/ot_gen
+	$(PY) pilot/extract_ot_dated.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction/ot_dated_evidence.csv.gz
+	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
+	EA_LAST_EVIDENCE_YEAR=2022 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	EA_UNDATED=only $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
+
+runway:  # cash runway and trial stops (SEC_USER_AGENT="Your Name you@example.org" make runway); needs make owners and the trial table of h4_biology.py
+	$(PY) pilot/fetch_sec_frames.py $(DATA)/sec_frames
+	$(PY) pilot/cash_runway.py $(DATA)/ctgov_all.csv $(RES) $(DATA)/sec_frames/sec_frames.csv.gz $(RES)/h4_trials.csv.gz
 
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png

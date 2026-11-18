@@ -28,3 +28,27 @@ def test_programme_counts():
     assert f"{cov['programmes_with_trials']:,}" in README
     assert f"{cov['programmes_with_insight']:,}" in README
     assert cov["ot_release"] in README
+
+
+# Estimates quoted in the README beyond the headline list: (result file, block title, row).
+D1 = "D1. other industry against top-20 pharma (post_other = ratio of the two responses)"
+QUOTED = [
+    ("evidence_arrival_ot_gwas.txt", "A. top-20 pharma: programme starts after the evidence year (pair and year fixed effects)", "post "),
+    ("evidence_arrival_ot_gwas.txt", "A. other industry: programme starts after the evidence year (pair and year fixed effects)", "post "),
+    ("evidence_arrival_ot_gwas.txt", D1, "post_other"),
+    ("evidence_arrival_ot_gwas.txt", "G. D1 with gene x year x group fixed effects", "post_other"),
+    ("cash_runway.txt", "1 (primary). Cohort 2022, sponsors with a runway: financial or strategic stop ~ short runway", "short "),
+    ("cvc_models.txt", "A2. H1, programmes with a named investor: corporate investor against independent funds only", "corp_inv"),
+]  # fmt: skip
+
+
+@pytest.mark.parametrize(
+    "fname, section, key", QUOTED, ids=[f"{f}:{k.strip()}:{i}" for i, (f, _, k) in enumerate(QUOTED)]
+)
+def test_further_estimates_quoted_in_readme(fname, section, key):
+    from headline import from_txt
+
+    est, lo, hi = from_txt(RESULTS, fname, section, key)
+    assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README, (
+        f"{fname} / {section!r}: {est:.2f} ({lo:.2f}–{hi:.2f}) not in README"
+    )

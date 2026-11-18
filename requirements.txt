@@ -7,3 +7,4 @@ patsy==1.0.3
 requests==2.34.2
 rapidfuzz>=3.0
 matplotlib>=3.8
+# only for pilot/evidence_arrival.py (needs Python >= 3.10): pyfixest==0.70.0
