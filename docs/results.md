@@ -249,6 +249,15 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   other industry 0.96 (0.81–1.15), contrast 0.72 (0.53–0.99); without the three leading genes 0.79 (0.57–1.11);
   placebo of the contrast 1.20 (0.95–1.51), so before the evidence the groups were moving the other way. On all
   germline sources (510 genes with evidence) top-20 pharma 1.08 (0.82–1.43) and the contrast 0.88 (0.67–1.15).
+  *Companies and size, also checked afterwards.* The 121 starts come from 17 of the 20 companies (AbbVie 18, Roche
+  13, Novartis 12, Eli Lilly 10; AstraZeneca, Johnson & Johnson, Pfizer, Bristol Myers Squibb and Bayer 9 each).
+  With each top-20 company left out in turn the contrast is 0.49 to 0.58 and every interval excludes 1 (largest
+  upper bound 0.90); without the three companies with the most starts it is 0.63 (0.40–0.99). No single company
+  carries it. Size outside the top 20 does not bring a sponsor closer to top-20 pharma: large sponsors (more than 30
+  drugs) 0.46 (0.26–0.81), mid-sized sponsors 0.63 (0.37–1.07), small sponsors 0.58 (0.30–1.11). The contrast is
+  therefore between the top-20 group and everyone else, not a gradient in size. The top-20 list is fixed by 2023
+  sales, after the programmes studied, so membership partly reflects which programmes of the preceding decade
+  succeeded.
   *Reading.* The planned contrast is repeated by its own rule, but the checks added afterwards limit what it means:
   on GWAS evidence two fifths of the response is one pathway, the difference is not specific to the indication that
   gained the evidence, and at the level of the target it is weaker and does not survive leaving out the three genes

@@ -281,6 +281,52 @@ Coefficient
 post          -0.3091      0.2714    0.2548 -0.8411  0.2229  0.7341  0.4312  1.2497
 post_other    -0.1567      0.3121    0.6156 -0.7683  0.4549  0.8550  0.4638  1.5761
 ====================================================================================================
+G. companies behind the top-20 response (added after the results were known)
+top-20 programme starts after the evidence year by company: AbbVie 18; Roche 13; Novartis 12; Eli Lilly 10; AstraZeneca 9; Johnson & Johnson 9; Pfizer 9; Bristol Myers Squibb 9; Bayer 9; Gilead Sciences 6; Sanofi 5; GSK 4; Amgen 3; Merck & Co 2; Boehringer Ingelheim 1; Merck KGaA 1; Novo Nordisk 1
+D1 with each top-20 company left out in turn (ratio, 95% CI):
+  without AbbVie                   0.5578  0.3475  0.8955
+  without Amgen                    0.5469  0.3435  0.8706
+  without Astellas                 0.5125  0.3283  0.8000
+  without AstraZeneca              0.5195  0.3288  0.8210
+  without Bayer                    0.5703  0.3607  0.9017
+  without Boehringer Ingelheim     0.5252  0.3269  0.8438
+  without Bristol Myers Squibb     0.5373  0.3431  0.8415
+  without Daiichi Sankyo           0.5213  0.3343  0.8129
+  without Eli Lilly                0.5506  0.3402  0.8913
+  without GSK                      0.5581  0.3637  0.8562
+  without Gilead Sciences          0.5492  0.3560  0.8473
+  without Johnson & Johnson        0.5291  0.3275  0.8549
+  without Merck & Co               0.5201  0.3331  0.8122
+  without Merck KGaA               0.5380  0.3417  0.8470
+  without Novartis                 0.5804  0.3768  0.8940
+  without Novo Nordisk             0.5284  0.3443  0.8110
+  without Pfizer                   0.4930  0.3055  0.7957
+  without Roche                    0.5494  0.3507  0.8607
+  without Sanofi                   0.5471  0.3454  0.8665
+  without Takeda                   0.5352  0.3441  0.8323
+range of the contrast: 0.4930 to 0.5804; largest upper bound 0.9017
+====================================================================================================
+G. D1 without the three companies with the most such starts: AbbVie, Roche, Novartis
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=19385
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.2932      0.2059    0.1545 -0.1104  0.6969  1.3408  0.8955  2.0075
+post_other    -0.4559      0.2289    0.0464 -0.9046 -0.0072  0.6339  0.4047  0.9928
+====================================================================================================
+G. large (>30 drugs) industry sponsors outside the top 20 against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=12519
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4572      0.2160    0.0343  0.0339  0.8806  1.5797  1.0345  2.4123
+post_other    -0.7818      0.2911    0.0072 -1.3523 -0.2113  0.4576  0.2586  0.8095
+====================================================================================================
+G. mid-sized (6-30 drugs) industry sponsors outside the top 20 against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=14188
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4572      0.2160    0.0343  0.0339  0.8806  1.5797  1.0345  2.4122
+post_other    -0.4687      0.2721    0.0850 -1.0020  0.0646  0.6258  0.3671  1.0668
+====================================================================================================
 H. the target as the unit (added after G): programme starts on a gene in all its indications, before and after the first year in which one of its pairs gained evidence; errors clustered by gene
 genes: 1473; with evidence: 389
 ====================================================================================================

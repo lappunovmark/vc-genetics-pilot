@@ -389,6 +389,50 @@ if OT_CSV:
     fit(grid, YC["other industry"], "G. other industry with gene x year fixed effects", fe="pid + gy")
     stacked(grid, "other industry", "G. D1 with gene x year x group fixed effects", tfe="gy")
 
+    # which companies carry the response, and does the size of a sponsor outside the top 20 matter?
+    import sponsors
+
+    def add_count(g, d, col):
+        n = d.groupby(["pid", "first_year"]).size().rename(col).reset_index().rename(columns={"first_year": "year"})
+        g = g.merge(n, on=["pid", "year"], how="left")
+        g[col] = g[col].fillna(0).astype(int)
+        return g
+
+    dt = D[D.first_sponsor_tier.eq(TOP)].copy()
+    dt["parent"] = [sponsors.top20_parent(n, y) or "?" for n, y in zip(dt.first_sponsor, dt.first_year)]
+    by_parent = tp.assign(parent=[sponsors.top20_parent(n, y) or "?" for n, y in zip(tp.first_sponsor, tp.first_year)])
+    by_parent = by_parent.groupby("parent").size().sort_values(ascending=False)
+    out.extend(
+        [
+            "=" * 100,
+            "G. companies behind the top-20 response (added after the results were known)",
+            "top-20 programme starts after the evidence year by company: "
+            + "; ".join(f"{k} {v}" for k, v in by_parent.items()),
+        ]
+    )
+    loo = []
+    for par in sorted(dt.parent.unique()):
+        g2 = add_count(grid, dt[dt.parent.ne(par)], "y_loo")
+        n0 = len(out)
+        stacked(g2, "other industry", f"loo {par}", top="y_loo")
+        row = [x for x in out[n0:] if x.startswith("post_other") or "\npost_other" in x]
+        del out[n0:]
+        if row:
+            v = [ln for ln in row[0].splitlines() if ln.startswith("post_other")][0].split()
+            loo.append((par, float(v[-3]), float(v[-2]), float(v[-1])))
+    out.append("D1 with each top-20 company left out in turn (ratio, 95% CI):")
+    out.extend(f"  without {par:24s} {e:.4f}  {lo:.4f}  {hi:.4f}" for par, e, lo, hi in loo)
+    out.append(
+        f"range of the contrast: {min(x[1] for x in loo):.4f} to {max(x[1] for x in loo):.4f}; largest upper bound "
+        f"{max(x[3] for x in loo):.4f}"
+    )
+    top3c = list(by_parent.index[:3])
+    g2 = add_count(grid, dt[~dt.parent.isin(top3c)], "y_loo")
+    stacked(g2, "other industry", "G. D1 without the three companies with the most such starts: " + ", ".join(top3c), top="y_loo")  # fmt: skip
+    for col, tiers, lab in (("n_large", [MIDLARGE[0]], "large (>30 drugs)"), ("n_mid", [MIDLARGE[1]], "mid-sized (6-30 drugs)")):  # fmt: skip
+        grid = add_count(grid, D[D.first_sponsor_tier.isin(tiers)], col)
+        stacked(grid, col, f"G. {lab} industry sponsors outside the top 20 against top-20 pharma")
+
     # H. the same design with the target as the unit: all indications of a gene together, evidence year = the first
     # year in which one of its pairs gained evidence. Added after G showed that the response is not specific to the
     # indication.

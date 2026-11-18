@@ -282,6 +282,52 @@ Coefficient
 post          -0.3864      0.2786    0.1654 -0.9324  0.1596  0.6795  0.3936  1.1730
 post_other    -0.1904      0.3222    0.5545 -0.8218  0.4410  0.8266  0.4396  1.5543
 ====================================================================================================
+G. companies behind the top-20 response (added after the results were known)
+top-20 programme starts after the evidence year by company: AbbVie 18; Roche 13; Novartis 12; Eli Lilly 10; Bristol Myers Squibb 9; Johnson & Johnson 9; Bayer 9; AstraZeneca 9; Pfizer 9; Gilead Sciences 6; Sanofi 5; GSK 4; Amgen 3; Merck & Co 2; Boehringer Ingelheim 1; Merck KGaA 1
+D1 with each top-20 company left out in turn (ratio, 95% CI):
+  without AbbVie                   0.5137  0.3221  0.8193
+  without Amgen                    0.5021  0.3178  0.7932
+  without Astellas                 0.4695  0.3027  0.7280
+  without AstraZeneca              0.4720  0.3001  0.7423
+  without Bayer                    0.5258  0.3348  0.8258
+  without Boehringer Ingelheim     0.4807  0.3011  0.7674
+  without Bristol Myers Squibb     0.4957  0.3188  0.7706
+  without Daiichi Sankyo           0.4803  0.3100  0.7442
+  without Eli Lilly                0.5077  0.3155  0.8168
+  without GSK                      0.5127  0.3361  0.7821
+  without Gilead Sciences          0.5037  0.3288  0.7716
+  without Johnson & Johnson        0.4846  0.3020  0.7775
+  without Merck & Co               0.4782  0.3082  0.7418
+  without Merck KGaA               0.4933  0.3152  0.7719
+  without Novartis                 0.5341  0.3475  0.8208
+  without Novo Nordisk             0.4796  0.3142  0.7323
+  without Pfizer                   0.4511  0.2814  0.7234
+  without Roche                    0.5023  0.3223  0.7829
+  without Sanofi                   0.5036  0.3198  0.7931
+  without Takeda                   0.4906  0.3172  0.7589
+range of the contrast: 0.4511 to 0.5341; largest upper bound 0.8258
+====================================================================================================
+G. D1 without the three companies with the most such starts: AbbVie, Roche, Novartis
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=19024
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3209      0.2135    0.1328 -0.0975  0.7393  1.3783  0.9071  2.0944
+post_other    -0.5376      0.2290    0.0189 -0.9865 -0.0888  0.5841  0.3729  0.9150
+====================================================================================================
+G. large (>30 drugs) industry sponsors outside the top 20 against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=12251
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4893      0.2228    0.0281  0.0526  0.9260  1.6312  1.0540  2.5244
+post_other    -0.8272      0.2959    0.0052 -1.4071 -0.2474  0.4373  0.2448  0.7809
+====================================================================================================
+G. mid-sized (6-30 drugs) industry sponsors outside the top 20 against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=13914
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4893      0.2228    0.0281  0.0526  0.9260  1.6312  1.0540  2.5243
+post_other    -0.5992      0.2682    0.0255 -1.1249 -0.0736  0.5492  0.3247  0.9291
+====================================================================================================
 H. the target as the unit (added after G): programme starts on a gene in all its indications, before and after the first year in which one of its pairs gained evidence; errors clustered by gene
 genes: 1472; with evidence: 215
 ====================================================================================================

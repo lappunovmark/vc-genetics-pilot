@@ -315,7 +315,9 @@ section G counts the genes behind the post-evidence starts of top-20 pharma, rep
 three leading genes, classes each start as a drug's first indication or a further indication (of a drug first
 tried before or after the evidence year), lists the starts (`evidence_arrival_ot_<set>_top20_starts.csv`) and
 repeats the models with gene × year effects, where the comparison is the other indications of the same target in
-the same year. Section H repeats the design with the target as the unit: programme starts on a gene in all its
+the same year. It also counts the starts by top-20 company, repeats the contrast with each company left out in
+turn and without the three leading companies, and compares large and mid-sized sponsors outside the top 20 with
+top-20 pharma separately. Section H repeats the design with the target as the unit: programme starts on a gene in all its
 indications, the evidence year being the first year in which one of its pairs gained evidence, with gene and year
 effects and errors clustered by gene. `figure_evidence_arrival.py` draws the event study and the contrast under
 each specification from these files (`figures/evidence_arrival.png`).
