@@ -86,3 +86,31 @@ short  0.0871    0.5229  0.8677 -0.9378   1.112  1.091  0.3915  3.0406
 state                                                         
 not stopped for financial reasons      99   0.1414      0.1313
 stopped for financial reasons          10   0.1000      0.4000
+
+Checks added after the first run (not in the plan). Of the 332 sponsors of cohort 2022, 12 share a registrant with another sponsor name (326 registrants); for 21 the fiscal year does not end in December, so the balance or the cash flow refers to another date than 31 December 2021; for 27 the registrant now carries another name on EDGAR (later renamings, and companies that merged into a listed company after 2021, whose figures for 2021 are then not their own).
+====================================================================================================
+12. as 1, errors clustered by registrant
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=989 trials; sponsors=289; events=51; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short  0.4585    0.4295  0.2858 -0.3834  1.3004  1.5817  0.6815  3.6707
+====================================================================================================
+13. as 12, sponsors whose fiscal year ends in December
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=944 trials; sponsors=271; events=44; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short  0.4143    0.4733  0.3815 -0.5135   1.342  1.5132  0.5984  3.8266
+====================================================================================================
+14. as 12, sponsors whose registrant carries their own name
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=926 trials; sponsors=268; events=49; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short  0.4827    0.4373  0.2697 -0.3744  1.3397  1.6204  0.6877  3.8181
+====================================================================================================
+15. as 12, both restrictions
+fin_y ~ short + C(phase) + C(yb) + C(group)
+N=885 trials; sponsors=253; events=43; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+short  0.4735      0.47  0.3137 -0.4476  1.3947  1.6057  0.6391  4.0338
+
+with both restrictions: short runway 14 of 209 trials (64 registrants); longer runway 29 of 676 trials (189 registrants)
