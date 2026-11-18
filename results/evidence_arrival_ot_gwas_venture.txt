@@ -1,5 +1,5 @@
 Venture-backed sponsors and the publication of genetic evidence (plan: docs/plan_evidence_arrival_venture.md)
-evidence set: gwas; non-top-20 industry sponsors with a programme on these pairs: 1446; venture-backed by at least one source: 513; programme starts: venture-backed 8428, no venture marker 8918, top-20 pharma 13292
+evidence set: gwas; non-top-20 industry sponsors with a programme on these pairs: 1425; venture-backed by at least one source: 504; programme starts: venture-backed 8428, no venture marker 8918, top-20 pharma 13292
 ====================================================================================================
 F1. venture-backed industry sponsors: programme starts after the evidence year
 v_yes ~ post + e0 | pid + year; pairs=7053 (with dated evidence 219); programme starts=8428 (on pairs with evidence 283, after it 31)

@@ -201,9 +201,36 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   the contrast is 0.57 (0.39–0.83; area × year 0.67, 0.46–0.99; small sponsors 0.56, 0.32–0.98), with a borderline
   placebo (0.75, 0.55–1.03). By the reading rule fixed in advance the first result is repeated. The two evidence
   sets overlap, so this is a repetition on a larger and partly newer set, not an independent sample.
+  *How to read it.* The rate ratios are measured against pairs without such evidence in the same years (year
+  effects), not against the pair's own past alone: per 1,000 pair-years, top-20 pharma started 15.4 programmes in
+  the two years before the evidence year, 15.3 in years 1–2 after it, 23.8 in years 3–5 and 21.4 from year 6; other
+  industry sponsors 19.4, 14.8, 17.8 and 18.5. In the event study the top-20 response appears from the third year
+  (years 1–2: 1.19, 0.67–2.12; years 3–5: 1.76, 1.00–3.09; from year 6: 2.11, 1.02–4.35; reference: the two years
+  before), and the contrast likewise (0.70, 0.34–1.44; 0.51, 0.27–0.96; 0.47, 0.23–0.94). The result rests on 121
+  programme starts of top-20 pharma and 103 of other industry sponsors after the evidence year.
+  *What counts as evidence.* An Open Targets disease or trait counts when the panel's disease map gives it a MeSH
+  term: 46% of the GWAS gene × trait rows and 2,298 of the 10,587 traits (nearly all rows with a MONDO disease term,
+  about a third of the rows with EFO or OBA terms, many of which are measurements), so evidence on biomarkers and
+  other quantitative traits is only partly counted. In the GWAS run the
+  comparison pairs include 778 pairs with germline evidence from another source, and 174 of the 1,393 pairs also
+  have such evidence; the run on all germline sources treats those as evidence. The plan spoke of leaving out pairs
+  whose only evidence is undated; the run on all sources left out every pair with a source whose evidence is undated
+  (102 pairs, 92 of which have dated evidence from another source). With the wording of the plan (`EA_UNDATED=only`:
+  10 pairs left out, 2,161 with dated evidence) the contrast is 0.60 (0.40–0.90; area × year 0.70, 0.47–1.03;
+  clustered by gene 0.60, 0.39–0.92; placebo 0.82, 0.58–1.16), top-20 pharma 1.47 (1.04–2.07) and other industry
+  0.88 (0.68–1.14).
+  *Concentration, checked after the result was known* (section G of the script). The 121 post-evidence starts of
+  top-20 pharma are on 78 pairs (37 genes, 44 indications, 61 drugs), and 50 of them on pairs of three genes: TYK2
+  (23), IL12B (17) and JAK2 (10). Leaving out one of these genes at a time keeps the contrast (0.58, 0.36–0.92;
+  0.55, 0.34–0.88; 0.55, 0.35–0.88). Leaving out all three gives 0.62 (0.36–1.08) for the contrast and 1.21
+  (0.72–2.03) for the response of top-20 pharma itself, on 71 starts: the direction stays and the intervals include
+  1, so on GWAS evidence the response of top-20 pharma leans on these targets. On all germline sources the three
+  leading genes are others (PIK3CA 38, EGFR 24, TYK2 23 of 362 starts), and without them the contrast is 0.57
+  (0.39–0.82) and the response of top-20 pharma 1.41 (1.04–1.91).
 * Venture-backed sponsors and the publication of genetic evidence (section F of `evidence_arrival.py`; plan written
-  before the run: `docs/plan_evidence_arrival_venture.md`). Of 1,446 non-top-20 industry sponsors with a programme
-  on these pairs, 513 are venture-backed by the combined flag. On GWAS evidence, venture-backed sponsors did not start
+  before the run: `docs/plan_evidence_arrival_venture.md`). Of 1,425 non-top-20 industry sponsors with a programme
+  on these pairs, 504 are venture-backed by the combined flag (sponsors counted by normalised name; the first run
+  counted the 1,446 spellings in the registry, 513 of them venture-backed, and the models are unchanged). On GWAS evidence, venture-backed sponsors did not start
   more programmes after the evidence year (0.84, 0.52–1.36; sponsors without a venture marker 0.79, 0.54–1.16) and
   did not respond more than industry sponsors without a marker (1.06, 0.58–1.95). The primary contrast, against
   top-20 pharma, is 0.53 (0.28–1.00, p = 0.05): by the rule fixed in advance the interval includes 1, so the primary
@@ -224,14 +251,24 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   fixed in advance the data do not show that sponsors short of cash stopped more trials in the downturn: the
   direction agrees with the hypothesis and the estimates are imprecise. Only one stop in the cohort cites lack of
   funding and only ten stopped trials of short-runway sponsors carry a genetic-support label, so those two planned
-  checks could not be made. After the first run the start-period control was redefined relative to the cohort year,
-  because calendar-year periods identified the cohort in the pooled model; the single-cohort estimates did not
-  change.
+  checks could not be made. Sponsors with positive cash flow against those with a longer runway: 0.95 (0.30–3.05).
+  After the first run the start-period control was redefined relative to the cohort year, because calendar-year
+  periods identified the cohort in the pooled model; the single-cohort estimates did not change.
+  *How the cash figures are tied to the sponsor, checked after the first run* (models 12–15, not in the plan). The
+  332 sponsors are sponsor names: 12 of them share a registrant with another name (326 registrants), and with errors
+  clustered by registrant the primary estimate is 1.58 (0.68–3.67). The XBRL frames do not leave out filers whose
+  fiscal year ends in another month, as the plan assumed: for 21 sponsors the balance or the cash flow refers to
+  another date than 31 December 2021; with December fiscal years only the estimate is 1.51 (0.60–3.83). For 27
+  sponsors the registrant now carries another name on EDGAR: some were renamed later, others merged into a listed
+  company after 2021, and for those the figures for 2021 are the listed company's and not their own; without the 27
+  the estimate is 1.62 (0.69–3.82), and with both restrictions 1.61 (0.64–4.03; 14 of 209 trials against 29 of 676).
+  None of this changes the reading.
 * Robustness of the evidence-arrival result, added after it was known (`EA_LAST_EVIDENCE_YEAR=2022`): 692 of the
   1,393 pairs gained their GWAS evidence after 2022 and have little or no follow-up. Without them, top-20 pharma
   1.63 (1.05–2.52), other industry 0.81 (0.58–1.11), contrast 0.49 (0.32–0.77; area × year 0.50, 0.32–0.77;
   clustered by gene 0.49, 0.32–0.76; placebo 0.91, 0.58–1.43). Venture-backed sponsors against top-20 pharma 0.51
-  (0.27–0.93), against industry sponsors without a marker 1.11 (0.60–2.06).
+  (0.27–0.93), against industry sponsors without a marker 1.11 (0.60–2.06). Without the pairs of TYK2, IL12B and
+  JAK2 the contrast in this run is 0.58 (0.34–0.99) and the response of top-20 pharma 1.25 (0.73–2.12).
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

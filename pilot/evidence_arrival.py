@@ -5,7 +5,12 @@ Usage: python pilot/evidence_arrival.py RESULTS_DIR MINIKEL_DATA_DIR [OT_DATED_C
 With OT_DATED_CSV (the file of extract_ot_dated.py) the evidence years come from that Open Targets release instead of
 the Minikel associations ("gwas": GWAS credible sets only; "all": every germline source), pairs whose supporting
 evidence carries no date are left out in place of the OMIM pairs, and the output is evidence_arrival_ot_<set>.txt
-(plan written before the run: docs/plan_evidence_arrival_ot.md).
+(plan written before the run: docs/plan_evidence_arrival_ot.md) with the venture split of section F in
+evidence_arrival_ot_<set>_venture.txt (plan: docs/plan_evidence_arrival_venture.md).
+Environment, for checks added after the planned runs: EA_LAST_EVIDENCE_YEAR=2022 leaves out pairs whose evidence
+year is later (output suffix _to2022); EA_UNDATED=only leaves out a pair only when none of its supporting evidence
+carries a date, which is the wording of the plan (output suffix _planrule; the first run left out every pair with
+a source whose evidence is undated, also when another source dates it).
 
 Why: the selection models compare sponsors at one point in time and are descriptive. This script uses the timing of
 the evidence instead. For a target-indication pair (the gene a drug acts on x the MeSH indication), the year in which
@@ -28,7 +33,8 @@ common decline; it rests on the groups following the same path without the evide
 contrast and the leads of D6 check. The contrast is measured against each group's own calendar trend on the other
 pairs (year x group effects): the raw rates on pairs with evidence fall by a similar proportion in both groups, and
 the groups differ because other industry sponsors started more programmes over time elsewhere and top-20 pharma
-fewer. Nothing here was pre-specified.
+fewer. Nothing in the first run (Minikel associations) was pre-specified; the runs on Open Targets evidence and
+section F follow plans written before them, and section G was added after their results were known.
 Writes RESULTS_DIR/evidence_arrival.txt (or evidence_arrival_ot_<set>.txt).
 """
 
@@ -45,6 +51,8 @@ import gensup
 R, MIN = sys.argv[1], sys.argv[2]
 OT_CSV, OT_SET = (sys.argv[3], sys.argv[4]) if len(sys.argv) > 4 else (None, None)
 SUF = f"_to{os.environ['EA_LAST_EVIDENCE_YEAR']}" if os.environ.get("EA_LAST_EVIDENCE_YEAR") else ""
+ONLY_UNDATED = os.environ.get("EA_UNDATED") == "only"
+SUF += "_planrule" if ONLY_UNDATED else ""
 Y0, Y1 = 2000, 2025
 TOP, SMALL = "Top-20 pharma", "Industry, small (<=5 drugs)"
 MIDLARGE = ["Industry, large (>30)", "Industry, mid (6-30)"]
@@ -59,7 +67,7 @@ GROUPS = {
 }
 DATED = ("OTG", "PICCOLO", "Genebass")
 BINS = [(-99, -6, "m6+"), (-5, -3, "m5_3"), (0, 0, "e0"), (1, 2, "p1_2"), (3, 5, "p3_5"), (6, 99, "p6+")]
-out = []
+out, NOTE = [], []
 CL = "indication_mesh_id"
 
 
@@ -88,6 +96,12 @@ def evidence_years(pairs):
     o = m[m.source.eq("OMIM")][key].drop_duplicates().assign(omim=True)
     r = pairs.merge(e, on=key, how="left").merge(o, on=key, how="left")
     r["omim"] = r.omim.eq(True)
+    if ONLY_UNDATED:  # the wording of the plan: left out only when no supporting evidence carries a date
+        NOTE.append(
+            f"EA_UNDATED=only: {int((r.omim & r.E.notna()).sum())} pairs with undated evidence from one source and "
+            "dated evidence from another are kept with the dated year"
+        )
+        r["omim"] = r.omim & r.E.isna()
     return r
 
 
@@ -129,6 +143,7 @@ out.append(
     f"(left out): {int(pairs.omim.sum())}; with dated evidence and no OMIM: {int((pairs.E.notna() & ~pairs.omim).sum())}; "
     f"never supported: {int((pairs.E.isna() & ~pairs.omim).sum())}"
 )
+out.extend(NOTE)
 pairs = pairs[~pairs.omim].copy()
 LAST_E = os.environ.get("EA_LAST_EVIDENCE_YEAR")  # robustness: leave out pairs whose evidence year is later
 if LAST_E:
@@ -280,7 +295,8 @@ if VC is not None:
     pl = grid[grid.E.isna() | (grid.year < grid.E)].copy()
     pl["post"] = ((pl.year - (pl.E - 5)) > 0).astype(int)
     pl["e0"] = ((pl.year - (pl.E - 5)) == 0).astype(int)
-    sp = ind.drop_duplicates("first_sponsor")
+    ind["norm"] = ind.first_sponsor.map(rq2_stops.norm_sponsor)
+    sp = ind.drop_duplicates("norm")  # sponsors, not spellings of their names in the registry
     out.append(
         "Venture-backed sponsors and the publication of genetic evidence (plan: docs/plan_evidence_arrival_venture.md)"
     )
@@ -305,6 +321,27 @@ if VC is not None:
     open(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}_venture.txt", "w").write("\n".join(out) + "\n")
     print("\n".join(out))
     out = main_out
+
+# G. how concentrated is the response? Added after the results of D were known (not in the plan).
+if OT_CSV:
+    tp = D[D.first_sponsor_tier.eq(TOP)].merge(pairs[["pid", "E"]], on="pid")
+    tp = tp[tp.first_year > tp.E]
+    by_gene = tp.groupby("gene").size().sort_values(ascending=False)
+    out.extend(
+        [
+            "=" * 100,
+            "G. concentration of the top-20 response (added after the results above were known)",
+            f"top-20 programme starts after the evidence year: {len(tp)} on {tp.pid.nunique()} pairs; genes "
+            f"{tp.gene.nunique()}; indications {tp.indication_mesh_id.nunique()}; drugs {tp.drug.nunique()}; programmes "
+            f"{len(tp.drop_duplicates(['drug', 'indication_mesh_id']))}",
+            "genes with the most such starts: " + "; ".join(f"{g} {n}" for g, n in by_gene.head(5).items()),
+        ]
+    )
+    lead = list(by_gene.index[:3])
+    for g in lead:
+        stacked(grid[grid.gene.ne(g)], "other industry", f"G. D1 without the pairs of {g}")
+    stacked(grid[~grid.gene.isin(lead)], "other industry", "G. D1 without the pairs of these three genes")
+    fit(grid[~grid.gene.isin(lead)], YC["top-20 pharma"], "G. top-20 pharma without the pairs of these three genes")
 
 open(f"{R}/evidence_arrival_ot_{OT_SET}{SUF}.txt" if OT_CSV else f"{R}/evidence_arrival.txt", "w").write(
     "\n".join(out) + "\n"

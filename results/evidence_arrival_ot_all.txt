@@ -214,3 +214,42 @@ y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups
 Coefficient                                                                        
 post          -0.0092      0.1300    0.9438 -0.2640  0.2457  0.9909  0.7680  1.2785
 post_other    -0.2818      0.1612    0.0804 -0.5977  0.0341  0.7544  0.5501  1.0347
+====================================================================================================
+G. concentration of the top-20 response (added after the results above were known)
+top-20 programme starts after the evidence year: 362 on 172 pairs; genes 82; indications 98; drugs 214; programmes 341
+genes with the most such starts: PIK3CA 38; EGFR 24; TYK2 23; ERBB2 22; JAK2 18
+====================================================================================================
+G. D1 without the pairs of PIK3CA
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20946
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3987      0.1620    0.0138  0.0812  0.7163  1.4899  1.0846  2.0468
+post_other    -0.5215      0.1914    0.0064 -0.8967 -0.1464  0.5936  0.4079  0.8638
+====================================================================================================
+G. D1 without the pairs of EGFR
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20922
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4890      0.1564    0.0018  0.1825  0.7956  1.6307  1.2002  2.2158
+post_other    -0.6753      0.1830    0.0002 -1.0340 -0.3167  0.5090  0.3556  0.7286
+====================================================================================================
+G. D1 without the pairs of TYK2
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20942
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3372      0.1608    0.0360  0.0220  0.6525  1.4010  1.0222  1.9203
+post_other    -0.4938      0.1922    0.0102 -0.8706 -0.1170  0.6103  0.4187  0.8896
+====================================================================================================
+G. D1 without the pairs of these three genes
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=20818
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3419      0.1565    0.0289  0.0352  0.6485  1.4076  1.0358  1.9127
+post_other    -0.5673      0.1904    0.0029 -0.9404 -0.1942  0.5671  0.3905  0.8235
+====================================================================================================
+G. top-20 pharma without the pairs of these three genes
+y1 ~ post + e0 | pid + year; pairs=8350 (with dated evidence 579); programme starts=12961 (on pairs with evidence 1059, after it 277)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3419      0.1565     0.029  0.0351  0.6486  1.4076  1.0357  1.9130
+e0             0.3418      0.2264     0.131 -0.1018  0.7855  1.4075  0.9032  2.1934

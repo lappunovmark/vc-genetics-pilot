@@ -297,12 +297,43 @@ by indication; `post` = year after the evidence year. Because starts on a pair d
 before-after change of one group is not an effect of the evidence (placebo with the evidence year moved five years
 earlier). The contrast between sponsor groups uses two outcomes per pair-year with pair × group and year × group
 effects, so it is measured against each group's own calendar trend; it rests on the groups following the same path
-without the evidence (checked by the leads and by the placebo of the contrast). None of this was pre-specified.
+without the evidence (checked by the leads and by the placebo of the contrast). None of this first run was pre-specified.
 Run under Python 3.13 with pyfixest; the library does not run under the Python 3.9 of the author's Mac.
 A second run uses the evidence of Open Targets 26.09 instead of the Minikel associations (`extract_ot_dated.py`:
 gene × disease × source with the earliest evidence date, the score floors of `gs_ot_dated.py`). Its plan
 (`docs/plan_evidence_arrival_ot.md`) was committed before the run and fixes the primary evidence (GWAS credible sets),
 the primary estimate (the contrast of other industry against top-20 pharma) and the rule for reading it.
+An Open Targets disease or trait counts as evidence for a pair when the panel's disease map gives it a MeSH term
+equal or similar (≥ 0.8) to the indication; traits without a MeSH term (many measurement traits) are not counted.
+The plan spoke of leaving out pairs whose only evidence is undated; the run on all sources left out every pair with
+a source whose evidence carries no date, and `EA_UNDATED=only` gives the variant with the wording of the plan.
+Section F splits non-top-20 industry sponsors by the combined venture flag of `vc_combined.py`
+(`docs/plan_evidence_arrival_venture.md`, written before any model with these groups); the flag describes the
+sponsor and is not dated. Two checks were added after the results were known and are labelled so in the output:
+`EA_LAST_EVIDENCE_YEAR=2022` leaves out pairs that gained their evidence after 2022 and have little follow-up, and
+section G counts the genes behind the post-evidence starts of top-20 pharma and repeats the contrast without the
+three leading genes.
+
+## Cash runway and trial stops (`fetch_sec_frames.py`, `cash_runway.py`)
+The plan (`docs/plan_cash_runway.md`) was committed before the SEC data were downloaded. `fetch_sec_frames.py` reads
+the SEC's XBRL frames: for each concept and period, the value every filer reported (year-end balances as
+`CY<year>Q4I`, the annual operating cash flow as `CY<year>`). A frame holds the latest filing that reports the fact,
+and it also takes fiscal years that do not end in December (the nearest year-end balance and twelve-month flow).
+Liquid assets are the reported total of cash, cash equivalents and short-term investments if the filer tags it,
+otherwise cash and cash equivalents plus the first available of short-term investments, current marketable
+securities and current available-for-sale debt securities. Runway = liquid assets / cash used in operations, in
+years; below 1.5 years is short; sponsors with positive operating cash flow form a group of their own. Sponsors are
+linked through the EDGAR registrant numbers of `owners_link.py`; a sponsor with several registrants takes the one
+with the most liquid assets. Cohort 2022: industry Phase 1–3 drug trials of non-top-20 sponsors active on 1 January
+2022, runway at the end of 2021, outcome = a financial or strategic stop (classifier v4) in 2022–2023; cohort 2018
+is the same four years earlier. Logits with phase, the trial's age at the cohort date (1–2, 3–5, 6+ years) and the
+sponsor's size band; errors clustered by sponsor.
+Limits found after the first run and checked in models 12–15: several sponsor names can share one registrant; the
+frames do not leave out non-December fiscal years, so for some sponsors the figures refer to another date than
+31 December; and a registrant number says nothing about when the sponsor came to hold it, so a company that merged
+into a listed company after 2021 is given that company's figures for 2021. The last group is found by comparing the
+first word of the sponsor's normalised name with that of the registrant's present name on EDGAR, which also sets
+aside sponsors that were merely renamed.
 
 ## Reference date
 

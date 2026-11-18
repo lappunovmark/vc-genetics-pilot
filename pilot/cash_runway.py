@@ -50,8 +50,13 @@ def runway(fr, year):
     liquid = w[TOTAL] if TOTAL in w else pd.Series(np.nan, index=w.index)
     liquid = liquid.fillna(first(w, CASH) + first(w, INVEST).fillna(0))
     r = pd.DataFrame({"liquid": liquid, "ocf": w[OCF] if OCF in w else np.nan})
-    r = r[r.liquid.notna() & r.ocf.notna()]
+    r = r[r.liquid.notna() & r.ocf.notna()].copy()
     r["runway"] = np.where(r.ocf < 0, r.liquid / -r.ocf, np.nan)
+    # for the checks added after the first run: the registrant, the dates the figures refer to and its name on EDGAR
+    r["cik"] = r.index
+    r["ocf_end"] = d[d.concept.eq(OCF)].groupby("cik").end.max().reindex(r.index)
+    r["bal_end"] = d[d.period.eq(f"CY{year}Q4I")].groupby("cik").end.max().reindex(r.index)
+    r["entity"] = d.groupby("cik").entityName.first().reindex(r.index)
     return r
 
 
@@ -69,6 +74,12 @@ def cohort(ct, rw, year, ciks):
     d = d[d.sponsor_norm.isin(b.index)].copy()
     for c in ("liquid", "ocf", "runway"):
         d[c] = d.sponsor_norm.map(b[c]).astype(float)
+    for c in ("cik", "ocf_end", "bal_end", "entity"):
+        d[c] = d.sponsor_norm.map(b[c])
+    dec = f"{year - 1}-12-31"
+    d["december"] = (d.ocf_end.eq(dec) & d.bal_end.eq(dec)).astype(int)
+    first_word = lambda x: (rq2_stops.norm_sponsor(x) or " ").split(" ")[0]  # noqa: E731
+    d["own_name"] = (d.sponsor_norm.str.split(" ").str[0] == d.entity.fillna("").map(first_word)).astype(int)
     win = d.stop_year.between(year, year + 1)
     d["fin_y"] = (d.stopped & d.fin & win).astype(int)
     d["any_y"] = (d.stopped & win).astype(int)
@@ -166,7 +177,34 @@ def main(ctgov, R, frames, h4=None):
             trials=("nct_id", "size"), gs_ante=("gs_ante", "mean"), gs_ot_ante=("gs_ot_ante", "mean")
         )
         out.extend(["", "11. Trials of short-runway sponsors with a genetic-support label (h4_biology.py), cohort 2022:", t.round(4).to_string()])  # fmt: skip
-    s = c22.drop_duplicates("sponsor_norm")[["sponsor_norm", "liquid", "ocf", "runway", "cash"]]
+    # ---- checks added after the first run (not in the plan): how the cash figures are tied to the sponsor --------
+    s22 = c22.drop_duplicates("sponsor_norm")
+    out.extend(
+        [
+            "",
+            "Checks added after the first run (not in the plan). Of the "
+            f"{len(s22)} sponsors of cohort 2022, {int(s22.cik.duplicated(keep=False).sum())} share a registrant with "
+            f"another sponsor name ({s22.cik.nunique()} registrants); for {int(s22.december.eq(0).sum())} the fiscal year "
+            "does not end in December, so the balance or the cash flow refers to another date than 31 December 2021; "
+            f"for {int(s22.own_name.eq(0).sum())} the registrant now carries another name on EDGAR (later renamings, "
+            "and companies that merged into a listed company after 2021, whose figures for 2021 are then not their own).",
+        ]
+    )
+    f1 = f"fin_y ~ short + {ctrl}"
+    neg22 = neg22.assign(sponsor_name=neg22.sponsor_norm, sponsor_norm=neg22.cik.astype(str))  # cluster by registrant
+    fit(f1, neg22, "12. as 1, errors clustered by registrant", is_short)
+    fit(f1, neg22[neg22.december.eq(1)], "13. as 12, sponsors whose fiscal year ends in December", is_short)
+    fit(f1, neg22[neg22.own_name.eq(1)], "14. as 12, sponsors whose registrant carries their own name", is_short)
+    fit(f1, neg22[neg22.own_name.eq(1) & neg22.december.eq(1)], "15. as 12, both restrictions", is_short)
+    k = neg22[neg22.own_name.eq(1) & neg22.december.eq(1)]
+    out.append(
+        "\nwith both restrictions: "
+        + "; ".join(
+            f"{n} {int(g.fin_y.sum())} of {len(g)} trials ({g.sponsor_norm.nunique()} registrants)"
+            for n, g in (("short runway", k[k.short.eq(1)]), ("longer runway", k[k.short.eq(0)]))
+        )
+    )
+    s = c22.drop_duplicates("sponsor_norm")[["sponsor_norm", "liquid", "ocf", "runway", "cash", "cik", "ocf_end", "bal_end", "entity", "december", "own_name"]]  # fmt: skip
     s.to_csv(f"{R}/cash_runway_sponsors.csv", index=False)
     open(f"{R}/cash_runway.txt", "w").write("\n".join(out) + "\n")
     print("\n".join(out))
