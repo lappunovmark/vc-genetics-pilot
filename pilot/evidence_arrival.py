@@ -144,7 +144,8 @@ P = pd.read_csv(f"{R}/programmes.csv.gz")
 P = P[P.insight & P.first_year.between(Y0, Y1)]
 PARENT = sponsors.top20_parent
 if TOP20_SET:  # the top-20 group defined by 2010 sales (docs/plan_top20_2010.md)
-    keep = set(sponsors.TOP20_2010) - ({"Teva"} if TOP20_SET == "2010x" else set())
+    WITHOUT = ("Teva",) if TOP20_SET == "2010x" else ()
+    keep = set(sponsors.TOP20_2010) - set(WITHOUT)
 
     def PARENT(name, year):  # noqa: N802
         p = sponsors.top20_parent_2010(name, year)
@@ -152,14 +153,17 @@ if TOP20_SET:  # the top-20 group defined by 2010 sales (docs/plan_top20_2010.md
 
     S = pd.read_csv(f"{R}/sponsors.csv.gz", usecols=["lead_sponsor", "sponsor_n_drugs"]).drop_duplicates("lead_sponsor")
     size = P.first_sponsor.map(S.set_index("lead_sponsor").sponsor_n_drugs)
-    by_size = np.where(size <= 5, SMALL, np.where(size <= 30, "Industry, mid (6-30)", "Industry, large (>30)"))
-    industry = P.first_class.eq("INDUSTRY")
-    new = pd.Series([PARENT(n, y) for n, y in zip(P.first_sponsor, P.first_year)], index=P.index).where(industry)
     was = P.first_sponsor_tier.eq(TOP)
-    P = P.assign(first_sponsor_tier=np.where(new.notna(), TOP, np.where(was, by_size, P.first_sponsor_tier)))
+    P = P.assign(
+        first_sponsor_tier=[
+            sponsors.tier_2010(n, y, c, t, k, WITHOUT)
+            for n, y, c, t, k in zip(P.first_sponsor, P.first_year, P.first_class, P.first_sponsor_tier, size)
+        ]
+    )
+    now = P.first_sponsor_tier.eq(TOP)
     NOTE.append(
-        f"EA_TOP20={TOP20_SET}: top-20 group defined by 2010 sales ({len(keep)} companies); {int((was & new.isna()).sum())} "
-        f"programmes leave the group and {int((~was & new.notna()).sum())} enter (of {int(was.sum())} in the pilot's group)"
+        f"EA_TOP20={TOP20_SET}: top-20 group defined by 2010 sales ({len(keep)} companies); {int((was & ~now).sum())} "
+        f"programmes leave the group and {int((~was & now).sum())} enter (of {int(was.sum())} in the pilot's group)"
     )
 T = pd.read_csv(f"{R}/programme_targets.csv.gz")
 D = P.merge(T, on=["drug", "indication_mesh_id"])

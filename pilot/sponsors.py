@@ -246,6 +246,20 @@ def top20_parent_2010(name, year=None):
     return parent if parent in TOP20_2010 else None
 
 
+def tier_2010(name, year, cls, tier, n_drugs, without=()):
+    """The sponsor tier of a programme when the top-20 group is defined by 2010 sales: top-20 if the 2010 parent is
+    in the group (less the companies in `without`); a sponsor that leaves the pilot's group is typed by the size of
+    its portfolio (`n_drugs`, as in build_panel26.py); every other tier stays as it is."""
+    parent = top20_parent_2010(name, year) if cls == "INDUSTRY" else None
+    if parent and parent not in without:
+        return "Top-20 pharma"
+    if tier != "Top-20 pharma":
+        return tier
+    if n_drugs is None or n_drugs != n_drugs:
+        return "Industry, size unknown"
+    return "Industry, small (<=5 drugs)" if n_drugs <= 5 else "Industry, mid (6-30)" if n_drugs <= 30 else "Industry, large (>30)"  # fmt: skip
+
+
 def sponsor_type(name, cls, year=None):
     """cls = ClinicalTrials.gov LeadSponsorClass (INDUSTRY, NIH, FED, OTHER_GOV, OTHER, NETWORK, INDIV, UNKNOWN)."""
     if cls == "INDUSTRY":

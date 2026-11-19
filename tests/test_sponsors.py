@@ -117,3 +117,24 @@ def test_every_nonleading_match_in_the_panel_was_reviewed():
     names = set(pd.read_csv(f"{R}/phase_entries.csv.gz", usecols=["lead_sponsor"]).lead_sponsor.dropna())
     names |= set(pd.read_csv(f"{R}/programmes.csv.gz", usecols=["first_sponsor"]).first_sponsor.dropna())
     assert sponsor_names_audit.nonleading(names) == []
+
+
+def test_top20_group_of_2010():
+    """docs/plan_top20_2010.md: Teva and Eisai are in the group, Gilead and Merck KGaA are not."""
+    from sponsors import TOP20_2010, tier_2010, top20_parent_2010
+
+    assert len(set(TOP20_2010)) == 20
+    assert top20_parent_2010("Eisai Inc.", 2005) == "Eisai" and top20_parent("Eisai Inc.", 2005) is None
+    assert top20_parent_2010("Gilead Sciences", 2015) is None and top20_parent("Gilead Sciences", 2015)
+    assert top20_parent_2010("EMD Serono", 2010) is None and top20_parent_2010("Kite, A Gilead Company", 2018) is None
+    assert top20_parent_2010("Cephalon", 2010) is None and top20_parent_2010("Cephalon", 2012) == "Teva"
+    assert top20_parent_2010("Morphotek", 2005) is None and top20_parent_2010("Morphotek", 2010) == "Eisai"
+    assert top20_parent_2010("Abbott", 2010) == "AbbVie" and top20_parent_2010("Pfizer", 2003) == "Pfizer"
+    top, large = "Top-20 pharma", "Industry, large (>30)"
+    assert tier_2010("Gilead Sciences", 2015, "INDUSTRY", top, 204) == large  # leaves the group, typed by size
+    assert tier_2010("Kite, A Gilead Company", 2018, "INDUSTRY", top, 11) == "Industry, mid (6-30)"
+    assert tier_2010("Eisai Inc.", 2005, "INDUSTRY", large, 142) == top
+    assert tier_2010("Teva GTC", 2006, "INDUSTRY", "Industry, small (<=5 drugs)", 3) == top
+    assert tier_2010("Teva GTC", 2006, "INDUSTRY", "Industry, small (<=5 drugs)", 3, without=("Teva",)) != top
+    assert tier_2010("Pfizer", 2010, "INDUSTRY", top, 500) == top
+    assert tier_2010("Eisai Hospital Trust", 2010, "OTHER", "Academic/other", 2) == "Academic/other"
