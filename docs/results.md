@@ -337,6 +337,30 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   JAK2 the contrast in this run is 0.58 (0.34–0.99) and the response of top-20 pharma 1.25 (0.73–2.12); with gene ×
   year effects the contrast is 0.83 (0.44–1.55), and with the target as the unit 0.68 (0.49–0.95; without the three
   genes 0.74, 0.52–1.06).
+* The top-20 group defined by 2010 sales (`EA_TOP20=2010`, `top20_2010.py`; plan written before the run:
+  `docs/plan_top20_2010.md`). The pilot's top-20 group is fixed by 2023 sales, after the programmes studied, so
+  membership partly reflects which programmes succeeded. The first twenty of the Pharm Exec 50 of May 2011 (sales
+  in 2010) differ from it in two companies: Teva and Eisai come in, Gilead and Merck KGaA go out (of 5,873
+  programmes in the pilot's group 285 leave and 141 enter). *Primary estimate:* GWAS evidence, the 2010 group and
+  only pairs whose evidence year is 2010 or later (1,368 pairs; 89 programme starts of top-20 pharma and 93 of other
+  industry sponsors after the evidence year). Top-20 pharma 1.52 (1.08–2.16), other industry 0.85 (0.62–1.16),
+  contrast 0.56 (0.38–0.82). By the rule fixed in advance, the second result of the pilot does not depend on
+  defining the group by later sales. *Secondary, all reported:* the 2010 group on all pairs 0.60 (0.40–0.90),
+  against 0.54 (0.34–0.84) with the pilot's group; the pilot's group on pairs with an evidence year of 2010 or later
+  0.49 (0.32–0.75); all germline sources 0.63 (0.42–0.94; placebo 0.84, 0.61–1.15); without Teva 0.56 (0.38–0.82).
+  Within the primary run: area × year effects 0.52 (0.34–0.77), errors clustered by gene 0.56 (0.37–0.83), placebo
+  0.91 (0.64–1.28), pairs where both groups started programmes 0.59 (0.36–0.95), a drug's first indication 0.48
+  (0.22–1.05); each company left out in turn 0.51 to 0.63 (largest upper bound 0.95), without Roche, AbbVie and
+  Novartis 0.72 (0.47–1.10). The pairs of IL12B gained their evidence before 2010 and are not in this run; the
+  leading genes are TYK2 (20 of the 89 starts), PCSK9 (7) and FGFR2 (5), and without the three the contrast is
+  0.55 (0.34–0.88) while the response of top-20 pharma is 1.21 (0.79–1.85). The checks that limit the reading
+  stay as they were: with gene × year effects the contrast is 0.93 (0.51–1.68), and with the target as the unit
+  0.74 (0.54–1.02; placebo 1.23, 0.98–1.56). So the difference between top-20 pharma and other industry sponsors
+  is not produced by choosing the group on 2023 sales, and it is still a difference between targets that is not
+  shown to be a response to the evidence. *Selection model with the 2010 group:* small sponsors against top-20
+  pharma 0.65 (0.47–0.91), against 0.68 (0.49–0.93) with the pilot's group (without Teva 0.65, 0.47–0.90). Limits:
+  eighteen of the twenty companies are the same; a list fixed in 2010 still reflects success before 2010; and
+  companies acquired after 2010 still enter the group from the year of their acquisition.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
   financial or strategic stops rose after 2022 in every band of capital raised before the trial (rate ratios 2.4 with
   no prior Form D, 2.4 under $10M, 2.9 at $10–50M, 1.7 at $50M or more), with no steeper rise for less-funded sponsors

@@ -1,0 +1,65 @@
+Venture-backed sponsors and the publication of genetic evidence (plan: docs/plan_evidence_arrival_venture.md)
+evidence set: gwas; non-top-20 industry sponsors with a programme on these pairs: 1426; venture-backed by at least one source: 504; programme starts: venture-backed 8423, no venture marker 8937, top-20 pharma 13278
+====================================================================================================
+F1. venture-backed industry sponsors: programme starts after the evidence year
+v_yes ~ post + e0 | pid + year; pairs=7049 (with dated evidence 219); programme starts=8423 (on pairs with evidence 283, after it 31)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1735      0.2442    0.4775 -0.6522  0.3052  0.8407  0.5209  1.3569
+e0             0.1585      0.4065    0.6966 -0.6383  0.9553  1.1718  0.5282  2.5995
+====================================================================================================
+F2. industry sponsors without a venture marker: programme starts after the evidence year
+v_no ~ post + e0 | pid + year; pairs=6957 (with dated evidence 342); programme starts=8937 (on pairs with evidence 477, after it 78)
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1579      0.1903    0.4069 -0.5309  0.2152  0.8540  0.5881  1.2401
+e0             0.2108      0.2712    0.4370 -0.3207  0.7423  1.2346  0.7256  2.1007
+====================================================================================================
+F3 (primary). venture-backed industry sponsors against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=15481
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4050      0.2079    0.0514 -0.0025  0.8126  1.4994  0.9975  2.2538
+post_other    -0.5785      0.3211    0.0716 -1.2078  0.0507  0.5607  0.2989  1.0521
+====================================================================================================
+F4. industry sponsors without a venture marker against top-20 pharma
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=15389
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4050      0.2079    0.0514 -0.0025  0.8126  1.4994  0.9975  2.2537
+post_other    -0.5629      0.2136    0.0084 -0.9815 -0.1443  0.5696  0.3748  0.8656
+====================================================================================================
+F5. venture-backed against industry sponsors without a venture marker
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=14006
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.1579      0.1903    0.4068 -0.5308  0.2151  0.8540  0.5881  1.2400
+post_other    -0.0156      0.3025    0.9588 -0.6086  0.5773  0.9845  0.5441  1.7812
+====================================================================================================
+F6. F3 with therapeutic area x year x group fixed effects
+y ~ post + e0 + post_other + e0_other | pair x group + area x year x group; pair-groups=15481
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4276      0.1718    0.0128  0.0909  0.7643  1.5335  1.0951  2.1475
+post_other    -0.7649      0.3280    0.0197 -1.4078 -0.1220  0.4654  0.2447  0.8852
+====================================================================================================
+F7. F3 with standard errors clustered by gene
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=15481
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.4050      0.2026    0.0455  0.0080  0.8020  1.4994  1.0081  2.2301
+post_other    -0.5785      0.3296    0.0793 -1.2246  0.0676  0.5607  0.2939  1.0699
+====================================================================================================
+F8. placebo of F3: evidence year moved five years earlier, years before the true evidence year only
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=15388
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.0900      0.1517    0.5530 -0.3872  0.2073  0.9140  0.6790  1.2303
+post_other     0.1601      0.2466    0.5162 -0.3233  0.6435  1.1737  0.7238  1.9032
+====================================================================================================
+F9. placebo of F5
+y ~ post + e0 + post_other + e0_other | pair x group + year x group; pair-groups=13910
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.3214      0.1525    0.0351 -0.6204 -0.0224  0.7251  0.5378  0.9778
+post_other     0.3916      0.2478    0.1142 -0.0942  0.8773  1.4793  0.9101  2.4045

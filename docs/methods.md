@@ -353,7 +353,11 @@ the same year. It also counts the starts by top-20 company, repeats the contrast
 turn and without the three leading companies, and compares large and mid-sized sponsors outside the top 20 with
 top-20 pharma separately. Section H repeats the design with the target as the unit: programme starts on a gene in all its
 indications, the evidence year being the first year in which one of its pairs gained evidence, with gene and year
-effects and errors clustered by gene. `figure_evidence_arrival.py` draws the event study and the contrast under
+effects and errors clustered by gene. For the check planned in `docs/plan_top20_2010.md`, `EA_TOP20=2010` defines
+the top-20 group by the first twenty of the Pharm Exec 50 of May 2011 (prescription-drug sales in 2010;
+`sponsors.TOP20_2010`, with entries for Teva, Eisai and the companies they acquired), a sponsor that leaves the
+group being typed by the size of its portfolio, and `EA_FIRST_EVIDENCE_YEAR=2010` keeps only pairs whose evidence
+year is 2010 or later; `top20_2010.py` fits the selection model with that group. `figure_evidence_arrival.py` draws the event study and the contrast under
 each specification from these files (`figures/evidence_arrival.png`).
 
 ## Cash runway and trial stops (`fetch_sec_frames.py`, `cash_runway.py`)

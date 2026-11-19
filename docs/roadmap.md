@@ -8,16 +8,18 @@
    blind labels. The coding sheet, codebook and scoring script are in
    [`factcheck/double_coding/`](../factcheck/double_coding/codebook.md); the validation figures in
    [results](results.md) will then refer to the author's labels.
-2. **Investor-level data on private rounds after 2015.** Investors are named only for sponsors that later became
-   public (owners in SEC Schedules 13D and 13G) and for venture rounds up to 2015 (a Crunchbase export); for other
-   private sponsors the pilot relies on Form D placements, directors named in Form D filings and sponsor size.
-   Round-level data with named investors for 2016 onwards, from a licensed deal database or from the financing
-   histories in IPO prospectuses, would test the same questions for private sponsors and give the comparison of
+2. **Investor-level data on private rounds after 2015.** Investors are named for venture rounds up to 2015 (a
+   Crunchbase export) and, for sponsors that went public, above 5% (Schedules 13D and 13G; the holders listed in
+   IPO prospectuses, read for 344 sponsors of 2003–2026). For sponsors that stayed private after 2015 the pilot has
+   only Form D placements, directors named in Form D filings and sponsor size. Round-level data with named
+   investors from a licensed deal database would test the same questions for them and give the comparison of
    corporate and independent investors enough cases.
 3. **A top-20 list fixed year by year.** The top-20 group is defined by 2023 sales, after the programmes studied.
-   The result on programme starts after the publication of genetic evidence should be repeated with a list fixed
-   before each period, and with licensing and acquisitions followed, before it is read as behaviour of large
-   companies rather than as a feature of companies that later succeeded.
+   With the group fixed by 2010 sales the result on programme starts after the publication of genetic evidence
+   holds (0.56, 0.38–0.82; `docs/plan_top20_2010.md`), but eighteen of the twenty companies are the same and
+   acquisitions after 2010 still move programmes into the group. A list fixed before each period, with licensing
+   and acquisitions followed programme by programme, is still needed before the result is read as behaviour of
+   large companies.
 4. **Working paper.** The pilot is being written up: question, data, definitions ([methods](methods.md)), results
    for H1–H4, robustness and limitations.
 

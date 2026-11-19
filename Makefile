@@ -85,6 +85,12 @@ biology:  # exploratory: the gap by type of drug, direction of effect, arrival o
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
 	EA_LAST_EVIDENCE_YEAR=2022 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	EA_UNDATED=only $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
+	EA_TOP20=2010 EA_FIRST_EVIDENCE_YEAR=2010 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	EA_TOP20=2010 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	EA_FIRST_EVIDENCE_YEAR=2010 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	EA_TOP20=2010 EA_FIRST_EVIDENCE_YEAR=2010 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
+	EA_TOP20=2010x EA_FIRST_EVIDENCE_YEAR=2010 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	$(PY) pilot/top20_2010.py $(RES)
 
 runway:  # cash runway and trial stops (SEC_USER_AGENT="Your Name you@example.org" make runway); needs make owners and the trial table of h4_biology.py
 	$(PY) pilot/fetch_sec_frames.py $(DATA)/sec_frames

@@ -1,0 +1,35 @@
+The top-20 group defined by 2010 sales (Pharm Exec 50 of May 2011): Pfizer, Novartis, Sanofi, Merck & Co, Roche, GSK, AstraZeneca, Johnson & Johnson, Eli Lilly, AbbVie, Bristol Myers Squibb, Teva, Amgen, Bayer, Takeda, Boehringer Ingelheim, Novo Nordisk, Astellas, Daiichi Sankyo, Eisai
+programmes with a dated trial: 35887; in the pilot's top-20 group: 5873; in the 2010 group: 5729; leave the group: 285; enter it: 141
+programmes that leave, by company and the tier they are given: Gilead Sciences -> Industry, large (>30) 176; Gilead Sciences -> Industry, mid (6-30) 5; Merck KGaA -> Industry, large (>30) 104
+programmes that enter, by company and the tier they had: Eisai <- Industry, large (>30) 110; Eisai <- Industry, mid (6-30) 7; Teva <- Industry, large (>30) 19; Teva <- Industry, small (<=5 drugs) 5
+====================================================================================================
+H1 gs_ante_first, the pilot's top-20 group (as robust.txt)
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; drugs=3240; converged=True; top-20 programmes 5130 (229 supported)
+                                         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]        0.1611    0.1612  0.3177 -0.1549  0.4771  1.1748  0.8565  1.6113
+C(tier)[T.Industry, mid (6-30)]        -0.0567    0.1472  0.7001 -0.3451  0.2318  0.9449  0.7081  1.2608
+C(tier)[T.Industry, small (<=5 drugs)] -0.3930    0.1652  0.0174 -0.7167 -0.0692  0.6751  0.4884  0.9331
+C(tier)[T.Academic/other]              -0.7785    0.1194  0.0000 -1.0125 -0.5446  0.4591  0.3633  0.5801
+C(tier)[T.Government]                  -0.7812    0.1980  0.0001 -1.1693 -0.3931  0.4579  0.3106  0.6750
+====================================================================================================
+H1 gs_ante_first, top-20 group defined by 2010 sales
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; drugs=3240; converged=True; top-20 programmes 5007 (230 supported)
+                                         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]        0.0467    0.1605  0.7709 -0.2678  0.3612  1.0478  0.7651  1.4351
+C(tier)[T.Industry, mid (6-30)]        -0.0918    0.1500  0.5405 -0.3859  0.2022  0.9123  0.6799  1.2241
+C(tier)[T.Industry, small (<=5 drugs)] -0.4235    0.1655  0.0105 -0.7479 -0.0992  0.6547  0.4734  0.9056
+C(tier)[T.Academic/other]              -0.8110    0.1201  0.0000 -1.0464 -0.5755  0.4444  0.3512  0.5624
+C(tier)[T.Government]                  -0.8132    0.1987  0.0000 -1.2026 -0.4239  0.4434  0.3004  0.6545
+====================================================================================================
+H1 gs_ante_first, top-20 group defined by 2010 sales, without Teva
+y ~ C(tier) + C(yb) + C(area) + C(modality)
+N=29191; drugs=3240; converged=True; top-20 programmes 4984 (230 supported)
+                                         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, large (>30)]        0.0312    0.1602  0.8456 -0.2829  0.3453  1.0317  0.7536  1.4124
+C(tier)[T.Industry, mid (6-30)]        -0.0972    0.1500  0.5171 -0.3912  0.1969  0.9074  0.6762  1.2176
+C(tier)[T.Industry, small (<=5 drugs)] -0.4311    0.1655  0.0092 -0.7555 -0.1066  0.6498  0.4698  0.8989
+C(tier)[T.Academic/other]              -0.8163    0.1202  0.0000 -1.0519 -0.5807  0.4421  0.3493  0.5595
+C(tier)[T.Government]                  -0.8184    0.1987  0.0000 -1.2079 -0.4290  0.4411  0.2988  0.6512
+(gs_ot_programmes.csv.gz not in RESULTS_DIR: the models with dated Open Targets evidence are not run)
