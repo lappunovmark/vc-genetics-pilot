@@ -238,8 +238,10 @@ somewhere in the column). Addresses printed under a name, footnote marks and the
 officers as a group are removed; early filings that put the name on a row of its own above the address are read
 with the name of that row. Only tables whose heading names owners or holders are read, which keeps financial
 tables out. Plain-text filings (two in the sample) are not read. Twenty prospectuses drawn at random were compared
-by eye with an independent rendering of each table: 95 holders, all with the right percentage
-(`factcheck/ipo_holders_check.csv`, checked against the reader by `factcheck/ipo_holders_check.py`).
+by eye with an independent rendering of each table: 95 holders, all with the right percentage. Because the reader
+was still being corrected while that sample was read, ten more prospectuses were drawn after it was final: 46
+holders, all read correctly, none missed and none added (`factcheck/ipo_holders_check.csv`, checked against the
+reader by `factcheck/ipo_holders_check.py`).
 *Classes and measures.* A holder counts if it holds 5.0% or more and is not a natural person. Classes come from
 `pilot/ipo_holder_classes.tsv` (rules written after reading every name the existing rules left unclassified, and
 the footnotes where the name did not say what the holder is), then `pilot/investor_classes.tsv`; the kind of a

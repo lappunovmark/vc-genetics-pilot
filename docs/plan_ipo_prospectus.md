@@ -112,3 +112,12 @@ down (`factcheck/ipo_holders_check.csv`) and the final reader is compared with t
 * *Errors.* The plan clusters errors by drug, as the pilot does. The venture share is the same for every
   programme of a sponsor, so each model is also reported with errors clustered by sponsor; the interval by
   drug stays the one the reading rule is applied to, and the interval by sponsor is reported next to it.
+
+## Note of 19 November 2026, after the models
+
+The check by eye of the second amendment was made while the reader was still being corrected, so it does not
+show how the final reader does on prospectuses it was not corrected on. Ten more prospectuses were therefore
+drawn at random from the own-name sample (seed 20261120, the first twenty left out) and compared in the same way
+after the models were run: 46 holders of 5% or more that are not natural persons, all read with the right
+percentage, none missed and none added (one of the ten has no such holder, and the reader gives none). Nothing
+in the reader, the rules or the models was changed after this check.

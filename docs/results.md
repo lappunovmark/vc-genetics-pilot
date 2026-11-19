@@ -134,7 +134,8 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   investors at a known date, also for the IPOs of 2016–2026 that the Crunchbase export does not cover. The EDGAR
   index has 398 IPO prospectuses of sponsors' registrants, 348 of them filed under the sponsor's own name; the
   table of principal stockholders was read in 344 (IPO years 2003–2026, 201 in 2016 or later). In 20 prospectuses
-  drawn at random all 95 holders read by eye agree with the reader. Of 1,520 holdings of 5% or more by holders
+  drawn at random all 95 holders read by eye agree with the reader, and so do all 46 in 10 more drawn after the
+  reader was final. Of 1,520 holdings of 5% or more by holders
   that are not natural persons, 806 are venture funds, 154 crossover funds and 124 companies; 202 (13%) could not
   be classed. 260 of the 344 sponsors have a venture fund above 5%, and the venture share (the sum of the
   percentages held by venture funds) has a median of 34.5% (quartiles 5.7% and 59.7%). The venture holder of the
