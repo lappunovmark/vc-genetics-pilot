@@ -128,6 +128,34 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   depends on the comparison group: venture-backed sponsors do no better than sponsors about whose financing nothing
   is known, and no worse than the other sponsors that are seen. No comparison shows that they pick better-supported
   targets.
+* Investors named in IPO prospectuses (`fetch_ipo_prospectus.py`, `ipo_holders.py`, `ipo_models.py`; plan in
+  `docs/plan_ipo_prospectus.md`, written before the download and amended before any model was fitted). The final
+  prospectus of an IPO lists every holder of more than 5% with the percentage held, so it names a sponsor's
+  investors at a known date, also for the IPOs of 2016–2026 that the Crunchbase export does not cover. The EDGAR
+  index has 398 IPO prospectuses of sponsors' registrants, 348 of them filed under the sponsor's own name; the
+  table of principal stockholders was read in 344 (IPO years 2003–2026, 201 in 2016 or later). In 20 prospectuses
+  drawn at random all 95 holders read by eye agree with the reader. Of 1,520 holdings of 5% or more by holders
+  that are not natural persons, 806 are venture funds, 154 crossover funds and 124 companies; 202 (13%) could not
+  be classed. 260 of the 344 sponsors have a venture fund above 5%, and the venture share (the sum of the
+  percentages held by venture funds) has a median of 34.5% (quartiles 5.7% and 59.7%). The venture holder of the
+  prospectus agrees with Jay Ritter's flag for 87% of the 188 sponsors found in both (it finds 88% of his
+  venture-backed IPOs and he confirms 96% of its sponsors).
+  *Primary estimate.* On the 496 programmes first tried no later than the IPO year (147 sponsors, 18 programmes
+  with ex-ante support) the odds of ex-ante support change by a factor of 1.02 (0.86–1.22) per 10 percentage points
+  of venture share; with errors clustered by sponsor the interval is the same. By the reading rule fixed in advance
+  the data do not show a link between the share held by venture funds and genetic support. The interval is wide:
+  for a difference of 50 points it runs from 0.46 to 2.69.
+  *Further estimates, all reported.* A venture holder against none 1.28 (0.36–4.54); a corporate holder against
+  venture funds only 0.42 (0.10–1.69), which by the same rule shows no difference; the dated Open Targets measure
+  0.98 (0.84–1.13); venture and crossover funds together 0.98 (0.82–1.17); IPOs of 2016–2026 0.86 (0.67–1.12) and
+  of 2001–2015 0.96 (0.73–1.25); all programmes of these sponsors 0.88 (0.76–1.02). Among the programmes first
+  tried after the IPO year the estimate is 0.77 (0.61–0.98): sponsors with a larger venture share at the IPO chose
+  supported targets less often afterwards. It is one of thirteen further estimates, the reading rule does not
+  cover it and it rests on 19 supported programmes, so it is reported and nothing is built on it. Phase entries no
+  later than the IPO year advanced no more often with a larger venture share (0.94, 0.86–1.03, with ex-ante
+  support in the model).
+  *Limits.* Only sponsors that went public; only holders above 5% at the IPO, so early investors diluted below 5%
+  are not seen; the prospectus shows who held shares at the IPO, not who invested when; 18 supported programmes.
 * Selection by type of drug (`h1_by_modality.py`; exploratory): the small-sponsor gap is not the same for every
   type of drug. Among small molecules the programmes of small sponsors are supported about as often as those of
   top-20 pharma (54 of 1,256, 4.3%, against 119 of 3,181, 3.7%; adjusted OR 0.85, 0.56–1.29). Among antibodies they

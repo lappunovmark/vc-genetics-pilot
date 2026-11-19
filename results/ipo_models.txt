@@ -1,0 +1,178 @@
+Investors named in IPO prospectuses (holders of 5% or more before the offering) and genetic support
+IPO prospectuses of sponsors' registrants: 398; filed under the sponsor's own name: 348; table read: 344 ({'read': 344, 'plain-text filing, not read': 2, 'no table rows read': 1, 'no principal stockholders section': 1})
+holdings of 5% or more by holders that are not natural persons: 1520 in 334 prospectuses; by class: {'venture capital': 806, 'unclassified': 202, 'life-science crossover': 154, 'corporate': 124, 'asset manager or index fund': 93, 'private equity or holding': 83, 'hedge fund or PIPE investor': 36, 'foundation, university or hospital': 13, 'credit, secondaries or other': 9}
+classed by the rules written for the prospectuses: 287; kind of corporate investor: {'pharma corporate, large': 111, 'pharma corporate, other': 41, 'foundation-owned': 19, 'other corporate': 15, 'not corporate': 5}
+sponsor names with a prospectus read: 344; with a venture holder: 260; with a corporate holder: 115 (large company 83); venture funds only: 166; neither: 63; venture shares above 100 before the cap: 0
+venture share, all sponsors: mean 35.1, percentiles 10/25/50/75/90: [0.0, 5.7, 34.5, 59.7, 76.0]; IPO years 2003-2026 (201 in 2016 or later)
+
+Programmes (insight indications, first trial 2001+, non-top-20 industry): 5906; of sponsors with a prospectus read: 1007 (207 sponsors); first tried no later than the IPO year: 496 (147 sponsors, 18 with ex-ante support)
+programmes first tried no later than the IPO year, by third of venture share:
+                  n  sponsors  supported  gs_ante
+third                                            
+(-0.001, 14.5]  172        41          7   0.0407
+(14.5, 59.6]    159        53          6   0.0377
+(59.6, 99.5]    165        53          5   0.0303
+the same by venture holder x corporate holder:
+           n  sponsors  supported  gs_ante
+vc corp                                   
+0  0      59        20          3   0.0508
+   1      68         8          1   0.0147
+1  0     256        78         12   0.0469
+   1     113        41          2   0.0177
+
+1. PRIMARY (plan): ex-ante support per 10 percentage points of venture share, programmes first tried no later than the IPO year
+====================================================================================================
+H1 PRIMARY: ex-ante support ~ venture share (per 10 points)
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=496; events=18; drugs=232; sponsors=147
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10  0.0211    0.0902  0.8148 -0.1556  0.1978  1.0213  0.8559  1.2188
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10  0.0211    0.0892  0.8129 -0.1537  0.1959  1.0213  0.8575  1.2165
+
+2. Secondary (plan)
+====================================================================================================
+H1: ~ venture holder (yes against no), no later than the IPO year
+y ~ vc + C(tier) + C(yb) + C(area) + C(modality)
+N=496; events=18; drugs=232; sponsors=147
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+vc  0.2476    0.6458  0.7014  -1.018  1.5133  1.281  0.3613  4.5415
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]     OR   OR_lo   OR_hi
+vc  0.2476    0.6153  0.6874 -0.9584  1.4536  1.281  0.3835  4.2784
+====================================================================================================
+H1: ~ corporate holder against venture funds only, no later than the IPO year
+y ~ corp + C(tier) + C(yb) + C(area) + C(modality)
+N=437; events=15; drugs=200; sponsors=127
+errors clustered by drug; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp -0.8738    0.7121  0.2198 -2.2695  0.5219  0.4174  0.1034  1.6852
+errors clustered by sponsor; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp -0.8738     0.708  0.2171 -2.2615  0.5139  0.4174  0.1042  1.6718
+====================================================================================================
+H1: ~ venture share, all programmes of these sponsors
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=1007; events=37; drugs=368; sponsors=207
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.1243    0.0754  0.0994 -0.2721  0.0235  0.8831  0.7617  1.0238
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo  OR_hi
+v10 -0.1243    0.0785  0.1132 -0.2781  0.0295  0.8831  0.7572   1.03
+====================================================================================================
+H1: ~ venture holder, all programmes of these sponsors
+y ~ vc + C(tier) + C(yb) + C(area) + C(modality)
+N=1007; events=37; drugs=368; sponsors=207
+errors clustered by drug; converged=True
+    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  -0.43    0.4735  0.3638 -1.3581   0.498  0.6505  0.2572  1.6454
+errors clustered by sponsor; converged=True
+    Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  -0.43    0.4469  0.3359 -1.3059  0.4458  0.6505  0.2709  1.5618
+====================================================================================================
+H1: ~ corporate holder against venture funds only, all programmes
+y ~ corp + C(tier) + C(yb) + C(area) + C(modality)
+N=869; events=30; drugs=316; sponsors=175
+errors clustered by drug; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp  0.1686    0.4796  0.7251 -0.7714  1.1087  1.1837  0.4624  3.0304
+errors clustered by sponsor; converged=True
+       Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+corp  0.1686    0.4684  0.7188 -0.7495  1.0868  1.1837  0.4726  2.9647
+====================================================================================================
+H1: ~ venture share, programmes first tried after the IPO year
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=431; events=19; drugs=205; sponsors=134; 80 rows of a size tier without events dropped
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.2595    0.1239  0.0362 -0.5024 -0.0167  0.7714  0.6051  0.9834
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.2595    0.1122  0.0207 -0.4794 -0.0397  0.7714  0.6191  0.9611
+====================================================================================================
+H1: ~ venture share, IPOs of 2016-2026, no later than the IPO year
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=223; events=8; drugs=99; sponsors=66; 33 rows of a size tier without events dropped
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.1458     0.133  0.2731 -0.4066  0.1149  0.8643  0.6659  1.1218
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.1458    0.1343  0.2778 -0.4091  0.1175  0.8643  0.6642  1.1247
+====================================================================================================
+H1: ~ venture share, IPOs of 2001-2015, no later than the IPO year
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=240; events=10; drugs=128; sponsors=79
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo   OR_hi
+v10 -0.0424    0.1355  0.7541 -0.3079  0.2231  0.9584  0.735  1.2499
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.0424    0.1381  0.7586 -0.3132  0.2283  0.9584  0.7311  1.2564
+====================================================================================================
+H1 (variant declared in the plan): ~ specialist share (venture and crossover funds)
+y ~ s10 + C(tier) + C(yb) + C(area) + C(modality)
+N=496; events=18; drugs=232; sponsors=147
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+s10 -0.0196    0.0913  0.8305 -0.1986  0.1595  0.9806  0.8199  1.1729
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR  OR_lo  OR_hi
+s10 -0.0196    0.0901  0.8281 -0.1961   0.157  0.9806  0.822   1.17
+====================================================================================================
+H1 [dated Open Targets evidence]: ~ venture share, no later than the IPO year
+y ~ v10 + C(tier) + C(yb) + C(area) + C(modality)
+N=496; events=24; drugs=232; sponsors=147
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.0231    0.0743  0.7561 -0.1687  0.1226  0.9772  0.8447  1.1304
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10 -0.0231    0.0816  0.7773  -0.183  0.1369  0.9772  0.8327  1.1467
+====================================================================================================
+H1 [dated Open Targets evidence]: ~ venture holder, no later than the IPO year
+y ~ vc + C(tier) + C(yb) + C(area) + C(modality)
+N=496; events=24; drugs=232; sponsors=147
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  0.4578    0.6136  0.4557 -0.7449  1.6605  1.5806  0.4748  5.2619
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+vc  0.4578    0.5869  0.4354 -0.6925  1.6081  1.5806  0.5003  4.9932
+====================================================================================================
+Phase entries 2001-2020 of these sponsors: 1078; no later than the IPO year: 551 (149 sponsors, 200 advanced)
+====================================================================================================
+Advancement ~ venture share + ex-ante support, entries no later than the IPO year
+adv ~ v10 + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=551; events=200; drugs=236; sponsors=149
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+v10 -0.0596    0.0448  0.1836 -0.1474  0.0282  0.9422  0.8630   1.0286
+gs   1.8939    0.5236  0.0003  0.8677  2.9201  6.6455  2.3815  18.5440
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo    OR_hi
+v10 -0.0596    0.0506  0.2395 -0.1588  0.0397  0.9422  0.8531   1.0405
+gs   1.8939    0.5071  0.0002  0.9000  2.8879  6.6455  2.4595  17.9561
+====================================================================================================
+Advancement ~ venture share + ex-ante support, all entries of these sponsors
+adv ~ v10 + gs + C(phase) + C(tier) + C(yb) + C(area) + C(modality)
+N=1078; events=361; drugs=364; sponsors=193
+errors clustered by drug; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10  0.0098    0.0327  0.7641 -0.0542  0.0739  1.0099  0.9472  1.0766
+gs   1.4659    0.3406  0.0000  0.7983  2.1335  4.3315  2.2218  8.4443
+errors clustered by sponsor; converged=True
+      Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+v10  0.0098    0.0380  0.7966 -0.0648  0.0844  1.0099  0.9373  1.0880
+gs   1.4659    0.3233  0.0000  0.8322  2.0996  4.3315  2.2983  8.1632
+
+3. The venture holder of the prospectus against other markers (a check of the measure, not a result)
+  sponsors with a prospectus read that are in Jay Ritter's IPO list: 188
+  venture holder against Ritter's venture flag: n=188; both 143, prospectus only 6, other only 19, neither 20; agreement 0.867, kappa 0.539
+  the same, IPO year of the two sources within one year: n=188; both 143, prospectus only 6, other only 19, neither 20; agreement 0.867, kappa 0.539
+  venture holder against a venture owner in Schedules 13D/13G, any time: n=344; both 229, prospectus only 31, other only 18, neither 66; agreement 0.858, kappa 0.633
+  the same, the owner's first filing by the year after the IPO: n=344; both 222, prospectus only 38, other only 6, neither 78; agreement 0.872, kappa 0.693

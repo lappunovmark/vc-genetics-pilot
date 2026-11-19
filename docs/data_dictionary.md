@@ -91,6 +91,7 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 | `direction_models.txt`, `direction_programmes.csv.gz` | Exploratory: programmes whose drug acts in the direction the genetic evidence asks for (Open Targets direction of effect), by sponsor tier, with selection models; per programme: directional evidence, concordant, discordant, ever and before the first trial |
 | `evidence_arrival_ot_gwas.txt`, `evidence_arrival_ot_all.txt` | The evidence-arrival models repeated on Open Targets 26.09 evidence (GWAS credible sets; all germline sources), under the plan in `docs/plan_evidence_arrival_ot.md` |
 | `evidence_arrival_ot_gwas_venture.txt`, `evidence_arrival_ot_all_venture.txt` | The evidence-arrival contrasts with non-top-20 industry sponsors split by the combined venture flag, under the plan in `docs/plan_evidence_arrival_venture.md` |
+| `ipo_models.txt`, `ipo_sponsors.csv`, `ipo_holders_log.csv` | Investors named in IPO prospectuses, under the plan in `docs/plan_ipo_prospectus.md`: the models; one row per sponsor (registrant, prospectus, IPO year, number of holders of 5% or more that are not natural persons, venture share, share of venture and crossover funds, venture holder, corporate holder, unclassified share); one row per prospectus with what the reader made of it |
 | `cash_runway.txt`, `cash_runway_sponsors.csv` | Trial stops in 2022–2023 (and 2018–2019) by the sponsor's cash runway at the end of the year before, from SEC XBRL frames, under the plan in `docs/plan_cash_runway.md`; per sponsor: liquid assets, operating cash flow, runway and group at the end of 2021, the registrant used, the dates its figures refer to, its present name on EDGAR, and whether the fiscal year ends in December and the name is the sponsor's own (checks added after the first run) |
 | `evidence_arrival_ot_gwas_to2022.txt`, `evidence_arrival_ot_gwas_to2022_venture.txt` | Robustness run of the two files above without the pairs whose evidence year is after 2022 |
 | `evidence_arrival_ot_all_planrule.txt`, `evidence_arrival_ot_all_planrule_venture.txt` | The run on all germline sources with the wording of the plan for undated evidence (`EA_UNDATED=only`): a pair is left out only when none of its evidence carries a date |
@@ -107,4 +108,6 @@ The sponsor-level and link-review tables of the exploratory venture markers (`cb
 `ritter_link_review.csv`, `ritter_sponsors.csv`, `formd_directors_sponsors.csv`, `cvc_sponsors.csv`,
 `vc_stops_link_review.csv`) are not in the repository: they derive from data that is not redistributed (the
 Crunchbase export, Jay Ritter's IPO list) or name individual people (directors in Form D filings). The scripts
-write them next to the model output.
+write them next to the model output. The same holds for `ipo_holders.csv` and `ipo_holders_classified.csv` (every
+row read from the tables of principal stockholders, which list directors and officers by name; the holders of 5%
+or more with their class): `pilot/ipo_holders.py` and `pilot/ipo_models.py` write them from the prospectuses.

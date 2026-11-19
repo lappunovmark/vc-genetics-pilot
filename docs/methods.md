@@ -222,6 +222,38 @@ only for sponsors that went public in the US. It is used to check the pilot's ow
 Ritter's venture-backed IPOs that a marker finds; share of a marker's sponsors that Ritter confirms) and, combined
 with them, as a sponsor-level flag "venture-backed by any source". That flag is not dated to the trial.
 
+## Investors named in IPO prospectuses (`fetch_ipo_prospectus.py`, `ipo_holders.py`, `ipo_models.py`)
+The plan (`docs/plan_ipo_prospectus.md`) was committed before any prospectus was downloaded; its two amendments
+(the rule for an IPO; what was read, the check by eye and the definitions) were committed before any model was
+fitted. *Sample.* For each EDGAR registrant of a non-top-20 industry sponsor (`owners_link.py`), the IPO prospectus
+is its first form 424B4 filed on or after its first S-1 or F-1, if it filed no annual report before the prospectus
+and its first registration in the index is dated 1 April 2001 or later. The primary sample is the prospectuses
+filed under the sponsor's own name (same first word of the normalised name); a registrant's other sponsor names
+are companies that merged into it later and are not given its prospectus.
+*Reading.* `ipo_holders.py` turns the prospectus into lines, a table row becoming one line, finds the section on
+principal stockholders by its heading (or by the heading row "Name of beneficial owner") and reads every row with
+a name and at least two numbers. The percentage before the offering is the first column of the table that holds
+percentages (no value above 100 or with a thousands comma, and a percent sign, a star or a decimal fraction
+somewhere in the column). Addresses printed under a name, footnote marks and the row for all directors and
+officers as a group are removed; early filings that put the name on a row of its own above the address are read
+with the name of that row. Only tables whose heading names owners or holders are read, which keeps financial
+tables out. Plain-text filings (two in the sample) are not read. Twenty prospectuses drawn at random were compared
+by eye with an independent rendering of each table: 95 holders, all with the right percentage
+(`factcheck/ipo_holders_check.csv`, checked against the reader by `factcheck/ipo_holders_check.py`).
+*Classes and measures.* A holder counts if it holds 5.0% or more and is not a natural person. Classes come from
+`pilot/ipo_holder_classes.tsv` (rules written after reading every name the existing rules left unclassified, and
+the footnotes where the name did not say what the holder is), then `pilot/investor_classes.tsv`; the kind of a
+corporate investor from the first file where given, otherwise from `pilot/corporate_investors.tsv`. The venture
+share of a sponsor is the sum of the percentages held by venture-capital funds, capped at 100; a corporate holder
+is a drug, drug-services or medical-technology company or its venture arm. An unclassified holder counts as
+neither.
+*Models.* The selection model of the pilot (first-trial period, therapeutic area, modality, sponsor size) on the
+programmes of the sponsors with a prospectus read. The primary estimate is the odds ratio of ex-ante support per
+10 percentage points of venture share on programmes first tried no later than the IPO year, with errors clustered
+by drug; because the venture share is the same for every programme of a sponsor, each model is also reported with
+errors clustered by sponsor. Rows of a sponsor-size band without any supported programme are predicted perfectly
+and are dropped from that model (this changes no estimate and lets the fit converge).
+
 ## Venture investors on the board (`fetch_formd_people.py`, `formd_directors.py`, exploratory)
 Form D names the issuer's executive officers, directors and promoters. Venture-capital funds file Form D as pooled
 investment funds of type venture capital and name the people who manage them. A sponsor's filing has a venture

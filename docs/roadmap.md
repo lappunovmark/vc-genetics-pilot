@@ -44,5 +44,8 @@
   afterwards (concentration by gene and company, comparison within a target, the target as the unit).
 * **Cash runway of public sponsors and trial stops** (`pilot/fetch_sec_frames.py`, `pilot/cash_runway.py`), planned
   before the data were downloaded.
+* **Investors named in IPO prospectuses** (`pilot/fetch_ipo_prospectus.py`, `pilot/ipo_holders.py`,
+  `pilot/ipo_models.py`): the holders of more than 5% before the offering, read from 344 prospectuses of 2003–2026
+  and classed by hand-written rules, under a plan written before the download.
 
 Corrections to earlier results are listed at the end of [results](results.md).

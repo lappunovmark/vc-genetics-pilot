@@ -90,6 +90,11 @@ runway:  # cash runway and trial stops (SEC_USER_AGENT="Your Name you@example.or
 	$(PY) pilot/fetch_sec_frames.py $(DATA)/sec_frames
 	$(PY) pilot/cash_runway.py $(DATA)/ctgov_all.csv $(RES) $(DATA)/sec_frames/sec_frames.csv.gz $(RES)/h4_trials.csv.gz
 
+ipo:  # investors named in IPO prospectuses (SEC_USER_AGENT="Your Name you@example.org" make ipo); needs make owners
+	$(PY) pilot/fetch_ipo_prospectus.py $(DATA)/edgar $(RES) $(DATA)/ipo_prospectus
+	$(PY) pilot/ipo_holders.py $(DATA)/ipo_prospectus $(RES)
+	$(PY) pilot/ipo_models.py $(RES) $(DATA)/ipo_prospectus
+
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png
 	$(PY) pilot/figure_main.py $(RES) figures/main_results.png
