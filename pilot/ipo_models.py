@@ -146,12 +146,19 @@ def fit(f, d, title, keep, both=True):
     """Logit with errors clustered by drug (the pilot's rule) and, for a sponsor-level exposure, by sponsor."""
     try:
         d = pool_sparse(d, f)
-        ev = int(d[f.split("~")[0].strip()].sum())
+        y = f.split("~")[0].strip()
+        # a size tier without any event is predicted perfectly: its rows tell nothing about the other coefficients
+        # and keep the fit from converging, so they are dropped and counted (pool_sparse does not touch the tier)
+        empty = d.groupby("tier", observed=True)[y].transform("sum").eq(0)
+        d, dropped = d[~empty].copy(), int(empty.sum())
+        d["tier"] = d.tier.astype(str)
+        ev = int(d[y].sum())
+        note = f"; {dropped} rows of a size tier without events dropped" if dropped else ""
         head = [
             "=" * 100,
             title,
             f,
-            f"N={len(d)}; events={ev}; drugs={d.drug.nunique()}; sponsors={d.norm.nunique()}",
+            f"N={len(d)}; events={ev}; drugs={d.drug.nunique()}; sponsors={d.norm.nunique()}{note}",
         ]
         for label, col in (("drug", "drug"), ("sponsor", "norm"))[: 2 if both else 1]:
             r = smf.logit(f, d).fit(disp=0, maxiter=300, cov_type="cluster", cov_kwds={"groups": pd.factorize(d[col])[0]})  # fmt: skip
