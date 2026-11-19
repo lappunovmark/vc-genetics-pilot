@@ -1,11 +1,16 @@
 """Download the IPO prospectuses (form 424B4) of trial sponsors from SEC EDGAR (public domain).
 
-Usage: SEC_USER_AGENT="Name email" python pilot/fetch_ipo_prospectus.py EDGAR_DIR RESULTS_DIR OUT_DIR
+Usage: SEC_USER_AGENT="Name email" python pilot/fetch_ipo_prospectus.py EDGAR_DIR RESULTS_DIR OUT_DIR [index]
+(with "index" as the fourth argument only the index file is written and nothing is downloaded)
 (EDGAR_DIR holds edgar_registrants.csv.gz of fetch_edgar_owners.py; RESULTS_DIR holds owners_sponsors.csv of
 owners_link.py; plan written before the download: docs/plan_ipo_prospectus.md)
 
 The IPO prospectus of a registrant is its first 424B4 filed on or after its first S-1 or F-1, if the registrant
-filed no annual report (10-K, 10-K405, 20-F, 40-F) before that registration. `own_name` marks filings whose filer
+filed no annual report (10-K, 10-K405, 20-F, 40-F) before that registration. These are downloaded. `ipo` marks the
+filings that are kept as IPO prospectuses after the amendment of the plan: no annual report before the prospectus
+itself either, and a first registration on or after 1 April 2001 (the index starts in January 2001, so a company
+that went public in 2000 can register a follow-on offering before its first annual report in the index; the first
+prospectus read, of The Medicines Company in 2003, was such a follow-on). `own_name` marks filings whose filer
 name at the time has the same first word, after normalisation, as one of the sponsor names linked to the registrant;
 the others are later renamings or companies that merged into a listed company.
 One request per filing (the complete submission text file named in the EDGAR index); the prospectus itself, the first
@@ -57,7 +62,8 @@ def select(edgar_dir, results_dir):
     p["sponsors"] = p.cik.map(lambda c: "; ".join(sorted(norms[c])))
     p["own_name"] = [int(any(first_word(e) == n.split(" ")[0] for n in norms[c])) for c, e in zip(p.cik, p.name)]
     p["accession"] = p.filename.str.extract(r"(\d{10}-\d{2}-\d{6})", expand=False)
-    cols = ["cik", "sponsors", "name", "date", "first_registration", "own_name", "accession", "filename"]
+    p["ipo"] = ((p.first_annual_report.isna() | (p.first_annual_report > p.date)) & (p.first_registration >= "2001-04-01")).astype(int)  # fmt: skip
+    cols = ["cik", "sponsors", "name", "date", "first_registration", "first_annual_report", "ipo", "own_name", "accession", "filename"]  # fmt: skip
     return p.sort_values(["date", "cik"])[cols]
 
 
@@ -70,16 +76,19 @@ def prospectus(raw):
     return t.group(1) if t else m.group(1)
 
 
-def main(edgar_dir, results_dir, out):
-    ua = os.environ.get("SEC_USER_AGENT", "").strip()
-    if not ua or "@" not in ua:
-        raise SystemExit('set SEC_USER_AGENT="Your Name you@example.org"')
+def main(edgar_dir, results_dir, out, mode=""):
     os.makedirs(os.path.join(out, "docs"), exist_ok=True)
     idx = select(edgar_dir, results_dir)
     idx.to_csv(os.path.join(out, "ipo_prospectus_index.csv"), index=False)
     print(
-        f"IPO prospectuses of sponsors in the index: {len(idx)}; under the sponsor's own name: {int(idx.own_name.sum())}"
+        f"prospectuses in the index: {len(idx)}; kept as IPO prospectuses: {int(idx.ipo.sum())}; of these under the "
+        f"sponsor's own name: {int((idx.ipo.eq(1) & idx.own_name.eq(1)).sum())}"
     )
+    if mode == "index":
+        return
+    ua = os.environ.get("SEC_USER_AGENT", "").strip()
+    if not ua or "@" not in ua:
+        raise SystemExit('set SEC_USER_AGENT="Your Name you@example.org"')
     s = requests.Session()
     s.headers.update({"User-Agent": ua, "Accept-Encoding": "gzip, deflate", "Host": "www.sec.gov"})
     log, done, failed = [], 0, 0
@@ -121,4 +130,4 @@ def main(edgar_dir, results_dir, out):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:4])
+    main(*sys.argv[1:5])

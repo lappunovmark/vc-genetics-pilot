@@ -54,3 +54,13 @@ estimates are reported whatever they show.
 were diluted below 5% are not seen; the prospectus shows who held shares at the IPO, not who invested in which
 round or when; IPOs before 2001 and IPOs registered on other forms are not covered; a sponsor that reached the
 market through a merger with a listed company has no prospectus of its own.
+
+## Amendment of 19 November 2026 (after the download, before any table was read in bulk or any model fitted)
+
+The first prospectus opened to write the parser, of The Medicines Company (March 2003), is a follow-on offering:
+the company went public in 2000, and the EDGAR index used here starts in January 2001, so its first registration
+in the index precedes its first annual report in the index. The rule for an IPO prospectus is therefore tightened:
+the registrant filed no annual report before the *prospectus* either, and its first registration in the index is
+dated 1 April 2001 or later (by then a company that went public in 2000 has filed an annual report). The counts
+under the amended rule are written by `fetch_ipo_prospectus.py`; the filings it no longer keeps stay downloaded
+and are not used. Nothing else in the plan changes.
