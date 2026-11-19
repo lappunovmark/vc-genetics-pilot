@@ -13,3 +13,6 @@ results/ritter_sponsors.csv
 results/vc_stops_link_review.csv
 results/cvc_sponsors.csv
 results/formd_directors_sponsors.csv
+# holders named in IPO prospectuses: the tables list directors and officers by name
+results/ipo_holders.csv
+results/ipo_holders_classified.csv

@@ -64,3 +64,45 @@ the registrant filed no annual report before the *prospectus* either, and its fi
 dated 1 April 2001 or later (by then a company that went public in 2000 has filed an annual report). The counts
 under the amended rule are written by `fetch_ipo_prospectus.py`; the filings it no longer keeps stay downloaded
 and are not used. Nothing else in the plan changes.
+
+## Second amendment of 19 November 2026 (after the tables were read and checked, before any model was fitted)
+
+**What was read.** `pilot/ipo_holders.py` read the table of 392 of the 398 IPO prospectuses, and of 344 of the
+348 filed under the sponsor's own name. Not read: two plain-text filings (2002 and 2004), whose tables are set
+with spaces and wrap names over lines (a first attempt misread them, so they are left out rather than keyed by
+hand); two prospectuses without a section the reader finds; two without rows it can read.
+
+**Check by eye.** Twenty prospectuses were drawn at random from the own-name sample (seed 20261119). Each table
+was rendered with another parser (BeautifulSoup with lxml) and compared row by row with what the reader gave: 95
+holders of 5% or more that are not natural persons, each with the right percentage, none missed and none added
+(names compared by their beginning). The first comparison found one name with a line of its address in front of
+it; the rule that caused it was removed. The reader changed in other ways after that comparison (it reads only
+tables whose heading names owners or holders; plain-text filings are left out), so the 95 holders were written
+down (`factcheck/ipo_holders_check.csv`) and the final reader is compared with them by
+`factcheck/ipo_holders_check.py`: all 95 agree.
+
+**Definitions fixed here.** The plan left these open; they are set before any model is fitted.
+* *Holder counted.* A row with 5.0% or more before the offering, as printed, that is not a natural person. A
+  natural person is a name without a word that marks an organisation and with a title or degree, or with the
+  first name of a director or officer of some prospectus (`person` in `ipo_holders.csv`).
+* *Classes.* `pilot/ipo_holder_classes.tsv` first, then `pilot/investor_classes.tsv`; the kind of a corporate
+  investor from the new file where it gives one, otherwise from `pilot/corporate_investors.tsv`. The existing
+  files are not changed, so the earlier analyses are not affected. All 445 names the existing rules left
+  unclassified were read; where the name did not say what the holder is, the footnote of the table was read.
+  In the own-name sample there are 1,520 holdings of 5% or more by holders that are not natural persons, in 334
+  prospectuses: 806 venture capital, 154 life-science crossover, 124 corporate, 93 asset manager, 83 private
+  equity or holding, 36 hedge fund, 13 foundation, university or hospital, 9 credit or secondaries, and 202
+  (13%) left unclassified (vehicles of founders and families, and holders that could not be identified). An
+  unclassified holder counts as neither venture nor corporate.
+* *Venture fund.* Class "venture capital", which includes the venture arms of companies, as in the existing
+  rules. *Venture share* is the sum of the percentages of venture funds, capped at 100 (a percentage counts the
+  holder's convertible securities, and two holders can report the same shares, so sums can pass 100; no venture
+  share in the sample does). *Venture holder* is a venture share above zero.
+* *Corporate holder.* A holder whose kind is "pharma corporate" (large or other): a drug, drug-services or
+  medical-technology company or its venture arm. *Venture funds only*: a venture holder and no corporate holder.
+* *Specialist share*, an added variant declared here: venture capital plus life-science crossover funds, which
+  hold shares at the IPO because they buy the last private round.
+* *Sponsor and year.* A prospectus belongs to every sponsor name linked to its registrant; a sponsor name
+  linked to several prospectuses takes the earliest. The IPO year is the year of the prospectus. A sponsor
+  whose table was not read is left out; a sponsor whose table was read and names no venture fund above 5% has
+  a venture share of zero.
