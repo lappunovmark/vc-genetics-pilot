@@ -11,6 +11,10 @@ Environment, for checks added after the planned runs: EA_LAST_EVIDENCE_YEAR=2022
 year is later (output suffix _to2022); EA_UNDATED=only leaves out a pair only when none of its supporting evidence
 carries a date, which is the wording of the plan (output suffix _planrule; the first run left out every pair with
 a source whose evidence is undated, also when another source dates it).
+For the check planned in docs/plan_top20_2010.md: EA_TOP20=2010 defines the top-20 group by 2010 sales
+(sponsors.TOP20_2010; EA_TOP20=2010x the same without Teva; output suffix _top2010 or _top2010x), a sponsor that
+leaves the group being typed by the size of its portfolio; EA_FIRST_EVIDENCE_YEAR=2010 leaves out pairs whose
+evidence year is earlier (output suffix _from2010).
 
 Why: the selection models compare sponsors at one point in time and are descriptive. This script uses the timing of
 the evidence instead. For a target-indication pair (the gene a drug acts on x the MeSH indication), the year in which
@@ -47,12 +51,16 @@ import pyfixest as pf
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gensup
+import sponsors
 
 R, MIN = sys.argv[1], sys.argv[2]
 OT_CSV, OT_SET = (sys.argv[3], sys.argv[4]) if len(sys.argv) > 4 else (None, None)
 SUF = f"_to{os.environ['EA_LAST_EVIDENCE_YEAR']}" if os.environ.get("EA_LAST_EVIDENCE_YEAR") else ""
 ONLY_UNDATED = os.environ.get("EA_UNDATED") == "only"
 SUF += "_planrule" if ONLY_UNDATED else ""
+TOP20_SET = os.environ.get("EA_TOP20")  # None (the pilot's group), "2010" or "2010x"
+FIRST_E = os.environ.get("EA_FIRST_EVIDENCE_YEAR")
+SUF += (f"_top{TOP20_SET}" if TOP20_SET else "") + (f"_from{FIRST_E}" if FIRST_E else "")
 Y0, Y1 = 2000, 2025
 TOP, SMALL = "Top-20 pharma", "Industry, small (<=5 drugs)"
 MIDLARGE = ["Industry, large (>30)", "Industry, mid (6-30)"]
@@ -134,6 +142,25 @@ def fit(d, ycol, title, fe="pid + year", terms=("post", "e0"), cl=CL):
 
 P = pd.read_csv(f"{R}/programmes.csv.gz")
 P = P[P.insight & P.first_year.between(Y0, Y1)]
+PARENT = sponsors.top20_parent
+if TOP20_SET:  # the top-20 group defined by 2010 sales (docs/plan_top20_2010.md)
+    keep = set(sponsors.TOP20_2010) - ({"Teva"} if TOP20_SET == "2010x" else set())
+
+    def PARENT(name, year):  # noqa: N802
+        p = sponsors.top20_parent_2010(name, year)
+        return p if p in keep else None
+
+    S = pd.read_csv(f"{R}/sponsors.csv.gz", usecols=["lead_sponsor", "sponsor_n_drugs"]).drop_duplicates("lead_sponsor")
+    size = P.first_sponsor.map(S.set_index("lead_sponsor").sponsor_n_drugs)
+    by_size = np.where(size <= 5, SMALL, np.where(size <= 30, "Industry, mid (6-30)", "Industry, large (>30)"))
+    industry = P.first_class.eq("INDUSTRY")
+    new = pd.Series([PARENT(n, y) for n, y in zip(P.first_sponsor, P.first_year)], index=P.index).where(industry)
+    was = P.first_sponsor_tier.eq(TOP)
+    P = P.assign(first_sponsor_tier=np.where(new.notna(), TOP, np.where(was, by_size, P.first_sponsor_tier)))
+    NOTE.append(
+        f"EA_TOP20={TOP20_SET}: top-20 group defined by 2010 sales ({len(keep)} companies); {int((was & new.isna()).sum())} "
+        f"programmes leave the group and {int((~was & new.notna()).sum())} enter (of {int(was.sum())} in the pilot's group)"
+    )
 T = pd.read_csv(f"{R}/programme_targets.csv.gz")
 D = P.merge(T, on=["drug", "indication_mesh_id"])
 pairs = evidence_years(D[["gene", "indication_mesh_id"]].drop_duplicates())
@@ -145,6 +172,10 @@ out.append(
 )
 out.extend(NOTE)
 pairs = pairs[~pairs.omim].copy()
+if FIRST_E:
+    n0 = len(pairs)
+    pairs = pairs[pairs.E.isna() | (pairs.E >= int(FIRST_E))].copy()
+    out.append(f"{n0 - len(pairs)} pairs with an evidence year before {FIRST_E} left out (docs/plan_top20_2010.md)")
 LAST_E = os.environ.get("EA_LAST_EVIDENCE_YEAR")  # robustness: leave out pairs whose evidence year is later
 if LAST_E:
     n0 = len(pairs)
@@ -390,8 +421,6 @@ if OT_CSV:
     stacked(grid, "other industry", "G. D1 with gene x year x group fixed effects", tfe="gy")
 
     # which companies carry the response, and does the size of a sponsor outside the top 20 matter?
-    import sponsors
-
     def add_count(g, d, col):
         n = d.groupby(["pid", "first_year"]).size().rename(col).reset_index().rename(columns={"first_year": "year"})
         g = g.merge(n, on=["pid", "year"], how="left")
@@ -399,8 +428,8 @@ if OT_CSV:
         return g
 
     dt = D[D.first_sponsor_tier.eq(TOP)].copy()
-    dt["parent"] = [sponsors.top20_parent(n, y) or "?" for n, y in zip(dt.first_sponsor, dt.first_year)]
-    by_parent = tp.assign(parent=[sponsors.top20_parent(n, y) or "?" for n, y in zip(tp.first_sponsor, tp.first_year)])
+    dt["parent"] = [PARENT(n, y) or "?" for n, y in zip(dt.first_sponsor, dt.first_year)]
+    by_parent = tp.assign(parent=[PARENT(n, y) or "?" for n, y in zip(tp.first_sponsor, tp.first_year)])
     by_parent = by_parent.groupby("parent").size().sort_values(ascending=False)
     out.extend(
         [

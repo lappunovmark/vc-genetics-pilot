@@ -177,15 +177,40 @@ REVIEWED_NONLEADING = {
     "Novartis bought The Medicines Company (2020); no trial from 2020 on",
 }
 
-# every pattern starts at a word boundary
-_RX = [(re.compile(r"\b(?:" + e[0] + ")", re.I), e[1], e[2], e[3] if len(e) > 3 else 9999) for e in ENTRIES]
+# The top-20 group defined by 2010 sales (docs/plan_top20_2010.md): the first twenty of the Pharm Exec 50 of May 2011,
+# ranked by global prescription-drug sales in 2010. Eighteen are in the pilot's list (Abbott's drug business is
+# AbbVie here); Teva (12th) and Eisai (20th) come in, Gilead (22nd) and Merck KGaA (21st) are not in it.
+TOP20_2010 = (
+    "Pfizer", "Novartis", "Sanofi", "Merck & Co", "Roche", "GSK", "AstraZeneca", "Johnson & Johnson", "Eli Lilly",
+    "AbbVie", "Bristol Myers Squibb", "Teva", "Amgen", "Bayer", "Takeda", "Boehringer Ingelheim", "Novo Nordisk",
+    "Astellas", "Daiichi Sankyo", "Eisai",
+)  # fmt: skip
+# entries used only for that group: Teva and Eisai, with the acquired companies that appear in the programme table
+ENTRIES_2010 = [
+    (r"teva", "Teva", 0),
+    (r"barr lab|duramed", "Teva", 2008),
+    (r"cephalon", "Teva", 2011),
+    (r"nupathe", "Teva", 2014),
+    (r"actavis", "Teva", 2016),  # the generics business that Teva bought from Allergan in August 2016
+    (r"eisai", "Eisai", 0),
+    (r"morphotek", "Eisai", 2007),
+]
 
 
-def leading_entry(name):
+def _compile(entries):
+    # every pattern starts at a word boundary
+    return [(re.compile(r"\b(?:" + e[0] + ")", re.I), e[1], e[2], e[3] if len(e) > 3 else 9999) for e in entries]
+
+
+_RX = _compile(ENTRIES)
+_RX_2010 = _compile(ENTRIES + ENTRIES_2010)
+
+
+def leading_entry(name, rules=None):
     """(position, parent, first year, end year) of the entry that matches earliest in the name, or None. The earliest
     match is the sponsor's own name; a parent named later in the string ("X, a subsidiary of Y") does not decide."""
     best = None
-    for rx, parent, since, until in _RX:
+    for rx, parent, since, until in rules or _RX:
         m = rx.search(name)
         if m and (best is None or m.start() < best[0]):
             best = (m.start(), parent, since, until)
@@ -206,6 +231,19 @@ def top20_parent(name, year=None):
     if year is not None and year == year and not (since <= year < until):
         return None
     return parent
+
+
+def top20_parent_2010(name, year=None):
+    """As top20_parent, for the group defined by 2010 sales: the parent if it is one of TOP20_2010, else None."""
+    if not isinstance(name, str):
+        return None
+    best = leading_entry(name, _RX_2010)
+    if best is None:
+        return None
+    _, parent, since, until = best
+    if year is not None and year == year and not (since <= year < until):
+        return None
+    return parent if parent in TOP20_2010 else None
 
 
 def sponsor_type(name, cls, year=None):
