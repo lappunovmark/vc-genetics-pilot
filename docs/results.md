@@ -358,7 +358,8 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   0.74 (0.54–1.02; placebo 1.23, 0.98–1.56). So the difference between top-20 pharma and other industry sponsors
   is not produced by choosing the group on 2023 sales, and it is still a difference between targets that is not
   shown to be a response to the evidence. *Selection model with the 2010 group:* small sponsors against top-20
-  pharma 0.65 (0.47–0.91), against 0.68 (0.49–0.93) with the pilot's group (without Teva 0.65, 0.47–0.90). Limits:
+  pharma 0.65 (0.47–0.91), against 0.68 (0.49–0.93) with the pilot's group (without Teva 0.65, 0.47–0.90; with the
+  dated Open Targets measure 0.66, 0.48–0.92, against 0.67, 0.48–0.94). Limits:
   eighteen of the twenty companies are the same; a list fixed in 2010 still reflects success before 2010; and
   companies acquired after 2010 still enter the group from the year of their acquisition.
 * Capital raised and trial stops (`formd_stops.py`; non-top-20 industry trials, 86,273 active trial-years 2016–25):
