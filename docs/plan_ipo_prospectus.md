@@ -102,7 +102,13 @@ down (`factcheck/ipo_holders_check.csv`) and the final reader is compared with t
   medical-technology company or its venture arm. *Venture funds only*: a venture holder and no corporate holder.
 * *Specialist share*, an added variant declared here: venture capital plus life-science crossover funds, which
   hold shares at the IPO because they buy the last private round.
-* *Sponsor and year.* A prospectus belongs to every sponsor name linked to its registrant; a sponsor name
+* *Sponsor and year.* A prospectus belongs to the sponsor names linked to its registrant whose first word is
+  the first word of the filer's name at the time (the own-name rule, applied name by name); a sponsor name
   linked to several prospectuses takes the earliest. The IPO year is the year of the prospectus. A sponsor
   whose table was not read is left out; a sponsor whose table was read and names no venture fund above 5% has
-  a venture share of zero.
+  a venture share of zero. (This point first read "belongs to every sponsor name linked to its registrant".
+  It was corrected when the model script was written, before any model was fitted: the other names linked to
+  a registrant are companies that merged into it later, such as Oncternal into GTx, and had other investors.)
+* *Errors.* The plan clusters errors by drug, as the pilot does. The venture share is the same for every
+  programme of a sponsor, so each model is also reported with errors clustered by sponsor; the interval by
+  drug stays the one the reading rule is applied to, and the interval by sponsor is reported next to it.
