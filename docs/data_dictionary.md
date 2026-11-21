@@ -102,7 +102,8 @@ sponsor group; `rs` is relative success (P(advance | support) / P(advance | no s
 
 ## Other
 
-`coverage.json` (row counts at each pipeline step and the reference date `asof`), `disease_mesh.csv.gz` (disease → MeSH map), `robust_*.csv`
+`coverage.json` (row counts at each pipeline step and the reference date `asof`), `disease_mesh.csv.gz` (disease → MeSH map),
+`programme_targets.csv.gz` (the target genes of each programme: drug, MeSH indication, gene), `robust_*.csv`
 (benchmark and novel-drug tables behind `robust.txt`).
 
 The sponsor-level and link-review tables of the exploratory venture markers (`cb_link_review.csv`, `cb_sponsors.csv`,

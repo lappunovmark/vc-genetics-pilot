@@ -42,6 +42,7 @@ NIH grants), and all the code is in this repository.
 | 2. Venture-capital fund among the company's owners → projects with genetic evidence | odds ratio 0.76 (0.52–1.13) |
 | 2. Government small-business grant (NIH SBIR/STTR) → projects with genetic evidence | odds ratio 0.71 (0.37–1.34) |
 | 2. Corporate venture investor vs independent funds only | odds ratio 0.53 (0.16–1.80), few cases |
+| 2. Share of the company held by venture funds at its IPO → projects with genetic evidence | odds ratio 1.02 (0.86–1.22) per 10 points of share |
 | 3. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.68 (0.49–0.93) |
 | 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
 | 4. Genetic evidence of trials stopped for money, vs completed trials | odds ratio 0.75 (0.54–1.04) |
@@ -50,6 +51,7 @@ NIH grants), and all the code is in this repository.
 | 5. Other companies: the same | rate ratio 0.85 (0.62–1.16) |
 | 5. Other companies relative to top-20 pharma | ratio 0.54 (0.34–0.84) |
 | 5. The same, compared with other diseases treated through the same target | ratio 0.85 (0.46–1.58) |
+| 5. Other companies relative to top-20 pharma, with the top-20 list fixed by 2010 sales | ratio 0.56 (0.38–0.82) |
 
 Above 1 means more likely, below 1 less likely. If the range includes 1, the difference is not statistically
 significant. 29,199 of the projects are in diseases where human genetic data exist. Full results, including the
@@ -61,7 +63,7 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Three of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Five of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.
 
 ## More

@@ -39,6 +39,8 @@ QUOTED = [
     ("evidence_arrival_ot_gwas.txt", "G. D1 with gene x year x group fixed effects", "post_other"),
     ("cash_runway.txt", "1 (primary). Cohort 2022, sponsors with a runway: financial or strategic stop ~ short runway", "short "),
     ("cvc_models.txt", "A2. H1, programmes with a named investor: corporate investor against independent funds only", "corp_inv"),
+    ("ipo_models.txt", "H1 PRIMARY: ex-ante support ~ venture share (per 10 points)", "v10 "),
+    ("evidence_arrival_ot_gwas_top2010_from2010.txt", D1, "post_other"),
 ]  # fmt: skip
 
 
