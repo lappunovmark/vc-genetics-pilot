@@ -141,7 +141,7 @@ fig.text(0.02, pb.y1 + 0.034, "B   Other industry sponsors against top-20 pharma
 fig.text(0.02, pb.y1 + 0.016, "Ratio of the two responses; below 1 means that other industry sponsors respond less than top-20 pharma", ha="left", color=INK2, fontsize=8.5)  # fmt: skip
 fig.text(0.02, 0.012, "Filled marker: the 95% interval excludes 1. Poisson models with pair (or target) and year effects; errors "
          "clustered by indication (or gene).\n53,064 target–indication pairs with a programme started in 2000–2025, 1,393 "
-         "of which gained GWAS evidence (Open Targets 26.09, L2G ≥ 0.5).\nPilot on open data, not peer-reviewed.",
+         "of which gained GWAS evidence (Open Targets 26.09, L2G ≥ 0.5).\nOpen data, not peer-reviewed.",
          ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
 fig.savefig(OUT, facecolor=SURFACE)
 for name in ev:

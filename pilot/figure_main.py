@@ -97,15 +97,15 @@ fig.text(0.02, 0.978, "Genetic evidence predicts success for every sponsor,\nbut
          color=INK, linespacing=1.25)  # fmt: skip
 fig.subplots_adjust(left=0.37, right=0.79, top=0.865, bottom=0.095)
 pos_a, pos_b = ax_a.get_position(), ax_b.get_position()
-fig.text(0.02, pos_a.y1 + 0.012, "A   Headline estimates of the pilot", ha="left", color=INK, fontsize=10.5,
+fig.text(0.02, pos_a.y1 + 0.012, "A   Headline estimates", ha="left", color=INK, fontsize=10.5,
          fontweight="bold")  # fmt: skip
 fig.text(0.02, pos_b.y1 + 0.036, "B   The small-sponsor gap in selection under each specification", ha="left",
          color=INK, fontsize=10.5, fontweight="bold")  # fmt: skip
 fig.text(0.02, pos_b.y1 + 0.018, "Odds that a programme has genetic support at its first trial, small industry "
          "sponsors against top-20 pharma", ha="left", color=INK2, fontsize=8.5)  # fmt: skip
 fig.text(0.02, 0.012, "Filled marker: the 95% interval excludes 1. 35,887 drug × indication programmes; Open Targets "
-         "26.09, ClinicalTrials.gov snapshot of 17 October 2026,\nSEC Form D 2009–2026 and Schedules 13D/13G 2001–2026, NIH RePORTER. Pilot on open "
-         "data, not peer-reviewed.", ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
+         "26.09, ClinicalTrials.gov snapshot of 17 October 2026,\nSEC Form D 2009–2026 and Schedules 13D/13G 2001–2026, NIH RePORTER. Open data, "
+         "not peer-reviewed.", ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
 fig.savefig(OUT, facecolor=SURFACE)
 for kind, label, v in rows_a + rows_b:
     if v:
