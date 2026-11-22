@@ -1,0 +1,52 @@
+Trend or break? Financial or strategic stops of industry Phase 1-3 drug trials (docs/plan_stops_trend.md)
+exp(c) of log(rate) = a + b*(year-2021) + c*post: the change of level at the break beyond the linear trend
+====================================================================================================
+A (primary). Break in 2022, years 2016-2025, financial or strategic stops
+stops = stops_fin; years 2016-2025; break from 2022; quasi-Poisson (Pearson scale), offset log(at risk)
+group                             stops   break      lo      hi       p   trend/yr     lo     hi  scale
+Top-20 pharma                       509  1.3447  0.9204  1.9645  0.1257     1.1042 1.0316 1.1819   1.19
+Industry, large (>200 trials)       107  0.5588  0.2749  1.1360  0.1079     1.3925 1.2076 1.6057   0.91
+Industry, mid (21-200)              390  1.7665  1.0859  2.8735  0.0219     1.0277 0.9418 1.1214   1.46
+Industry, small (<=20)              683  2.1231  1.2297  3.6658  0.0069     1.0337 0.9360 1.1416   2.98
+----------------------------------------------------------------------------------------------------
+A. Pooled model, small sponsors against top-20 pharma
+ratio of the breaks (Industry, small (<=20) over Top-20 pharma): 1.5789 (0.8009-3.1127), p=0.1872; scale=2.09; years 2016-2025; break from 2022
+====================================================================================================
+B. Break in 2022, years 2012-2025, financial or strategic stops
+stops = stops_fin; years 2012-2025; break from 2022; quasi-Poisson (Pearson scale), offset log(at risk)
+group                             stops   break      lo      hi       p   trend/yr     lo     hi  scale
+Top-20 pharma                       609  1.3535  1.0451  1.7529  0.0218     1.1002 1.0642 1.1373   0.84
+Industry, large (>200 trials)       119  0.8757  0.3478  2.2048  0.7782     1.2324 1.0688 1.4211   2.23
+Industry, mid (21-200)              436  1.5498  1.0658  2.2535  0.0218     1.0663 1.0138 1.1215   1.20
+Industry, small (<=20)              745  2.1071  1.3908  3.1921  0.0004     1.0390 0.9805 1.1010   2.24
+----------------------------------------------------------------------------------------------------
+B. Pooled model, small sponsors against top-20 pharma
+ratio of the breaks (Industry, small (<=20) over Top-20 pharma): 1.5567 (0.9523-2.5447), p=0.0775; scale=1.54; years 2012-2025; break from 2022
+====================================================================================================
+C. Trend fitted on 2016-2021 alone and carried forward: stops observed in 2022-25 over stops expected
+stops = stops_fin; descriptive (six yearly points for the trend)
+Top-20 pharma                    trend/yr 1.1333; observed 299; expected 251.8; observed/expected 1.1876
+Industry, large (>200 trials)    trend/yr 1.4921; observed 65; expected 155.6; observed/expected 0.4177
+Industry, mid (21-200)           trend/yr 1.1012; observed 247; expected 193.9; observed/expected 1.2736
+Industry, small (<=20)           trend/yr 1.0784; observed 490; expected 280.8; observed/expected 1.7449
+====================================================================================================
+D1. Break in 2022, years 2016-2025, all stops
+stops = stops_all; years 2016-2025; break from 2022; quasi-Poisson (Pearson scale), offset log(at risk)
+group                             stops   break      lo      hi       p   trend/yr     lo     hi  scale
+Top-20 pharma                      1793  1.3867  1.1518  1.6696  0.0006     0.9952 0.9638 1.0277   1.04
+Industry, large (>200 trials)       353  0.9324  0.5725  1.5183  0.7783     1.0789 0.9864 1.1801   1.56
+Industry, mid (21-200)             1316  1.1266  0.7397  1.7159  0.5786     0.9706 0.9019 1.0446   4.07
+Industry, small (<=20)             2592  1.3408  1.1225  1.6016  0.0012     0.9960 0.9644 1.0286   1.37
+====================================================================================================
+D2. Break in 2022, years 2016-2025, stops citing lack of funding
+stops = stops_nofund; years 2016-2025; break from 2022; quasi-Poisson (Pearson scale), offset log(at risk)
+group                             stops   break      lo      hi       p   trend/yr     lo     hi  scale
+Industry, small (<=20)              101  2.1426  0.9502  4.8313  0.0662     1.0063 0.8686 1.1658   1.00
+====================================================================================================
+E (exploratory: the date comes from the figure). Break in 2020, years 2012-2025, financial or strategic stops
+stops = stops_fin; years 2012-2025; break from 2020; quasi-Poisson (Pearson scale), offset log(at risk)
+group                             stops   break      lo      hi       p   trend/yr     lo     hi  scale
+Top-20 pharma                       609  1.2418  0.8789  1.7545  0.2194     1.1097 1.0624 1.1590   1.10
+Industry, large (>200 trials)       119  2.2815  0.7913  6.5779  0.1268     1.1085 0.9681 1.2693   1.86
+Industry, mid (21-200)              436  1.2062  0.7156  2.0334  0.4816     1.0979 1.0270 1.1738   1.72
+Industry, small (<=20)              745  1.1097  0.5617  2.1922  0.7645     1.1237 1.0286 1.2276   4.68
