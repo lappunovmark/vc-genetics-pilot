@@ -1,0 +1,146 @@
+The sponsor's financing stage in the year of the trial (plan: docs/plan_vc_stage.md)
+non-top-20 industry sponsors with a programme: 1436; with an IPO year: 288 (venture-backed at the IPO: 244); with a first year as registrant and no IPO year: 190; with a dated venture marker: 383
+
+Programmes (insight indications, first trial 2001+, industry sponsors): 10834
+by stage in the year of the first trial, groups of the plan:
+                                    n  sponsors  supported  gs_ante
+A private, venture-backed         771       263         29   0.0376
+B public, venture-backed before  1498       268         65   0.0434
+C public, no venture marker       463       114         25   0.0540
+D the rest                       3174       949        174   0.0548
+top20 top-20 pharma              4928        85        218   0.0442
+by stage in the year of the first trial, strict variant of group A (dated marker only):
+                                    n  sponsors  supported  gs_ante
+A private, venture-backed         597       207         20   0.0335
+B public, venture-backed before  1498       268         65   0.0434
+C public, no venture marker       463       114         25   0.0540
+D the rest                       3348      1016        183   0.0547
+top20 top-20 pharma              4928        85        218   0.0442
+group A by rule: IPO still ahead and venture-backed at it 417; dated marker before the trial 597; both 243
+
+1. PRIMARY (plan): ex-ante support, group A against top-20 pharma (coefficient gA); secondary (a) as contrasts
+====================================================================================================
+H1: ex-ante support ~ stage in the year of the first trial (reference: top-20 pharma)
+y ~ gA + gB + gC + gD + C(yb) + C(area) + C(modality)
+N=10834; events=511; drugs=2866; sponsors=1493
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.2407    0.2427  0.3214 -0.7165  0.2351  0.7861  0.4885  1.2650
+gB -0.3275    0.1958  0.0944 -0.7113  0.0562  0.7207  0.4910  1.0578
+gC -0.0798    0.2565  0.7556 -0.5826  0.4229  0.9233  0.5585  1.5264
+gD  0.0366    0.1368  0.7887 -0.2314  0.3047  1.0373  0.7934  1.3562
+  gA - gB = 0: OR 1.0907 (0.6401-1.8588), p=0.7495
+  gA - gD = 0: OR 0.7578 (0.4703-1.2209), p=0.2544
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.2407    0.2639  0.3618 -0.7580  0.2766  0.7861  0.4686  1.3187
+gB -0.3275    0.2224  0.1409 -0.7635  0.1085  0.7207  0.4660  1.1146
+gC -0.0798    0.2981  0.7889 -0.6641  0.5045  0.9233  0.5147  1.6561
+gD  0.0366    0.1607  0.8196 -0.2783  0.3516  1.0373  0.7571  1.4213
+  gA - gB = 0: OR 1.0907 (0.6180-1.9249), p=0.7644
+  gA - gD = 0: OR 0.7578 (0.4615-1.2445), p=0.2732
+
+2. SECONDARY (plan)
+====================================================================================================
+(b) non-top-20 sponsors only: group A against all others, with the size band
+y ~ gA + C(tier) + C(yb) + C(area) + C(modality)
+N=5906; events=293; drugs=1886; sponsors=1436
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA  0.0009    0.2399  0.9971 -0.4693   0.471  1.0009  0.6255  1.6017
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA  0.0009    0.2426  0.9971 -0.4746  0.4764  1.0009  0.6221  1.6103
+====================================================================================================
+(c) strict variant: group A needs a dated venture marker before the trial
+y ~ gA + gB + gC + gD + C(yb) + C(area) + C(modality)
+N=10834; events=511; drugs=2866; sponsors=1493
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.4313    0.2795  0.1227 -0.9791  0.1164  0.6496  0.3757  1.1235
+gB -0.3286    0.1958  0.0933 -0.7123  0.0551  0.7199  0.4905  1.0567
+gC -0.0791    0.2560  0.7575 -0.5809  0.4228  0.9240  0.5594  1.5262
+gD  0.0500    0.1350  0.7110 -0.2146  0.3146  1.0513  0.8069  1.3698
+  gA - gB = 0: OR 0.9024 (0.4952-1.6445), p=0.7372
+  gA - gD = 0: OR 0.6179 (0.3571-1.0694), p=0.0854
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.4313    0.3076  0.1609 -1.0343  0.1716  0.6496  0.3555  1.1872
+gB -0.3286    0.2224  0.1396 -0.7646  0.1074  0.7199  0.4655  1.1133
+gC -0.0791    0.2972  0.7902 -0.6616  0.5034  0.9240  0.5160  1.6544
+gD  0.0500    0.1585  0.7523 -0.2606  0.3606  1.0513  0.7706  1.4342
+  gA - gB = 0: OR 0.9024 (0.4726-1.7231), p=0.7556
+  gA - gD = 0: OR 0.6179 (0.3454-1.1057), p=0.1049
+====================================================================================================
+(d) first trials from 2010
+y ~ gA + gB + gC + gD + C(yb) + C(area) + C(modality)
+N=6935; events=392; drugs=2054; sponsors=1225
+errors clustered by drug; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.4950    0.2859  0.0834 -1.0554  0.0653  0.6095  0.3480  1.0675
+gB -0.5768    0.2141  0.0071 -0.9965 -0.1572  0.5617  0.3692  0.8546
+gC  0.1313    0.2743  0.6321 -0.4063  0.6690  1.1404  0.6661  1.9522
+gD -0.1076    0.1515  0.4776 -0.4045  0.1893  0.8980  0.6673  1.2084
+  gA - gB = 0: OR 1.0852 (0.5836-2.0182), p=0.7961
+  gA - gD = 0: OR 0.6788 (0.3876-1.1886), p=0.1752
+errors clustered by sponsor; converged=True
+     Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gA -0.4950    0.3139  0.1148 -1.1104  0.1203  0.6095  0.3294  1.1278
+gB -0.5768    0.2433  0.0177 -1.0536 -0.1000  0.5617  0.3487  0.9048
+gC  0.1313    0.3187  0.6803 -0.4934  0.7561  1.1404  0.6106  2.1299
+gD -0.1076    0.1718  0.5313 -0.4444  0.2292  0.8980  0.6412  1.2576
+  gA - gB = 0: OR 1.0852 (0.5527-2.1309), p=0.8122
+  gA - gD = 0: OR 0.6788 (0.3757-1.2262), p=0.1991
+====================================================================================================
+(e) Within sponsor: programmes first tried after the IPO year against no later than it
+sponsors venture-backed at their IPO with programmes on both sides: 71 (551 programmes, 19 supported); sponsors whose programmes differ in support (the ones that inform the estimate): 13 (105 programmes)
+         n  supported  gs_ante
+after                         
+0      256         13   0.0508
+1      295          6   0.0203
+conditional logit, with first-trial period (plan): OR after 0.2683 (0.0470-1.5319), p=0.1388
+conditional logit, without the period control (not in the plan; shown because period and stage move together): OR after 0.2783 (0.0839-0.9230), p=0.0365
+====================================================================================================
+(f) gs_ot_programmes.csv.gz not in RESULTS_DIR: the model with dated Open Targets evidence is not run
+====================================================================================================
+(g) Phase entries 2001-2020, industry sponsors, no earlier higher phase: 11632 (3721 advanced)
+             n  advanced    rate
+group gs                        
+A     0    809       245  0.3028
+      1     38        25  0.6579
+B     0   1540       480  0.3117
+      1     83        46  0.5542
+C     0    459       130  0.2832
+      1     31        22  0.7097
+D     0   2942       902  0.3066
+      1    181        93  0.5138
+top20 0   5270      1633  0.3099
+      1    279       145  0.5197
+====================================================================================================
+Advancement ~ ex-ante support x stage in the year of the entry trial (reference: top-20 pharma)
+adv ~ gs + gA + gB + gC + gD + gs:gA + gs:gB + gs:gC + gs:gD + C(phase) + C(yb) + C(area) + C(modality)
+N=11632; events=3721; drugs=2815; sponsors=1332
+errors clustered by drug; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gs     0.7949    0.1541  0.0000  0.4928  1.0970  2.2143  1.6369  2.9953
+gA     0.0864    0.1092  0.4288 -0.1276  0.3003  1.0902  0.8802  1.3503
+gB     0.1305    0.0879  0.1378 -0.0419  0.3029  1.1394  0.9590  1.3538
+gC    -0.0324    0.1382  0.8144 -0.3033  0.2384  0.9681  0.7384  1.2692
+gD     0.0912    0.0658  0.1658 -0.0378  0.2201  1.0955  0.9629  1.2462
+gs:gA  0.6278    0.4072  0.1231 -0.1703  1.4259  1.8735  0.8435  4.1617
+gs:gB  0.1867    0.3004  0.5342 -0.4021  0.7755  1.2053  0.6689  2.1718
+gs:gC  0.8595    0.4347  0.0480  0.0074  1.7115  2.3620  1.0075  5.5375
+gs:gD -0.0267    0.2050  0.8964 -0.4284  0.3750  0.9737  0.6516  1.4550
+  gs:gA - gs:gB = 0: OR 1.5544 (0.6374-3.7910), p=0.3322
+errors clustered by sponsor; converged=True
+        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gs     0.7949    0.1629  0.0000  0.4756  1.1142  2.2143  1.6090  3.0472
+gA     0.0864    0.1176  0.4626 -0.1441  0.3168  1.0902  0.8658  1.3728
+gB     0.1305    0.0941  0.1656 -0.0540  0.3150  1.1394  0.9475  1.3702
+gC    -0.0324    0.1766  0.8542 -0.3785  0.3136  0.9681  0.6849  1.3684
+gD     0.0912    0.0806  0.2579 -0.0668  0.2491  1.0955  0.9354  1.2829
+gs:gA  0.6278    0.4244  0.1390 -0.2039  1.4596  1.8735  0.8155  4.3041
+gs:gB  0.1867    0.3918  0.6336 -0.5811  0.9546  1.2053  0.5593  2.5977
+gs:gC  0.8595    0.5833  0.1406 -0.2838  2.0028  2.3620  0.7529  7.4096
+gs:gD -0.0267    0.2031  0.8955 -0.4247  0.3714  0.9737  0.6539  1.4497
+  gs:gA - gs:gB = 0: OR 1.5544 (0.5545-4.3575), p=0.4016
