@@ -54,3 +54,15 @@ def test_further_estimates_quoted_in_readme(fname, section, key):
     assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README, (
         f"{fname} / {section!r}: {est:.2f} ({lo:.2f}–{hi:.2f}) not in README"
     )
+
+
+def test_trend_break_quoted_in_readme():
+    """The jump of 2022 beyond the trend (stops_trend.txt, block A) for small sponsors and top-20 pharma."""
+    with open(os.path.join(RESULTS, "stops_trend.txt"), encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    start = next(i for i, line in enumerate(lines) if line.startswith("A (primary)"))
+    block = lines[start : start + 8]
+    for group in ("Industry, small (<=20)", "Top-20 pharma"):
+        row = next(line for line in block if line.startswith(group))
+        est, lo, hi = (float(x) for x in row[len(group) :].split()[1:4])
+        assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README, f"{group}: {est:.2f} ({lo:.2f}–{hi:.2f}) not in README"

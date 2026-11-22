@@ -31,6 +31,7 @@ results:
 	$(PY) pilot/khb26.py $(RES) > $(RES)/khb.txt
 	$(PY) pilot/rq2_stops.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/rq2_rr.py $(RES)
+	$(PY) pilot/stops_trend.py $(RES)
 	$(PY) factcheck/sponsor_names_audit.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) factcheck/sponsor_missing_acquisitions.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/h4_biology.py $(DATA)/ot $(RES) $(DATA)/ctgov_all.csv $(MINIKEL)/data

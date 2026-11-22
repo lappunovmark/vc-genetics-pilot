@@ -372,6 +372,23 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   $10M and 2.45, 1.03–5.82 at $10–50M, on 7 and 9 such stops; no excess at $50M or more, OR 1.01; among US-based
   sponsors 1.79, 0.72–4.48 and 1.98, 0.84–4.70), too few to make much of.
 
+* **Trend or break in trial stops (planned before the run; `docs/plan_stops_trend.md`, `pilot/stops_trend.py`).**
+  A doubling between 2016–21 and 2022–25 could come from a break in 2022 or from a steady rise, which Bowling et
+  al. (2025, *Nat Rev Drug Discov*, doi:10.1038/d41573-025-00208-6) report for 2013–2023. For each sponsor group the
+  yearly stops for financial or strategic reasons in 2016–2025 are modelled with a linear trend in the log rate
+  and a change of level in 2022 (quasi-Poisson). For small sponsors the rate jumped in 2022 beyond the trend
+  (2.12, 1.23–3.67), as it did for mid-sized sponsors (1.77, 1.09–2.87). At top-20 pharma the rate had been rising
+  by about 10% a year (1.10, 1.03–1.18) and the change in 2022 is not separated from that trend (1.34, 0.92–1.96;
+  1.35, 1.05–1.75, with the years 2012–2015 added); for large sponsors outside the top 20 there is no jump (0.56,
+  0.27–1.14). The ratio of the jumps of small sponsors and top-20 pharma is 1.58 (0.80–3.11), so the difference
+  between the two is not itself established. By the rule fixed in advance: a break in 2022 for small sponsors,
+  none shown for top-20 pharma, and no proof that the break is specific to small sponsors. Secondary: with the
+  trend of 2016–2021 carried forward, stops observed in 2022–25 are 1.74 times those expected for small sponsors
+  and 1.19 times for top-20 pharma; all stops show a change of level in 2022 for both groups (1.34, 1.12–1.60,
+  and 1.39, 1.15–1.67); stops citing lack of funding among small sponsors 2.14 (0.95–4.83); a break in 2020
+  instead, suggested by the figure, is not shown for any group. The yearly rates had been seen before the plan
+  was written, and ten yearly points per group make this a coarse test.
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

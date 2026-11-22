@@ -93,6 +93,12 @@ checks this for every alternative of every pattern (validation in [results](resu
 Rates are stops per 1,000 active trial-years (each trial at risk adds one trial-year per calendar year). Rate ratios
 compare 2022–25 with 2016–21, with Poisson confidence intervals: log RR ± 1.96 √(1/a + 1/b).
 
+**Trend or break (`stops_trend.py`, planned in `docs/plan_stops_trend.md`).** For each sponsor group, a Poisson
+regression of the yearly stops with the logarithm of trial-years at risk as offset, a linear trend in the log rate
+and a change of level from 2022; the dispersion is estimated from the Pearson statistic. The change of level is the
+jump in 2022 beyond the trend; a pooled model with group-specific intercepts and trends gives the ratio of the jumps
+of two groups. Years 2016–2025; 2012–2025 and a trend fitted on 2016–2021 alone are secondary.
+
 ## NIH SBIR/STTR linkage (`sbir_link.py`, `sbir_models.py`)
 
 Industry lead sponsors are matched to NIH RePORTER SBIR/STTR awardees: exact match of normalised names, then

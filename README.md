@@ -23,9 +23,10 @@ NIH grants), and all the code is in this repository.
 
 1. **Genetic evidence works.** Projects that have it have about 2.5 times higher odds of moving to the next
    trial phase. This holds for small biotechs as much as for big pharma.
-2. **Investors do not select on it.** Companies with private or venture money did not pick better-supported drugs.
+2. **No sign that investors select on it.** Companies with private or venture money did not pick better-supported drugs.
 3. **Small biotechs use it slightly less** than the 20 largest drug companies.
-4. **After 2022, trials were stopped for money about twice as often**, at big pharma as much as at small biotechs.
+4. **After 2022, trials were stopped for money about twice as often.** At small biotechs the rate jumped in 2022;
+   at big pharma it had been rising steadily for years.
 5. **The largest companies start more projects where new genetic evidence appears.** Whether the evidence is the
    reason, the data do not show.
 
@@ -46,6 +47,8 @@ NIH grants), and all the code is in this repository.
 | 3. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.68 (0.49–0.93) |
 | 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
 | 4. Genetic evidence of trials stopped for money, vs completed trials | odds ratio 0.75 (0.54–1.04) |
+| 4. Small biotechs: jump in stops for money in 2022, beyond the earlier trend | ratio 2.12 (1.23–3.67) |
+| 4. Top-20 pharma: the same | ratio 1.34 (0.92–1.96) |
 | 4. Short of cash at the end of 2021 → trial stopped for money in 2022–23 | odds ratio 1.58 (0.68–3.66) |
 | 5. Top-20 pharma: new projects after genetic evidence is published | rate ratio 1.58 (1.03–2.41) |
 | 5. Other companies: the same | rate ratio 0.85 (0.62–1.16) |
@@ -63,7 +66,7 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Five of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Six of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.
 
 ## More
