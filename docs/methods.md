@@ -280,6 +280,25 @@ source could have shown it. The flag is a property of the sponsor, not dated to 
 seen are not known to be without venture money, so the comparison among seen sponsors is reported next to the
 comparison with all other sponsors.
 
+## The sponsor's financing stage in the year of the trial (`vc_stage.py`)
+Planned in `docs/plan_vc_stage.md` before the run. *t* is the year of a programme's first trial (of the entry trial
+for phase entries). A sponsor is public at *t* when *t* is later than its IPO year (the earlier of the prospectus
+and Ritter's list); without an IPO year, when *t* is later than its first year as an EDGAR registrant, a first
+year of 2001, where the index begins, meaning public throughout. A trial in the IPO year counts as private. A
+sponsor is venture-backed at its IPO when a venture-capital fund holds 5% or more in the prospectus or Ritter's
+list marks the IPO as venture-backed; a dated venture marker is a Crunchbase venture round or a Form D filing with
+a venture investor on the board in a year before *t*. Groups of non-top-20 industry sponsors: **A** private and
+venture-backed (not public at *t*; venture-backed at an IPO still ahead, or a dated marker before *t*); **B**
+public, venture-backed before (public at *t*; venture-backed at the IPO, or a dated marker before *t*, or a
+venture-capital fund among the owners in a Schedule 13D/13G first filed before *t*); **C** public without a
+venture marker; **D** the rest, which mixes companies without venture money, companies outside the United States
+and companies no source shows. Models: the selection logit (first-trial period, therapeutic area, modality) with
+the four groups and top-20 pharma as reference, errors clustered by drug and by sponsor; contrasts between groups
+from the same fit; a conditional logit with the sponsor as stratum for programmes on either side of the IPO year;
+the advancement logit with the groups and their interactions with ex-ante support. The grouping rules are tested
+on made-up sponsors (`tests/test_vc_stage.py`), and the group counts were reproduced with a separate row-by-row
+routine.
+
 ## Corporate and independent venture investors (`cvc_models.py`, exploratory)
 Corporate investors are named by `pilot/corporate_investors.tsv` (regular expressions written after reading the
 investor names by frequency; first match wins): venture arms and direct investments of large drug and

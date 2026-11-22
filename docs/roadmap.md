@@ -49,5 +49,9 @@
 * **Investors named in IPO prospectuses** (`pilot/fetch_ipo_prospectus.py`, `pilot/ipo_holders.py`,
   `pilot/ipo_models.py`): the holders of more than 5% before the offering, read from 344 prospectuses of 2003–2026
   and classed by hand-written rules, under a plan written before the download.
+* **The sponsor's financing stage in the year of the trial** (`pilot/vc_stage.py`): private and venture-backed,
+  public after venture backing, public without a venture marker, dated from the IPO year, Crunchbase rounds and
+  Form D boards, under a plan written before the run. Still open: the date of the first sale of preferred stock
+  from the prospectuses, and the run with the dated Open Targets measure.
 
 Corrections to earlier results are listed at the end of [results](results.md).

@@ -66,7 +66,7 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Six of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Seven of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.
 
 ## More
