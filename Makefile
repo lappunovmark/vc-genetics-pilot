@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd owners mechanisms venture biology runway figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners mechanisms venture biology runway ipo sponsor2015 figure check lint test clean-data
 
 all: data results figure check
 
