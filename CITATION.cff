@@ -6,8 +6,8 @@ authors:
   - family-names: Lapunov
     given-names: Mark
     affiliation: "University College London"
-version: "0.3.0-pilot"
-date-released: 2026-11-22
+version: "0.4.0-pilot"
+date-released: 2026-11-24
 license: MIT
 repository-code: "https://github.com/lappunovmark/vc-genetics-pilot"
 keywords:

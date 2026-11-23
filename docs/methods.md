@@ -491,5 +491,8 @@ calendar advances (91 reports between 17 October and 6 November 2026).
   for multiple testing. The genetic premium and the rise in funding-related stops would pass any correction; the
   small-sponsor gap in selection (p = 0.017) would not pass a Holm correction across the eight, although with
   support counted on either evidence measure it would (p = 0.0008). It should be read as suggestive.
+* The contrast between other industry sponsors and top-20 pharma after published evidence (0.54, 0.34–0.84) is
+  not robust to the stacked estimator, which compares each cohort of pairs only with pairs never supported (0.64,
+  0.39–1.04); the response of top-20 pharma itself holds (1.61, 1.12–2.30).
 * A sponsor that went public through a reverse merger and never filed a Form D under its own name inherits the listed
   shell's earlier placements; the own-names-only bound shows how much this can matter.

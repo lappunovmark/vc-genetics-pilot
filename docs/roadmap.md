@@ -19,7 +19,9 @@
    holds (0.56, 0.38–0.82; `docs/plan_top20_2010.md`), but eighteen of the twenty companies are the same and
    acquisitions after 2010 still move programmes into the group. A list fixed before each period, with licensing
    and acquisitions followed programme by programme, is still needed before the result is read as behaviour of
-   large companies.
+   large companies. In a stacked design that compares each cohort of pairs only with pairs never supported, the
+   response of top-20 pharma holds but its difference from other industry sponsors is no longer separated from
+   zero (0.64, 0.39–1.04; `docs/plan_evidence_arrival_cohorts.md`).
 4. **Working paper.** The pilot is being written up: question, data, definitions ([methods](methods.md)), results
    for H1–H4, robustness and limitations.
 
