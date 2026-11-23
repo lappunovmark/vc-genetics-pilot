@@ -1,0 +1,69 @@
+Sponsor names as they stood in April 2015 (plan: docs/plan_sponsor_2015.md)
+trials in the registry snapshot: 463466; ClinicalTrials.gov records in the 2015 copy: 187554; in both, with a 2015 sponsor: 151009
+1. normalised sponsor name changed: 20091 of 151009 (0.1330); among trials with an industry lead sponsor today: 7330 of 49960 (0.1467)
+2. industry trials typed top-20 pharma today: 22369; not typed top-20 under the 2015 name (moved in): 657 (0.0294); industry trials not typed top-20 today: 27591; typed top-20 under the 2015 name (moved out): 707 (0.0256)
+3. pairs of names behind the moves: 181 (sponsor_2015_moves.csv); the most frequent:
+direction                    sponsor_2015                        lead_sponsor  trials
+       in                St. Jude Medical              Abbott Medical Devices     108
+       in                        Vistakon Johnson & Johnson Vision Care, Inc.      73
+       in              Immunomedics, Inc.                     Gilead Sciences      31
+       in    Anacor Pharmaceuticals, Inc.                              Pfizer      25
+       in             Celgene Corporation                               Amgen      25
+       in         Onyx Therapeutics, Inc.                               Amgen      24
+       in   Baxter Healthcare Corporation                              Pfizer      20
+       in                     ImClone LLC               Eli Lilly and Company      20
+       in                  Almirall, S.A.                         AstraZeneca      16
+       in             Forest Laboratories                         AstraZeneca      14
+       in                Medivation, Inc.                              Pfizer      14
+       in                      [Redacted] Johnson & Johnson Vision Care, Inc.      13
+       in                 Array BioPharma                              Pfizer      12
+       in                    ChemoCentryx                               Amgen      12
+       in     Hyperion Therapeutics, Inc.                               Amgen      12
+      out       Merck Sharp & Dohme Corp.                      Organon and Co     336
+      out                     AstraZeneca           Genzyme, a Sanofi Company      33
+      out            Bristol-Myers Squibb                             R-Pharm      28
+      out Bayer HealthCare, Diabetes Care              Ascensia Diabetes Care      27
+      out           Eli Lilly and Company                Denovo Biopharma LLC      19
+      out                           Bayer                          LEO Pharma      12
+      out                 GlaxoSmithKline                     ViiV Healthcare      12
+      out                           Amgen        Bausch Health Americas, Inc.      11
+      out                 Gilead Sciences Sierra Oncology LLC - a GSK company      11
+      out       Merck Sharp & Dohme Corp.                      ALK-Abelló A/S      11
+      out                          Pfizer                              Biogen      11
+      out           Eli Lilly and Company                    Chromaderm, Inc.      10
+      out                          Pfizer                   Pain Therapeutics      10
+      out                           Amgen                      NantCell, Inc.       9
+      out        Novartis Pharmaceuticals         Debiopharm International SA       9
+first trials of programmes: 35887; found in the 2015 copy: 20566; typed top-20 today: 5873 (in the 2015 copy: 4141); moved in: 172; moved out: 185; moved and without a band for the 2015 name: 116
+phase-entry trials: 47917; found in the 2015 copy: 26651; typed top-20 today: 8226 (in the 2015 copy: 5587); moved in: 216; moved out: 225; moved and without a band for the 2015 name: 143
+====================================================================================================
+Selection (robust.txt, 'H1 gs_ante_first: + first-trial period, area, modality'): small sponsors against top-20 pharma
+as in robust.txt
+N=29191; events=959; converged=True
+                                        Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, small (<=5 drugs)] -0.393    0.1652  0.0174 -0.7167 -0.0692  0.6751  0.4884  0.9331
+(a) without the programmes whose first trial moved
+N=28869; events=949; converged=True
+                                         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, small (<=5 drugs)] -0.3968    0.1654  0.0165  -0.721 -0.0725  0.6725  0.4862  0.9301
+(b) moved programmes under the group of the 2015 name
+N=29083; events=957; converged=True
+                                         Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+C(tier)[T.Industry, small (<=5 drugs)] -0.4092    0.1654  0.0133 -0.7333 -0.0851  0.6642  0.4803  0.9184
+====================================================================================================
+Advancement (robust.txt, 'Advance: support x sponsor tier'): support, and its interaction with small sponsors
+as in robust.txt
+N=26542; events=6424; converged=True
+                                            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gs                                         1.0057    0.1594  0.0000  0.6933  1.3181  2.7338  2.0002  3.7365
+gs:C(tier)[T.Industry, small (<=5 drugs)]  0.2558    0.2609  0.3269 -0.2556  0.7672  1.2915  0.7745  2.1538
+(a) without the entries whose trial moved
+N=26202; events=6299; converged=True
+                                            Coef.  Std.Err.   P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gs                                         1.0258    0.1602  0.0000  0.7119  1.3397  2.7892  2.0378  3.8177
+gs:C(tier)[T.Industry, small (<=5 drugs)]  0.2363    0.2618  0.3667 -0.2769  0.7495  1.2666  0.7582  2.1160
+(b) moved entries under the group of the 2015 name
+N=26424; events=6385; converged=True
+                                            Coef.  Std.Err.  P>|z|  [0.025  0.975]      OR   OR_lo   OR_hi
+gs                                         1.0214    0.1555  0.000  0.7165  1.3262  2.7771  2.0473  3.7669
+gs:C(tier)[T.Industry, small (<=5 drugs)]  0.2298    0.2596  0.376 -0.2789  0.7385  1.2583  0.7566  2.0928
