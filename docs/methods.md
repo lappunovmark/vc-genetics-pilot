@@ -406,6 +406,23 @@ into a listed company after 2021 is given that company's figures for 2021. The l
 first word of the sponsor's normalised name with that of the registrant's present name on EDGAR, which also sets
 aside sponsors that were merely renamed.
 
+## Sponsor names as they stood in April 2015 (`extract_ictrp_2015.py`, `sponsor_2015.py`)
+Planned in `docs/plan_sponsor_2015.md` before the file was downloaded. The copy of the WHO International Clinical
+Trials Registry Platform of April 2015 (van Valkenhoef, Zenodo, doi:10.5281/zenodo.46392, CC0; md5 of the archive
+c46f8ae1e44ffd2bd35be34abea3d629) holds one XML file per record. `extract_ictrp_2015.py` reads the files named
+after an NCT number and takes the trial identifier, primary sponsor, registration date and date of last update
+with regular expressions; a record whose identifier differs from its file name is left out (none did).
+`sponsor_2015.py` joins them to the registry snapshot by NCT number. A name changed when the normalised names
+(`rq2_stops.norm_sponsor`) differ. A trial moved in when `sponsors.top20_parent`, with the trial's start year,
+types today's lead sponsor (class industry) as top-20 pharma and not the 2015 name; it moved out in the reverse
+case, for trials led by industry today. The headline selection and advancement models of `robust26.py` are fitted
+again without the programmes or entries whose first trial moved, and with those rows given the group of the 2015
+name: top-20 pharma when the 2015 name is typed so, otherwise the size band that name has in `sponsors.csv.gz`
+(`build_panel26.norm_sponsor`), and left out when the name is not there. The unchanged models reproduce
+`robust.txt`. The rules for moves are tested on made-up trials (`tests/test_sponsor_2015.py`). The table of name
+pairs behind the moves is written by the script and is not in the repository, because a sponsor of 2015 can be a
+person.
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download
@@ -429,7 +446,8 @@ calendar advances (91 reports between 17 October and 6 November 2026).
   a parallel measure from Open Targets evidence dated by Falaguera et al. (2026), reported for every model. Where the
   two measures disagree (H4), the paper reports both.
 * The stop-reason reference labels are an LLM-assisted first pass, not yet blind double-coded by the author.
-* Sponsor names are those in the registry on the snapshot date. A renamed subsidiary is typed by its own name and
+* Sponsor names are those in the registry on the snapshot date; against the names of April 2015 the selection and
+  advancement results do not change (see above), but moves before April 2015 are not seen. A renamed subsidiary is typed by its own name and
   acquisition year, but when the record of an old trial was moved to the acquirer's name outright the trial counts
   as the acquirer's; the list of acquired companies covers those met in the data, not every deal (a longer,
   unverified list of 187 deals in `factcheck/sponsor_missing_acquisitions.py` would move 204 registry trials, 0.6%

@@ -16,3 +16,5 @@ results/formd_directors_sponsors.csv
 # holders named in IPO prospectuses: the tables list directors and officers by name
 results/ipo_holders.csv
 results/ipo_holders_classified.csv
+# pairs of sponsor names of 2015 and today: a sponsor of 2015 can be a person
+results/sponsor_2015_moves.csv

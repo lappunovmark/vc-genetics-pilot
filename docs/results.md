@@ -417,6 +417,30 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   prospectuses: in six prospectuses opened to try it, a rule found no dated sale in two and a wrong earliest
   date in two, so the dates would have to be read by hand.
 
+* **Sponsor names as they stood in April 2015 (planned before the download; `docs/plan_sponsor_2015.md`,
+  `pilot/sponsor_2015.py`).** Sponsor groups rest on the names in the registry on the snapshot date, and the record
+  of an old trial can be moved to another company after an acquisition, a spin-off or the sale of a drug. An open
+  copy of the WHO registry platform retrieved in the first week of April 2015 (van Valkenhoef, Zenodo,
+  doi:10.5281/zenodo.46392) holds 187,554 ClinicalTrials.gov records with their primary sponsor; 151,009 are in
+  the snapshot. The normalised name changed for 13% of them (20,091), and for 15% of those led by industry today
+  (7,330 of 49,960). Of 22,369 industry trials typed top-20 pharma today, 657 (2.9%) are not typed top-20 under
+  their 2015 name; of 27,591 industry trials not typed top-20 today, 707 (2.6%) are typed top-20 under their 2015
+  name. Read by name, the frequent moves are of three kinds: records moved to an acquirer (Immunomedics to Gilead,
+  Anacor and Medivation to Pfizer, Onyx to Amgen); trials that changed hands without the company being acquired
+  (Celgene to Amgen, AstraZeneca to Genzyme); and spin-offs, where today's name fits the start of the trial better
+  than the 2015 name (402 trials listed under Merck Sharp & Dohme in 2015 and under Organon today, 336 of them
+  started before 2009, the year from which the rules count Organon as Merck's). Two frequent pairs are makers of
+  devices and contact lenses (St. Jude Medical under Abbott Medical Devices, 108 trials; Vistakon under Johnson &
+  Johnson Vision Care, 73). In the panel, 172 first trials of programmes moved in
+  and 185 moved out, of 20,566 found in the 2015 copy. The selection estimate for small sponsors against top-20
+  pharma, 0.68 (0.49–0.93), is 0.67 (0.49–0.93) without the programmes whose first trial moved and 0.66
+  (0.48–0.92) with them typed by the 2015 name (108 whose 2015 name has no size band are left out). The premium for
+  genetic support in advancement, 2.73 (2.00–3.74), becomes 2.79 (2.04–3.82) and 2.78 (2.05–3.77), and its
+  interaction with small sponsors, 1.29 (0.77–2.15), becomes 1.27 (0.76–2.12) and 1.26 (0.76–2.09). By the rule
+  fixed in advance: the results do not depend on records moved between sponsors after April 2015. Moves before
+  April 2015 and trials registered later (the copy covers 57% of the first trials of programmes) are not seen;
+  the registry's own history of versions is closed to scripts.
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

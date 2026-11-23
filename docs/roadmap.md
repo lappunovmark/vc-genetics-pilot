@@ -53,5 +53,8 @@
   public after venture backing, public without a venture marker, dated from the IPO year, Crunchbase rounds and
   Form D boards, under a plan written before the run. Still open: the date of the first sale of preferred stock,
   which a rule could not read reliably from the prospectuses and would have to be read by hand.
+* **Sponsor names as they stood in April 2015** (`pilot/extract_ictrp_2015.py`, `pilot/sponsor_2015.py`): the
+  selection and advancement results do not depend on records moved between sponsors after April 2015; planned
+  before the download.
 
 Corrections to earlier results are listed at the end of [results](results.md).

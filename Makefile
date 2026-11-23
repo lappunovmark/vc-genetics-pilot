@@ -103,6 +103,10 @@ ipo:  # investors named in IPO prospectuses (SEC_USER_AGENT="Your Name you@examp
 	$(PY) pilot/ipo_models.py $(RES) $(DATA)/ipo_prospectus
 	$(PY) pilot/vc_stage.py $(RES)
 
+sponsor2015:  # sponsor names as they stood in April 2015; needs data-20150402.zip of doi:10.5281/zenodo.46392 in $(DATA)/ictrp2015
+	$(PY) -I pilot/extract_ictrp_2015.py $(DATA)/ictrp2015/data-20150402.zip $(DATA)/ictrp2015/ictrp2015_nct_sponsors.csv.gz
+	$(PY) pilot/sponsor_2015.py $(DATA)/ctgov_all.csv $(DATA)/ictrp2015/ictrp2015_nct_sponsors.csv.gz $(RES)
+
 figure:
 	$(PY) pilot/figure_glance.py $(RES) figures/results_glance.png
 	$(PY) pilot/figure_main.py $(RES) figures/main_results.png
