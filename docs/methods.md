@@ -385,6 +385,16 @@ group being typed by the size of its portfolio, and `EA_FIRST_EVIDENCE_YEAR=2010
 year is 2010 or later; `top20_2010.py` fits the selection model with that group. `figure_evidence_arrival.py` draws the event study and the contrast under
 each specification from these files (`figures/evidence_arrival.png`).
 
+**Clean controls, cohort by cohort (`evidence_arrival_cohorts.py`, planned in
+`docs/plan_evidence_arrival_cohorts.md`).** The script runs `evidence_arrival.py` to build the pair-year panel and
+then stacks it: for each evidence year *e*, the pairs whose evidence year is *e* and the pairs never supported, in
+the years *e* − 5 to *e* + 5. The model of D1 is fitted on the stacks together with pair × group × stack and
+year × group × stack fixed effects and errors clustered by indication, so that no pair that gained evidence
+serves as a control for another. A pair-group without a programme start inside the window of its stack drops out.
+The response of other industry sponsors is the sum of two coefficients, with a normal interval from their
+covariance. The stacks are tested on a made-up panel (`tests/test_evidence_arrival_cohorts.py`), and the primary
+model was fitted a second time on stacks built by a separate routine.
+
 ## Cash runway and trial stops (`fetch_sec_frames.py`, `cash_runway.py`)
 The plan (`docs/plan_cash_runway.md`) was committed before the SEC data were downloaded. `fetch_sec_frames.py` reads
 the SEC's XBRL frames: for each concept and period, the value every filer reported (year-end balances as

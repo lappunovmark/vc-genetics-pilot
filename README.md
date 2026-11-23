@@ -56,6 +56,7 @@ NIH grants), and all the code is in this repository.
 | 5. Top-20 pharma: new projects after genetic evidence is published | rate ratio 1.58 (1.03–2.41) |
 | 5. Other companies: the same | rate ratio 0.85 (0.62–1.16) |
 | 5. Other companies relative to top-20 pharma | ratio 0.54 (0.34–0.84) |
+| 5. The same, each group of pairs compared only with pairs that never gained evidence | ratio 0.64 (0.39–1.04), not significant |
 | 5. The same, compared with other diseases treated through the same target | ratio 0.85 (0.46–1.58) |
 | 5. Other companies relative to top-20 pharma, with the top-20 list fixed by 2010 sales | ratio 0.56 (0.38–0.82) |
 
@@ -69,7 +70,7 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Nine of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Ten of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.
 
 ## More

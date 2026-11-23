@@ -30,6 +30,7 @@
 | The sponsor's financing stage in the year of the trial (dated from the sources above), planned before the run | `pilot/vc_stage.py`, `docs/plan_vc_stage.md` | — |
 | Sponsor names as they stood in April 2015, planned before the download | `pilot/extract_ictrp_2015.py`, `pilot/sponsor_2015.py`, `docs/plan_sponsor_2015.md` | WHO ICTRP copy of April 2015 (Zenodo, doi:10.5281/zenodo.46392, CC0) |
 | Placebo test of the genetic premium: evidence for an unrelated disease, planned before the run | `pilot/placebo_similarity.py`, `docs/plan_placebo_similarity.md` | — (Minikel et al. 2024 data, as for the panel) |
+| The evidence-arrival contrast with clean controls, cohort by cohort, planned before the run (needs pyfixest and Python >= 3.10) | `pilot/evidence_arrival_cohorts.py`, `docs/plan_evidence_arrival_cohorts.md` | — |
 | Cash runway of public sponsors and trial stops, planned before the download (SEC_USER_AGENT needed) | `pilot/fetch_sec_frames.py`, `pilot/cash_runway.py`, `docs/plan_cash_runway.md` | SEC XBRL frames API (public domain) |
 | Exploratory: programme starts around the publication of genetic evidence (needs pyfixest, Python ≥ 3.10) | `pilot/evidence_arrival.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | The same on Open Targets 26.09 evidence, planned before the run | `pilot/extract_ot_dated.py`, `pilot/evidence_arrival.py`, `docs/plan_evidence_arrival_ot.md` | Open Targets 26.09 genetic evidence datasets |

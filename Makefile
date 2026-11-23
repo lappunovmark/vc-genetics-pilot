@@ -84,6 +84,7 @@ biology:  # exploratory: the gap by type of drug, direction of effect, arrival o
 	OT_DATASETS=evidence_gwas_credible_sets,evidence_clingen,evidence_genomics_england,evidence_uniprot_variants $(PY) pilot/fetch_opentargets.py $(DATA)/ot_gen
 	$(PY) pilot/extract_ot_dated.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction/ot_dated_evidence.csv.gz
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	$(PY) pilot/evidence_arrival_cohorts.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
 	EA_LAST_EVIDENCE_YEAR=2022 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	EA_UNDATED=only $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all

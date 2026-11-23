@@ -458,6 +458,23 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   placebo band cut at 0.1 it is 0.84 (0.71–1.01). Why the placebo band lies below the entries without evidence is
   not established; the group without evidence is mixed and includes drugs whose targets are not human genes.
 
+* **The evidence-arrival contrast with clean controls, cohort by cohort (planned before the run;
+  `docs/plan_evidence_arrival_cohorts.md`, `pilot/evidence_arrival_cohorts.py`).** Evidence arrives in different
+  years for different pairs, and a pooled model with pair and year effects also compares late cohorts with pairs
+  that gained evidence earlier (Baker, Larcker and Wang 2022). In a stacked design (Cengiz et al. 2019) each
+  cohort of pairs is compared only with pairs never supported, inside a window around its evidence year, with
+  fixed effects specific to the stack. With the window of five years fixed in the plan, the response of top-20
+  pharma holds (1.61, 1.12–2.30; 218 programme starts on pairs with evidence), other industry sponsors show none
+  (1.03, 0.72–1.46; 235 starts), and the ratio of the two responses is 0.64 (0.39–1.04; the primary estimate),
+  against 0.54 (0.34–0.84) in the pooled model. By the rule fixed in advance the interval includes 1, so the
+  difference between the two groups is not robust to the estimator: the point estimate is close to the pooled
+  one, the interval is wider and no longer excludes 1. With a window of eight years the ratio is 0.60
+  (0.38–0.95), with three years 0.65 (0.34–1.23). By cohort it is 0.50 (0.24–1.03) for evidence years to 2015,
+  0.47 (0.24–0.94) for 2016–2019 and 2.21 (0.79–6.14) from 2020, where 927 pairs have little follow-up (52 and
+  104 starts); the response of top-20 pharma in the three periods is 1.42 (0.75–2.71), 2.35 (1.55–3.58) and 0.66
+  (0.28–1.59). The checks that limit the reading of the pooled contrast (a few genes, the comparison within a
+  target, the definition of the top-20 group) are not addressed by this run.
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

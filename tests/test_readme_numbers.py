@@ -84,3 +84,13 @@ def test_placebo_quoted_in_readme():
         float(row.split(" to ")[1].split(")")[0]),
     )
     assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README
+
+
+def test_cohort_contrast_quoted_in_readme():
+    """The stacked contrast with the five-year window (evidence_arrival_ot_gwas_cohorts.txt, primary model)."""
+    with open(os.path.join(RESULTS, "evidence_arrival_ot_gwas_cohorts.txt"), encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    start = next(i for i, line in enumerate(lines) if line.startswith("1. PRIMARY"))
+    row = next(line for line in lines[start : start + 12] if line.startswith("post_other"))
+    est, lo, hi = (float(x) for x in row.split()[-3:])
+    assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README
