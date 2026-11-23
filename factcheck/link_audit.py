@@ -44,8 +44,9 @@ def sponsor_sites(ct, countries):
         .sort_values(["norm", "n", "c"], ascending=[True, False, True])
     )
     out["top_countries"] = top.groupby("norm").apply(lambda d: "; ".join(f"{c} {n}" for c, n in zip(d.c[:4], d.n[:4])))
-    out["first_start"] = g.start_date.min().str[:4]
-    out["last_start"] = g.start_date.max().str[:4]
+    t["start_year"] = pd.to_numeric(t.start_date.astype(str).str[:4], errors="coerce")
+    out["first_start"] = t.groupby("norm").start_year.min()
+    out["last_start"] = t.groupby("norm").start_year.max()
     return out
 
 

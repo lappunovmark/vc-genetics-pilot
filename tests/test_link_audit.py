@@ -19,7 +19,7 @@ def test_flags():
     ):
         for i, s in enumerate(sites):
             nct = f"NCT{len(rows):08d}"
-            rows.append((nct, sponsor, f"201{i}-01-01"))
+            rows.append((nct, sponsor, f"201{i}-01-01" if i else None))  # a trial without a start date
             cc.append((nct, s))
     ct = pd.DataFrame(rows, columns=["nct_id", "lead_sponsor", "start_date"])
     countries = pd.DataFrame(cc, columns=["nct_id", "countries"])
@@ -35,3 +35,4 @@ def test_flags():
     m = link_audit.flags(links, sites).set_index("norm")
     assert m.flag.to_dict() == {"alpha bio": True, "beta bio": False, "gamma bio": False, "delta bio": False}
     assert sites.at["alpha bio", "top_countries"].startswith("China 3")
+    assert sites.at["alpha bio", "first_start"] == 2011 and sites.at["alpha bio", "last_start"] == 2012
