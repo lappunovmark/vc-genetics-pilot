@@ -1,0 +1,4 @@
+Location audit of the accepted sponsor-issuer links (plan: docs/plan_link_audit.md)
+studies in the snapshot: 463466; with site countries downloaded: 463428
+accepted links: 801; issuer in a US state: 705; sponsor with at least 3 trials with listed sites: 611; both: 535; flagged (no trial with a US site): 4
+classes of the flagged links: {'same company': 4}
