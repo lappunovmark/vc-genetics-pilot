@@ -1,0 +1,60 @@
+The evidence-arrival contrast with clean controls, cohort by cohort (plan: docs/plan_evidence_arrival_cohorts.md)
+pair-year panel of evidence_arrival.py: 53064 pairs, 1393 with dated evidence
+
+1. PRIMARY (plan): window of 5 years; post_other = ratio of the response of other industry to that of top-20 pharma
+====================================================================================================
+Stacked D1, years e-5 to e+5
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=20; pairs with evidence in them=1393; pair-groups with a start in the window: with evidence 337, never supported 180182; rows=1909490; programme starts on pairs with evidence: top-20 pharma 218, other industry 235
+             Estimate  Std. Error  Pr(>|t|)    2.5%  97.5%      RR  RR_lo   RR_hi
+Coefficient                                                                      
+post           0.4732      0.1841    0.0102  0.1124  0.834  1.6052  1.119  2.3026
+post_other    -0.4480      0.2505    0.0737 -0.9390  0.043  0.6389  0.391  1.0439
+response of other industry (post + post_other, normal interval): RR 1.0255 (0.7207 to 1.4593)
+
+2. SECONDARY (plan)
+====================================================================================================
+Stacked D1, years e-3 to e+3
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=20; pairs with evidence in them=1393; pair-groups with a start in the window: with evidence 222, never supported 122389; rows=843618; programme starts on pairs with evidence: top-20 pharma 137, other industry 151
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3064      0.2387    0.1994 -0.1616  0.7743  1.3585  0.8508  2.1691
+post_other    -0.4348      0.3259    0.1823 -1.0736  0.2041  0.6474  0.3418  1.2264
+response of other industry (post + post_other, normal interval): RR 0.8795 (0.5705 to 1.3560)
+====================================================================================================
+Stacked D1, years e-8 to e+8
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=20; pairs with evidence in them=1393; pair-groups with a start in the window: with evidence 477, never supported 254282; rows=3977757; programme starts on pairs with evidence: top-20 pharma 356, other industry 360
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.5045      0.1974    0.0106  0.1175  0.8915  1.6561  1.1247  2.4387
+post_other    -0.5090      0.2317    0.0280 -0.9631 -0.0550  0.6011  0.3817  0.9465
+response of other industry (post + post_other, normal interval): RR 0.9954 (0.7211 to 1.3741)
+====================================================================================================
+Stacked D1, years e-5 to e+5, evidence years to 2015
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=9; pairs with evidence in them=174; pair-groups with a start in the window: with evidence 87, never supported 107007; rows=1178034; programme starts on pairs with evidence: top-20 pharma 77, other industry 56
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.3530      0.3278    0.2815 -0.2895  0.9955  1.4234  0.7487  2.7061
+post_other    -0.6992      0.3741    0.0616 -1.4324  0.0339  0.4970  0.2387  1.0345
+response of other industry (post + post_other, normal interval): RR 0.7074 (0.3883 to 1.2886)
+====================================================================================================
+Stacked D1, years e-5 to e+5, evidence years 2016-2019
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=4; pairs with evidence in them=292; pair-groups with a start in the window: with evidence 113, never supported 38880; rows=428923; programme starts on pairs with evidence: top-20 pharma 89, other industry 75
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post           0.8559      0.2146    0.0001  0.4353  1.2766  2.3536  1.5454  3.5843
+post_other    -0.7497      0.3501    0.0322 -1.4359 -0.0635  0.4725  0.2379  0.9384
+response of other industry (post + post_other, normal interval): RR 1.1121 (0.6504 to 1.9015)
+====================================================================================================
+Stacked D1, years e-5 to e+5, evidence years from 2020
+y ~ post + e0 + post_other + e0_other | pair x group x stack + year x group x stack
+stacks=7; pairs with evidence in them=927; pair-groups with a start in the window: with evidence 137, never supported 34295; rows=302533; programme starts on pairs with evidence: top-20 pharma 52, other industry 104
+             Estimate  Std. Error  Pr(>|t|)    2.5%   97.5%      RR   RR_lo   RR_hi
+Coefficient                                                                        
+post          -0.4082      0.4440    0.3579 -1.2785  0.4620  0.6648  0.2784  1.5873
+post_other     0.7930      0.5217    0.1285 -0.2295  1.8155  2.2101  0.7949  6.1442
+response of other industry (post + post_other, normal interval): RR 1.4693 (0.8074 to 2.6736)
