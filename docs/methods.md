@@ -445,6 +445,14 @@ name: top-20 pharma when the 2015 name is typed so, otherwise the size band that
 pairs behind the moves is written by the script and is not in the repository, because a sponsor of 2015 can be a
 person.
 
+## Location audit of the sponsor–issuer links (`fetch_ctgov_countries.py`, `factcheck/link_audit.py`)
+Planned in `docs/plan_link_audit.md` before the site countries were fetched. `fetch_ctgov_countries.py` downloads
+the countries of the listed sites of every interventional study and the audit joins them to the registry snapshot
+by NCT number. An accepted link of `formd_match_review.csv` is flagged when the issuer's Form D state is a US
+state and the sponsor (by normalised name) led at least three trials with listed sites, none with a site in the
+United States. Flagged links are written to `link_audit_flags.csv` and classed by reading; the script keeps the
+classes when it is run again. The flag is tested on made-up sponsors (`tests/test_link_audit.py`).
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download

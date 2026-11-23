@@ -475,6 +475,20 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   (0.28–1.59). The checks that limit the reading of the pooled contrast (a few genes, the comparison within a
   target, the definition of the top-20 group) are not addressed by this run.
 
+* **Location audit of the links between sponsors and Form D issuers (planned before the data were fetched;
+  `docs/plan_link_audit.md`, `factcheck/link_audit.py`).** Two different companies can carry the same name. As a
+  check with evidence independent of the financing records, the countries of the trial sites of every study were
+  downloaded (ClinicalTrials.gov API, 23 November 2026; 463,428 of the 463,466 studies of the snapshot). Of the
+  801 accepted links, 705 have an issuer in a US state and 611 a sponsor with at least three trials with listed
+  sites; 535 have both and were screened. Four are flagged because none of the sponsor's trials has a US site
+  (Abide Therapeutics, Cerebral Therapeutics, Odyssey Therapeutics, TrippBio). Each was read against the Form D
+  filings, the trial records and public sources: all four are the same company, a US company that ran its trials
+  abroad (`results/link_audit_flags.csv` gives the evidence for each). No link was rejected, so no result changes.
+  The screen finds collisions across borders only; two US companies with the same name are not separated, 266
+  links were not screened, and the links to EDGAR registrants, SBIR awards, Crunchbase and Ritter's list were not
+  screened. The reading was AI-assisted and has not been repeated by the author; the two-annotator validation of
+  a sample of pairs remains to be done.
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

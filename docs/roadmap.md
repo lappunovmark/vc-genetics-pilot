@@ -61,5 +61,7 @@
 * **The evidence-arrival contrast cohort by cohort** (`pilot/evidence_arrival_cohorts.py`): in a stacked design
   with clean controls the response of top-20 pharma holds and the difference from other industry sponsors is
   no longer separated from zero; planned before the run.
+* **Location audit of the sponsor–issuer links** (`factcheck/link_audit.py`): of 535 links screened, four were
+  flagged and all four are the same company. The two-annotator validation of a sample of pairs is still open.
 
 Corrections to earlier results are listed at the end of [results](results.md).

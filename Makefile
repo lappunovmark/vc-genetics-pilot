@@ -6,7 +6,7 @@ RES       ?= results
 MINIKEL   ?= /tmp/genetic_support
 MINIKEL_COMMIT = b84cf0580b7df1af14b2c72068ed42b5aa0c52a4
 
-.PHONY: all data results dated approvals formd owners mechanisms venture biology runway ipo sponsor2015 figure check lint test clean-data
+.PHONY: all data results dated approvals formd owners mechanisms venture biology runway ipo linkaudit sponsor2015 figure check lint test clean-data
 
 all: data results figure check
 
@@ -104,6 +104,10 @@ ipo:  # investors named in IPO prospectuses (SEC_USER_AGENT="Your Name you@examp
 	$(PY) pilot/ipo_holders.py $(DATA)/ipo_prospectus $(RES)
 	$(PY) pilot/ipo_models.py $(RES) $(DATA)/ipo_prospectus
 	$(PY) pilot/vc_stage.py $(RES)
+
+linkaudit:  # location audit of the sponsor-issuer links (docs/plan_link_audit.md); needs make formd
+	$(PY) pilot/fetch_ctgov_countries.py $(DATA)/ctgov_countries.csv
+	$(PY) factcheck/link_audit.py $(DATA)/ctgov_all.csv $(DATA)/ctgov_countries.csv $(RES)
 
 sponsor2015:  # sponsor names as they stood in April 2015; needs data-20150402.zip of doi:10.5281/zenodo.46392 in $(DATA)/ictrp2015
 	$(PY) -I pilot/extract_ictrp_2015.py $(DATA)/ictrp2015/data-20150402.zip $(DATA)/ictrp2015/ictrp2015_nct_sponsors.csv.gz
