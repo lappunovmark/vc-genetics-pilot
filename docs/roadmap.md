@@ -51,7 +51,7 @@
   and classed by hand-written rules, under a plan written before the download.
 * **The sponsor's financing stage in the year of the trial** (`pilot/vc_stage.py`): private and venture-backed,
   public after venture backing, public without a venture marker, dated from the IPO year, Crunchbase rounds and
-  Form D boards, under a plan written before the run. Still open: the date of the first sale of preferred stock
-  from the prospectuses, and the run with the dated Open Targets measure.
+  Form D boards, under a plan written before the run. Still open: the date of the first sale of preferred stock,
+  which a rule could not read reliably from the prospectuses and would have to be read by hand.
 
 Corrections to earlier results are listed at the end of [results](results.md).

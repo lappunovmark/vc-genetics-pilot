@@ -399,19 +399,23 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   of top-20 pharma (odds ratio 0.79, 0.49–1.27; the primary estimate), of the same kind of company after it went
   public (1.09, 0.64–1.86) or of the rest (0.76, 0.47–1.22); among non-top-20 sponsors, with the size band in the
   model, it is 1.00 (0.63–1.60). With a dated marker required the estimate is 0.65 (0.38–1.12), with first trials
-  from 2010 0.61 (0.35–1.07). Three further estimates have intervals that exclude 1, and none is covered by the
-  reading rule: from 2010, public companies that had been venture-backed are below top-20 pharma (0.56, 0.37–0.85;
-  0.72, 0.49–1.06, over the whole period); within the 71 sponsors that started programmes on both sides of a
+  from 2010 0.61 (0.35–1.07), with the dated Open Targets measure 0.75 (0.48–1.16). Four further estimates have
+  intervals that exclude 1, and none is covered by the reading rule. Two concern public companies that had been
+  venture-backed: they are below top-20 pharma on the dated Open Targets measure (0.56, 0.39–0.81; 0.36–0.88 with
+  errors clustered by sponsor) and, on the main measure, in first trials from 2010 (0.56, 0.37–0.85; 0.72,
+  0.49–1.06, over the whole period), while their difference from private venture-backed companies is not
+  established (1.34, 0.79–2.27, on the Open Targets measure). The other two: within the 71 sponsors that started programmes on both sides of a
   venture-backed IPO, programmes after the IPO year carry less support when the period is left out of the model
   (0.28, 0.08–0.92; not in the plan), while with the period, as planned, the estimate is 0.27 (0.05–1.53) and
   only 13 sponsors inform it; and in advancement the premium for genetic support (2.21, 1.64–3.00, at top-20
   pharma) is larger for public sponsors without a venture marker (interaction 2.36, 1.01–5.54; 0.75–7.41 with
-  errors clustered by sponsor). No weight is put on these three. The interaction of support with the private
+  errors clustered by sponsor). These four are observations for later work, not results. The interaction of support with the private
   venture-backed stage is 1.87 (0.84–4.16). By the rule fixed in
   advance: the data do not show that private venture-backed companies start programmes with more or less genetic
   support than top-20 pharma. Part of the private group is assigned backwards from an IPO, so it holds only
-  companies that later went public; the date of the first sale of preferred stock has not been read from the
-  prospectuses; the run with the dated Open Targets measure has not been made yet.
+  companies that later went public. The date of the first sale of preferred stock was not read from the
+  prospectuses: in six prospectuses opened to try it, a rule found no dated sale in two and a wrong earliest
+  date in two, so the dates would have to be read by hand.
 
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
