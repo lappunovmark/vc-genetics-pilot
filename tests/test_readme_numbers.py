@@ -66,3 +66,21 @@ def test_trend_break_quoted_in_readme():
         row = next(line for line in block if line.startswith(group))
         est, lo, hi = (float(x) for x in row[len(group) :].split()[1:4])
         assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README, f"{group}: {est:.2f} ({lo:.2f}–{hi:.2f}) not in README"
+
+
+def test_placebo_quoted_in_readme():
+    """The placebo band against none and supported against placebo (placebo_similarity.txt, primary model)."""
+    with open(os.path.join(RESULTS, "placebo_similarity.txt"), encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    start = next(i for i, line in enumerate(lines) if line.startswith("1. PRIMARY"))
+    block = lines[start : start + 12]
+    row = next(line for line in block if line.startswith("b_placebo"))
+    est, lo, hi = (float(x) for x in row.split()[-3:])
+    assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README
+    row = next(line for line in block if line.startswith("supported against placebo"))
+    est, lo, hi = (
+        float(row.split("OR ")[1].split()[0]),
+        float(row.split("(")[1].split()[0]),
+        float(row.split(" to ")[1].split(")")[0]),
+    )
+    assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README

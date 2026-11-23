@@ -406,6 +406,18 @@ into a listed company after 2021 is given that company's figures for 2021. The l
 first word of the sponsor's normalised name with that of the registrant's present name on EDGAR, which also sets
 aside sponsors that were merely renamed.
 
+## Placebo: genetic evidence for an unrelated disease (`placebo_similarity.py`)
+Planned in `docs/plan_placebo_similarity.md` before the run. For each phase entry of the advancement model, over
+the targets of the programme (`programme_targets.csv.gz`) and the associations of each target dated before the
+entry year (the sources and filters of `gensup.py`; OMIM counted as ex ante), the script takes the highest
+similarity between the associated trait and the indication in the similarity matrix of Minikel et al. (2024); an
+identical term counts as 1. Bands: supported (0.8 or more), 0.5 to 0.8, 0.2 to 0.5, placebo (below 0.2) and none
+(no ex-ante association of any target). The supported band reproduces `gs_ante` of the panel entry by entry, which
+the script checks and prints. The model is the advancement logit of `robust26.py` ("Advance: main effects") with
+the bands in place of the support indicator, entries without genetic evidence as the reference, and the contrast
+of supported against placebo from the same fit. The bands are tested on made-up data
+(`tests/test_placebo_similarity.py`).
+
 ## Sponsor names as they stood in April 2015 (`extract_ictrp_2015.py`, `sponsor_2015.py`)
 Planned in `docs/plan_sponsor_2015.md` before the file was downloaded. The copy of the WHO International Clinical
 Trials Registry Platform of April 2015 (van Valkenhoef, Zenodo, doi:10.5281/zenodo.46392, CC0; md5 of the archive

@@ -22,7 +22,8 @@ NIH grants), and all the code is in this repository.
 ## What I found
 
 1. **Genetic evidence works.** Projects that have it have about 2.5 times higher odds of moving to the next
-   trial phase. This holds for small biotechs as much as for big pharma.
+   trial phase. This holds for small biotechs as much as for big pharma. Genetic evidence for an unrelated
+   disease does not help.
 2. **No sign that investors select on it.** Companies with private or venture money did not pick better-supported drugs.
 3. **Small biotechs use it slightly less** than the 20 largest drug companies.
 4. **After 2022, trials were stopped for money about twice as often.** At small biotechs the rate jumped in 2022;
@@ -38,6 +39,8 @@ NIH grants), and all the code is in this repository.
 | Finding | Estimate (95% CI) |
 |---|---|
 | 1. Genetic evidence → moving to the next phase | odds ratio 2.48 (2.09–2.93) |
+| 1. Placebo: genetic evidence only for unrelated diseases, vs no genetic evidence | odds ratio 0.84 (0.73–0.97) |
+| 1. Genetic evidence for the disease, vs that placebo | odds ratio 2.76 (2.27–3.35) |
 | 1. Difference between small biotechs and top-20 pharma in that effect | odds ratio 1.29 (0.77–2.15), not significant |
 | 2. Private investment (SEC Form D filing) → projects with genetic evidence | odds ratio 0.71 (0.46–1.09) |
 | 2. Venture-capital fund among the company's owners → projects with genetic evidence | odds ratio 0.76 (0.52–1.13) |
@@ -66,7 +69,7 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Eight of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Nine of the analyses were planned in writing before they were run ([plans](docs)); the rest are exploratory.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.
 
 ## More

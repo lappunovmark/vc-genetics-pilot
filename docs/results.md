@@ -441,6 +441,23 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   April 2015 and trials registered later (the copy covers 57% of the first trials of programmes) are not seen;
   the registry's own history of versions is closed to scripts.
 
+* **Genetic evidence for an unrelated disease as a placebo (planned before the run; `docs/plan_placebo_similarity.md`,
+  `pilot/placebo_similarity.py`).** The premium for genetic support could reflect the gene and not its link to the
+  disease: genes with any human genetics are better studied. Each phase entry was placed by the highest similarity
+  between the indication and any trait its targets were associated with before the entry year: supported (0.8 or
+  more; 903 entries, the same entries as in the panel), 0.5 to 0.8 (3,040), 0.2 to 0.5 (9,539), placebo (below
+  0.2: genetic evidence, all of it for unrelated traits; 3,854) and none (9,206). Unadjusted, 44.5% of supported
+  entries advanced, against 20.2% of placebo entries, 21.9% and 23.1% in the two intermediate bands and 26.7% of
+  entries without genetic evidence. In the advancement model the placebo band is below the entries without
+  evidence (0.84, 0.73–0.97; the primary estimate), the intermediate bands are not above them (0.89, 0.79–1.00, and
+  1.00, 0.86–1.15), and only the supported band is (2.31, 1.93–2.78). By the rule fixed in advance, a placebo
+  estimate below 1 means that the comparison to read is supported against placebo: 2.76 (2.27–3.35). Genetic
+  evidence for an unrelated disease does not predict advancement, and there is no gradual rise below the
+  threshold of 0.8. The secondary runs agree: without OMIM the placebo band is 0.88 (0.74–1.04) and supported
+  against placebo 2.11 (1.59–2.81); for industry sponsors alone 0.82 (0.69–0.98) and 2.75 (2.17–3.50); with the
+  placebo band cut at 0.1 it is 0.84 (0.71–1.01). Why the placebo band lies below the entries without evidence is
+  not established; the group without evidence is mixed and includes drugs whose targets are not human genes.
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

@@ -28,6 +28,7 @@ $(DATA)/nih_sbir_sttr.csv:
 results:
 	$(PY) pilot/build_panel26.py $(DATA)/ot $(MINIKEL)/data $(RES)
 	$(PY) pilot/robust26.py $(RES)
+	$(PY) pilot/placebo_similarity.py $(MINIKEL)/data $(RES)
 	$(PY) pilot/khb26.py $(RES) > $(RES)/khb.txt
 	$(PY) pilot/rq2_stops.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/rq2_rr.py $(RES)
