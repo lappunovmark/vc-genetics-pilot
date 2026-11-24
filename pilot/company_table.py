@@ -35,9 +35,11 @@ def poisson_ci(k):
     return lo, stats.chi2.ppf(0.975, 2 * k + 2) / 2
 
 
-def table(d):
+FORMULA = "y ~ C(yb) + C(area) + C(modality)"
+
+
+def table(d, f=FORMULA):
     """One row per company: programmes, supported, share with Wilson interval, observed/expected with exact interval."""
-    f = "y ~ C(yb) + C(area) + C(modality)"
     d = pool_sparse(d, f)
     r = smf.logit(f, d).fit(disp=0, maxiter=200)
     d = d.assign(p=r.predict(d))
@@ -59,10 +61,22 @@ def lr_test(d, f):
     return lr, df, float(stats.chi2.sf(lr, df)), int(d.co.nunique())
 
 
-def block(out, d, title):
-    t, dd, f = table(d)
+def drug_level(d):
+    """One row per drug and company (check added after the first run, see the plan)."""
+    d = d.sort_values(["company", "drug", "first_year", "area"])
+    first = d[d.first_year.eq(d.groupby(["company", "drug"]).first_year.transform("min"))]
+    area = first.groupby(["company", "drug"]).area.agg(lambda s: s.value_counts().sort_index().idxmax())
+    g = d.groupby(["company", "drug"]).agg(y=("y", "max"), n_prog=("y", "size"), first_year=("first_year", "min"), modality=("modality", "first"))  # fmt: skip
+    g = g.join(area).reset_index()
+    g["yb"] = pd.cut(g.first_year, [2000, 2005, 2010, 2015, 2020, 2100]).astype(str)
+    g["ln_prog"] = np.log(g.n_prog)
+    return g
+
+
+def block(out, d, title, f=FORMULA):
+    t, dd, f = table(d, f)
     lr, df, p, levels = lr_test(dd, f)
-    out.extend(["=" * 100, title, f"programmes={len(d)}; supported={int(d.y.sum())}; companies={d.company.nunique()}"])
+    out.extend(["=" * 100, title, f"rows={len(d)}; supported={int(d.y.sum())}; companies={d.company.nunique()}"])
     out.append(f"likelihood-ratio test of company effects ({levels} levels): chi2={lr:.2f}, df={df}, p={p:.4f}")
     out.append(t.round(4).to_string(index=False))
     return t
@@ -84,6 +98,12 @@ def main(R):
     out.append("\n2. SECONDARY (plan)")
     block(out, P[P.first_year.ge(2010)].copy(), "First trials from 2010")
     block(out, P[P.is_drug_first_indication.eq(True)].copy(), "Novel programmes only (the drug's first indication)")
+    out.append("\n3. CHECK ADDED AFTER THE FIRST RUN (plan, second part): the drug as the unit")
+    g = drug_level(P)
+    out.append(f"drugs={P.drug.nunique()}; drug-company rows={len(g)}; drugs with programmes first sponsored by more than one company={int((g.groupby('drug').company.nunique() > 1).sum())}")  # fmt: skip
+    out.append("columns: 'programmes' and 'supported' here count drugs (drug-company rows)")
+    td = block(out, g, "Drugs: at least one supported programme", FORMULA + " + ln_prog")
+    td.to_csv(f"{R}/company_table_drugs.csv", index=False)
     open(f"{R}/company_table.txt", "w").write("\n".join(out) + "\n")
     print("\n".join(out))
 

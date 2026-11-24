@@ -32,3 +32,25 @@ indication).
 **Limits.** A programme is attributed to the sponsor of its first trial under the name in the registry today, so
 acquired and in-licensed programmes count for the company that started the trial; with few supported programmes
 per company the intervals are wide; multiple comparisons across twenty companies are not adjusted for.
+
+## Check added after the first run (24 November 2026, written before it was run)
+
+**What had been seen.** The primary and secondary tables above. The primary test rejected equality; the ratios
+ranged from about 2 to 0, and four companies had an interval excluding 1, two of them only just.
+
+**Why a check is needed.** The programmes of one drug are not independent: 4,928 programmes belong to 1,463 drugs,
+and one drug accounts for up to six supported programmes of a company. The test and the Poisson intervals above
+treat programmes as independent, so they overstate what the data can distinguish. The planned block of novel
+programmes does not remove this (several indications of a drug can start in the same year).
+
+**The check.** The drug as the unit. One row per drug and company: the drug's programmes in the primary sample that
+the company was first to sponsor. Outcome: at least one of them had ex-ante genetic support. Controls: period of
+the earliest of these programmes, therapeutic area of the earliest programme (the most frequent area among the
+earliest when there are several, then alphabetical order), modality, and the logarithm of the number of programmes
+(a drug tested in more indications has more chances of a supported one). The same table (supported drugs,
+expected, ratio with exact Poisson interval) and the same likelihood-ratio test, with companies with fewer than
+three supported drugs pooled.
+
+**Reading rule.** The drug-level test and intervals decide what is said in the text. A company is named as above
+or below the group only if its drug-level interval excludes 1. If the drug-level test does not reject equality at
+0.05, no company is named. The programme-level table stays in the output as planned, with this caveat.
