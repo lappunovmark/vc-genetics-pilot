@@ -453,6 +453,47 @@ state and the sponsor (by normalised name) led at least three trials with listed
 United States. Flagged links are written to `link_audit_flags.csv` and classed by reading; the script keeps the
 classes when it is run again. The flag is tested on made-up sponsors (`tests/test_link_audit.py`).
 
+## Genetic support by company among top-20 pharma (`company_table.py`)
+Planned in `docs/plan_company_table.md` before the run. Programmes in indications with genetic insight whose
+first sponsor is typed top-20 pharma (first trial from 2001) are attributed to the parent company by
+`sponsors.top20_parent` for the year of the first trial. The expected number of supported programmes of a company
+is the sum of the probabilities from a logit of ex-ante support on first-trial period, therapeutic area and
+modality fitted on all top-20 programmes; the ratio of observed to expected has the exact Poisson interval of the
+observed count. Company effects are tested with a likelihood-ratio test in the same logit, companies with fewer
+than three supported programmes pooled. Because the programmes of one drug are not independent, a check added
+after the first run (and written into the plan before it was run) repeats the table and the test with one row per
+drug and company: at least one supported programme, with the period and area of the earliest programme, modality
+and the logarithm of the number of programmes as controls. The plan lets the drug-level results decide what is
+said. Intervals are not adjusted for the twenty comparisons. The intervals and the collapse to drugs are tested
+(`tests/test_company_table.py`).
+
+## The response to new genetic evidence before and after 2015 (`evidence_arrival_2015.py`, exploratory)
+Plan in `docs/plan_evidence_arrival_2015.md`; exploratory, because the cohort-by-cohort estimates had been seen.
+The stacked model of `evidence_arrival_cohorts.py` is fitted with `post` and the evidence year interacted with an
+indicator of evidence years from 2016, first with one response for both industry groups (the primary estimate is
+the interaction: the ratio of the response to later evidence over the response to earlier evidence), then with
+group interactions. The fully interacted model reproduces the cohort estimates for evidence years to 2015. A
+descriptive table gives the share of new industry programmes with ex-ante support by five-year period. A post hoc
+model, added after that table was seen, is a logit of ex-ante support on top-20 pharma and its interaction with
+first trials from 2016, with period, area and modality, errors clustered by drug. The year refers to Nelson MR,
+Tipney H, Painter JL, et al. The support of human genetic evidence for approved drug indications. *Nat Genet*
+2015;47:856–860.
+
+## Clinical cost per approval with and without genetic support (`premium_value.py`, an illustration)
+Plan in `docs/plan_premium_value.md`. Sample: the phase entries of the advancement model for industry sponsors.
+For each phase a logit of advancement on ex-ante support, sponsor class, entry period, area and modality gives two
+rates for the same entries, with support switched on and off. Their product is the probability of approval from
+phase 1. With the mean out-of-pocket cost per compound entering each phase from DiMasi, Grabowski and Hansen
+(2016, Table 2: 25.3, 58.6 and 255.4 million 2013 dollars), the expected clinical cost per programme entering
+phase 1 is the cost of phase 1 plus the costs of phases 2 and 3 weighted by the chance of reaching them, and the
+cost per approval is that divided by the probability of approval. Intervals are percentile intervals over 1,000
+bootstrap resamples of drugs; costs are held fixed. The arithmetic is tested against the expected cost per
+compound in the cost study itself (114.2 million; `tests/test_premium_value.py`). The three costs were taken
+from a briefing note that reproduces the table and are still to be checked against the article. Sources: DiMasi JA, Grabowski
+HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&D costs. *J Health Econ*
+2016;47:20–33; for lower cost estimates, Sertkaya A, Beleche T, Jessup A, Sommers BD. Costs of drug development
+and research and development intensity in the US, 2000–2018. *JAMA Netw Open* 2024;7(6):e2415445.
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download

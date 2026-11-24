@@ -489,6 +489,82 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   screened. The reading was AI-assisted and has not been repeated by the author; the two-annotator validation of
   a sample of pairs remains to be done.
 
+* **Genetic support by company among top-20 pharma (planned before the run; `docs/plan_company_table.md`,
+  `pilot/company_table.py`).** The paper compares classes of sponsor; this table looks inside the largest one. Of
+  4,928 programmes of top-20 pharma in indications with genetic insight (first trial from 2001), 218 had ex-ante
+  genetic support. For each company the number of supported programmes is set against the number expected if the
+  company supported programmes at the rate of the group for its own mix of periods, areas and modalities. The
+  ratios run from 2.09 (1.00–3.85) for Bayer and 1.58 (1.00–2.37) for Eli Lilly to 0.46 (0.17–0.99) for GSK, 0.16
+  (0.00–0.88) for Boehringer Ingelheim and 0.12 (0.00–0.66) for Takeda, with no supported programme at Astellas
+  (70 programmes) or Daiichi Sankyo (97), and the test fixed in advance rejects equal rates (χ² = 58.64, 15
+  degrees of freedom, p < 0.0001). The programmes of one drug are not independent, however: 4,928 programmes
+  belong to 1,463 drugs, and one drug accounts for up to six supported programmes of a company. A check with the
+  drug as the unit was therefore added after the first run, with the rule, written before it was run, that the
+  drug-level results decide what is said. Among 1,734 drug–company rows, 157 have at least one supported
+  programme. The test still rejects equal rates (χ² = 39.84, 15 degrees of freedom, p = 0.0005), so the companies
+  differ. But the data name almost none of them. The only interval that excludes 1 is Takeda's (1 supported drug
+  of 68 against 7.5 expected; 0.13, 0.00–0.74), and with twenty companies one such interval is expected by chance
+  (its two-sided Poisson p of 0.009 does not survive a Bonferroni correction for twenty comparisons). At the top
+  no company is separated from the group: Bayer 1.80 (0.78–3.55), Eli Lilly 1.58 (0.90–2.57), AstraZeneca 1.44
+  (0.82–2.33). The three lowest ratios belong to the three companies of the group based in Japan (Takeda,
+  Astellas, Daiichi Sankyo: 1 supported drug of 129 against 11.6 expected); this was noticed after the run and
+  was not tested. The secondary tables are wider (first trials from 2010: 172 supported of 2,846 programmes,
+  χ² = 50.28, 14 degrees of freedom; novel programmes: 80 of 1,497, χ² = 29.34, 11 degrees of freedom,
+  p = 0.0020); from 2010 the same companies stand at the two ends, and among novel programmes the lower end is
+  the same while the order above it changes. A programme counts for the company that sponsored its first trial under the name in the
+  registry today, so acquired and in-licensed drugs count for whoever started the trial. The table is a
+  description with wide intervals, not a ranking.
+
+* **Did the response to new genetic evidence change after 2015? (exploratory; `docs/plan_evidence_arrival_2015.md`,
+  `pilot/evidence_arrival_2015.py`).** Nelson et al. (2015) made the case for genetically supported targets; the
+  question is whether sponsors then reacted more strongly to new evidence. The cohort estimates above had been
+  seen, so the plan declares the analysis exploratory. In the stacked design, with one response for both industry
+  groups, programme starts respond to evidence published before 2016 with a ratio of 1.05 (0.62–1.77; 133 starts
+  on pairs with evidence) and to evidence published from 2016 with 1.45 (1.09–1.92; 320 starts). The ratio of the
+  two, the primary estimate, is 1.38 (0.77–2.49): the data do not show a change, and they could have missed one of
+  up to about two and a half times. By group it is 1.24 (0.61–2.49) for top-20 pharma and 1.71 (0.83–3.54) for
+  other industry sponsors. The secondary runs do not point one way: 1.64 (0.92–2.93) with evidence years to 2020
+  only, 0.95 (0.55–1.66) with the cut at 2017, 1.16 (0.62–2.15) with a window of eight years. Only 174 of the
+  1,393 pairs gained their evidence before 2016. The descriptive table shows something else. The share of new
+  programmes with ex-ante genetic support was 2.7%, 2.5%, 4.2%, 8.4% and 7.6% in the five periods from 2001–2005
+  to 2021–2025 for top-20 pharma, and 3.2%, 4.3%, 5.0%, 5.1% and 7.1% for other industry sponsors. A share rises
+  with the stock of evidence, but the stock is common to both groups, so a model of the gap between them was
+  added post hoc, after the table was seen. Before 2016 top-20 pharma did not differ from other industry sponsors
+  (0.88, 0.64–1.20); from 2016 it started supported programmes more often (1.46, 1.03–2.07); the ratio of the two
+  is 1.66 (1.07–2.60; 1.68, 1.06–2.67, with the cut at 2017). For novel programmes, the first indication of a
+  drug, there is no change (1.05, 0.46–2.38), so the gap opened in further indications of drugs already in
+  development, not in the choice of new drugs. Against large, mid-sized and small sponsors separately the ratio
+  is 1.37 (0.73–2.59), 1.49 (0.84–2.64) and 1.74 (0.92–3.32). This is a post hoc reading of one table with a p
+  value of 0.03; it qualifies the selection gap of the paper, which on this evidence is not visible before 2016,
+  and it needs confirmation on other data. It does not show why: the top-20 group is defined by today's
+  names, acquired companies bring their programmes from the year of acquisition, and evidence may have grown
+  faster in the areas where large companies work.
+
+* **What the premium is worth in clinical cost (an illustration; `docs/plan_premium_value.md`,
+  `pilot/premium_value.py`).** The phase-by-phase advancement rates had been seen, so this is arithmetic on them
+  and on published costs, not a test. For industry sponsors, with support switched on and off for the same phase
+  entries (adjusted for sponsor class, period, area and modality), the rates of advancing from phases 1, 2 and 3
+  are 0.70, 0.44 and 0.52 with ex-ante genetic support and 0.39, 0.26 and 0.34 without. A programme entering
+  phase 1 is then approved with probability 16.0% (12.2–20.4) with support and 3.5% (3.1–3.9) without: 6.2
+  (4.9–8.2) against 28.8 (25.8–32.5) phase 1 programmes per approval. With the phase costs of DiMasi, Grabowski
+  and Hansen (2016; 25.3, 58.6 and 255.4 million 2013 dollars per compound entering phases 1, 2 and 3), the
+  expected clinical cost per programme entering phase 1 is higher with support (144 against 74 million, because
+  more programmes reach the expensive phases), and the clinical cost per approval is 902 million (786–1,058) with
+  support against 2,144 million (1,994–2,326) without: a ratio of 0.42 (0.36–0.51). Unadjusted rates give 0.39
+  (0.33–0.47); counting advancement in similar indications gives 0.42 (0.37–0.49). For the drug's first indication
+  only (with the similar-indication definition), the unit closest to the cost study, approval from phase 1 is 25.8% (18.9–33.9) against 8.5% (7.4–9.6),
+  3.9 against 11.8 programmes per approval, and 638 against 1,123 million per approval: a ratio of 0.57
+  (0.49–0.68). The ratio is the figure to read, and it lies between about 0.4 and 0.6 depending on the unit. The
+  dollar amounts are not estimates of what a drug costs: advancement is read from the registry for a
+  drug–indication pair and is well below the success rates published for compounds, which inflates the cost per
+  approval in both groups; the costs come from self-originated compounds of ten large firms, exclude preclinical
+  work and the cost of capital, and are put lower by other studies (Sertkaya et al. 2024), to which the amounts
+  scale one to one. The premium is an association, not the effect of choosing a supported target; the product of
+  the three rate ratios (4.62, 3.42–6.10; 3.05, 2.14–4.10, for first indications) is also larger than the 2.6
+  from phase 1 to launch that Minikel et al. (2024) report from a commercial pipeline database, a difference in
+  level listed among the limitations in [methods](methods.md), and with their ratio the difference in cost would
+  be smaller. Few supported programmes enter the sample in phase 1 (95).
+
 ## Validation
 * `gensup.py` reproduces all 1,258 genetically supported target–indication pairs in Minikel et al.'s data exactly
   (OMIM, OTG, PICCOLO and Genebass evidence; commit b84cf05; no pairs missing or added).

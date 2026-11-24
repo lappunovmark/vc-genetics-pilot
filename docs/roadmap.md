@@ -65,5 +65,14 @@
   no longer separated from zero; planned before the run.
 * **Location audit of the sponsor–issuer links** (`factcheck/link_audit.py`): of 535 links screened, four were
   flagged and all four are the same company. The two-annotator validation of a sample of pairs is still open.
+* **Genetic support by company among top-20 pharma** (`pilot/company_table.py`): the companies differ as a group,
+  but with the drug as the unit only one interval excludes 1, which twenty comparisons would produce by chance;
+  planned before the run. Open: the same table on the dated Open Targets measure.
+* **The response to new genetic evidence before and after 2015** (`pilot/evidence_arrival_2015.py`,
+  exploratory): no change is shown (1.38, 0.77–2.49). Post hoc, the selection gap between top-20 pharma and other
+  industry sponsors appears from 2016 and only in further indications of existing drugs. Open: a confirmation
+  on data not used to form the question.
+* **Clinical cost per approval with and without genetic support** (`pilot/premium_value.py`, an illustration):
+  the ratio is 0.42 (0.36–0.51), and 0.57 (0.49–0.68) for first indications, under published phase costs.
 
 Corrections to earlier results are listed at the end of [results](results.md).

@@ -70,7 +70,8 @@ ones that cut against these findings, are in [docs/results.md](docs/results.md).
 
 * This is a pilot and has not been peer-reviewed.
 * Investors are known by name only for companies that later went public and for funding rounds up to 2015.
-* Eleven analyses and checks were planned in writing before they were run ([plans](docs)); the rest are exploratory.
+* Twelve analyses and checks were planned in writing before they were run; two more have a written plan but are
+  exploratory or illustrative, because related results had been seen ([plans](docs)); the rest are exploratory.
 * The labels used to check how reasons for stopping a trial are classified were first made with AI assistance; an
   independent check by the author is under way.
 * The code is tested automatically on every change, and the results can be rebuilt with `make`.

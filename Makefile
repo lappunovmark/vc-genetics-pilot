@@ -29,6 +29,8 @@ results:
 	$(PY) pilot/build_panel26.py $(DATA)/ot $(MINIKEL)/data $(RES)
 	$(PY) pilot/robust26.py $(RES)
 	$(PY) pilot/placebo_similarity.py $(MINIKEL)/data $(RES)
+	$(PY) pilot/company_table.py $(RES)
+	$(PY) pilot/premium_value.py $(RES)
 	$(PY) pilot/khb26.py $(RES) > $(RES)/khb.txt
 	$(PY) pilot/rq2_stops.py $(DATA)/ctgov_all.csv $(RES)
 	$(PY) pilot/rq2_rr.py $(RES)
@@ -85,6 +87,7 @@ biology:  # exploratory: the gap by type of drug, direction of effect, arrival o
 	$(PY) pilot/extract_ot_dated.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction/ot_dated_evidence.csv.gz
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	$(PY) pilot/evidence_arrival_cohorts.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
+	$(PY) pilot/evidence_arrival_2015.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	$(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all
 	EA_LAST_EVIDENCE_YEAR=2022 $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz gwas
 	EA_UNDATED=only $(PY) pilot/evidence_arrival.py $(RES) $(MINIKEL)/data $(DATA)/ot_direction/ot_dated_evidence.csv.gz all

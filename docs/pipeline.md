@@ -32,6 +32,9 @@
 | Placebo test of the genetic premium: evidence for an unrelated disease, planned before the run | `pilot/placebo_similarity.py`, `docs/plan_placebo_similarity.md` | — (Minikel et al. 2024 data, as for the panel) |
 | The evidence-arrival contrast with clean controls, cohort by cohort, planned before the run (needs pyfixest and Python >= 3.10) | `pilot/evidence_arrival_cohorts.py`, `docs/plan_evidence_arrival_cohorts.md` | — |
 | Location audit of the sponsor–issuer links, planned before the data were fetched | `pilot/fetch_ctgov_countries.py`, `factcheck/link_audit.py`, `docs/plan_link_audit.md` | ClinicalTrials.gov API v2 (site countries) |
+| Genetic support by company among top-20 pharma, with the drug as the unit as a check; planned before the run | `pilot/company_table.py`, `docs/plan_company_table.md` | — |
+| Exploratory: the response to new genetic evidence before and after 2015, and the selection gap before and from 2016 (needs pyfixest and Python >= 3.10) | `pilot/evidence_arrival_2015.py`, `docs/plan_evidence_arrival_2015.md` | — |
+| Illustration: phase 1 programmes and clinical cost per approval with and without genetic support | `pilot/premium_value.py`, `docs/plan_premium_value.md` | Phase costs from DiMasi, Grabowski and Hansen (2016), Table 2 |
 | Cash runway of public sponsors and trial stops, planned before the download (SEC_USER_AGENT needed) | `pilot/fetch_sec_frames.py`, `pilot/cash_runway.py`, `docs/plan_cash_runway.md` | SEC XBRL frames API (public domain) |
 | Exploratory: programme starts around the publication of genetic evidence (needs pyfixest, Python ≥ 3.10) | `pilot/evidence_arrival.py` | `ericminikel/genetic_support` @ b84cf05 (CC BY 4.0) |
 | The same on Open Targets 26.09 evidence, planned before the run | `pilot/extract_ot_dated.py`, `pilot/evidence_arrival.py`, `docs/plan_evidence_arrival_ot.md` | Open Targets 26.09 genetic evidence datasets |
