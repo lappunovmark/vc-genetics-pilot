@@ -94,3 +94,21 @@ def test_cohort_contrast_quoted_in_readme():
     row = next(line for line in lines[start : start + 12] if line.startswith("post_other"))
     est, lo, hi = (float(x) for x in row.split()[-3:])
     assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README
+
+
+def test_before_and_after_2015_quoted_in_readme():
+    """The response to later evidence and the selection gap by period (evidence_arrival_ot_gwas_2015.txt)."""
+    import re
+
+    with open(os.path.join(RESULTS, "evidence_arrival_ot_gwas_2015.txt"), encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    start = next(i for i, line in enumerate(lines) if line.startswith("1. PRIMARY"))
+    row = next(line for line in lines[start:] if line.startswith("post_late"))
+    est, lo, hi = (float(x) for x in row.split()[-3:])
+    assert f"{est:.2f} ({lo:.2f}–{hi:.2f})" in README
+    start = next(i for i, line in enumerate(lines) if line.startswith("4. POST HOC"))
+    row = next(line for line in lines[start:] if line.startswith("inverse, other sponsors against top-20 pharma"))
+    found = re.findall(r"OR (\d+\.\d+) \((\d+\.\d+) to (\d+\.\d+)\)", row)
+    assert len(found) == 2
+    for est, lo, hi in found:
+        assert f"{float(est):.2f} ({float(lo):.2f}–{float(hi):.2f})" in README

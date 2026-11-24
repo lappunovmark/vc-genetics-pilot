@@ -11,7 +11,10 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   industry sponsors and top-20 pharma (interaction OR 1.29, 0.77–2.15).
 * Small industry sponsors start fewer programmes with ex-ante support once the period of the first trial, the
   therapeutic area and the modality are held fixed (adjusted OR 0.68, 0.49–0.93); not significant for novel drugs
-  (0.83, 0.51–1.34). The unadjusted shares barely differ (4.3% of small sponsors' programmes against 4.5% for top-20
+  (0.83, 0.51–1.34). In a split by period made after the data were seen, the gap between other industry sponsors and
+  top-20 pharma is not visible before 2016 (1.14, 0.83–1.55) and appears from 2016 (0.68, 0.48–0.97), in further
+  indications only (see "Did the response to new genetic evidence change after 2015?" below). The unadjusted
+  shares barely differ (4.3% of small sponsors' programmes against 4.5% for top-20
   pharma; unadjusted OR 0.96, 0.70–1.32; 0.79 with the period alone, 0.71 with period and area). The gap opens within
   periods and areas because small sponsors' programmes are more recent (52% first trialled in 2015 or later, against
   29% for top-20 pharma), when dated genetic support is more common, and less often in oncology (31% against 46%),

@@ -25,7 +25,8 @@ NIH grants), and all the code is in this repository.
    trial phase. This holds for small biotechs as much as for big pharma. Genetic evidence for an unrelated
    disease does not help.
 2. **No sign that investors select on it.** Companies with private or venture money did not pick better-supported drugs.
-3. **Small biotechs use it slightly less** than the 20 largest drug companies.
+3. **Small biotechs use it slightly less** than the 20 largest drug companies. A split by period, made after
+   seeing the data, suggests that this gap opened only from 2016, and only in new uses of existing drugs.
 4. **After 2022, trials were stopped for money about twice as often.** At small biotechs the rate jumped in 2022;
    at big pharma it had been rising steadily for years.
 5. **The largest companies start more projects where new genetic evidence appears.** Whether the evidence is the
@@ -48,6 +49,8 @@ NIH grants), and all the code is in this repository.
 | 2. Corporate venture investor vs independent funds only | odds ratio 0.53 (0.16–1.80), few cases |
 | 2. Share of the company held by venture funds at its IPO → projects with genetic evidence | odds ratio 1.02 (0.86–1.22) per 10 points of share |
 | 3. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.68 (0.49–0.93) |
+| 3. All other companies vs top-20 pharma, first trials before 2016 (split made after seeing the data) | odds ratio 1.14 (0.83–1.55), not significant |
+| 3. The same, first trials from 2016 | odds ratio 0.68 (0.48–0.97) |
 | 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
 | 4. Genetic evidence of trials stopped for money, vs completed trials | odds ratio 0.75 (0.54–1.04) |
 | 4. Small biotechs: jump in stops for money in 2022, beyond the earlier trend | ratio 2.12 (1.23–3.67) |
@@ -59,6 +62,7 @@ NIH grants), and all the code is in this repository.
 | 5. The same, each group of pairs compared only with pairs that never gained evidence | ratio 0.64 (0.39–1.04), not significant |
 | 5. The same, compared with other diseases treated through the same target | ratio 0.85 (0.46–1.58) |
 | 5. Other companies relative to top-20 pharma, with the top-20 list fixed by 2010 sales | ratio 0.56 (0.38–0.82) |
+| 5. All companies: response to evidence published from 2016, relative to earlier evidence | ratio 1.38 (0.77–2.49), not significant |
 
 Above 1 means more likely, below 1 less likely. If the range includes 1, the difference is not statistically
 significant. 29,199 of the projects are in diseases where human genetic data exist. Full results, including the

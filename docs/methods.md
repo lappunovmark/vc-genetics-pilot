@@ -475,7 +475,10 @@ the interaction: the ratio of the response to later evidence over the response t
 group interactions. The fully interacted model reproduces the cohort estimates for evidence years to 2015. A
 descriptive table gives the share of new industry programmes with ex-ante support by five-year period. A post hoc
 model, added after that table was seen, is a logit of ex-ante support on top-20 pharma and its interaction with
-first trials from 2016, with period, area and modality, errors clustered by drug. The year refers to Nelson MR,
+first trials from 2016, with period, area and modality, errors clustered by drug; it is also fitted with the
+cut at 2017, for novel programmes, for further indications (added after the model for novel programmes was seen)
+and against each size class of other industry sponsors. The output gives every estimate in both orientations
+(top-20 pharma against other sponsors, and the inverse used in the working paper). The year refers to Nelson MR,
 Tipney H, Painter JL, et al. The support of human genetic evidence for approved drug indications. *Nat Genet*
 2015;47:856–860.
 
