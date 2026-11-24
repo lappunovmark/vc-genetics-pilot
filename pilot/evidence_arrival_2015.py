@@ -90,6 +90,38 @@ def shares(R):
     return pd.DataFrame(rows)
 
 
+def gap_change(R, out):
+    """Post hoc (plan, second part): did the selection gap between top-20 pharma and other industry change from 2016?"""
+    import statsmodels.formula.api as smf
+    from company_table import MOD
+    from pooling import pool_sparse
+
+    P = pd.read_csv(f"{R}/programmes.csv.gz")
+    P = P[P.insight & P.first_year.between(2001, 2025) & P.first_class.eq("INDUSTRY")].copy()
+    P["y"], P["top"] = P.gs_ante_first.fillna(False).astype(int), P.first_sponsor_tier.eq(TOP).astype(int)
+    P["modality"], P["area"] = P.drugType.map(MOD).fillna("other"), P.area.fillna("other")
+    P["yb"] = pd.cut(P.first_year, [2000, 2005, 2010, 2015, 2020, 2100]).astype(str)
+
+    def one(d, title, cut=2016):
+        d = d.assign(late=d.first_year.ge(cut).astype(int))
+        d["top_late"] = d.top * d.late
+        f = "y ~ top + top_late + C(yb) + C(area) + C(modality)" + ("" if cut == 2016 else " + late")
+        d = pool_sparse(d, f)
+        r = smf.logit(f, d).fit(disp=0, maxiter=200, cov_type="cluster", cov_kwds={"groups": pd.factorize(d.drug)[0]})
+        t = r.summary2().tables[1].loc[["top", "top_late"], ["Coef.", "Std.Err.", "P>|z|", "[0.025", "0.975]"]]
+        t["OR"], t["OR_lo"], t["OR_hi"] = np.exp(t["Coef."]), np.exp(t["[0.025"]), np.exp(t["0.975]"])
+        c = r.t_test("top + top_late = 0")
+        b, (lo, hi) = float(np.ravel(c.effect)[0]), np.ravel(c.conf_int())
+        out.extend(["=" * 100, title, f, f"N={int(r.nobs)}; supported={int(d.y.sum())}; drugs={d.drug.nunique()}; converged={r.mle_retvals['converged']}", t.round(4).to_string()])  # fmt: skip
+        out.append(f"top-20 pharma against other industry from the cut (top + top_late): OR {np.exp(b):.4f} ({np.exp(lo):.4f} to {np.exp(hi):.4f})")  # fmt: skip
+
+    one(P, "Top-20 pharma against other industry sponsors, before and from 2016")
+    one(P, "Cut at 2017", cut=2017)
+    one(P[P.is_drug_first_indication.eq(True)], "Novel programmes only (the drug's first indication)")
+    for tier in ("Industry, large (>30)", "Industry, mid (6-30)", "Industry, small (<=5 drugs)"):
+        one(P[P.first_sponsor_tier.isin([TOP, tier])], f"Top-20 pharma against: {tier}")
+
+
 def main():
     import evidence_arrival as ea  # runs the planned analysis and leaves the pair-year panel in ea.grid
 
@@ -109,6 +141,9 @@ def main():
     out.append("\n3. DESCRIPTIVE (plan; not a test): share of new programmes with ex-ante genetic support by period of the first trial")  # fmt: skip
     out.append("industry-sponsored programmes in indications with genetic insight; the share rises with the stock of evidence")  # fmt: skip
     out.append(shares(ea.R).round(4).to_string(index=False))
+    out.append("\n4. POST HOC, ADDED AFTER THE TABLE ABOVE WAS SEEN (plan, second part): the selection gap before and from 2016")  # fmt: skip
+    out.append("top = top-20 pharma against other industry before the cut; top_late = ratio of that odds ratio from the cut to before")  # fmt: skip
+    gap_change(ea.R, out)
     open(f"{ea.R}/evidence_arrival_ot_gwas_2015.txt", "w").write("\n".join(out) + "\n")
     print("\n".join(out))
 

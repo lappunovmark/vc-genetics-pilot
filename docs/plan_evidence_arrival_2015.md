@@ -41,3 +41,25 @@ show a change, and the width of the interval says how large a change they could 
 the first five years after the evidence, and for cohorts from 2021 fewer; a stronger response after 2015 could
 also come from better evidence (larger studies, better gene assignment) and not from sponsors learning; the
 limits of the evidence-arrival design listed in the earlier plans apply.
+
+## Check added after the run (24 November 2026, written before it was run)
+
+**What had been seen.** The results above, including the descriptive table: among top-20 pharma the share of new
+programmes with ex-ante genetic support was 4.2% in 2011–2015 and 8.4% in 2016–2020; among other industry
+sponsors 5.0% and 5.1%.
+
+**Why.** The share of one group over time cannot show a change in behaviour, because the stock of evidence grows.
+The difference between two groups over time can say more: the growing stock is common to both. The table suggests
+that the share rose at top-20 pharma and not elsewhere. That reading was formed after seeing the table, so the
+model below is post hoc and is reported as such.
+
+**Model.** Industry-sponsored programmes in indications with genetic insight, first trial 2001–2025. Logit of
+ex-ante support on top-20 pharma, its interaction with first trials from 2016, five-year period effects, therapeutic
+area and modality; errors clustered by drug. Estimate: the interaction, the ratio of the odds ratio of top-20
+pharma against other industry from 2016 to that before. Also: the same with the cut at 2017; novel programmes only;
+the three size classes of other industry sponsors separately.
+
+**Reading.** Post hoc whatever it shows. An interaction above 1 would mean that the selection gap between top-20
+pharma and other sponsors opened or widened after 2015; it would not show why (the top-20 group is defined by
+today's names, companies acquired later bring their programmes from the year of acquisition, and evidence may have
+grown faster in the areas where large companies work).
