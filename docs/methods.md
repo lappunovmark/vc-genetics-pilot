@@ -286,7 +286,7 @@ for phase entries). A sponsor is public at *t* when *t* is later than its IPO ye
 and Ritter's list); without an IPO year, when *t* is later than its first year as an EDGAR registrant, a first
 year of 2001, where the index begins, meaning public throughout. A trial in the IPO year counts as private. A
 sponsor is venture-backed at its IPO when a venture-capital fund holds 5% or more in the prospectus or Ritter's
-list marks the IPO as venture-backed; a dated venture marker is a Crunchbase venture round or a Form D filing with
+list marks the IPO as venture-backed (growth capital counted, as in the Ritter models); a dated venture marker is a Crunchbase venture round or a Form D filing with
 a venture investor on the board in a year before *t*. Groups of non-top-20 industry sponsors: **A** private and
 venture-backed (not public at *t*; venture-backed at an IPO still ahead, or a dated marker before *t*); **B**
 public, venture-backed before (public at *t*; venture-backed at the IPO, or a dated marker before *t*, or a

@@ -75,7 +75,7 @@ venture:  # exploratory venture markers (SEC_USER_AGENT="Your Name you@example.o
 	$(PY) pilot/cvc_models.py $(RES) $(DATA)/crunchbase/cb2015
 	$(PY) pilot/vc_stops.py $(DATA)/ctgov_all.csv $(RES) $(DATA)/crunchbase/cb2015 $(DATA)/ritter/IPO-age.xlsx $(DATA)/formd
 
-biology:  # exploratory: the gap by type of drug, direction of effect, arrival of genetic evidence (the last needs pyfixest and Python >= 3.10)
+biology:  # exploratory: the gap by type of drug, direction of effect, arrival of genetic evidence (the evidence-arrival scripts need pyfixest and Python >= 3.10)
 	$(PY) pilot/h1_by_modality.py $(RES)
 	OT_DATASETS=evidence_gene_burden,evidence_eva,evidence_orphanet,evidence_gene2phenotype $(PY) pilot/fetch_opentargets.py $(DATA)/ot_gen
 	$(PY) pilot/extract_ot_direction.py $(DATA)/ot $(DATA)/ot_gen $(DATA)/ot_direction
