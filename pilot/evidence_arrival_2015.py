@@ -9,6 +9,7 @@ evidence years from the cut (2016). exp(coefficient) is the ratio of the respons
 cut over the response to earlier evidence. Writes RESULTS_DIR/evidence_arrival_ot_gwas_2015.txt.
 """
 
+import gc
 import os
 import sys
 
@@ -22,11 +23,20 @@ TOP = "Top-20 pharma"
 
 
 def add_late(s, cut):
-    s = s.copy()
-    s["late"] = (s.cohort >= cut).astype(int)
+    """Adds the before/after terms in place (the stacked frame has millions of rows) and returns the frame."""
+    s["late"] = (s.cohort >= cut).astype("int8")
     for t in ("post", "e0"):
-        s[f"{t}_late"] = s[t] * s.late
-        s[f"{t}_late_other"] = s[t] * s.late * s.grp
+        s[f"{t}_late"] = (s[t] * s.late).astype("int8")
+        s[f"{t}_late_other"] = (s[t] * s.late * s.grp).astype("int8")
+    return s
+
+
+def slim(s):
+    """Smaller integer types for the indicator and index columns: the models are fitted on up to four million rows."""
+    for c in ("post", "e0", "post_other", "e0_other", "grp"):
+        s[c] = s[c].astype("int8")
+    for c in ("pg", "yg", "cohort"):
+        s[c] = s[c].astype("int32")
     return s
 
 
@@ -41,7 +51,7 @@ def combo(m, names):
 def fit(ea, out, grid, c0, c1, k, title, cut=2016, last=None):
     try:
         s, n_treated = eac.stacks(grid, c0, c1, k, cohorts=(0, last) if last else None)
-        s = add_late(s, cut)
+        s = add_late(slim(s), cut)
         tp = s[s.E.notna()]
         cnt = tp.groupby(["late", "grp"]).agg(pair_groups=("pg", "nunique"), starts=("y", "sum"))
         out.extend(["=" * 100, title])
@@ -52,10 +62,14 @@ def fit(ea, out, grid, c0, c1, k, title, cut=2016, last=None):
         out.extend(["common response: y ~ post + e0 + post_late + e0_late | pair x group x stack + year x group x stack", ea.tidy(m, ["post", "post_late"])])  # fmt: skip
         out.append("response to evidence from the cut (post + post_late): RR %.4f (%.4f to %.4f)" % combo(m, ["post", "post_late"]))  # fmt: skip
         f = "y ~ post + e0 + post_late + e0_late + post_other + e0_other + post_late_other + e0_late_other | pg + yg"
+        del m
+        gc.collect()
         m = ea.pf.fepois(f, data=s, vcov={"CRV1": ea.CL})
         out.extend(["by group: " + f.replace("| pg + yg", "| pair x group x stack + year x group x stack"), ea.tidy(m, ["post", "post_late", "post_other", "post_late_other"])])  # fmt: skip
         out.append("change for top-20 pharma (post_late): ratio %.4f (%.4f to %.4f)" % combo(m, ["post_late"]))
         out.append("change for other industry (post_late + post_late_other): ratio %.4f (%.4f to %.4f)" % combo(m, ["post_late", "post_late_other"]))  # fmt: skip
+        del m, s
+        gc.collect()
     except Exception as e:
         out.extend(["=" * 100, title, f"failed: {e!r}"])
 
