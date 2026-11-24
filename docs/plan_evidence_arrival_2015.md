@@ -63,3 +63,9 @@ the three size classes of other industry sponsors separately.
 pharma and other sponsors opened or widened after 2015; it would not show why (the top-20 group is defined by
 today's names, companies acquired later bring their programmes from the year of acquisition, and evidence may have
 grown faster in the areas where large companies work).
+
+**Added on 24 November 2026 after the post hoc results were seen, before it was run.** The model for novel
+programmes showed no change, which implies that the change sits in further indications of drugs already in
+development. To state that directly and not by subtraction, the same model is fitted on programmes that are not
+the drug's first indication. The output also gives each estimate the other way round (other sponsors against
+top-20 pharma), the orientation of the paper's tables; these are the same models, inverted.

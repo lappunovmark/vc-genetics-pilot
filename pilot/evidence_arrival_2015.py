@@ -114,10 +114,18 @@ def gap_change(R, out):
         b, (lo, hi) = float(np.ravel(c.effect)[0]), np.ravel(c.conf_int())
         out.extend(["=" * 100, title, f, f"N={int(r.nobs)}; supported={int(d.y.sum())}; drugs={d.drug.nunique()}; converged={r.mle_retvals['converged']}", t.round(4).to_string()])  # fmt: skip
         out.append(f"top-20 pharma against other industry from the cut (top + top_late): OR {np.exp(b):.4f} ({np.exp(lo):.4f} to {np.exp(hi):.4f})")  # fmt: skip
+        # the same three quantities the other way round (other sponsors against top-20 pharma, as in the paper's tables)
+        x = t.loc["top"]
+        out.append(f"inverse, other sponsors against top-20 pharma: before the cut OR {1 / x.OR:.4f} ({1 / x.OR_hi:.4f} to {1 / x.OR_lo:.4f}); from the cut OR {np.exp(-b):.4f} ({np.exp(-hi):.4f} to {np.exp(-lo):.4f})")  # fmt: skip
+        x = t.loc["top_late"]
+        out.append(
+            f"inverse, ratio of the two: {1 / x.OR:.4f} ({1 / x.OR_hi:.4f} to {1 / x.OR_lo:.4f}), p={x['P>|z|']:.4f}"
+        )
 
     one(P, "Top-20 pharma against other industry sponsors, before and from 2016")
     one(P, "Cut at 2017", cut=2017)
     one(P[P.is_drug_first_indication.eq(True)], "Novel programmes only (the drug's first indication)")
+    one(P[~P.is_drug_first_indication.eq(True)], "Further indications only (not the drug's first indication; added after the block above was seen)")  # fmt: skip
     for tier in ("Industry, large (>30)", "Industry, mid (6-30)", "Industry, small (<=5 drugs)"):
         one(P[P.first_sponsor_tier.isin([TOP, tier])], f"Top-20 pharma against: {tier}")
 
