@@ -1,0 +1,15 @@
+Replication of the power figure: 4000 replications per scenario, seed 20261124 (the figure used 400)
+rs_other  rs_vc      n  share  figure  replication  difference
+     1.6    1.0   3000   0.07    0.53        0.517      -0.013
+     1.6    1.0   3000   0.15    0.80        0.835      +0.035
+     1.6    1.0   6000   0.07    0.83        0.838      +0.008
+     1.6    1.0   6000   0.15    0.99        0.985      -0.005
+     1.4    1.0   3000   0.07    0.30        0.263      -0.037
+     1.4    1.0   3000   0.15    0.48        0.521      +0.041
+     1.4    1.0   6000   0.07    0.48        0.512      +0.032
+     1.4    1.0   6000   0.15    0.80        0.796      -0.004
+     1.6    1.2   3000   0.07    0.29        0.265      -0.025
+     1.6    1.2   3000   0.15    0.48        0.488      +0.008
+     1.6    1.2   6000   0.07    0.46        0.486      +0.026
+     1.6    1.2   6000   0.15    0.78        0.771      -0.009
+largest absolute difference: 0.041 (the standard error of a power near 0.5 from 400 replications is 0.025)

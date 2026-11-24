@@ -51,8 +51,8 @@ NIH grants), and all the code is in this repository.
 | 3. Small biotechs starting projects with genetic evidence, vs top-20 pharma | odds ratio 0.68 (0.49–0.93) |
 | 3. All other companies vs top-20 pharma, first trials before 2016 (split made after seeing the data) | odds ratio 1.14 (0.83–1.55), not significant |
 | 3. The same, first trials from 2016 | odds ratio 0.68 (0.48–0.97) |
-| 4. Small biotechs' trials stopped for lack of funding, 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
-| 4. Genetic evidence of trials stopped for money, vs completed trials | odds ratio 0.75 (0.54–1.04) |
+| 4. Trials stopped for lack of funding at small biotechs (up to 20 registered trials), 2022–25 vs 2016–21 | rate ratio 2.21 (1.45–3.37) |
+| 4. Genetic evidence of trials stopped for money, vs completed trials (all years) | odds ratio 0.75 (0.54–1.04) |
 | 4. Small biotechs: jump in stops for money in 2022, beyond the earlier trend | ratio 2.12 (1.23–3.67) |
 | 4. Top-20 pharma: the same | ratio 1.34 (0.92–1.96) |
 | 4. Short of cash at the end of 2021 → trial stopped for money in 2022–23 | odds ratio 1.58 (0.68–3.66) |

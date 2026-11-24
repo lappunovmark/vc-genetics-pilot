@@ -26,7 +26,7 @@ keys = list(H)
 GROUPS = [
     ("DOES GENETIC EVIDENCE PREDICT SUCCESS?", [keys[0], keys[1]]),
     ("WHO STARTS PROGRAMMES THAT HAVE IT?", [keys[2], keys[6], keys[5]]),
-    ("WHEN MONEY GOT TIGHT (2022–25)", [keys[3], keys[4]]),
+    ("TRIALS STOPPED FOR MONEY", [keys[3], keys[4]]),
 ]
 # sponsors with a venture-capital fund among the owners named in Schedule 13D/13G filings (owners_models.py)
 OWNERS = "Venture-capital fund among the owners (SEC)\n→ genetic support of programmes"
@@ -83,19 +83,19 @@ def panel(ax, rows, xlim, ticks, xtext, value_header):
 fig, (ax_a, ax_b) = plt.subplots(
     2,
     1,
-    figsize=(9.6, 2.4 + 0.5 * (len(rows_a) * 1.12 + len(rows_b))),
+    figsize=(9.6, 2.2 + 0.375 * (len(rows_a) * 1.12 + len(rows_b))),  # short enough to fit one A4 page
     dpi=200,
-    gridspec_kw={"height_ratios": [len(rows_a) * 1.12, len(rows_b)], "hspace": 0.36},
+    gridspec_kw={"height_ratios": [len(rows_a) * 1.12, len(rows_b)], "hspace": 0.3},
 )
 fig.patch.set_facecolor(SURFACE)
 panel(ax_a, rows_a, (0.3, 5.5), [0.33, 0.5, 1, 2, 4], 5.7, "Ratio (95% CI)")
-panel(ax_b, rows_b, (0.42, 1.55), [0.5, 0.7, 1, 1.4], 1.575, "Odds ratio (95% CI)")
+panel(ax_b, rows_b, (0.29, 1.55), [0.3, 0.5, 0.7, 1, 1.4], 1.575, "Odds ratio (95% CI)")
 ax_a.set_xlabel("← less          Odds ratio or rate ratio, log scale          more →", color=INK2, fontsize=9)
 ax_b.set_xlabel("← less often          Odds ratio, log scale          more often →", color=INK2, fontsize=9)
 fig.text(0.02, 0.978, "Genetic evidence predicts success for every sponsor,\nbut small and privately financed sponsors "
          "do not start more programmes that have it", ha="left", va="top", fontsize=12.5, fontweight="bold",
          color=INK, linespacing=1.25)  # fmt: skip
-fig.subplots_adjust(left=0.37, right=0.79, top=0.865, bottom=0.095)
+fig.subplots_adjust(left=0.37, right=0.79, top=0.885, bottom=0.105)
 pos_a, pos_b = ax_a.get_position(), ax_b.get_position()
 fig.text(0.02, pos_a.y1 + 0.012, "A   Headline estimates", ha="left", color=INK, fontsize=10.5,
          fontweight="bold")  # fmt: skip
@@ -103,9 +103,11 @@ fig.text(0.02, pos_b.y1 + 0.036, "B   The small-sponsor gap in selection under e
          color=INK, fontsize=10.5, fontweight="bold")  # fmt: skip
 fig.text(0.02, pos_b.y1 + 0.018, "Odds that a programme has genetic support at its first trial, small industry "
          "sponsors against top-20 pharma", ha="left", color=INK2, fontsize=8.5)  # fmt: skip
-fig.text(0.02, 0.012, "Filled marker: the 95% interval excludes 1. 35,887 drug × indication programmes; Open Targets "
-         "26.09, ClinicalTrials.gov snapshot of 17 October 2026,\nSEC Form D 2009–2026 and Schedules 13D/13G 2001–2026, NIH RePORTER. Open data, "
-         "not peer-reviewed.", ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
+fig.text(0.02, 0.012, "Filled marker: the 95% interval excludes 1. Small sponsors: up to 5 drugs in the selection and "
+         "advancement models, up to 20 trials in the stop rates.\nThe split by period is a separate model of top-20 pharma "
+         "and small sponsors only. 35,887 drug × indication programmes; Open Targets 26.09,\nClinicalTrials.gov snapshot "
+         "of 17 October 2026, SEC Form D 2009–2026 and Schedules 13D/13G 2001–2026, NIH RePORTER. Open data, not "
+         "peer-reviewed.", ha="left", va="bottom", color=INK2, fontsize=8, linespacing=1.3)  # fmt: skip
 fig.savefig(OUT, facecolor=SURFACE)
 for kind, label, v in rows_a + rows_b:
     if v:

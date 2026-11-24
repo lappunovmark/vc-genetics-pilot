@@ -1,6 +1,6 @@
 """Figure: programme starts around the publication of GWAS evidence for a target-indication pair.
 (A) the event study of top-20 pharma and of other industry sponsors, (B) the ratio of the two responses under the
-planned specifications and under the checks added after the result was known. All numbers are read from the result
+planned specifications, the two analyses planned later and the checks added after the result was known. All numbers are read from the result
 files of evidence_arrival.py.
 
 Usage: python pilot/figure_evidence_arrival.py results figures/evidence_arrival.png
@@ -50,16 +50,19 @@ ROWS = [
     ("main", "Primary: GWAS evidence, target–indication pairs", from_txt(RES, GWAS, D1, "post_other")),
     ("est", "With therapeutic area × year effects", from_txt(RES, GWAS, "D2. the same with therapeutic area x year x group fixed effects", "post_other")),
     ("est", "All germline sources of evidence", from_txt(RES, ALL, D1, "post_other")),
+    ("head", "PLANNED LATER, EACH BEFORE ITS OWN RUN", None),
+    ("est", "Top-20 group fixed by 2010 sales, evidence from 2010", from_txt(RES, "evidence_arrival_ot_gwas_top2010_from2010.txt", D1, "post_other")),
+    ("est", "Each cohort against pairs never supported (stacked)", from_txt(RES, "evidence_arrival_ot_gwas_cohorts.txt", "Stacked D1, years e-5 to e+5", "post_other")),
     ("head", "ADDED AFTER THE RESULT WAS KNOWN", None),
     ("est", "Without pairs that gained evidence after 2022", from_txt(RES, TO22, D1, "post_other")),
     ("est", "Without the three leading genes (TYK2, IL12B, JAK2)", from_txt(RES, GWAS, "G. D1 without the pairs of these three genes", "post_other")),
-    ("est", "Against other indications of the same target\n(gene × year effects)", from_txt(RES, GWAS, "G. D1 with gene x year x group fixed effects", "post_other")),
+    ("est", "Against other indications of the same target (gene × year)", from_txt(RES, GWAS, "G. D1 with gene x year x group fixed effects", "post_other")),
     ("est", "The target as the unit, all its indications together", from_txt(RES, GWAS, "H3. other industry against top-20 pharma, target level", "post_other")),
     ("est", "The target as the unit, without the three leading genes", from_txt(RES, GWAS, "H4. H3 without the three leading genes", "post_other")),
 ]  # fmt: skip
 
 fig, (ax, bx) = plt.subplots(
-    2, 1, figsize=(9.6, 9.6), dpi=200, gridspec_kw={"height_ratios": [1.0, 1.02], "hspace": 0.5}
+    2, 1, figsize=(9.6, 10.1), dpi=200, gridspec_kw={"height_ratios": [1.0, 1.16], "hspace": 0.46}
 )
 fig.patch.set_facecolor(SURFACE)
 
@@ -133,7 +136,8 @@ pb = bx.get_position()
 bx.set_position([0.44, pb.y0, 0.80 - 0.44, pb.height])
 pa, pb = ax.get_position(), bx.get_position()
 fig.text(0.02, 0.982, "After GWAS evidence for a target and indication is published, top-20 pharma start\nmore "
-         "programmes on the pair than other industry sponsors do, but the difference\nis not specific to that indication",
+         "programmes on the pair; the difference from other industry sponsors is not\nrobust to the estimator and not "
+         "specific to that indication",
          ha="left", va="top", fontsize=12.5, fontweight="bold", color=INK, linespacing=1.25)  # fmt: skip
 fig.text(0.02, pa.y1 + 0.03, "A   Programme starts on the pair, by years since the evidence was published", ha="left", color=INK, fontsize=10.5, fontweight="bold")  # fmt: skip
 fig.text(0.02, pa.y1 + 0.012, "Relative to the two years before publication and to pairs without such evidence in the same calendar years", ha="left", color=INK2, fontsize=8.5)  # fmt: skip

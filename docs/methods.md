@@ -497,6 +497,17 @@ HG, Hansen RW. Innovation in the pharmaceutical industry: new estimates of R&D c
 2016;47:20–33; for lower cost estimates, Sertkaya A, Beleche T, Jessup A, Sommers BD. Costs of drug development
 and research and development intensity in the US, 2000–2018. *JAMA Netw Open* 2024;7(6):e2415445.
 
+## Figures (`figure_glance.py`, `figure_main.py`, `figure_evidence_arrival.py`, `factcheck/power_replication.py`)
+The three figure scripts read every plotted number from the result files (`headline.py`); nothing is typed in.
+In the main figure the last two rows of panel B come from a separate model (top-20 pharma and small sponsors only,
+split by the period of the first trial) fitted after the data were seen. "Small sponsors" means up to five drugs in
+the selection and advancement models and up to 20 registered trials in the stop rates; the figures say so. The
+evidence-arrival figure shows the planned specifications, the two analyses planned later (the top-20 group fixed by
+2010 sales and the stacked design) and the checks added after the result was known. The power figure of the working
+paper was drawn from a simulation made before the data were assembled, whose script is not in this repository;
+`factcheck/power_replication.py` repeats it from the stated assumptions with 4,000 replications per scenario, and
+the twelve powers differ from those in the figure by at most 0.041 (`results/power_replication.txt`).
+
 ## Reference date
 
 Trials count as started if their start date is on or before 17 October 2026, the date of the Open Targets download

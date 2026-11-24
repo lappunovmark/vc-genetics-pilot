@@ -50,11 +50,11 @@ def headline(res="results"):
             from_txt(res, "robust.txt", "H1 gs_ante_first: + first-trial period, area, modality", tier_small),
         ),
         (
-            "Stops citing lack of funding,\nsmall sponsors, 2022–25 vs 2016–21",
+            "Stops citing lack of funding, small sponsors\n(up to 20 trials), 2022–25 vs 2016–21",
             from_rr(res, "Industry, small (<=20)", "nofund"),
         ),
         (
-            "Genetic support: trials stopped for\nfinancial/strategic reasons vs completed",
+            "Genetic support: trials stopped for financial/\nstrategic reasons vs completed (all years)",
             from_txt(
                 res,
                 "h4_biology.txt",
@@ -75,8 +75,8 @@ def headline(res="results"):
 
 def selection_checks(res="results"):
     """The small-sponsor odds ratio of the selection model (H1) under each specification reported in robust.txt:
-    list of (label, (estimate, lo, hi), kind); kind is "step", "main", "check" or "range" (lo, hi = the range of the
-    point estimate when each top-20 company is left out in turn; no confidence interval)."""
+    list of (label, (estimate, lo, hi), kind); kind is "step", "main", "check", "range" (lo, hi = the range of the
+    point estimate when each top-20 company is left out in turn; no confidence interval) or "head" (a heading)."""
     tier_small = "C(tier)[T.Industry, small (<=5 drugs)]"
     base = "H1 gs_ante_first: + first-trial period, area, modality"
 
@@ -124,4 +124,24 @@ def selection_checks(res="results"):
             "check",
         ),
         ("New drugs only (first indication)", h1("H1 gs_ante_first, novel-drug programmes only"), "check"),
+    ] + period_split(res)
+
+
+def period_split(res="results"):
+    """The small-sponsor gap before and from 2016 (post hoc model of evidence_arrival_2015.py: top-20 pharma and
+    small industry sponsors only), as rows for the figure; empty when that result file is absent."""
+    path = os.path.join(res, "evidence_arrival_ot_gwas_2015.txt")
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    start = next(
+        i for i, line in enumerate(lines) if line.strip() == "Top-20 pharma against: Industry, small (<=5 drugs)"
+    )
+    row = next(line for line in lines[start:] if line.startswith("inverse, other sponsors against top-20 pharma"))
+    before, after = (tuple(float(x) for x in m) for m in re.findall(r"OR (\d+\.\d+) \((\d+\.\d+) to (\d+\.\d+)\)", row))
+    return [
+        ("SPLIT BY PERIOD, MADE AFTER THE DATA WERE SEEN", None, "head"),
+        ("First trials before 2016", before, "check"),
+        ("First trials from 2016", after, "check"),
     ]
