@@ -532,8 +532,11 @@ Model output is in `results/` ([data dictionary](data_dictionary.md)); definitio
   added post hoc, after the table was seen. Before 2016 top-20 pharma did not differ from other industry sponsors
   (0.88, 0.64–1.20); from 2016 it started supported programmes more often (1.46, 1.03–2.07); the ratio of the two
   is 1.66 (1.07–2.60; 1.68, 1.06–2.67, with the cut at 2017). For novel programmes, the first indication of a
-  drug, there is no change (1.05, 0.46–2.38), so the gap opened in further indications of drugs already in
-  development, not in the choice of new drugs. Against large, mid-sized and small sponsors separately the ratio
+  drug, there is no change (1.05, 0.46–2.38); for further indications, in a model added after that one, the
+  ratio is 1.96 (1.12–3.42). The gap opened in further indications of drugs already in development, not in the
+  choice of new drugs. The working paper gives the same estimates the other way round, other sponsors against
+  top-20 pharma (1.14, 0.83–1.55, before 2016; 0.68, 0.48–0.97, from 2016; ratio 0.60, 0.39–0.94); the result
+  file prints both. Against large, mid-sized and small sponsors separately the ratio
   is 1.37 (0.73–2.59), 1.49 (0.84–2.64) and 1.74 (0.92–3.32). This is a post hoc reading of one table with a p
   value of 0.03; it qualifies the selection gap of the paper, which on this evidence is not visible before 2016,
   and it needs confirmation on other data. It does not show why: the top-20 group is defined by today's
